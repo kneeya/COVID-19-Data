@@ -127,11 +127,7 @@ class Positive extends Component {
         categories: datez,
         series: [
           {
-            name: "Confirmed Positives",
-            data: conf
-          },
-          {
-            name: "Seattle",
+            name: "Total Tested",
             data: [
               3.8,
               5.6,
@@ -148,24 +144,11 @@ class Positive extends Component {
             ]
           },
           {
-            name: "Sydney",
-            data: [
-              22.1,
-              22.0,
-              20.9,
-              18.3,
-              15.2,
-              12.8,
-              11.8,
-              13.0,
-              15.2,
-              17.6,
-              19.4,
-              21.2
-            ]
+            name: "Confirmed Positives",
+            data: conf
           },
           {
-            name: "Moskva",
+            name: "Recovered",
             data: [
               -10.3,
               -9.1,
@@ -182,7 +165,7 @@ class Positive extends Component {
             ]
           },
           {
-            name: "Jungfrau",
+            name: "Deaths",
             data: [
               -13.2,
               -13.7,
@@ -204,10 +187,10 @@ class Positive extends Component {
         chart: {
           width: 1160,
           height: 540,
-          title: "24-hr Average Temperature"
+          title: "Status of COVID-19 cases in Ontario"
         },
         yAxis: {
-          title: "Temperature (Celsius)"
+          title: ""
         },
         xAxis: {
           title: "Month",
