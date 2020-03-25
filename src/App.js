@@ -5,11 +5,7 @@ import Positive from "./components/positive.jsx";
 
 class App extends Component {
   render() {
-    return (
-      <ReactFragment>
-        <Positive />
-      </ReactFragment>
-    );
+    return <Positive />;
   }
 }
 

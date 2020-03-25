@@ -6,6 +6,9 @@ class Positive extends Component {
     super(props);
     this.makeChart = this.makeChart.bind(this);
   }
+  componentDidMount() {
+    this.makeChart();
+  }
 
   makeChart() {
     var container = document.getElementById("positive");
@@ -133,22 +136,22 @@ class Positive extends Component {
       },
       tooltip: {
         suffix: "°C"
-      },
-      plot: {
-        bands: [
-          {
-            range: ["03/01/2016", "05/01/2016"],
-            color: "gray",
-            opacity: 0.2
-          }
-        ],
-        lines: [
-          {
-            value: "03/01/2016",
-            color: "#fa2828"
-          }
-        ]
       }
+      //   plot: {
+      //     // bands: [
+      //     //   {
+      //     //     range: ["03/01/2016", "05/01/2016"],
+      //     //     color: "gray",
+      //     //     opacity: 0.2
+      //     //   }
+      //     // ],
+      //     lines: [
+      //       {
+      //         value: "03/01/2016",
+      //         color: "#fa2828"
+      //       }
+      //     ]
+      //   }
     };
     var theme = {
       series: {
@@ -169,11 +172,11 @@ class Positive extends Component {
     // For apply theme
     // tui.chart.registerTheme('myTheme', theme);
     // options.theme = 'myTheme';
-    chart = tui.chart.lineChart(container, data, options);
+    chart.lineChart(container, data, options);
   }
 
   render() {
-    return <div className="positive"></div>;
+    return <div id="positive"></div>;
   }
 }
 export default Positive;
