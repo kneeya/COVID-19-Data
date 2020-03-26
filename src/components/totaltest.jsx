@@ -23,15 +23,13 @@ class TotalTest extends Component {
       for (var i = 1; i < data.length - 1; i++) {
         var row = data[i];
 
-        dates[i] = row[0];
+        dates[i - 1] = row[0];
 
         if (!row[8]) {
-          totaltest[i] = 0;
+          totaltest[i - 1] = 0;
         } else {
-          totaltest[i] = row[8];
+          totaltest[i - 1] = row[8];
         }
-
-        console.log(row);
       }
 
       setTimeout(() => {

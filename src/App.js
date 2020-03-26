@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Positive from "./components/positive.jsx";
 import TotalTest from "./components/totaltest.jsx";
+import Recovered from "./components/recovered";
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
   }
   state = {};
 
-  componentDidMount() {
+  componentWillMount() {
     this.dataParse();
   }
 
@@ -34,6 +35,7 @@ class App extends Component {
       <React.Fragment>
         <Positive data={this.state.data} />
         <TotalTest data={this.state.data} />
+        <Recovered data={this.state.data} />
       </React.Fragment>
     );
   }

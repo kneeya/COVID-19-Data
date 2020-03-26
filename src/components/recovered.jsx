@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import chart from "tui-chart";
 
-class Positive extends Component {
+class Recovered extends Component {
   constructor(props) {
     super(props);
     this.makeChart = this.makeChart.bind(this);
@@ -18,59 +18,29 @@ class Positive extends Component {
       const data = this.state.data;
 
       var dates = [];
-
       var resolved = [];
-      var confPos = [];
-      var totaltest = [];
-      var dead = [];
 
       for (var i = 1; i < data.length - 1; i++) {
         var row = data[i];
 
         dates[i - 1] = row[0];
-        if (!row[5]) {
-          confPos[i - 1] = 0;
-        } else {
-          confPos[i - 1] = row[5];
-        }
+
         if (!row[6]) {
           resolved[i - 1] = 0;
         } else {
           resolved[i - 1] = row[6];
         }
-        if (!row[8]) {
-          totaltest[i - 1] = 0;
-        } else {
-          totaltest[i - 1] = row[8];
-        }
-        if (!row[7]) {
-          dead[i - 1] = 0;
-        } else {
-          dead[i - 1] = row[7];
-        }
       }
 
       setTimeout(() => {
-        var container = document.getElementById("positive");
+        var container = document.getElementById("recovered");
 
         var data = {
           categories: dates,
           series: [
             {
-              name: "Total Tested",
-              data: totaltest
-            },
-            {
-              name: "Confirmed Positives",
-              data: confPos
-            },
-            {
               name: "Recovered",
               data: resolved
-            },
-            {
-              name: "Deaths",
-              data: dead
             }
           ]
         };
@@ -103,7 +73,7 @@ class Positive extends Component {
   }
 
   render() {
-    return <div id="positive"></div>;
+    return <div id="recovered"></div>;
   }
 }
-export default Positive;
+export default Recovered;
