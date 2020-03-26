@@ -75,18 +75,23 @@ class Stacked extends Component {
             title: "Status of COVID-19 cases in Ontario",
             format: "1,000"
           },
-          yAxis: {
-            title: "Month"
-          },
           xAxis: {
-            title: "Cases",
-            max: 600
+            title: "Cases"
+          },
+          yAxis: {
+            title: "Date"
           },
           series: {
             stackType: "normal"
+          },
+          legend: {
+            align: "bottom"
+          },
+          tooltip: {
+            grouped: true
           }
         };
-        chart.barChart(container, data, options);
+        chart.columnChart(container, data, options);
       }, 0.001);
     }, 0.001);
   }
