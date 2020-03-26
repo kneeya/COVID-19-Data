@@ -76,7 +76,8 @@ class Stacked extends Component {
             format: "1,000"
           },
           xAxis: {
-            title: "Cases"
+            title: "Cases",
+            tickInterval: "auto"
           },
           yAxis: {
             title: "Date"
