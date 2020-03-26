@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import chart from "tui-chart";
 
-class Positive extends Component {
+class Deaths extends Component {
   constructor(props) {
     super(props);
     this.makeChart = this.makeChart.bind(this);
@@ -18,28 +18,29 @@ class Positive extends Component {
       const data = this.state.data;
 
       var dates = [];
-      var confPos = [];
+      var dead = [];
 
       for (var i = 1; i < data.length - 1; i++) {
         var row = data[i];
 
         dates[i - 1] = row[0];
-        if (!row[5]) {
-          confPos[i - 1] = 0;
+
+        if (!row[7]) {
+          dead[i - 1] = 0;
         } else {
-          confPos[i - 1] = row[5];
+          dead[i - 1] = row[7];
         }
       }
 
       setTimeout(() => {
-        var container = document.getElementById("positive");
+        var container = document.getElementById("dead");
 
         var data = {
           categories: dates,
           series: [
             {
-              name: "Confirmed Positives",
-              data: confPos
+              name: "Deaths",
+              data: dead
             }
           ]
         };
@@ -72,7 +73,7 @@ class Positive extends Component {
   }
 
   render() {
-    return <div id="positive"></div>;
+    return <div id="dead"></div>;
   }
 }
-export default Positive;
+export default Deaths;
