@@ -5,6 +5,7 @@ import chart from "tui-chart";
 class Positive extends Component {
   constructor(props) {
     super(props);
+    this.dataParse = this.dataParse.bind(this);
     this.makeChart = this.makeChart.bind(this);
   }
   state = {
@@ -12,10 +13,19 @@ class Positive extends Component {
     confPos: []
   };
   componentDidMount() {
-    this.makeChart();
+    this.dataParse();
   }
 
-  makeChart() {
+  dataParse() {
+    var csv = require("./covidtesting.csv");
+    var Papa = require("papaparse/papaparse.min.js");
+    Papa.parse(csv, {
+      download: true,
+      complete: this.makeChart
+    });
+  }
+
+  makeChart(results) {
     // var dates = [
     //   "2020-01-28",
     //   "2020-01-29",
@@ -112,106 +122,106 @@ class Positive extends Component {
     //   489,
     //   572
     // ];
+    const data = results.data;
+    console.log(data);
     var dates = [];
     var confPos = [];
-    var csv = require("./covidtesting.csv");
-    for (var i = 0; i < csv.length; i++) {
-      var points = csv.split(",");
-      dates[i] = points[0];
-      confPos[i] = points[5];
-    }
-    console.log(points);
-    console.log(confPos);
 
-    setTimeout(() => {
-      var container = document.getElementById("positive");
-      var conf = confPos;
-      var datez = dates;
-      var data = {
-        categories: datez,
-        series: [
-          {
-            name: "Total Tested",
-            data: [
-              3.8,
-              5.6,
-              7.0,
-              9.1,
-              12.4,
-              15.3,
-              17.5,
-              17.8,
-              15.0,
-              10.6,
-              6.4,
-              3.7
-            ]
-          },
-          {
-            name: "Confirmed Positives",
-            data: conf
-          },
-          {
-            name: "Recovered",
-            data: [
-              -10.3,
-              -9.1,
-              -4.1,
-              4.4,
-              12.2,
-              16.3,
-              18.5,
-              16.7,
-              10.9,
-              4.2,
-              -2.0,
-              -7.5
-            ]
-          },
-          {
-            name: "Deaths",
-            data: [
-              -13.2,
-              -13.7,
-              -13.1,
-              -10.3,
-              -6.1,
-              -3.2,
-              0.0,
-              -0.1,
-              -1.8,
-              -4.5,
-              -9.0,
-              -10.9
-            ]
-          }
-        ]
-      };
-      var options = {
-        chart: {
-          width: 1160,
-          height: 540,
-          title: "Status of COVID-19 cases in Ontario"
-        },
-        yAxis: {
-          title: ""
-        },
-        xAxis: {
-          title: "Month",
-          pointOnColumn: true,
-          dateFormat: "MMM",
-          tickInterval: "auto"
-        },
-        series: {
-          showDot: false,
-          zoomable: true
-        },
-        tooltip: {
-          suffix: "°C"
-        }
-      };
-      chart.lineChart(container, data, options);
-    }, 0.001);
+    // for (var i = 0; i < csv.length; i++) {
+    //   var points = csv.split(",");
+    //   dates[i] = points[0];
+    //   confPos[i] = points[5];
+    // }
+
+    // setTimeout(() => {
+    //   var container = document.getElementById("positive");
+    //   var conf = confPos;
+    //   var datez = dates;
+    //   var data = {
+    //     categories: datez,
+    //     series: [
+    //       {
+    //         name: "Total Tested",
+    //         data: [
+    //           3.8,
+    //           5.6,
+    //           7.0,
+    //           9.1,
+    //           12.4,
+    //           15.3,
+    //           17.5,
+    //           17.8,
+    //           15.0,
+    //           10.6,
+    //           6.4,
+    //           3.7
+    //         ]
+    //       },
+    //       {
+    //         name: "Confirmed Positives",
+    //         data: conf
+    //       },
+    //       {
+    //         name: "Recovered",
+    //         data: [
+    //           -10.3,
+    //           -9.1,
+    //           -4.1,
+    //           4.4,
+    //           12.2,
+    //           16.3,
+    //           18.5,
+    //           16.7,
+    //           10.9,
+    //           4.2,
+    //           -2.0,
+    //           -7.5
+    //         ]
+    //       },
+    //       {
+    //         name: "Deaths",
+    //         data: [
+    //           -13.2,
+    //           -13.7,
+    //           -13.1,
+    //           -10.3,
+    //           -6.1,
+    //           -3.2,
+    //           0.0,
+    //           -0.1,
+    //           -1.8,
+    //           -4.5,
+    //           -9.0,
+    //           -10.9
+    //         ]
+    //       }
+    //     ]
+    //   };
+    //   var options = {
+    //     chart: {
+    //       width: 1160,
+    //       height: 540,
+    //       title: "Status of COVID-19 cases in Ontario"
+    //     },
+    //     yAxis: {
+    //       title: ""
+    //     },
+    //     xAxis: {
+    //       title: "Month",
+    //       pointOnColumn: true,
+    //       dateFormat: "MMM",
+    //       tickInterval: "auto"
+    //     },
+    //     series: {
+    //       showDot: false,
+    //       zoomable: true
+    //     },
+    //     tooltip: {
+    //       suffix: "°C"
+    //     }
+    //   };
+    //   chart.lineChart(container, data, options);
+    // }, 0.001);
   }
 
   render() {
