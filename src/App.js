@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import logo from "./logo.svg";
 import "./App.css";
 import Positive from "./components/positive.jsx";
 import TotalTest from "./components/totaltest.jsx";
-import Stacked from "./components/stacked.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -33,10 +33,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Positive data={this.state.data} />
-
         <TotalTest data={this.state.data} />
-
-        <Stacked data={this.state.data} />
       </React.Fragment>
     );
   }
