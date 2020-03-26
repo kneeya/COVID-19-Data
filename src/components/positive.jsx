@@ -5,103 +5,112 @@ import chart from "tui-chart";
 class Positive extends Component {
   constructor(props) {
     super(props);
+    this.dataParse = this.dataParse.bind(this);
     this.makeChart = this.makeChart.bind(this);
   }
-  state = {};
-
+  state = {
+    datez: [],
+    confPos: []
+  };
   componentDidMount() {
-    this.makeChart();
+    this.dataParse();
   }
 
-  makeChart() {
-    setTimeout(() => {
-      this.setState({ data: this.props.data });
-      const data = this.state.data;
+  dataParse() {
+    var csv = require("./covidtesting.csv");
+    var Papa = require("papaparse/papaparse.min.js");
+    Papa.parse(csv, {
+      download: true,
+      complete: this.makeChart
+    });
+  }
 
-      var dates = [];
+  makeChart(results) {
+    const data = results.data;
 
-      var resolved = [];
-      var confPos = [];
-      var totaltest = [];
-      var dead = [];
+    var dates = [];
 
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
+    var resolved = [];
+    var confPos = [];
+    var totaltest = [];
+    var dead = [];
 
-        dates[i] = row[0];
+    for (var i = 1; i < data.length - 1; i++) {
+      var row = data[i];
 
-        if (!row[5]) {
-          confPos[i] = 0;
-        } else {
-          confPos[i] = row[5];
-        }
-        if (!row[6]) {
-          resolved[i] = 0;
-        } else {
-          resolved[i] = row[6];
-        }
-        if (!row[8]) {
-          totaltest[i] = 0;
-        } else {
-          totaltest[i] = row[8];
-        }
-        if (!row[7]) {
-          dead[i] = 0;
-        } else {
-          dead[i] = row[7];
-        }
-        console.log(row);
+      dates[i] = row[0];
+
+      if (!row[5]) {
+        confPos[i] = 0;
+      } else {
+        confPos[i] = row[5];
       }
+      if (!row[6]) {
+        resolved[i] = 0;
+      } else {
+        resolved[i] = row[6];
+      }
+      if (!row[8]) {
+        totaltest[i] = 0;
+      } else {
+        totaltest[i] = row[8];
+      }
+      if (!row[7]) {
+        dead[i] = 0;
+      } else {
+        dead[i] = row[7];
+      }
+      console.log(row);
+    }
 
-      setTimeout(() => {
-        var container = document.getElementById("positive");
+    setTimeout(() => {
+      var container = document.getElementById("positive");
 
-        var data = {
-          categories: dates,
-          series: [
-            {
-              name: "Total Tested",
-              data: totaltest
-            },
-            {
-              name: "Confirmed Positives",
-              data: confPos
-            },
-            {
-              name: "Recovered",
-              data: resolved
-            },
-            {
-              name: "Deaths",
-              data: dead
-            }
-          ]
-        };
-        var options = {
-          chart: {
-            width: 1160,
-            height: 540,
-            title: "Status of COVID-19 cases in Ontario"
+      var data = {
+        categories: dates,
+        series: [
+          {
+            name: "Total Tested",
+            data: totaltest
           },
-          yAxis: {
-            title: "Number of Cases"
+          {
+            name: "Confirmed Positives",
+            data: confPos
           },
-          xAxis: {
-            title: "Month",
-            pointOnColumn: true,
-            dateFormat: "MMM",
-            tickInterval: "auto"
+          {
+            name: "Recovered",
+            data: resolved
           },
-          series: {
-            showDot: false,
-            zoomable: true
-          },
-          tooltip: {
-            suffix: ""
+          {
+            name: "Deaths",
+            data: dead
           }
-        };
-        chart.lineChart(container, data, options);
-      }, 0.001);
+        ]
+      };
+      var options = {
+        chart: {
+          width: 1160,
+          height: 540,
+          title: "Status of COVID-19 cases in Ontario"
+        },
+        yAxis: {
+          title: "Number of Cases"
+        },
+        xAxis: {
+          title: "Month",
+          pointOnColumn: true,
+          dateFormat: "MMM",
+          tickInterval: "auto"
+        },
+        series: {
+          showDot: false,
+          zoomable: true
+        },
+        tooltip: {
+          suffix: ""
+        }
+      };
+      chart.lineChart(container, data, options);
     }, 0.001);
   }
 
