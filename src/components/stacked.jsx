@@ -6,53 +6,88 @@ class Stacked extends Component {
     super(props);
     this.makeChart = this.makeChart.bind(this);
   }
+  state = {};
 
-  makeChart(results) {
-    // const data = results.data;
+  componentDidMount() {
+    this.makeChart();
+  }
 
+  makeChart() {
     setTimeout(() => {
-      var container = document.getElementById("stacked");
+      this.setState({ data: this.props.data });
+      const data = this.state.data;
 
-      var data = {
-        categories: ["June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        series: [
-          {
-            name: "Budget",
-            data: [5000, 3000, 5000, 7000, 6000, 4000, 1000]
-          },
-          {
-            name: "Income",
-            data: [8000, 1000, 7000, 2000, 6000, 3000, 5000]
-          },
-          {
-            name: "Expenses",
-            data: [4000, 4000, 6000, 3000, 4000, 5000, 7000]
-          },
-          {
-            name: "Debt",
-            data: [6000, 3000, 3000, 1000, 2000, 4000, 3000]
-          }
-        ]
-      };
-      var options = {
-        chart: {
-          width: 1160,
-          height: 650,
-          title: "Monthly Revenue",
-          format: "1,000"
-        },
-        yAxis: {
-          title: "Month"
-        },
-        xAxis: {
-          title: "Amount",
-          max: 24000
-        },
-        series: {
-          stackType: "normal"
+      var dates = [];
+
+      var confPos = [];
+      var rec = [];
+      var death = [];
+
+      for (var i = 1; i < data.length - 1; i++) {
+        var row = data[i];
+
+        dates[i - 1] = row[0];
+
+        dates[i - 1] = row[0];
+        if (!row[5]) {
+          confPos[i - 1] = 0;
+        } else {
+          confPos[i - 1] = row[5];
         }
-      };
-      chart.barChart(container, data, options);
+        if (!row[6]) {
+          rec[i - 1] = 0;
+        } else {
+          rec[i - 1] = row[6];
+        }
+        if (!row[7]) {
+          death[i - 1] = 0;
+        } else {
+          death[i - 1] = row[7];
+        }
+
+        console.log(row);
+      }
+
+      setTimeout(() => {
+        var container = document.getElementById("stacked");
+
+        var data = {
+          categories: dates,
+          series: [
+            {
+              name: "Confirmed Positives",
+              data: confPos
+            },
+            {
+              name: "Recovered",
+              data: rec
+            },
+            {
+              name: "Deaths",
+              data: death
+            }
+          ]
+        };
+        var options = {
+          chart: {
+            width: 1160,
+            height: 650,
+            title: "Status of COVID-19 cases in Ontario",
+            format: "1,000"
+          },
+          yAxis: {
+            title: "Month"
+          },
+          xAxis: {
+            title: "Cases",
+            max: 600
+          },
+          series: {
+            stackType: "normal"
+          }
+        };
+        chart.barChart(container, data, options);
+      }, 0.001);
     }, 0.001);
   }
 

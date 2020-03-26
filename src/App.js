@@ -4,6 +4,7 @@ import "./App.css";
 import Positive from "./components/positive.jsx";
 import TotalTest from "./components/totaltest.jsx";
 import Recovered from "./components/recovered";
+import Stacked from "./components/stacked.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends Component {
         <Positive data={this.state.data} />
         <TotalTest data={this.state.data} />
         <Recovered data={this.state.data} />
+        <Stacked data={this.state.data} />
       </React.Fragment>
     );
   }
