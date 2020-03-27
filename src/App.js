@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.dataParse = this.dataParse.bind(this);
     this.storeData = this.storeData.bind(this);
-    this.disp = this.disp.bind(this);
+    this.disp = this.display.bind(this);
   }
   state = {};
 
@@ -38,33 +38,39 @@ class App extends Component {
       }
     );
   }
-  disp() {
+  display() {
     console.log(this.state.data);
     this.setState({ loaded: true });
   }
   storeData(results) {
     let parsedD = results.data;
     this.setState({ data: parsedD });
-    this.disp();
+    this.display();
   }
   render() {
     return (
       <React.Fragment>
-        <div class="container">
-          <div class="item item-1">
-            <Positive data={this.state.data} />
-          </div>
-          <div class="item item-2">
-            <TotalTest data={this.state.data} />
-          </div>
-          <div class="item item-3">
-            <Recovered data={this.state.data} />
-          </div>
-          <div class="item item-4">
-            <Deaths data={this.state.data} />
-          </div>
-        </div>
-        <Stacked data={this.state.data} />
+        {this.state.loaded ? (
+          <React.Fragment>
+            <div class="container">
+              <div class="item item-1">
+                <Positive data={this.state.data} />
+              </div>
+              <div class="item item-2">
+                <TotalTest data={this.state.data} />
+              </div>
+              <div class="item item-3">
+                <Recovered data={this.state.data} />
+              </div>
+              <div class="item item-4">
+                <Deaths data={this.state.data} />
+              </div>
+            </div>
+            <Stacked data={this.state.data} />
+          </React.Fragment>
+        ) : (
+          ""
+        )}
       </React.Fragment>
     );
   }
