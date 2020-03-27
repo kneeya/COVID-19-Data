@@ -46,7 +46,7 @@ class Recovered extends Component {
         };
         var options = {
           chart: {
-            width: 400,
+            width: 360,
             height: 150,
             title: "Total Recovered from COVID-19 in Ontario"
           },

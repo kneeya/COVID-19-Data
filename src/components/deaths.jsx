@@ -46,7 +46,7 @@ class Deaths extends Component {
         };
         var options = {
           chart: {
-            width: 400,
+            width: 350,
             height: 150,
             title: "Total COVID-19 related Deaths in Ontario"
           },
