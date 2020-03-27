@@ -45,9 +45,9 @@ class Positive extends Component {
         };
         var options = {
           chart: {
-            width: 1160,
-            height: 540,
-            title: "Confirmed Positive Cases of COVID-19 in Ontario"
+            width: 400,
+            height: 150,
+            title: "Positive Cases of COVID-19 in Ontario"
           },
           yAxis: {
             title: "Number of Cases"
