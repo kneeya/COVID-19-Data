@@ -48,7 +48,7 @@ class TotalTest extends Component {
           chart: {
             width: 1160,
             height: 540,
-            title: "Status of COVID-19 cases in Ontario"
+            title: "Total Cases of COVID-19 in Ontario"
           },
           yAxis: {
             title: "Number of Cases"
