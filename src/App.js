@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import { readRemoteFile } from "react-papaparse";
 import "./App.css";
 import Positive from "./components/positive.jsx";
@@ -17,7 +16,7 @@ class App extends Component {
   }
   state = {};
 
-  componentWillMount() {
+  componentDidMount() {
     this.dataParse();
   }
 
@@ -29,7 +28,6 @@ class App extends Component {
     //   download: true,
     //   complete: this.storeData
     // });
-
     readRemoteFile(
       "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
       {
@@ -42,6 +40,7 @@ class App extends Component {
     console.log(this.state.data);
     this.setState({ loaded: true });
   }
+
   storeData(results) {
     let parsedD = results.data;
     this.setState({ data: parsedD });
@@ -52,17 +51,17 @@ class App extends Component {
       <React.Fragment>
         {this.state.loaded ? (
           <React.Fragment>
-            <div class="container">
-              <div class="item item-1">
+            <div className="container">
+              <div className="item item-1">
                 <Positive data={this.state.data} />
               </div>
-              <div class="item item-2">
+              <div className="item item-2">
                 <TotalTest data={this.state.data} />
               </div>
-              <div class="item item-3">
+              <div className="item item-3">
                 <Recovered data={this.state.data} />
               </div>
-              <div class="item item-4">
+              <div className="item item-4">
                 <Deaths data={this.state.data} />
               </div>
             </div>

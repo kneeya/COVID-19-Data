@@ -17,7 +17,6 @@ class Stacked extends Component {
     setTimeout(() => {
       this.setState({ data: this.props.data });
       const data = this.state.data;
-      console.log(data);
 
       var dates = [];
 
@@ -46,8 +45,6 @@ class Stacked extends Component {
         } else {
           death[i - 1] = row[7];
         }
-
-        console.log(row);
       }
 
       setTimeout(() => {
