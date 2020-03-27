@@ -35,10 +35,20 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Positive data={this.state.data} />
-        <TotalTest data={this.state.data} />
-        <Recovered data={this.state.data} />
-        <Deaths data={this.state.data} />
+        <div class="container">
+          <div class="item item-1">
+            <Positive data={this.state.data} />
+          </div>
+          <div class="item item-2">
+            <TotalTest data={this.state.data} />
+          </div>
+          <div class="item item-3">
+            <Recovered data={this.state.data} />
+          </div>
+          <div class="item item-4">
+            <Deaths data={this.state.data} />
+          </div>
+        </div>
         <Stacked data={this.state.data} />
       </React.Fragment>
     );

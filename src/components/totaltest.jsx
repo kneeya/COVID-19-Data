@@ -46,8 +46,8 @@ class TotalTest extends Component {
         };
         var options = {
           chart: {
-            width: 1160,
-            height: 540,
+            width: 400,
+            height: 150,
             title: "Total Cases of COVID-19 in Ontario"
           },
           yAxis: {
