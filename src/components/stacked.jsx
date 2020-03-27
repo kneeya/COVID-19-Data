@@ -10,12 +10,14 @@ class Stacked extends Component {
 
   componentDidMount() {
     this.makeChart();
+    this.setState({ data: this.props.data });
   }
 
   makeChart() {
     setTimeout(() => {
       this.setState({ data: this.props.data });
       const data = this.state.data;
+      console.log(data);
 
       var dates = [];
 
