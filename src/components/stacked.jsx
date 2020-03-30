@@ -31,19 +31,19 @@ class Stacked extends Component {
 
         dates[i - 1] = row[0];
         if (!row[5]) {
-          confPos[i - 1] = 0;
+          confPos[i - 1] = confPos[i - 2];
         } else {
           confPos[i - 1] = row[5];
         }
-        if (!row[6]) {
-          rec[i - 1] = 0;
-        } else {
-          rec[i - 1] = row[6];
-        }
         if (!row[7]) {
-          death[i - 1] = 0;
+          rec[i - 1] = rec[i - 2];
         } else {
-          death[i - 1] = row[7];
+          rec[i - 1] = row[7];
+        }
+        if (!row[8]) {
+          death[i - 1] = death[i - 2];
+        } else {
+          death[i - 1] = row[8];
         }
       }
 

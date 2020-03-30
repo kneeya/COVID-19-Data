@@ -25,7 +25,7 @@ class Positive extends Component {
 
         dates[i - 1] = row[0];
         if (!row[5]) {
-          confPos[i - 1] = 0;
+          confPos[i - 1] = confPos[i - 2];
         } else {
           confPos[i - 1] = row[5];
         }

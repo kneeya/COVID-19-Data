@@ -25,10 +25,10 @@ class Recovered extends Component {
 
         dates[i - 1] = row[0];
 
-        if (!row[6]) {
+        if (!row[7]) {
           resolved[i - 1] = 0;
         } else {
-          resolved[i - 1] = row[6];
+          resolved[i - 1] = row[7];
         }
       }
 
