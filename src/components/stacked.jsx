@@ -58,7 +58,7 @@ class Stacked extends Component {
               data: confPos
             },
             {
-              name: "Recovered",
+              name: "Resolved",
               data: rec
             },
             {
