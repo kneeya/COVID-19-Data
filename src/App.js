@@ -51,6 +51,7 @@ class App extends Component {
       <React.Fragment>
         {this.state.loaded ? (
           <React.Fragment>
+            <Stacked data={this.state.data} />
             <div className="container">
               <div className="item item-1">
                 <Positive data={this.state.data} />
@@ -65,7 +66,6 @@ class App extends Component {
                 <Deaths data={this.state.data} />
               </div>
             </div>
-            <Stacked data={this.state.data} />
           </React.Fragment>
         ) : (
           ""

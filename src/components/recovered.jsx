@@ -46,9 +46,9 @@ class Recovered extends Component {
         };
         var options = {
           chart: {
-            width: 360,
-            height: 150,
-            title: "Total Recovered from COVID-19 in Ontario"
+            width: 1160,
+            height: 650,
+            title: "Total Resolved from COVID-19 in Ontario"
           },
           yAxis: {
             title: "Number of Cases"
