@@ -39,7 +39,7 @@ class Recovered extends Component {
           categories: dates,
           series: [
             {
-              name: "Recovered",
+              name: "Resolved",
               data: resolved
             }
           ]
