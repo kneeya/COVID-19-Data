@@ -39,7 +39,7 @@ class TotalTest extends Component {
           categories: dates,
           series: [
             {
-              name: "Total Tested",
+              name: "Total Cases",
               data: totaltest
             }
           ]
