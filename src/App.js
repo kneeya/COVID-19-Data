@@ -6,6 +6,7 @@ import TotalTest from "./components/totaltest.jsx";
 import Recovered from "./components/recovered";
 import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
+import Loading from "./components/loading.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class App extends Component {
     this.storeData = this.storeData.bind(this);
     this.disp = this.display.bind(this);
   }
-  state = {};
+  state = { loading: false };
 
   componentDidMount() {
     this.dataParse();
@@ -71,7 +72,9 @@ class App extends Component {
             </div>
           </React.Fragment>
         ) : (
-          ""
+          <React.Fragment>
+            <Loading />
+          </React.Fragment>
         )}
       </React.Fragment>
     );
