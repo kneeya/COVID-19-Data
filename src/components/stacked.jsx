@@ -67,7 +67,18 @@ class Stacked extends Component {
             }
           ]
         };
+
+        var theme = {
+          series: {
+            column: {
+              colors: ["#C64A1C", "#367A76", "#000"]
+            }
+          }
+        };
+        chart.registerTheme("stacked", theme);
+
         var options = {
+          theme: "stacked",
           chart: {
             width: 1160,
             height: 650,
