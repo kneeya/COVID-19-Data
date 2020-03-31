@@ -6,7 +6,7 @@ import TotalTest from "./components/totaltest.jsx";
 import Recovered from "./components/recovered";
 import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
-import Loading from "./components/loading.jsx";
+import Loading from "./components/loading/loading.jsx";
 
 class App extends Component {
   constructor(props) {
