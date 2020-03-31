@@ -35,15 +35,15 @@ class Stacked extends Component {
         } else {
           confPos[i - 1] = row[5];
         }
-        if (!row[7]) {
+        if (!row[6]) {
           rec[i - 1] = rec[i - 2];
         } else {
-          rec[i - 1] = row[7];
+          rec[i - 1] = row[6];
         }
-        if (!row[8]) {
+        if (!row[7]) {
           death[i - 1] = death[i - 2];
         } else {
-          death[i - 1] = row[8];
+          death[i - 1] = row[7];
         }
       }
 

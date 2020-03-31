@@ -25,10 +25,10 @@ class Deaths extends Component {
 
         dates[i - 1] = row[0];
 
-        if (!row[8]) {
+        if (!row[7]) {
           dead[i - 1] = 0;
         } else {
-          dead[i - 1] = row[8];
+          dead[i - 1] = row[7];
         }
       }
 
