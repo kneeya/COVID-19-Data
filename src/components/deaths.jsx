@@ -44,7 +44,14 @@ class Deaths extends Component {
             }
           ]
         };
+        var theme = {
+          series: {
+            colors: ["#000"]
+          }
+        };
+        chart.registerTheme("dead", theme);
         var options = {
+          theme: "dead",
           chart: {
             width: 1160,
             height: 650,

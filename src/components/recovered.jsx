@@ -44,7 +44,16 @@ class Recovered extends Component {
             }
           ]
         };
+
+        var theme = {
+          series: {
+            colors: ["#367A76"]
+          }
+        };
+        chart.registerTheme("recovered", theme);
+
         var options = {
+          theme: "recovered",
           chart: {
             width: 1160,
             height: 650,

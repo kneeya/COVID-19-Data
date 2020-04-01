@@ -44,7 +44,16 @@ class TotalTest extends Component {
             }
           ]
         };
+
+        var theme = {
+          series: {
+            colors: ["#c00264"]
+          }
+        };
+        chart.registerTheme("totaltest", theme);
+
         var options = {
+          theme: "totaltest",
           chart: {
             width: 1160,
             height: 650,
