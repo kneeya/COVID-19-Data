@@ -43,7 +43,20 @@ class Positive extends Component {
             }
           ]
         };
+
+        // var theme = {
+        //   chart: {
+        //     fontFamily: "Verdana",
+        //     background: {
+        //       color: "yellow",
+        //       opacity: 1
+        //     }
+        //   }
+        // };
+        // chart.registerTheme("positive", theme);
+
         var options = {
+          // theme: "positive",
           chart: {
             width: 1160,
             height: 650,
