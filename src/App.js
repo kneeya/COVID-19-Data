@@ -7,6 +7,7 @@ import Recovered from "./components/recovered";
 import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
 import Loading from "./components/loading/loading.jsx";
+import Age from "./components/age.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -68,6 +69,9 @@ class App extends Component {
               </div>
               <div className="item item-4">
                 <Deaths data={this.state.data} />
+              </div>
+              <div className="item item-5">
+                <Age data={this.state.data} />
               </div>
             </div>
           </React.Fragment>
