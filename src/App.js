@@ -70,9 +70,9 @@ class App extends Component {
               <div className="item item-4">
                 <Deaths data={this.state.data} />
               </div>
-              <div className="item item-5">
+              {/* <div className="item item-5">
                 <Age data={this.state.data} />
-              </div>
+              </div> */}
             </div>
           </React.Fragment>
         ) : (
