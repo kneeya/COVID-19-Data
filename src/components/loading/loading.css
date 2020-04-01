@@ -9,7 +9,7 @@
 .list {
   height: 20px;
   width: 5px;
-  background-color: #1a1a1a;
+  background-color: #357743;
   margin: 0 4px;
   animation: load 1s infinite;
 }
@@ -49,4 +49,24 @@
 }
 .case .list:nth-child(7) {
   animation-delay: 0.7s;
+}
+
+/* spin load */
+
+.loader {
+  border: 20px solid #d3d3d3;
+  border-top: 20px solid #357743;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

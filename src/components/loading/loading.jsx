@@ -14,12 +14,7 @@ class Loading extends Component {
         <div className="list"></div>
         <div className="list"></div>
         <div className="list"></div>
-        {/* <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li> */}
+        {/* <div className="loader"></div> */}
       </div>
     );
   }
