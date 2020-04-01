@@ -21,24 +21,24 @@ class Age extends Component {
       var majority = [];
       var elder = [];
 
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
+      var row = data[data.length - 2];
 
-        if (!row[12]) {
-          below[i - 1] = 0;
-        } else {
-          below[i - 1] = row[12];
-        }
-        if (!row[13]) {
-          majority[i - 1] = 0;
-        } else {
-          majority[i - 1] = row[13];
-        }
-        if (!row[14]) {
-          elder[i - 1] = 0;
-        } else {
-          elder[i - 1] = row[14];
-        }
+      console.log(row);
+
+      if (!row[12]) {
+        below = 0;
+      } else {
+        below = row[12];
+      }
+      if (!row[13]) {
+        majority = 0;
+      } else {
+        majority = row[13];
+      }
+      if (!row[14]) {
+        elder = 0;
+      } else {
+        elder = row[14];
       }
 
       setTimeout(() => {
