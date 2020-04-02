@@ -77,7 +77,7 @@ class Deaths extends Component {
             series={this.state.series}
             type="line"
             height={650}
-            width={"75%"}
+            width={1200}
           />
         ) : (
           ""

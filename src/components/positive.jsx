@@ -71,6 +71,12 @@ class Positive extends Component {
           categories: dates
         },
         colors: ["#C64A1C"]
+        // responsive: [
+        //   {
+        //     breakpoint: "1000px",
+        //     options: {}
+        //   }
+        // ]
       }
     });
     this.setState({ ready: true });
@@ -85,7 +91,7 @@ class Positive extends Component {
             series={this.state.series}
             type="line"
             height={650}
-            width={"75%"}
+            width={1200}
           />
         ) : (
           ""
