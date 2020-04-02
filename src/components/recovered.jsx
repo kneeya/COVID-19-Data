@@ -59,6 +59,10 @@ class Recovered extends Component {
         title: { text: "Total Resolved from COVID-19 in Ontario" },
         xaxis: {
           categories: dates
+        },
+        colors: ["#2b8737"],
+        dataLabels: {
+          enabled: true
         }
       }
     });
@@ -67,7 +71,7 @@ class Recovered extends Component {
 
   render() {
     return (
-      <div id="recovered">
+      <div id="recovered" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

@@ -33,7 +33,6 @@ class TotalTest extends Component {
         var row = data[i];
 
         dates[i - 1] = row[0];
-        console.log(row);
 
         if (!row[5]) {
           if (!confPos[i - 2]) {
@@ -112,6 +111,16 @@ class TotalTest extends Component {
         title: { text: "Status of COVID-19 cases in Ontario" },
         xaxis: {
           categories: dates
+        },
+        colors: ["#2B8737", "#1080A6", "#92278F", "#0369ac"],
+        markers: {
+          size: 4,
+          colors: ["#c00264"],
+          strokeColors: "#fff",
+          strokeWidth: 2,
+          hover: {
+            size: 7
+          }
         }
       }
     });
@@ -121,7 +130,7 @@ class TotalTest extends Component {
 
   render() {
     return (
-      <div id="totaltest">
+      <div id="totaltest" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

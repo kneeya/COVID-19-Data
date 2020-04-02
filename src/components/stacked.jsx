@@ -125,7 +125,7 @@ class Stacked extends Component {
 
   render() {
     return (
-      <div id="stacked">
+      <div id="stacked" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

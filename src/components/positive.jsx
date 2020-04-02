@@ -73,7 +73,7 @@ class Positive extends Component {
 
   render() {
     return (
-      <div id="positive">
+      <div id="positive" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}
