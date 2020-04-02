@@ -1,20 +1,27 @@
 import React, { Component } from "react";
-import chart from "tui-chart";
+import ReactApexChart from "react-apexcharts";
 
 class TotalTest extends Component {
   constructor(props) {
     super(props);
     this.makeChart = this.makeChart.bind(this);
+    this.setData = this.setData.bind(this);
   }
-  state = {};
+  state = {
+    data: this.props.data,
+    ready: false,
+    dates: [],
+    totaltest: [],
+    series: [],
+    options: {}
+  };
 
   componentDidMount() {
-    this.makeChart();
+    this.setData();
   }
 
-  makeChart() {
+  setData() {
     setTimeout(() => {
-      this.setState({ data: this.props.data });
       const data = this.state.data;
 
       var dates = [];
@@ -25,64 +32,64 @@ class TotalTest extends Component {
 
         dates[i - 1] = row[0];
 
-        if (!row[9]) {
-          totaltest[i - 1] = totaltest[i - 2];
+        if (!row[10]) {
+          if (!totaltest[i - 2]) {
+            totaltest[i - 1] = 0;
+          } else {
+            totaltest[i - 1] = totaltest[i - 2];
+          }
         } else {
-          totaltest[i - 1] = row[9];
+          totaltest[i - 1] = row[10];
         }
       }
 
-      setTimeout(() => {
-        var container = document.getElementById("totaltest");
+      console.log(totaltest);
 
-        var data = {
-          categories: dates,
-          series: [
-            {
-              name: "Total Cases",
-              data: totaltest
-            }
-          ]
-        };
-
-        var theme = {
-          series: {
-            colors: ["#c00264"]
-          }
-        };
-        chart.registerTheme("totaltest", theme);
-
-        var options = {
-          theme: "totaltest",
-          chart: {
-            width: 1160,
-            height: 650,
-            title: "Total Cases of COVID-19 in Ontario"
-          },
-          yAxis: {
-            title: "Number of Cases"
-          },
-          xAxis: {
-            title: "Month",
-            pointOnColumn: true,
-            dateFormat: "MMM",
-            tickInterval: "auto"
-          },
-          series: {
-            showDot: false,
-            zoomable: true
-          },
-          tooltip: {
-            suffix: ""
-          }
-        };
-        chart.lineChart(container, data, options);
-      }, 0.001);
+      this.setState({ totaltest: totaltest, dates: dates });
+      this.makeChart();
     }, 0.001);
   }
 
+  makeChart() {
+    const totalcases = this.state.totaltest;
+    const dates = this.state.dates;
+
+    this.setState({
+      series: [
+        {
+          name: "Total Cases",
+          data: totalcases
+        }
+      ]
+    });
+    this.setState({
+      options: {
+        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        title: { text: "Total Cases of COVID-19 in Ontario" },
+        xaxis: {
+          categories: dates
+        }
+      }
+    });
+
+    this.setState({ ready: true });
+  }
+
   render() {
-    return <div id="totaltest"></div>;
+    return (
+      <div id="totaltest">
+        {this.state.ready ? (
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            height={650}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    );
   }
 }
 export default TotalTest;

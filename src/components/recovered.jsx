@@ -1,20 +1,25 @@
 import React, { Component } from "react";
-import chart from "tui-chart";
+import ReactApexChart from "react-apexcharts";
 
 class Recovered extends Component {
   constructor(props) {
     super(props);
     this.makeChart = this.makeChart.bind(this);
+    this.setData = this.setData.bind(this);
   }
-  state = {};
+  state = {
+    data: this.props.data,
+    ready: false,
+    series: [],
+    options: {}
+  };
 
   componentDidMount() {
-    this.makeChart();
+    this.setData();
   }
 
-  makeChart() {
+  setData() {
     setTimeout(() => {
-      this.setState({ data: this.props.data });
       const data = this.state.data;
 
       var dates = [];
@@ -31,58 +36,50 @@ class Recovered extends Component {
           resolved[i - 1] = row[6];
         }
       }
-
-      setTimeout(() => {
-        var container = document.getElementById("recovered");
-
-        var data = {
-          categories: dates,
-          series: [
-            {
-              name: "Resolved",
-              data: resolved
-            }
-          ]
-        };
-
-        var theme = {
-          series: {
-            colors: ["#367A76"]
-          }
-        };
-        chart.registerTheme("recovered", theme);
-
-        var options = {
-          theme: "recovered",
-          chart: {
-            width: 1160,
-            height: 650,
-            title: "Total Resolved from COVID-19 in Ontario"
-          },
-          yAxis: {
-            title: "Number of Cases"
-          },
-          xAxis: {
-            title: "Month",
-            pointOnColumn: true,
-            dateFormat: "MMM",
-            tickInterval: "auto"
-          },
-          series: {
-            showDot: false,
-            zoomable: true
-          },
-          tooltip: {
-            suffix: ""
-          }
-        };
-        chart.lineChart(container, data, options);
-      }, 0.001);
+      this.setState({ resolved: resolved, dates: dates });
+      this.makeChart();
     }, 0.001);
   }
 
+  makeChart() {
+    const reso = this.state.resolved;
+    const dates = this.state.dates;
+
+    this.setState({
+      series: [
+        {
+          name: "Resolved",
+          data: reso
+        }
+      ]
+    });
+    this.setState({
+      options: {
+        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        title: { text: "Total Resolved from COVID-19 in Ontario" },
+        xaxis: {
+          categories: dates
+        }
+      }
+    });
+    this.setState({ ready: true });
+  }
+
   render() {
-    return <div id="recovered"></div>;
+    return (
+      <div id="recovered">
+        {this.state.ready ? (
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            height={650}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    );
   }
 }
 export default Recovered;

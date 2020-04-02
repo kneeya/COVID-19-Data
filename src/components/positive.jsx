@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import chart from "tui-chart";
 import ReactApexChart from "react-apexcharts";
 
 class Positive extends Component {
@@ -13,15 +12,8 @@ class Positive extends Component {
     ready: false,
     datez: [],
     confPosi: [],
-    series: [
-      {
-        name: "Confirmed Positives"
-      }
-    ],
-    options: {
-      chart: { height: 650, type: "line", zoom: { enabled: true } },
-      title: { text: "Positive Cases of COVID-19 in Ontario" }
-    }
+    series: [{}],
+    options: {}
   };
 
   componentDidMount() {
@@ -51,63 +43,7 @@ class Positive extends Component {
       }
 
       this.setState({ confPosi: confPos, datez: dates });
-      console.log(this.state.confPosi, this.state.datez);
       this.makeChart();
-
-      //setTimeout(() => {
-      // this.setState({
-      //   series: [{ name: "Confirmed Positives", data: confPos }],
-      //   options: {
-      //     chart: { height: 650, type: "line", zoom: { enabled: true } },
-      //     dataLabels: { enabled: false },
-      //     stroke: { curve: "straight" },
-      //     title: { text: "Positive Cases of COVID-19 in Ontario" },
-      //     grid: { row: { colors: ["#f3f3f3", "transparent"], opacity: 0.5 } },
-      //     xaxis: { categories: dates }
-      //   }
-      // });
-      // var container = document.getElementById("positive");
-      // var data = {
-      //   categories: dates,
-      //   series: [
-      //     {
-      //       name: "Confirmed Positives",
-      //       data: confPos
-      //     }
-      //   ]
-      // };
-      // var theme = {
-      //   series: {
-      //     colors: ["#C64A1C"]
-      //   }
-      // };
-      // chart.registerTheme("positive", theme);
-      // var options = {
-      //   theme: "positive",
-      //   chart: {
-      //     width: 1160,
-      //     height: 650,
-      //     title: "Positive Cases of COVID-19 in Ontario"
-      //   },
-      //   yAxis: {
-      //     title: "Number of Cases"
-      //   },
-      //   xAxis: {
-      //     title: "Month",
-      //     pointOnColumn: true,
-      //     dateFormat: "MMM",
-      //     tickInterval: "auto"
-      //   },
-      //   series: {
-      //     showDot: false,
-      //     zoomable: true
-      //   },
-      //   tooltip: {
-      //     suffix: ""
-      //   }
-      // };
-      // chart.lineChart(container, data, options);
-      //}, 0.01);
     }, 0.001);
   }
 
@@ -125,6 +61,8 @@ class Positive extends Component {
     });
     this.setState({
       options: {
+        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        title: { text: "Positive Cases of COVID-19 in Ontario" },
         xaxis: {
           categories: dates
         }
