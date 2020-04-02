@@ -71,6 +71,8 @@ class App extends Component {
               </div>
               <div className="item item-4">
                 <Deaths data={this.state.data} />
+              </div>
+              <div className="item item-5">
                 <Regional />
               </div>
 
