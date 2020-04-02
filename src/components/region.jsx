@@ -53,7 +53,14 @@ class Regional extends Component {
       occurrences[cities[i]] = (occurrences[cities[i]] || 0) + 1;
     }
 
-    var occ = Object.entries(occurrences);
+    const ordered = {};
+    Object.keys(occurrences)
+      .sort()
+      .forEach(function(key) {
+        ordered[key] = occurrences[key];
+      });
+    var occ = Object.entries(ordered);
+    console.log(occ);
 
     const city = [];
     const cases = [];
@@ -88,6 +95,7 @@ class Regional extends Component {
         dataLabels: {
           enabled: false
         },
+        colors: ["#92278F"],
         plotOptions: {
           bar: { horizontal: true }
         },
