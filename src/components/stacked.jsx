@@ -91,7 +91,7 @@ class Stacked extends Component {
     });
     this.setState({
       options: {
-        title: { text: "Summary of Cases Ontario" },
+        title: { text: "Summary of Cases in Ontario" },
         chart: {
           type: "bar",
           height: 650,
