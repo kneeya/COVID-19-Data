@@ -35,12 +35,12 @@ class App extends Component {
     // reading a remote file
 
     // readRemoteFile(
-    //   "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/en/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
+    //   "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
     //   {
     //     download: true,
     //     complete: this.storeData
     //   }
-    // );
+    //);
   }
   display() {
     console.log(this.state.data);

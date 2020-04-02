@@ -40,7 +40,11 @@ class Positive extends Component {
 
         dates[i - 1] = row[0];
         if (!row[5]) {
-          confPos[i - 1] = confPos[i - 2];
+          if (!confPos[i - 2]) {
+            confPos[i - 1] = 0;
+          } else {
+            confPos[i - 1] = confPos[i - 2];
+          }
         } else {
           confPos[i - 1] = row[5];
         }
@@ -115,32 +119,18 @@ class Positive extends Component {
       series: [
         {
           name: "Confirmed Positives",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-          //data: confPos
+          data: confPos
         }
       ]
     });
     this.setState({
       options: {
         xaxis: {
-          categories: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep"
-          ]
-          //categories: dates
+          categories: dates
         }
       }
     });
-    console.log(this.state.ready);
     this.setState({ ready: true });
-    console.log(this.state.ready);
   }
 
   render() {
