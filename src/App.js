@@ -40,7 +40,7 @@ class App extends Component {
     //     download: true,
     //     complete: this.storeData
     //   }
-    //);
+    // );
   }
   display() {
     console.log(this.state.data);
