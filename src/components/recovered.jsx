@@ -60,7 +60,7 @@ class Recovered extends Component {
         xaxis: {
           categories: dates
         },
-        colors: ["#2b8737"],
+        colors: ["#0369ac"],
         dataLabels: {
           enabled: true
         }
@@ -78,6 +78,7 @@ class Recovered extends Component {
             series={this.state.series}
             type="line"
             height={650}
+            width={1200}
           />
         ) : (
           ""
