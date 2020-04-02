@@ -134,6 +134,7 @@ class Stacked extends Component {
             series={this.state.series}
             type="bar"
             height={650}
+            width={1200}
           />
         ) : (
           ""
