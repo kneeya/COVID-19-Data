@@ -68,7 +68,8 @@ class TotalTest extends Component {
         title: { text: "Total Cases of COVID-19 in Ontario" },
         xaxis: {
           categories: dates
-        }
+        },
+        colors: ["#92278F"]
       }
     });
 

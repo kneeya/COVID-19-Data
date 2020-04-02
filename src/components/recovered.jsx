@@ -59,7 +59,8 @@ class Recovered extends Component {
         title: { text: "Total Resolved from COVID-19 in Ontario" },
         xaxis: {
           categories: dates
-        }
+        },
+        colors: ["#0369ac"]
       }
     });
     this.setState({ ready: true });

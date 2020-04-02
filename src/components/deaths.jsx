@@ -61,7 +61,8 @@ class Deaths extends Component {
         title: { text: "Total COVID-19 related Deaths in Ontario" },
         xaxis: {
           categories: dates
-        }
+        },
+        colors: ["#7B725C"]
       }
     });
     this.setState({ ready: true });
