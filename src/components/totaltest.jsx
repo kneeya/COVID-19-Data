@@ -26,7 +26,7 @@ class TotalTest extends Component {
         dates[i - 1] = row[0];
 
         if (!row[9]) {
-          totaltest[i - 1] = 0;
+          totaltest[i - 1] = totaltest[i - 2];
         } else {
           totaltest[i - 1] = row[9];
         }
