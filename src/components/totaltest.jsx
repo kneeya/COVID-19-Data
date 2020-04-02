@@ -112,7 +112,7 @@ class TotalTest extends Component {
         xaxis: {
           categories: dates
         },
-        colors: ["#92278F"],
+        colors: ["#2B8737", "#1080A6", "#92278F", "#0369ac"],
         markers: {
           size: 4,
           colors: ["#c00264"],
