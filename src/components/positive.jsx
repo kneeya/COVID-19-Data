@@ -61,7 +61,11 @@ class Positive extends Component {
     });
     this.setState({
       options: {
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        chart: {
+          height: 650,
+          type: "line",
+          zoom: { enabled: true }
+        },
         title: { text: "Positive Cases of COVID-19 in Ontario" },
         xaxis: {
           categories: dates
@@ -80,6 +84,7 @@ class Positive extends Component {
             series={this.state.series}
             type="line"
             height={650}
+            width={"75%"}
           />
         ) : (
           ""
