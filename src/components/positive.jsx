@@ -1,87 +1,91 @@
 import React, { Component } from "react";
-import chart from "tui-chart";
+import ReactApexChart from "react-apexcharts";
 
 class Positive extends Component {
   constructor(props) {
     super(props);
     this.makeChart = this.makeChart.bind(this);
+    this.setData = this.setData.bind(this);
   }
-  state = {};
+  state = {
+    dataz: this.props.data,
+    ready: false,
+    datez: [],
+    confPosi: [],
+    series: [{}],
+    options: {}
+  };
 
   componentDidMount() {
-    this.makeChart();
+    this.setData();
   }
 
-  makeChart() {
+  setData() {
     setTimeout(() => {
-      this.setState({ data: this.props.data });
-      const data = this.state.data;
+      const data = this.state.dataz;
 
-      var dates = [];
-      var confPos = [];
+      const dates = [];
+      const confPos = [];
 
       for (var i = 1; i < data.length - 1; i++) {
         var row = data[i];
 
         dates[i - 1] = row[0];
         if (!row[5]) {
-          confPos[i - 1] = confPos[i - 2];
+          if (!confPos[i - 2]) {
+            confPos[i - 1] = 0;
+          } else {
+            confPos[i - 1] = confPos[i - 2];
+          }
         } else {
           confPos[i - 1] = row[5];
         }
       }
 
-      setTimeout(() => {
-        var container = document.getElementById("positive");
-
-        var data = {
-          categories: dates,
-          series: [
-            {
-              name: "Confirmed Positives",
-              data: confPos
-            }
-          ]
-        };
-
-        var theme = {
-          series: {
-            colors: ["#C64A1C"]
-          }
-        };
-        chart.registerTheme("positive", theme);
-
-        var options = {
-          theme: "positive",
-          chart: {
-            width: 1160,
-            height: 650,
-            title: "Positive Cases of COVID-19 in Ontario"
-          },
-          yAxis: {
-            title: "Number of Cases"
-          },
-          xAxis: {
-            title: "Month",
-            pointOnColumn: true,
-            dateFormat: "MMM",
-            tickInterval: "auto"
-          },
-          series: {
-            showDot: false,
-            zoomable: true
-          },
-          tooltip: {
-            suffix: ""
-          }
-        };
-        chart.lineChart(container, data, options);
-      }, 0.001);
+      this.setState({ confPosi: confPos, datez: dates });
+      this.makeChart();
     }, 0.001);
   }
 
+  makeChart() {
+    const confPos = this.state.confPosi;
+    const dates = this.state.datez;
+
+    this.setState({
+      series: [
+        {
+          name: "Confirmed Positives",
+          data: confPos
+        }
+      ]
+    });
+    this.setState({
+      options: {
+        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        title: { text: "Positive Cases of COVID-19 in Ontario" },
+        xaxis: {
+          categories: dates
+        }
+      }
+    });
+    this.setState({ ready: true });
+  }
+
   render() {
-    return <div id="positive"></div>;
+    return (
+      <div id="positive" className="chart">
+        {this.state.ready ? (
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            height={650}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    );
   }
 }
 export default Positive;

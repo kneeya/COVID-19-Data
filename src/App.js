@@ -8,6 +8,7 @@ import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
 import Loading from "./components/loading/loading.jsx";
 import Age from "./components/age.jsx";
+import Regional from "./components/region";
 
 class App extends Component {
   constructor(props) {
@@ -25,21 +26,22 @@ class App extends Component {
   dataParse() {
     //reading a local file
 
-    // var csv = require("./components/covidtesting.csv");
-    // var Papa = require("papaparse/papaparse.min.js");
-    // Papa.parse(csv, {
-    //   download: true,
-    //   complete: this.storeData
-    // });
+    var csv = require("./components/covidtesting.csv");
+    var Papa = require("papaparse/papaparse.min.js");
+    Papa.parse(csv, {
+      download: true,
+      complete: this.storeData
+    });
 
     // reading a remote file
-    readRemoteFile(
-      "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/en/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
-      {
-        download: true,
-        complete: this.storeData
-      }
-    );
+
+    // readRemoteFile(
+    //   "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
+    //   {
+    //     download: true,
+    //     complete: this.storeData
+    //   }
+    // );
   }
   display() {
     console.log(this.state.data);
@@ -70,6 +72,10 @@ class App extends Component {
               <div className="item item-4">
                 <Deaths data={this.state.data} />
               </div>
+              <div className="item item-5">
+                <Regional />
+              </div>
+
               {/* <div className="item item-5">
                 <Age data={this.state.data} />
               </div> */}

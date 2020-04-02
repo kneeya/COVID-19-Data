@@ -1,18 +1,24 @@
 import React, { Component } from "react";
-import chart from "tui-chart";
+import ReactApexChart from "react-apexcharts";
 
 class Deaths extends Component {
   constructor(props) {
     super(props);
     this.makeChart = this.makeChart.bind(this);
+    this.setData = this.setData.bind(this);
   }
-  state = {};
+  state = {
+    data: this.props.data,
+    ready: false,
+    series: [],
+    options: {}
+  };
 
   componentDidMount() {
-    this.makeChart();
+    this.setData();
   }
 
-  makeChart() {
+  setData() {
     setTimeout(() => {
       this.setState({ data: this.props.data });
       const data = this.state.data;
@@ -32,55 +38,63 @@ class Deaths extends Component {
         }
       }
 
-      setTimeout(() => {
-        var container = document.getElementById("dead");
-
-        var data = {
-          categories: dates,
-          series: [
-            {
-              name: "Deaths",
-              data: dead
-            }
-          ]
-        };
-        var theme = {
-          series: {
-            colors: ["#000"]
-          }
-        };
-        chart.registerTheme("dead", theme);
-        var options = {
-          theme: "dead",
-          chart: {
-            width: 1160,
-            height: 650,
-            title: "Total COVID-19 related Deaths in Ontario"
-          },
-          yAxis: {
-            title: "Number of Cases"
-          },
-          xAxis: {
-            title: "Month",
-            pointOnColumn: true,
-            dateFormat: "MMM",
-            tickInterval: "auto"
-          },
-          series: {
-            showDot: false,
-            zoomable: true
-          },
-          tooltip: {
-            suffix: ""
-          }
-        };
-        chart.lineChart(container, data, options);
-      }, 0.001);
+      this.setState({ dead: dead, dates: dates });
+      this.makeChart();
     }, 0.001);
   }
 
+  makeChart() {
+    const dead = this.state.dead;
+    const dates = this.state.dates;
+
+    this.setState({
+      series: [
+        {
+          name: "Total Deaths",
+          data: dead
+        }
+      ]
+    });
+    this.setState({
+      options: {
+        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        stroke: {
+          width: 7,
+          curve: "smooth"
+        },
+        markers: {
+          size: 4,
+          colors: ["#c00264"],
+          strokeColors: "#fff",
+          strokeWidth: 2,
+          hover: {
+            size: 7
+          }
+        },
+        title: { text: "Total COVID-19 related Deaths in Ontario" },
+        xaxis: {
+          categories: dates
+        }
+      }
+    });
+    this.setState({ ready: true });
+  }
+
   render() {
-    return <div id="dead"></div>;
+    return (
+      <div id="dead" className="chart">
+        {this.state.ready ? (
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            height={650}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    );
   }
 }
 export default Deaths;

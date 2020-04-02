@@ -37,7 +37,12 @@
   }
 }
 
+.chart {
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
 /* .container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
 } */
