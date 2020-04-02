@@ -9,6 +9,7 @@ class Positive extends Component {
     this.setData = this.setData.bind(this);
   }
   state = {
+    dataz: this.props.data,
     ready: false,
     datez: [],
     confPosi: [],
@@ -25,7 +26,6 @@ class Positive extends Component {
 
   componentDidMount() {
     this.setData();
-    this.setState({ dataz: this.props.data });
   }
 
   setData() {

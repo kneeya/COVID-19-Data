@@ -6,11 +6,10 @@ class Stacked extends Component {
     super(props);
     this.makeChart = this.makeChart.bind(this);
   }
-  state = {};
+  state = { data: this.props.data };
 
   componentDidMount() {
     this.makeChart();
-    this.setState({ data: this.props.data });
   }
 
   makeChart() {
