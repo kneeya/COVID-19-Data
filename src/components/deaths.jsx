@@ -58,6 +58,19 @@ class Deaths extends Component {
     this.setState({
       options: {
         chart: { height: 650, type: "line", zoom: { enabled: true } },
+        stroke: {
+          width: 7,
+          curve: "smooth"
+        },
+        markers: {
+          size: 4,
+          colors: ["#c00264"],
+          strokeColors: "#fff",
+          strokeWidth: 2,
+          hover: {
+            size: 7
+          }
+        },
         title: { text: "Total COVID-19 related Deaths in Ontario" },
         xaxis: {
           categories: dates
@@ -70,7 +83,7 @@ class Deaths extends Component {
 
   render() {
     return (
-      <div id="dead">
+      <div id="dead" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

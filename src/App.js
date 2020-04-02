@@ -8,6 +8,7 @@ import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
 import Loading from "./components/loading/loading.jsx";
 import Age from "./components/age.jsx";
+import Regional from "./components/region";
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class App extends Component {
     //     download: true,
     //     complete: this.storeData
     //   }
-    //);
+    // );
   }
   display() {
     console.log(this.state.data);
@@ -71,6 +72,10 @@ class App extends Component {
               <div className="item item-4">
                 <Deaths data={this.state.data} />
               </div>
+              <div className="item item-5">
+                <Regional />
+              </div>
+
               {/* <div className="item item-5">
                 <Age data={this.state.data} />
               </div> */}

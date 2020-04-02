@@ -11,7 +11,6 @@ class TotalTest extends Component {
     data: this.props.data,
     ready: false,
     dates: [],
-    totaltest: [],
     series: [],
     options: {}
   };
@@ -26,26 +25,55 @@ class TotalTest extends Component {
 
       var dates = [];
       var totaltest = [];
+      var confPos = [];
+      var resolved = [];
+      var dead = [];
 
       for (var i = 1; i < data.length - 1; i++) {
         var row = data[i];
 
         dates[i - 1] = row[0];
 
-        if (!row[10]) {
+        if (!row[5]) {
+          if (!confPos[i - 2]) {
+            confPos[i - 1] = 0;
+          } else {
+            confPos[i - 1] = confPos[i - 2];
+          }
+        } else {
+          confPos[i - 1] = row[5];
+        }
+
+        if (!row[9]) {
           if (!totaltest[i - 2]) {
             totaltest[i - 1] = 0;
           } else {
             totaltest[i - 1] = totaltest[i - 2];
           }
         } else {
-          totaltest[i - 1] = row[10];
+          totaltest[i - 1] = row[9];
+        }
+
+        if (!row[6]) {
+          resolved[i - 1] = 0;
+        } else {
+          resolved[i - 1] = row[6];
+        }
+
+        if (!row[7]) {
+          dead[i - 1] = 0;
+        } else {
+          dead[i - 1] = row[7];
         }
       }
 
-      console.log(totaltest);
-
-      this.setState({ totaltest: totaltest, dates: dates });
+      this.setState({
+        totaltest: totaltest,
+        dates: dates,
+        confPos: confPos,
+        resolved: resolved,
+        dead: dead
+      });
       this.makeChart();
     }, 0.001);
   }
@@ -53,23 +81,47 @@ class TotalTest extends Component {
   makeChart() {
     const totalcases = this.state.totaltest;
     const dates = this.state.dates;
+    const confPos = this.state.confPos;
+    const reso = this.state.resolved;
+    const dead = this.state.dead;
 
     this.setState({
       series: [
         {
           name: "Total Cases",
           data: totalcases
+        },
+        {
+          name: "Confirmed Positives",
+          data: confPos
+        },
+        {
+          name: "Resolved",
+          data: reso
+        },
+        {
+          name: "Total Deaths",
+          data: dead
         }
       ]
     });
     this.setState({
       options: {
         chart: { height: 650, type: "line", zoom: { enabled: true } },
-        title: { text: "Total Cases of COVID-19 in Ontario" },
+        title: { text: "Status of COVID-19 cases in Ontario" },
         xaxis: {
           categories: dates
         },
-        colors: ["#92278F"]
+        colors: ["#92278F"],
+        markers: {
+          size: 4,
+          colors: ["#c00264"],
+          strokeColors: "#fff",
+          strokeWidth: 2,
+          hover: {
+            size: 7
+          }
+        }
       }
     });
 
@@ -78,7 +130,7 @@ class TotalTest extends Component {
 
   render() {
     return (
-      <div id="totaltest">
+      <div id="totaltest" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

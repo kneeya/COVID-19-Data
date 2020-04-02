@@ -60,7 +60,10 @@ class Recovered extends Component {
         xaxis: {
           categories: dates
         },
-        colors: ["#0369ac"]
+        colors: ["#0369ac"],
+        dataLabels: {
+          enabled: true
+        }
       }
     });
     this.setState({ ready: true });
@@ -68,7 +71,7 @@ class Recovered extends Component {
 
   render() {
     return (
-      <div id="recovered">
+      <div id="recovered" className="chart">
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}
