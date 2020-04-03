@@ -99,10 +99,7 @@ class Stacked extends Component {
           toolbar: {
             show: true
           },
-
-          zoom: {
-            enabled: true
-          }
+          zoom: { enabled: true }
         },
         plotOptions: {
           bar: {
@@ -114,7 +111,7 @@ class Stacked extends Component {
         },
         xaxis: {
           categories: dates,
-          range: 30
+          range: 20
         },
 
         fill: {

@@ -35,7 +35,7 @@ class City extends Component {
   makeOccurences() {
     var cities = this.state.cities;
     var occurrences = {};
-    for (var i = 0, j = cities.length; i < j; i++) {
+    for (var i = 0; i < cities.length; i++) {
       occurrences[cities[i]] = (occurrences[cities[i]] || 0) + 1;
     }
 
@@ -47,14 +47,19 @@ class City extends Component {
       });
     var occ = Object.entries(ordered);
 
-    const city = [];
-    const cases = [];
+    const city = occ.map(function(inst) {
+      return inst[0];
+    });
+    const cases = occ.map(function(inst) {
+      return inst[1];
+    });
 
-    for (var q = 0; q < occ.length - 1; q++) {
-      var inst = occ[q];
-      city[q] = inst[0];
-      cases[q] = inst[1];
-    }
+    // for (var q = 0; q < occ.length - 1; q++) {
+    //   var inst = occ[q];
+    //   city[q] = inst[0];
+    //   cases[q] = inst[1];
+    // }
+
     this.setState({ city: city, cases: cases });
 
     this.makeChart();

@@ -24,25 +24,39 @@ class Positive extends Component {
     setTimeout(() => {
       const data = this.state.dataz;
 
-      const dates = [];
-      const confPos = [];
+      //const dates = [];
+      // const confPos = [];
 
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
+      // for (var i = 1; i < data.length - 1; i++) {
+      //   var row = data[i];
 
-        dates[i - 1] = row[0];
+      //   dates[i - 1] = row[0];
+      //   if (!row[5]) {
+      //     if (!confPos[i - 2]) {
+      //       confPos[i - 1] = 0;
+      //     } else {
+      //       confPos[i - 1] = confPos[i - 2];
+      //     }
+      //   } else {
+      //     confPos[i - 1] = row[5];
+      //   }
+      // }
+
+      const confi = data.map(function(row) {
         if (!row[5]) {
-          if (!confPos[i - 2]) {
-            confPos[i - 1] = 0;
-          } else {
-            confPos[i - 1] = confPos[i - 2];
-          }
+          return 0;
         } else {
-          confPos[i - 1] = row[5];
+          return row[5];
         }
-      }
+      });
+      const confiPos = confi.slice(1, confi.length - 1);
 
-      this.setState({ confPosi: confPos, datez: dates });
+      const datez = data.map(function(row) {
+        return row[0];
+      });
+      const dates = datez.slice(1, datez.length - 1);
+
+      this.setState({ confPosi: confiPos, datez: dates });
       this.makeChart();
     }, 0.001);
   }

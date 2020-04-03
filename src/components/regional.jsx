@@ -47,14 +47,18 @@ class Regional extends Component {
       });
     var occ = Object.entries(ordered);
 
-    const region = [];
-    const cases = [];
+    const region = occ.map(function(inst) {
+      return inst[0];
+    });
+    const cases = occ.map(function(inst) {
+      return inst[1];
+    });
 
-    for (var q = 0; q < occ.length - 1; q++) {
-      var inst = occ[q];
-      region[q] = inst[0];
-      cases[q] = inst[1];
-    }
+    // for (var q = 0; q < occ.length - 1; q++) {
+    //   var inst = occ[q];
+    //   region[q] = inst[0];
+    //   cases[q] = inst[1];
+    // }
     this.setState({ region: region, cases: cases });
 
     this.makeChart();
