@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { readRemoteFile } from "react-papaparse";
+//import { readRemoteFile } from "react-papaparse";
 import "./App.css";
 import Positive from "./components/positive.jsx";
 import TotalTest from "./components/totaltest.jsx";
@@ -7,8 +7,9 @@ import Recovered from "./components/recovered";
 import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
 import Loading from "./components/loading/loading.jsx";
-import Age from "./components/age.jsx";
-import Regional from "./components/region";
+//import Age from "./components/age.jsx";
+import City from "./components/city.jsx";
+import Regional from "./components/regional.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -16,11 +17,29 @@ class App extends Component {
     this.dataParse = this.dataParse.bind(this);
     this.storeData = this.storeData.bind(this);
     this.disp = this.display.bind(this);
+    this.dataParseCase = this.dataParseCase.bind(this);
+    this.storeCaseData = this.storeCaseData.bind(this);
   }
-  state = { loading: false };
+  state = { loading: false, ready: false };
 
   componentDidMount() {
     this.dataParse();
+    this.dataParseCase();
+  }
+
+  dataParseCase() {
+    var csv = require("./components/conposcovidloc.csv");
+    var Papa = require("papaparse/papaparse.min.js");
+    Papa.parse(csv, {
+      download: true,
+      complete: this.storeCaseData
+    });
+  }
+
+  storeCaseData(results) {
+    let parsedD = results.data;
+    this.setState({ casedata: parsedD, ready: true });
+    console.log(this.state.casedata);
   }
 
   dataParse() {
@@ -56,7 +75,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.loaded ? (
+        {this.state.loaded && this.state.ready ? (
           <React.Fragment>
             <Stacked data={this.state.data} />
             <div className="container">
@@ -73,7 +92,10 @@ class App extends Component {
                 <Deaths data={this.state.data} />
               </div>
               <div className="item item-5">
-                <Regional />
+                <City casedata={this.state.casedata} />
+              </div>
+              <div className="item item-6">
+                <Regional casedata={this.state.casedata} />
               </div>
 
               {/* <div className="item item-5">
