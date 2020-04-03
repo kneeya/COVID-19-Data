@@ -7,7 +7,7 @@ import Recovered from "./components/recovered";
 import Deaths from "./components/deaths";
 import Stacked from "./components/stacked.jsx";
 import Loading from "./components/loading/loading.jsx";
-//import Age from "./components/age.jsx";
+import Age from "./components/age.jsx";
 import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
 
@@ -98,9 +98,9 @@ class App extends Component {
                 <Regional casedata={this.state.casedata} />
               </div>
 
-              {/* <div className="item item-5">
-                <Age data={this.state.data} />
-              </div> */}
+              <div className="item item-7">
+                <Age casedata={this.state.casedata} />
+              </div>
             </div>
           </React.Fragment>
         ) : (

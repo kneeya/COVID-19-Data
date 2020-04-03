@@ -1,81 +1,209 @@
 import React, { Component } from "react";
-import chart from "tui-chart";
+import ReactApexChart from "react-apexcharts";
 
 class Age extends Component {
   constructor(props) {
     super(props);
+    this.sortByAge = this.sortByAge.bind(this);
+    this.countAge = this.countAge.bind(this);
     this.makeChart = this.makeChart.bind(this);
   }
-  state = {};
+  state = {
+    data: this.props.casedata,
+    ready: false,
+    series: [{}],
+    options: {}
+  };
 
   componentDidMount() {
+    this.sortByAge();
+  }
+
+  sortByAge() {
+    setTimeout(() => {
+      const data = this.state.data;
+
+      const m = [];
+      const f = [];
+      const tran = [];
+      const unk = [];
+      const sex = [m, f, tran, unk];
+
+      for (var i = 1; i < data.length - 1; i++) {
+        var row = data[i];
+        if (row[2] === "MALE") {
+          m[i - 1] = row[1];
+        }
+        if (row[2] === "FEMALE") {
+          f[i - 1] = row[1];
+        }
+        if (row[2] === "TRANSGENDER") {
+          tran[i - 1] = row[1];
+        }
+        if (row[2] === "UNKNOWN") {
+          unk[i - 1] = row[1];
+        }
+      }
+
+      this.setState({ sex: sex });
+      console.log(this.state.sex[0]);
+      this.countAge();
+    }, 0.001);
+  }
+  countAge() {
+    var sex = this.state.sex;
+    var male = sex[0];
+    var fem = sex[1];
+    var tran = sex[2];
+    var unk = sex[3];
+
+    var maleages = {};
+    var femages = {};
+    var tranages = {};
+    var unkages = {};
+
+    for (var i = 0, j = male.length; i < j; i++) {
+      maleages[male[i]] = (maleages[male[i]] || 0) + 1;
+    }
+    for (var t = 0, y = fem.length; t < y; t++) {
+      femages[fem[t]] = (femages[fem[t]] || 0) + 1;
+    }
+    for (var m = 0, s = tran.length; m < s; m++) {
+      tranages[tran[m]] = (tranages[tran[m]] || 0) + 1;
+    }
+    for (var k = 0, c = unk.length; k < c; k++) {
+      unkages[unk[k]] = (unkages[unk[k]] || 0) + 1;
+    }
+
+    this.setState({
+      maleages: maleages,
+      femages: femages,
+      tranages: tranages,
+      unkages: unkages
+    });
+
+    console.log(maleages, femages, tranages, unkages);
+    console.log(unkages[undefined], unkages["Unknown"]);
+
     this.makeChart();
   }
 
   makeChart() {
-    setTimeout(() => {
-      this.setState({ data: this.props.data });
-      const data = this.state.data;
+    const mage = this.state.maleages;
+    const fage = this.state.femages;
+    const tage = this.state.tranages;
+    const uage = this.state.unkages;
 
-      var below = [];
-      var majority = [];
-      var elder = [];
-
-      var row = data[data.length - 2];
-
-      console.log(row);
-
-      if (!row[12]) {
-        below = 0;
-      } else {
-        below = row[12];
-      }
-      if (!row[13]) {
-        majority = 0;
-      } else {
-        majority = row[13];
-      }
-      if (!row[14]) {
-        elder = 0;
-      } else {
-        elder = row[14];
-      }
-
-      setTimeout(() => {
-        var container = document.getElementById("age-gender");
-        var data = {
-          categories: ["> 64", "20-64", "< 20"],
-          series: [
-            {
-              name: "Positive Cases",
-              data: [below, majority, elder]
-            }
+    this.setState({
+      series: [
+        {
+          name: "Male",
+          data: [
+            mage["<20"],
+            mage["20s"],
+            mage["30s"],
+            mage["40s"],
+            mage["50s"],
+            mage["60s"],
+            mage["70s"],
+            mage["80s"],
+            mage["90s"],
+            mage["Unknown"] + mage[undefined]
           ]
-        };
-        var options = {
-          chart: {
-            width: 1160,
-            height: 650,
-            title: "Age Distribution of Positive COVID-19 Cases in Ontario",
-            format: "1,000"
-          },
-          yAxis: {
-            title: "Age"
-          },
-          xAxis: {
-            title: "Number of Cases"
-          },
-          series: {
-            showLabel: true
-          }
-        };
-        chart.barChart(container, data, options);
-      }, 0.001);
-    }, 0.001);
+        },
+        {
+          name: "Female",
+          data: [
+            fage["<20"],
+            fage["20s"],
+            fage["30s"],
+            fage["40s"],
+            fage["50s"],
+            fage["60s"],
+            fage["70s"],
+            fage["80s"],
+            fage["90s"],
+            fage["Unknown"] + fage[undefined]
+          ]
+        },
+        {
+          name: "Transgender",
+          data: [
+            tage["<20"],
+            tage["20s"],
+            tage["30s"],
+            tage["40s"],
+            tage["50s"],
+            tage["60s"],
+            tage["70s"],
+            tage["80s"],
+            tage["90s"],
+            tage[undefined]
+          ]
+        }
+        // {
+        //   name: "Unknown",
+        //   data: [
+        //     uage["<20"],
+        //     uage["20s"],
+        //     uage["30s"],
+        //     uage["40s"],
+        //     uage["50s"],
+        //     uage["60s"],
+        //     uage["70s"],
+        //     uage["80s"],
+        //     uage["90s"],
+        //     uage[undefined]
+        //   ]
+        // }
+      ]
+    });
+    this.setState({
+      options: {
+        chart: { height: 650, type: "bar", zoom: { enabled: true } },
+        title: { text: "Breakdown by Age and Sex" },
+        dataLabels: {
+          enabled: false
+        },
+        colors: ["#D81A21", "#367A76", "#C64A1C", "#8A600D"],
+        plotOptions: {
+          bar: { horizontal: false }
+        },
+        xaxis: {
+          categories: [
+            "Under 20",
+            "20-29",
+            "30-39",
+            "40-49",
+            "50-59",
+            "60-69",
+            "70-79",
+            "80-89",
+            "90-99",
+            "Unknown"
+          ]
+        }
+      }
+    });
+    this.setState({ ready: true });
   }
 
   render() {
-    return <div id="age-gender"></div>;
+    return (
+      <div id="regional" className="chart">
+        {this.state.ready ? (
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="bar"
+            height={650}
+            width={1200}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    );
   }
 }
 export default Age;
