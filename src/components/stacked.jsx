@@ -91,6 +91,7 @@ class Stacked extends Component {
     });
     this.setState({
       options: {
+        title: { text: "Summary of Cases in Ontario" },
         chart: {
           type: "bar",
           height: 650,
@@ -98,6 +99,7 @@ class Stacked extends Component {
           toolbar: {
             show: true
           },
+
           zoom: {
             enabled: true
           }
@@ -132,6 +134,7 @@ class Stacked extends Component {
             series={this.state.series}
             type="bar"
             height={650}
+            width={1200}
           />
         ) : (
           ""
