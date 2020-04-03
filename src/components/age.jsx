@@ -140,22 +140,22 @@ class Age extends Component {
             tage["90s"],
             tage[undefined]
           ]
+        },
+        {
+          name: "Unknown",
+          data: [
+            uage["<20"],
+            uage["20s"],
+            uage["30s"],
+            uage["40s"],
+            uage["50s"],
+            uage["60s"],
+            uage["70s"],
+            uage["80s"],
+            uage["90s"],
+            uage[undefined]
+          ]
         }
-        // {
-        //   name: "Unknown",
-        //   data: [
-        //     uage["<20"],
-        //     uage["20s"],
-        //     uage["30s"],
-        //     uage["40s"],
-        //     uage["50s"],
-        //     uage["60s"],
-        //     uage["70s"],
-        //     uage["80s"],
-        //     uage["90s"],
-        //     uage[undefined]
-        //   ]
-        // }
       ]
     });
     this.setState({
