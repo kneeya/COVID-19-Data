@@ -113,7 +113,8 @@ class Stacked extends Component {
           enabled: false
         },
         xaxis: {
-          categories: dates
+          categories: dates,
+          range: 30
         },
 
         fill: {

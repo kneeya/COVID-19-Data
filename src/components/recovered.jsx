@@ -58,7 +58,8 @@ class Recovered extends Component {
         chart: { height: 650, type: "line", zoom: { enabled: true } },
         title: { text: "Total Resolved from COVID-19 in Ontario" },
         xaxis: {
-          categories: dates
+          categories: dates,
+          range: 30
         },
         colors: ["#0369ac"],
         dataLabels: {

@@ -110,7 +110,8 @@ class TotalTest extends Component {
         chart: { height: 650, type: "line", zoom: { enabled: true } },
         title: { text: "Status of COVID-19 cases in Ontario" },
         xaxis: {
-          categories: dates
+          categories: dates,
+          range: 30
         },
         colors: ["#2B8737", "#1080A6", "#92278F", "#0369ac"],
         markers: {

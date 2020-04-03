@@ -68,7 +68,8 @@ class Positive extends Component {
         },
         title: { text: "Positive Cases of COVID-19 in Ontario" },
         xaxis: {
-          categories: dates
+          categories: dates,
+          range: 30
         },
         colors: ["#C64A1C"]
         // responsive: [
