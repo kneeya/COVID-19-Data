@@ -15,7 +15,7 @@ class Positive extends Component {
     datez: [],
     confPosi: [],
     series: [{}],
-    options: {}
+    options: {},
   };
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class Positive extends Component {
 
     console.log("positive", data);
 
-    const confi = data.map(function(row) {
+    const confi = data.map(function (row) {
       if (!row[5]) {
         return 0;
       } else {
@@ -37,7 +37,7 @@ class Positive extends Component {
     });
     const confiPos = confi.slice(1, confi.length - 1);
 
-    const datez = data.map(function(row) {
+    const datez = data.map(function (row) {
       return row[0];
     });
     const dates = datez.slice(1, datez.length - 1);
@@ -48,36 +48,36 @@ class Positive extends Component {
       series: [
         {
           name: "Confirmed Positives",
-          data: confiPos
-        }
+          data: confiPos,
+        },
       ],
       options: {
         chart: {
           height: 650,
           type: "line",
-          zoom: { enabled: true }
+          zoom: { enabled: true },
         },
         stroke: stroke,
         // title: { text: "Positive Cases of COVID-19 in Ontario" },
         yaxis: {
           labels: {
-            style: { ...labelStyle }
-          }
+            style: { ...labelStyle },
+          },
         },
         xaxis: {
           categories: dates,
           range: 30,
           labels: {
-            style: { ...labelStyle }
-          }
+            style: { ...labelStyle },
+          },
         },
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
-          textAnchor: "middle"
+          textAnchor: "middle",
         },
         tooltip: tooltip,
-        colors: [colours.red]
+        colors: [colours.red],
         // responsive: [
         //   {
         //     breakpoint: "1000px",
@@ -85,7 +85,7 @@ class Positive extends Component {
         //   }
         // ]
       },
-      ready: true
+      ready: true,
     });
   }
 

@@ -1,95 +1,115 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import { labelStyle, tooltip } from "./options";
 
-class Regional extends Component {
+class City extends Component {
   constructor(props) {
     super(props);
     this.makeCities = this.makeCities.bind(this);
-    this.makeOccurences = this.makeOccurences.bind(this);
-    this.makeChart = this.makeChart.bind(this);
   }
   state = {
     data: this.props.casedata,
     ready: false,
     series: [{}],
-    options: {}
+    options: {},
   };
 
   componentDidMount() {
-    //this.makeCities();
+    this.makeCities();
   }
 
   makeCities() {
-      const data = this.props.data;
+    const data = [...this.props.casedata];
 
-      const regions = [];
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
-        regions[i - 1] = row[5];
-      }
-      this.setState({ regions: regions });
-      this.makeOccurences();
-  }
-  makeOccurences() {
-    var regions = this.state.regions;
+    // console.log('casedata', data)
+
+    const regions = [];
+    for (var i = 1; i < data.length - 1; i++) {
+      var row = data[i];
+      regions[i - 1] = row[5];
+    }
+    this.setState({ regions: regions });
+
     var occurrences = {};
-    for (var i = 0, j = regions.length; i < j; i++) {
+    for (var i = 0; i < regions.length; i++) {
       occurrences[regions[i]] = (occurrences[regions[i]] || 0) + 1;
     }
 
     const ordered = {};
     Object.keys(occurrences)
       .sort()
-      .forEach(function(key) {
+      .forEach(function (key) {
         ordered[key] = occurrences[key];
       });
     var occ = Object.entries(ordered);
 
-    const region = occ.map(function(inst) {
+    const region = occ.map(function (inst) {
       return inst[0];
     });
-    const cases = occ.map(function(inst) {
+    const cases = occ.map(function (inst) {
       return inst[1];
     });
 
     // for (var q = 0; q < occ.length - 1; q++) {
     //   var inst = occ[q];
-    //   region[q] = inst[0];
+    //   city[q] = inst[0];
     //   cases[q] = inst[1];
     // }
-    this.setState({ region: region, cases: cases });
 
-    this.makeChart();
-  }
-
-  makeChart() {
-    const region = this.state.region;
-    const cases = this.state.cases;
     this.setState({
+      region: region,
+      cases: cases,
       series: [
         {
           name: "Cases",
-          data: cases
-        }
-      ]
-    });
-    this.setState({
-      options: {
-        chart: { height: 1000,  width: "100%", type: "bar", zoom: { enabled: true } },
-        title: { text: "Cases by Region" },
-        dataLabels: {
-          enabled: false
+          data: cases,
         },
-        colors: ["#2b8737"],
+      ],
+      options: {
+        chart: {
+          height: 1000,
+          width: "100%",
+          type: "bar",
+          zoom: { enabled: true },
+        },
+        //title: { text: "Cases by City" },
+        dataLabels: {
+          enabled: true,
+          offsetX: 30,
+          style: { ...labelStyle },
+        },
+        colors: [colours.orange],
         plotOptions: {
-          bar: { horizontal: true }
+          bar: {
+            horizontal: true,
+            dataLabels: {
+              position: "top",
+            },
+          },
+        },
+        tooltip: tooltip,
+        grid: {
+          xaxis: {
+            lines: {
+              show: true,
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: { ...labelStyle },
+          },
         },
         xaxis: {
-          categories: region
-        }
-      }
+          categories: region,
+          labels: {
+            style: { ...labelStyle },
+          },
+        },
+      },
+      ready: true,
     });
-    this.setState({ ready: true });
   }
 
   render() {
@@ -100,7 +120,6 @@ class Regional extends Component {
             options={this.state.options}
             series={this.state.series}
             type="bar"
-            
           />
         ) : (
           ""
@@ -109,4 +128,4 @@ class Regional extends Component {
     );
   }
 }
-export default Regional;
+export default City;
