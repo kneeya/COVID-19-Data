@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import {labelStyle, dataLabelsSize, tooltip, stroke} from "./options";
+import { labelStyle, dataLabelsSize, tooltip, stroke } from "./options";
+import "../App.css";
 
 class Positive extends Component {
   constructor(props) {
@@ -23,26 +24,29 @@ class Positive extends Component {
   }
 
   setData() {
-      //copy the array
-      const data = [...this.props.data];
+    //copy the array
+    const data = [...this.props.data];
 
-      console.log('positive', data)
+    console.log("positive", data);
 
-      const confi = data.map(function(row) {
-        if (!row[5]) {
-          return 0;
-        } else {
-          return row[5];
-        }
-      });
-      const confiPos = confi.slice(1, confi.length - 1);
+    const confi = data.map(function(row) {
+      if (!row[5]) {
+        return 0;
+      } else {
+        return row[5];
+      }
+    });
+    const confiPos = confi.slice(1, confi.length - 1);
 
-      const datez = data.map(function(row) {
-        return row[0];
-      });
-      const dates = datez.slice(1, datez.length - 1);
+    const datez = data.map(function(row) {
+      return row[0];
+    });
+    const dates = datez.slice(1, datez.length - 1);
 
-      this.setState({ confPosi: confiPos, datez: dates, series: [
+    this.setState({
+      confPosi: confiPos,
+      datez: dates,
+      series: [
         {
           name: "Confirmed Positives",
           data: confiPos
@@ -58,19 +62,20 @@ class Positive extends Component {
         // title: { text: "Positive Cases of COVID-19 in Ontario" },
         yaxis: {
           labels: {
-            style: { ...labelStyle  }
+            style: { ...labelStyle }
           }
         },
         xaxis: {
           categories: dates,
           range: 30,
           labels: {
-            style: { ...labelStyle  }
+            style: { ...labelStyle }
           }
         },
         dataLabels: {
           enabled: true,
-          style: { fontSize: dataLabelsSize  }
+          style: { fontSize: dataLabelsSize },
+          textAnchor: "end"
         },
         tooltip: tooltip,
         colors: [colours.red]
