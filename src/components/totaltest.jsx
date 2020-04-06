@@ -96,7 +96,7 @@ class TotalTest extends Component {
           legend: legend,
           tooltip: tooltip,
           stroke: stroke,
-          chart: { height: 650, type: "line", zoom: { enabled: true } },
+          chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
           // title: { text: "Status of COVID-19 cases in Ontario" },
           yaxis: {
             labels: {
@@ -126,8 +126,7 @@ class TotalTest extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
+           
           />
         ) : (
           ""

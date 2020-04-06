@@ -49,7 +49,7 @@ class Recovered extends Component {
           style: { fontSize: dataLabelsSize  }
         },
         stroke: stroke,
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
         // title: { text: "Total Resolved from COVID-19 in Ontario" },
         yaxis: {
           labels: {
@@ -86,8 +86,7 @@ class Recovered extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
+           
           />
         ) : (
           ""

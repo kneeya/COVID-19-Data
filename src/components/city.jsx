@@ -65,7 +65,7 @@ class City extends Component {
       }
     ],
     options: {
-      chart: { height: 1000, type: "bar", zoom: { enabled: true } },
+      chart: { height: 1000,  width: "100%", type: "bar", zoom: { enabled: true } },
       //title: { text: "Cases by City" },
       dataLabels:  {
         enabled: true,
@@ -116,8 +116,6 @@ class City extends Component {
             options={this.state.options}
             series={this.state.series}
             type="bar"
-            height={1000}
-            width={1200}
           />
         ) : (
           ""

@@ -84,7 +84,8 @@ class Stacked extends Component {
           tooltip: tooltip,
           chart: {
             type: "bar",
-            height: 650,
+            height: 500,
+            width: "100%",
             stacked: true,
             toolbar: {
               show: true
@@ -133,8 +134,6 @@ class Stacked extends Component {
             options={this.state.options}
             series={this.state.series}
             type="bar"
-            height={650}
-            width={1200}
           />
         ) : (
           ""

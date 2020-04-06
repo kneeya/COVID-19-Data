@@ -32,6 +32,7 @@ export const markers = {
 export const legend = {
     fontSize: dataLabelsSize,
     position: 'top',
+    horizontalAlign: 'left', 
   onItemClick: {
     toggleDataSeries: true
   },

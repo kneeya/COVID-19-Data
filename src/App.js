@@ -79,30 +79,33 @@ class App extends Component {
         {this.state.loaded && this.state.ready ? (
           <React.Fragment>
             <div className="ontario-row">
-              <h2>Summary of Cases in Ontario</h2>
+            <h1>Ontario COVID-19 Data</h1>
+            <p className="ontario-lead-statement">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+              <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Summary of Cases in Ontario</h2>
               <Stacked data={this.state.data} />
               <div className="item item-1">
-                <h2>Positive Cases of COVID-19 in Ontario</h2>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Positive Cases of COVID-19 in Ontario</h2>
                 <Positive data={this.state.data} />
               </div>
               <div className="item item-2">
-                <h2>Status of COVID-19 cases in Ontario</h2>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Status of COVID-19 cases in Ontario</h2>
                 <TotalTest data={this.state.data} />
               </div>
               <div className="item item-3">
-                <h2>Total Resolved from COVID-19 in Ontario</h2>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Total Resolved from COVID-19 in Ontario</h2>
                 <Recovered data={this.state.data} />
               </div>
               <div className="item item-4">
-                <h2>Total COVID-19 related Deaths in Ontario</h2>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Total COVID-19 related Deaths in Ontario</h2>
                 <Deaths data={this.state.data} />
               </div>
               <div className="item item-5">
-                <h2>Cases by City</h2>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Cases by City</h2>
                 <City casedata={this.state.casedata} />
               </div>
               <div className="item item-6">
-                <h2>Summary of Cases in Ontario</h2>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">Summary of Cases in Ontario</h2>
                 <Regional casedata={this.state.casedata} />
               </div>
 

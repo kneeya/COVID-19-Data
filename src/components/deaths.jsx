@@ -22,7 +22,7 @@ class Deaths extends Component {
   setData() {
     const data = [...this.props.data];
 
-    data.splice(1,35);
+    data.splice(1, 35);
 
     var dates = [];
     var dead = [];
@@ -49,7 +49,7 @@ class Deaths extends Component {
         }
       ],
       options: {
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
         stroke: stroke,
         tooltip: tooltip,
         dataLabels: {
@@ -92,8 +92,6 @@ class Deaths extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
           />
         ) : (
           ""

@@ -75,7 +75,7 @@ class Regional extends Component {
     });
     this.setState({
       options: {
-        chart: { height: 650, type: "bar", zoom: { enabled: true } },
+        chart: { height: 1000,  width: "100%", type: "bar", zoom: { enabled: true } },
         title: { text: "Cases by Region" },
         dataLabels: {
           enabled: false
@@ -100,8 +100,7 @@ class Regional extends Component {
             options={this.state.options}
             series={this.state.series}
             type="bar"
-            height={650}
-            width={1200}
+            
           />
         ) : (
           ""

@@ -93,8 +93,6 @@ class Positive extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
           />
         ) : (
           ""
