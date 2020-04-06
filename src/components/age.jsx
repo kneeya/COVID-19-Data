@@ -25,34 +25,6 @@ class Age extends Component {
     setTimeout(() => {
       const data = this.props.casedata;
 
-      // const m = data.reduce(function (result, row) {
-      //   if (row[2] === "MALE") {
-      //     result.push(row[1]);
-      //   }
-      //   return result;
-      // });
-      // console.log(m);
-      // const f = data.reduce(function (result, row) {
-      //   if (row[2] === "FEMALE") {
-      //     result.push(row[1]);
-      //   }
-      //   return result;
-      // });
-      // console.log(f);
-      // const tran = data.reduce(function (result, row) {
-      //   if (row[2] === "TRANSGENDER") {
-      //     result.push(row[1]);
-      //   }
-      //   return result;
-      // });
-      // console.log(tran);
-      // const unk = data.reduce(function (result, row) {
-      //   if (row[2] === "UNKNOWN") {
-      //     result.push(row[1]);
-      //   }
-      //   return result;
-      // });
-      // console.log(unk);
       const m = [];
       const f = [];
       const tran = [];
@@ -74,7 +46,8 @@ class Age extends Component {
           unk[i - 1] = row[1];
         }
       }
-
+      console.log(m[2]);
+      console.log(f);
       this.setState({ sex: sex });
       console.log(this.state.sex);
       this.countAge();
@@ -138,7 +111,7 @@ class Age extends Component {
             mage["70s"],
             mage["80s"],
             mage["90s"],
-            //mage["Unknown"] + mage[undefined],
+            mage["Unknown"],
           ],
         },
         {
@@ -153,7 +126,7 @@ class Age extends Component {
             fage["70s"],
             fage["80s"],
             fage["90s"],
-            //fage["Unknown"] + fage[undefined],
+            fage["Unknown"],
           ],
         },
         {
@@ -168,7 +141,7 @@ class Age extends Component {
             tage["70s"],
             tage["80s"],
             tage["90s"],
-            //tage[undefined],
+            tage["Unknown"],
           ],
         },
         {
@@ -183,7 +156,7 @@ class Age extends Component {
             uage["70s"],
             uage["80s"],
             uage["90s"],
-            //uage[undefined],
+            uage["Unknown"],
           ],
         },
       ],
@@ -201,6 +174,13 @@ class Age extends Component {
         //title: { text: "Breakdown by Age and Sex" },
         dataLabels: {
           enabled: false,
+        },
+        fill: {
+          type: ["solid", "pattern"],
+          opacity: 1,
+          pattern: {
+            style: "slantedLines",
+          },
         },
 
         colors: [colours.green, colours.blue, colours.magenta, colours.black],
@@ -223,7 +203,7 @@ class Age extends Component {
             "70-79",
             "80-89",
             "90-99",
-            //"Unknown",
+            "Unknown",
           ],
           labels: {
             style: { ...labelStyle },
