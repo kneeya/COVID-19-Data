@@ -49,12 +49,18 @@ class Deaths extends Component {
         }
       ],
       options: {
-        chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
+        chart: {
+          height: 650,
+          width: "100%",
+          type: "line",
+          zoom: { enabled: true }
+        },
         stroke: stroke,
         tooltip: tooltip,
         dataLabels: {
           enabled: true,
-          style: { fontSize: dataLabelsSize }
+          style: { fontSize: dataLabelsSize },
+          textAnchor: "middle"
         },
         markers: {
           size: 4,

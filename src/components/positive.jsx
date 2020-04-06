@@ -26,7 +26,7 @@ class Positive extends Component {
     //copy the array
     const data = [...this.props.data];
 
-    //console.log('positive', data)
+    console.log("positive", data);
 
     const confi = data.map(function (row) {
       if (!row[5]) {
@@ -74,6 +74,7 @@ class Positive extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
+          textAnchor: "middle",
         },
         tooltip: tooltip,
         colors: [colours.red],
