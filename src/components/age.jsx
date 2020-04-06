@@ -7,7 +7,6 @@ class Age extends Component {
   constructor(props) {
     super(props);
     this.sortByAge = this.sortByAge.bind(this);
-    // this.countAge = this.countAge.bind(this);
     this.makeChart = this.makeChart.bind(this);
   }
   state = {
@@ -106,38 +105,6 @@ class Age extends Component {
       this.makeChart();
     }, 0.01);
   }
-  // countAge() {
-  // const sex = this.state.sex;
-  // var m = sex[0];
-  // var f = sex[1];
-  // var tran = sex[2];
-  // var unk = sex[3];
-  // var maleages = {};
-  // var femages = {};
-  // var tranages = {};
-  // var unkages = {};
-  // for (var i = 0, j = m.length; i < j; i++) {
-  //   maleages[m[i]] = (maleages[m[i]] || 0) + 1;
-  // }
-  // for (var t = 0, y = f.length; t < y; t++) {
-  //   femages[f[t]] = (femages[f[t]] || 0) + 1;
-  // }
-  // for (var x = 0, s = tran.length; x < s; x++) {
-  //   tranages[tran[x]] = (tranages[tran[x]] || 0) + 1;
-  // }
-  // for (var k = 0, c = unk.length; k < c; k++) {
-  //   unkages[unk[k]] = (unkages[unk[k]] || 0) + 1;
-  // }
-  // this.setState({
-  //   maleages: maleages,
-  //   femages: femages,
-  //   tranages: tranages,
-  //   unkages: unkages,
-  // });
-  // console.log(maleages, femages, tranages, unkages);
-  // // console.log(unkages[undefined], unkages["Unknown"]);
-  // this.makeChart();
-  //}
 
   makeChart() {
     const mage = this.state.maleages;
