@@ -36,6 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.apexcharts-svg {
+  overflow: initial !important;
+}
+
 /* use ds for grid */
 /* .chart {
   padding-left: 90px;
