@@ -16,12 +16,11 @@ class Regional extends Component {
   };
 
   componentDidMount() {
-    this.makeCities();
+    //this.makeCities();
   }
 
   makeCities() {
-    setTimeout(() => {
-      const data = this.state.data;
+      const data = this.props.data;
 
       const regions = [];
       for (var i = 1; i < data.length - 1; i++) {
@@ -30,7 +29,6 @@ class Regional extends Component {
       }
       this.setState({ regions: regions });
       this.makeOccurences();
-    }, 0.001);
   }
   makeOccurences() {
     var regions = this.state.regions;

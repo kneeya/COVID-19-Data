@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import {labelStyle, dataLabelsSize, tooltip, stroke, markers, legend} from "./options";
 
 class TotalTest extends Component {
   constructor(props) {
     super(props);
-    this.makeChart = this.makeChart.bind(this);
     this.setData = this.setData.bind(this);
   }
   state = {
@@ -20,8 +21,7 @@ class TotalTest extends Component {
   }
 
   setData() {
-    setTimeout(() => {
-      const data = this.state.data;
+      const data = [...this.props.data];
 
       var dates = [];
       var totaltest = [];
@@ -72,61 +72,50 @@ class TotalTest extends Component {
         dates: dates,
         confPos: confPos,
         resolved: resolved,
-        dead: dead
-      });
-      this.makeChart();
-    }, 0.001);
-  }
-
-  makeChart() {
-    const totalcases = this.state.totaltest;
-    const dates = this.state.dates;
-    const confPos = this.state.confPos;
-    const reso = this.state.resolved;
-    const dead = this.state.dead;
-
-    this.setState({
-      series: [
-        {
-          name: "Total Cases",
-          data: totalcases
-        },
-        {
-          name: "Confirmed Positives",
-          data: confPos
-        },
-        {
-          name: "Resolved",
-          data: reso
-        },
-        {
-          name: "Total Deaths",
-          data: dead
-        }
-      ]
-    });
-    this.setState({
-      options: {
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
-        title: { text: "Status of COVID-19 cases in Ontario" },
-        xaxis: {
-          categories: dates,
-          range: 30
-        },
-        colors: ["#2B8737", "#1080A6", "#92278F", "#0369ac"],
-        markers: {
-          size: 4,
-          colors: ["#c00264"],
-          strokeColors: "#fff",
-          strokeWidth: 2,
-          hover: {
-            size: 7
+        dead: dead,
+        series: [
+          {
+            name: "Total Cases",
+            data: totaltest
+          },
+          {
+            name: "Confirmed Positives",
+            data: confPos
+          },
+          {
+            name: "Resolved",
+            data: resolved
+          },
+          {
+            name: "Total Deaths",
+            data: dead
           }
-        }
-      }
-    });
+        ],
 
-    this.setState({ ready: true });
+        options: {
+          legend: legend,
+          tooltip: tooltip,
+          stroke: stroke,
+          chart: { height: 650, type: "line", zoom: { enabled: true } },
+          // title: { text: "Status of COVID-19 cases in Ontario" },
+          yaxis: {
+            labels: {
+              style: { ...labelStyle  }
+            }
+          },
+          xaxis: {
+            categories: dates,
+            range: 30,
+            labels: {
+              style: { ...labelStyle  }
+            }
+          },
+          colors: [colours.teal, colours.magenta, colours.orange, colours.green],
+          markers: markers
+        },
+        ready: true
+      });
+    
   }
 
   render() {

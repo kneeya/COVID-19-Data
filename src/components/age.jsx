@@ -13,9 +13,7 @@ class Age extends Component {
   }
 
   makeChart() {
-    setTimeout(() => {
-      this.setState({ data: this.props.data });
-      const data = this.state.data;
+      const data = this.state.props;
 
       var below = [];
       var majority = [];
@@ -41,7 +39,6 @@ class Age extends Component {
         elder = row[14];
       }
 
-      setTimeout(() => {
         var container = document.getElementById("age-gender");
         var data = {
           categories: ["> 64", "20-64", "< 20"],
@@ -70,8 +67,7 @@ class Age extends Component {
           }
         };
         chart.barChart(container, data, options);
-      }, 0.001);
-    }, 0.001);
+
   }
 
   render() {

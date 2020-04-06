@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import {labelStyle, dataLabelsSize, tooltip, stroke, markers, legend} from "./options";
 
 class Stacked extends Component {
   constructor(props) {
     super(props);
-    this.makeChart = this.makeChart.bind(this);
     this.setData = this.setData.bind(this);
   }
   state = {
@@ -20,12 +21,11 @@ class Stacked extends Component {
   }
 
   setData() {
-    setTimeout(() => {
-      this.setState({ data: this.props.data });
-      const data = this.state.data;
+      //copy the array
+      const data = [...this.props.data];
+      data.splice(1,29);
 
       var dates = [];
-
       var confPos = [];
       var resolved = [];
       var dead = [];
@@ -57,71 +57,73 @@ class Stacked extends Component {
           dead[i - 1] = row[7];
         }
       }
+
       this.setState({
         dates: dates,
         confPos: confPos,
         resolved: resolved,
-        dead: dead
-      });
-      this.makeChart();
-    }, 0.001);
-  }
-
-  makeChart() {
-    const dates = this.state.dates;
-    const confPos = this.state.confPos;
-    const reso = this.state.resolved;
-    const dead = this.state.dead;
-
-    this.setState({
-      series: [
-        {
-          name: "Confirmed Positives",
-          data: confPos
-        },
-        {
-          name: "Resolved",
-          data: reso
-        },
-        {
-          name: "Total Deaths",
-          data: dead
-        }
-      ]
-    });
-    this.setState({
-      options: {
-        title: { text: "Summary of Cases in Ontario" },
-        chart: {
-          type: "bar",
-          height: 650,
-          stacked: true,
-          toolbar: {
-            show: true
+        dead: dead,
+        series: [
+          {
+            name: "Confirmed Positives",
+            data: confPos
           },
-          zoom: { enabled: true }
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false
+          {
+            name: "Resolved",
+            data: resolved
+          },
+          {
+            name: "Total Deaths",
+            data: dead
+          }
+        ],
+        options: {
+          // title: { text: "Summary of Cases in Ontario" },
+          colors: [colours.blue, colours.yellow, colours.black],
+          legend: legend,
+          tooltip: tooltip,
+          chart: {
+            type: "bar",
+            height: 650,
+            stacked: true,
+            toolbar: {
+              show: true
+            },
+            zoom: { enabled: true }
+          },
+          plotOptions: {
+            bar: {
+              horizontal: false
+            }
+          },
+          dataLabels: {
+            enabled: false
+          },
+          yaxis: {
+            labels: {
+              style: { ...labelStyle  }
+            }
+          },
+          stroke: {
+            width: 2,
+            colors: ["#fff"]
+          },
+          xaxis: {
+            categories: dates,
+            range: 20,
+            labels: {
+              style: { ...labelStyle  }
+            }
+          },
+  
+          fill: {
+            opacity: 1
           }
         },
-        dataLabels: {
-          enabled: false
-        },
-        xaxis: {
-          categories: dates,
-          range: 20
-        },
-
-        fill: {
-          opacity: 1
-        }
-      }
-    });
-
-    this.setState({ ready: true });
+        ready: true 
+      });
   }
+
 
   render() {
     return (

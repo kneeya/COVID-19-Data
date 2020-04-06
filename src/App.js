@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 //import { readRemoteFile } from "react-papaparse";
+import "./ds.scss";
 import "./App.css";
 import Positive from "./components/positive.jsx";
 import TotalTest from "./components/totaltest.jsx";
@@ -77,24 +78,31 @@ class App extends Component {
       <React.Fragment>
         {this.state.loaded && this.state.ready ? (
           <React.Fragment>
-            <Stacked data={this.state.data} />
-            <div className="container">
+            <div className="ontario-row">
+              <h2>Summary of Cases in Ontario</h2>
+              <Stacked data={this.state.data} />
               <div className="item item-1">
+                <h2>Positive Cases of COVID-19 in Ontario</h2>
                 <Positive data={this.state.data} />
               </div>
               <div className="item item-2">
+                <h2>Status of COVID-19 cases in Ontario</h2>
                 <TotalTest data={this.state.data} />
               </div>
               <div className="item item-3">
+                <h2>Total Resolved from COVID-19 in Ontario</h2>
                 <Recovered data={this.state.data} />
               </div>
               <div className="item item-4">
+                <h2>Total COVID-19 related Deaths in Ontario</h2>
                 <Deaths data={this.state.data} />
               </div>
               <div className="item item-5">
+                <h2>Cases by City</h2>
                 <City casedata={this.state.casedata} />
               </div>
               <div className="item item-6">
+                <h2>Summary of Cases in Ontario</h2>
                 <Regional casedata={this.state.casedata} />
               </div>
 

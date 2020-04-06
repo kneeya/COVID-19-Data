@@ -1,0 +1,32 @@
+[class^=ontario-tag] {
+  border: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  padding: 0px 12px;
+  text-align: center;
+  text-decoration: none;
+  background: #cccccc;
+  color: #1a1a1a;
+}
+
+.ontario-tag--lime {
+  background: #8DC63F;
+}
+
+.ontario-tag--gold {
+  background: #CBA52E;
+}
+
+.ontario-tag--yellow {
+  background: #FCAF17;
+}
+
+.ontario-tag--taupe {
+  background: #C1B28F;
+}
