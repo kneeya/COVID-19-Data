@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import {
+  labelStyle,
+  dataLabelsSize,
+  tooltip,
+  stroke,
+  markers,
+  legend,
+} from "./options";
 
 class Age extends Component {
   constructor(props) {
@@ -21,7 +30,7 @@ class Age extends Component {
 
   sortByAge() {
     setTimeout(() => {
-      const data = this.state.data;
+      const data = this.props.casedata;
 
       const m = [];
       const f = [];
@@ -46,7 +55,7 @@ class Age extends Component {
       }
 
       this.setState({ sex: sex });
-      console.log(this.state.sex[0]);
+      //console.log(this.state.sex[0]);
       this.countAge();
     }, 0.001);
   }
@@ -82,8 +91,8 @@ class Age extends Component {
       unkages: unkages,
     });
 
-    console.log(maleages, femages, tranages, unkages);
-    console.log(unkages[undefined], unkages["Unknown"]);
+    // console.log(maleages, femages, tranages, unkages);
+    // console.log(unkages[undefined], unkages["Unknown"]);
 
     this.makeChart();
   }
@@ -160,14 +169,27 @@ class Age extends Component {
     });
     this.setState({
       options: {
-        chart: { height: 650, type: "bar", zoom: { enabled: true } },
-        title: { text: "Breakdown by Age and Sex" },
+        legend: legend,
+        tooltip: tooltip,
+        chart: {
+          height: 650,
+          width: "100%",
+          type: "bar",
+          zoom: { enabled: true },
+        },
+        //title: { text: "Breakdown by Age and Sex" },
         dataLabels: {
           enabled: false,
         },
-        colors: ["#D81A21", "#367A76", "#C64A1C", "#8A600D"],
+
+        colors: [colours.green, colours.blue, colours.magenta, colours.black],
         plotOptions: {
           bar: { horizontal: false },
+        },
+        yaxis: {
+          labels: {
+            style: { ...labelStyle },
+          },
         },
         xaxis: {
           categories: [
@@ -182,6 +204,9 @@ class Age extends Component {
             "90-99",
             "Unknown",
           ],
+          labels: {
+            style: { ...labelStyle },
+          },
         },
       },
     });
@@ -196,8 +221,6 @@ class Age extends Component {
             options={this.state.options}
             series={this.state.series}
             type="bar"
-            height={650}
-            width={1200}
           />
         ) : (
           ""
