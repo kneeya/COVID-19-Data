@@ -50,7 +50,7 @@ class Recovered extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
-          textAnchor: "end"
+          textAnchor: "middle"
         },
         stroke: stroke,
         chart: {

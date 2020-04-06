@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, dataLabelsSize, tooltip, stroke } from "./options";
-import "../App.css";
 
 class Positive extends Component {
   constructor(props) {
@@ -75,7 +74,7 @@ class Positive extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
-          textAnchor: "end"
+          textAnchor: "middle"
         },
         tooltip: tooltip,
         colors: [colours.red]

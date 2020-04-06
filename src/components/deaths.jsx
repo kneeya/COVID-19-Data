@@ -60,7 +60,7 @@ class Deaths extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
-          textAnchor: "end"
+          textAnchor: "middle"
         },
         markers: {
           size: 4,
