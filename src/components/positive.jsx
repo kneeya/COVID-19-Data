@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import {labelStyle, dataLabelsSize, tooltip, stroke} from "./options";
 
 class Positive extends Component {
   constructor(props) {
     super(props);
-    this.makeChart = this.makeChart.bind(this);
+    // this.makeChart = this.makeChart.bind(this);
     this.setData = this.setData.bind(this);
   }
   state = {
@@ -21,65 +23,66 @@ class Positive extends Component {
   }
 
   setData() {
-    setTimeout(() => {
-      const data = this.state.dataz;
+      //copy the array
+      const data = [...this.props.data];
 
-      const dates = [];
-      const confPos = [];
+      console.log('positive', data)
 
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
-
-        dates[i - 1] = row[0];
+      const confi = data.map(function(row) {
         if (!row[5]) {
-          if (!confPos[i - 2]) {
-            confPos[i - 1] = 0;
-          } else {
-            confPos[i - 1] = confPos[i - 2];
-          }
+          return 0;
         } else {
-          confPos[i - 1] = row[5];
+          return row[5];
         }
-      }
+      });
+      const confiPos = confi.slice(1, confi.length - 1);
 
-      this.setState({ confPosi: confPos, datez: dates });
-      this.makeChart();
-    }, 0.001);
-  }
+      const datez = data.map(function(row) {
+        return row[0];
+      });
+      const dates = datez.slice(1, datez.length - 1);
 
-  makeChart() {
-    const confPos = this.state.confPosi;
-    const dates = this.state.datez;
-
-    this.setState({
-      series: [
+      this.setState({ confPosi: confiPos, datez: dates, series: [
         {
           name: "Confirmed Positives",
-          data: confPos
+          data: confiPos
         }
-      ]
-    });
-    this.setState({
+      ],
       options: {
         chart: {
           height: 650,
           type: "line",
           zoom: { enabled: true }
         },
-        title: { text: "Positive Cases of COVID-19 in Ontario" },
-        xaxis: {
-          categories: dates
+        stroke: stroke,
+        // title: { text: "Positive Cases of COVID-19 in Ontario" },
+        yaxis: {
+          labels: {
+            style: { ...labelStyle  }
+          }
         },
-        colors: ["#C64A1C"]
+        xaxis: {
+          categories: dates,
+          range: 30,
+          labels: {
+            style: { ...labelStyle  }
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          style: { fontSize: dataLabelsSize  }
+        },
+        tooltip: tooltip,
+        colors: [colours.red]
         // responsive: [
         //   {
         //     breakpoint: "1000px",
         //     options: {}
         //   }
         // ]
-      }
+      },
+      ready: true
     });
-    this.setState({ ready: true });
   }
 
   render() {
@@ -90,8 +93,6 @@ class Positive extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
           />
         ) : (
           ""

@@ -16,12 +16,11 @@ class Regional extends Component {
   };
 
   componentDidMount() {
-    this.makeCities();
+    //this.makeCities();
   }
 
   makeCities() {
-    setTimeout(() => {
-      const data = this.state.data;
+      const data = this.props.data;
 
       const regions = [];
       for (var i = 1; i < data.length - 1; i++) {
@@ -30,7 +29,6 @@ class Regional extends Component {
       }
       this.setState({ regions: regions });
       this.makeOccurences();
-    }, 0.001);
   }
   makeOccurences() {
     var regions = this.state.regions;
@@ -47,14 +45,18 @@ class Regional extends Component {
       });
     var occ = Object.entries(ordered);
 
-    const region = [];
-    const cases = [];
+    const region = occ.map(function(inst) {
+      return inst[0];
+    });
+    const cases = occ.map(function(inst) {
+      return inst[1];
+    });
 
-    for (var q = 0; q < occ.length - 1; q++) {
-      var inst = occ[q];
-      region[q] = inst[0];
-      cases[q] = inst[1];
-    }
+    // for (var q = 0; q < occ.length - 1; q++) {
+    //   var inst = occ[q];
+    //   region[q] = inst[0];
+    //   cases[q] = inst[1];
+    // }
     this.setState({ region: region, cases: cases });
 
     this.makeChart();
@@ -73,7 +75,7 @@ class Regional extends Component {
     });
     this.setState({
       options: {
-        chart: { height: 650, type: "bar", zoom: { enabled: true } },
+        chart: { height: 1000,  width: "100%", type: "bar", zoom: { enabled: true } },
         title: { text: "Cases by Region" },
         dataLabels: {
           enabled: false
@@ -98,8 +100,7 @@ class Regional extends Component {
             options={this.state.options}
             series={this.state.series}
             type="bar"
-            height={650}
-            width={1200}
+            
           />
         ) : (
           ""

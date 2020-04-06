@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import { labelStyle, dataLabelsSize, tooltip, stroke } from "./options";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 class Deaths extends Component {
   constructor(props) {
     super(props);
-    this.makeChart = this.makeChart.bind(this);
     this.setData = this.setData.bind(this);
   }
   state = {
@@ -19,48 +20,41 @@ class Deaths extends Component {
   }
 
   setData() {
-    setTimeout(() => {
-      this.setState({ data: this.props.data });
-      const data = this.state.data;
+    const data = [...this.props.data];
 
-      var dates = [];
-      var dead = [];
+    data.splice(1, 35);
 
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
+    var dates = [];
+    var dead = [];
 
-        dates[i - 1] = row[0];
+    for (var i = 1; i < data.length - 1; i++) {
+      var row = data[i];
 
-        if (!row[7]) {
-          dead[i - 1] = 0;
-        } else {
-          dead[i - 1] = row[7];
-        }
+      dates[i - 1] = row[0];
+
+      if (!row[7]) {
+        dead[i - 1] = 0;
+      } else {
+        dead[i - 1] = row[7];
       }
-
-      this.setState({ dead: dead, dates: dates });
-      this.makeChart();
-    }, 0.001);
-  }
-
-  makeChart() {
-    const dead = this.state.dead;
-    const dates = this.state.dates;
+    }
 
     this.setState({
+      dead: dead,
+      dates: dates,
       series: [
         {
           name: "Total Deaths",
           data: dead
         }
-      ]
-    });
-    this.setState({
+      ],
       options: {
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
-        stroke: {
-          width: 7,
-          curve: "smooth"
+        chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
+        stroke: stroke,
+        tooltip: tooltip,
+        dataLabels: {
+          enabled: true,
+          style: { fontSize: dataLabelsSize }
         },
         markers: {
           size: 4,
@@ -71,14 +65,23 @@ class Deaths extends Component {
             size: 7
           }
         },
-        title: { text: "Total COVID-19 related Deaths in Ontario" },
-        xaxis: {
-          categories: dates
+        // title: { text: "Total COVID-19 related Deaths in Ontario" },
+        yaxis: {
+          labels: {
+            style: { ...labelStyle }
+          }
         },
-        colors: ["#7B725C"]
-      }
+        xaxis: {
+          categories: dates,
+          range: 20,
+          labels: {
+            style: { ...labelStyle }
+          }
+        },
+        colors: [colours.black]
+      },
+      ready: true
     });
-    this.setState({ ready: true });
   }
 
   render() {
@@ -89,8 +92,6 @@ class Deaths extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
           />
         ) : (
           ""

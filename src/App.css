@@ -36,11 +36,11 @@
     transform: rotate(360deg);
   }
 }
-
-.chart {
+/* use ds for grid */
+/* .chart {
   padding-left: 90px;
   padding-right: 90px;
-}
+} */
 
 /* .container {
   padding-left: 3rem;

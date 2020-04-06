@@ -1,0 +1,175 @@
+/*Greyscale background colours*/
+.ontario-bg-white {
+  background-color: #FFFFFF;
+}
+
+.ontario-bg-greyscale-5 {
+  background-color: #f2f2f2;
+}
+
+.ontario-bg-greyscale-20 {
+  background-color: #cccccc;
+}
+
+.ontario-bg-greyscale-40 {
+  background-color: #999999;
+}
+
+.ontario-bg-greyscale-60 {
+  background-color: #666666;
+}
+
+.ontario-bg-greyscale-70 {
+  background-color: #4d4d4d;
+}
+
+.ontario-bg-black {
+  background-color: #1a1a1a;
+}
+
+/*Main palette background colours*/
+.ontario-bg-gold {
+  background-color: #CBA52E;
+}
+
+.ontario-bg-yellow {
+  background-color: #FCAF17;
+}
+
+.ontario-bg-taupe {
+  background-color: #C1B28F;
+}
+
+.ontario-bg-green {
+  background-color: #39B54A;
+}
+
+.ontario-bg-lime {
+  background-color: #8DC63F;
+}
+
+.ontario-bg-teal {
+  background-color: #49A7A2;
+}
+
+.ontario-bg-sky {
+  background-color: #00B2E3;
+}
+
+.ontario-bg-blue {
+  background-color: #3193CC;
+}
+
+.ontario-bg-purple {
+  background-color: #B975B7;
+}
+
+.ontario-bg-orange {
+  background-color: #F15A22;
+}
+
+.ontario-bg-red {
+  background-color: #F0454B;
+}
+
+.ontario-bg-magenta {
+  background-color: #F03093;
+}
+
+/*Light palette background colours*/
+.ontario-bg-light-gold {
+  background-color: #F0E7CC;
+}
+
+.ontario-bg-light-yellow {
+  background-color: #F8E5C3;
+}
+
+.ontario-bg-light-taupe {
+  background-color: #EBE7DB;
+}
+
+.ontario-bg-light-green {
+  background-color: #D1EFD4;
+}
+
+.ontario-bg-light-lime {
+  background-color: #DDEDC7;
+}
+
+.ontario-bg-light-teal {
+  background-color: #CFEDED;
+}
+
+.ontario-bg-light-sky {
+  background-color: #C5EEFA;
+}
+
+.ontario-bg-light-blue {
+  background-color: #DBE9F5;
+}
+
+.ontario-bg-light-purple {
+  background-color: #F1E3F2;
+}
+
+.ontario-bg-light-orange {
+  background-color: #FEE1D9;
+}
+
+.ontario-bg-light-red {
+  background-color: #FFE0E2;
+}
+
+.ontario-bg-light-magenta {
+  background-color: #FEDFF0;
+}
+
+/*Dark palette background colours*/
+.ontario-bg-dark-gold {
+  background-color: #86743D;
+}
+
+.ontario-bg-dark-yellow {
+  background-color: #8A600D;
+}
+
+.ontario-bg-dark-taupe {
+  background-color: #7B725C;
+}
+
+.ontario-bg-dark-green {
+  background-color: #2B8737;
+}
+
+.ontario-bg-dark-lime {
+  background-color: #5F8129;
+}
+
+.ontario-bg-dark-teal {
+  background-color: #367A76;
+}
+
+.ontario-bg-dark-sky {
+  background-color: #1080A6;
+}
+
+.ontario-bg-dark-blue {
+  background-color: #0369ac;
+}
+
+.ontario-bg-dark-purple {
+  background-color: #92278F;
+}
+
+.ontario-bg-dark-orange {
+  background-color: #C64A1C;
+}
+
+.ontario-bg-dark-red {
+  background-color: #D81A21;
+}
+
+.ontario-bg-dark-magenta {
+  background-color: #C00264;
+}

@@ -12,7 +12,7 @@ class Age extends Component {
     data: this.props.casedata,
     ready: false,
     series: [{}],
-    options: {}
+    options: {},
   };
 
   componentDidMount() {
@@ -79,7 +79,7 @@ class Age extends Component {
       maleages: maleages,
       femages: femages,
       tranages: tranages,
-      unkages: unkages
+      unkages: unkages,
     });
 
     console.log(maleages, femages, tranages, unkages);
@@ -108,8 +108,8 @@ class Age extends Component {
             mage["70s"],
             mage["80s"],
             mage["90s"],
-            mage["Unknown"] + mage[undefined]
-          ]
+            mage["Unknown"] + mage[undefined],
+          ],
         },
         {
           name: "Female",
@@ -123,8 +123,8 @@ class Age extends Component {
             fage["70s"],
             fage["80s"],
             fage["90s"],
-            fage["Unknown"] + fage[undefined]
-          ]
+            fage["Unknown"] + fage[undefined],
+          ],
         },
         {
           name: "Transgender",
@@ -138,8 +138,8 @@ class Age extends Component {
             tage["70s"],
             tage["80s"],
             tage["90s"],
-            tage[undefined]
-          ]
+            tage[undefined],
+          ],
         },
         {
           name: "Unknown",
@@ -153,21 +153,21 @@ class Age extends Component {
             uage["70s"],
             uage["80s"],
             uage["90s"],
-            uage[undefined]
-          ]
-        }
-      ]
+            uage[undefined],
+          ],
+        },
+      ],
     });
     this.setState({
       options: {
         chart: { height: 650, type: "bar", zoom: { enabled: true } },
         title: { text: "Breakdown by Age and Sex" },
         dataLabels: {
-          enabled: false
+          enabled: false,
         },
         colors: ["#D81A21", "#367A76", "#C64A1C", "#8A600D"],
         plotOptions: {
-          bar: { horizontal: false }
+          bar: { horizontal: false },
         },
         xaxis: {
           categories: [
@@ -180,10 +180,10 @@ class Age extends Component {
             "70-79",
             "80-89",
             "90-99",
-            "Unknown"
-          ]
-        }
-      }
+            "Unknown",
+          ],
+        },
+      },
     });
     this.setState({ ready: true });
   }

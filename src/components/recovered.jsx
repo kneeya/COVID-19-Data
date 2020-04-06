@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
+import {labelStyle, tooltip, dataLabelsSize, stroke} from "./options";
+import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 class Recovered extends Component {
   constructor(props) {
     super(props);
-    this.makeChart = this.makeChart.bind(this);
     this.setData = this.setData.bind(this);
   }
   state = {
@@ -19,8 +20,7 @@ class Recovered extends Component {
   }
 
   setData() {
-    setTimeout(() => {
-      const data = this.state.data;
+      const data = [...this.props.data];
 
       var dates = [];
       var resolved = [];
@@ -36,38 +36,47 @@ class Recovered extends Component {
           resolved[i - 1] = row[6];
         }
       }
-      this.setState({ resolved: resolved, dates: dates });
-      this.makeChart();
-    }, 0.001);
-  }
-
-  makeChart() {
-    const reso = this.state.resolved;
-    const dates = this.state.dates;
-
-    this.setState({
-      series: [
+      this.setState({ resolved: resolved, dates: dates, series: [
         {
           name: "Resolved",
-          data: reso
+          data: resolved
         }
-      ]
-    });
-    this.setState({
+      ],
       options: {
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
-        title: { text: "Total Resolved from COVID-19 in Ontario" },
-        xaxis: {
-          categories: dates
-        },
-        colors: ["#0369ac"],
+        tooltip:tooltip,
         dataLabels: {
-          enabled: true
+          enabled: true,
+          style: { fontSize: dataLabelsSize  }
+        },
+        stroke: stroke,
+        chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
+        // title: { text: "Total Resolved from COVID-19 in Ontario" },
+        yaxis: {
+          labels: {
+            style: { ...labelStyle  }
+          }
+        },
+        xaxis: {
+          categories: dates,
+          range: 30,
+          labels: {
+            style: { ...labelStyle  }
+          }
+        },
+        colors: [colours.blue],
+        dataLabels: {
+          enabled: true,
+          style: { fontSize: dataLabelsSize  }
         }
-      }
+      },
+      ready: true
+  
     });
-    this.setState({ ready: true });
   }
+
+
+
+
 
   render() {
     return (
@@ -77,8 +86,7 @@ class Recovered extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
-            height={650}
-            width={1200}
+           
           />
         ) : (
           ""
