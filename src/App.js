@@ -123,7 +123,7 @@ class App extends Component {
               </div>
               <div className="item item-6">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Cases by Region
+                  Cases Reported by Public Health Units
                 </h2>
                 <Regional casedata={this.state.casedata} />
               </div>

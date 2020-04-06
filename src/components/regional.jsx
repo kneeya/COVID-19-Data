@@ -27,12 +27,12 @@ class City extends Component {
     const regions = [];
     for (var i = 1; i < data.length - 1; i++) {
       var row = data[i];
-      regions[i - 1] = row[5];
+      regions[i - 1] = row[6];
     }
     this.setState({ regions: regions });
 
     var occurrences = {};
-    for (var i = 0; i < regions.length; i++) {
+    for (i = 0; i < regions.length; i++) {
       occurrences[regions[i]] = (occurrences[regions[i]] || 0) + 1;
     }
 
@@ -44,18 +44,22 @@ class City extends Component {
       });
     var occ = Object.entries(ordered);
 
-    const region = occ.map(function (inst) {
+    const regionLong = occ.map(function (inst) {
       return inst[0];
     });
     const cases = occ.map(function (inst) {
       return inst[1];
     });
-
-    // for (var q = 0; q < occ.length - 1; q++) {
-    //   var inst = occ[q];
-    //   city[q] = inst[0];
-    //   cases[q] = inst[1];
-    // }
+    const region = regionLong.map(function (report) {
+      var pub = report.replace("Public", "");
+      var health = pub.replace("Health", "");
+      var unit = health.replace("Unit", "");
+      var dist = unit.replace("District", "");
+      var serv = dist.replace("Services", "");
+      var com = serv.replace("o,", "o");
+      var dept = com.replace("Department", "");
+      return dept;
+    });
 
     this.setState({
       region: region,
@@ -76,7 +80,7 @@ class City extends Component {
         //title: { text: "Cases by City" },
         dataLabels: {
           enabled: true,
-          offsetX: 30,
+          offsetX: 35,
           style: { ...labelStyle },
         },
         colors: [colours.orange],
@@ -99,11 +103,13 @@ class City extends Component {
         yaxis: {
           labels: {
             style: { ...labelStyle },
+            maxWidth: 500,
           },
         },
         xaxis: {
           categories: region,
           labels: {
+            show: true,
             style: { ...labelStyle },
           },
         },

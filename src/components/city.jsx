@@ -27,12 +27,12 @@ class City extends Component {
     const cities = [];
     for (var i = 1; i < data.length - 1; i++) {
       var row = data[i];
-      cities[i - 1] = row[7];
+      cities[i - 1] = row[8];
     }
     this.setState({ cities: cities });
 
     var occurrences = {};
-    for (var i = 0; i < cities.length; i++) {
+    for (i = 0; i < cities.length; i++) {
       occurrences[cities[i]] = (occurrences[cities[i]] || 0) + 1;
     }
 
