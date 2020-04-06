@@ -7,7 +7,7 @@ class Age extends Component {
   constructor(props) {
     super(props);
     this.sortByAge = this.sortByAge.bind(this);
-    this.countAge = this.countAge.bind(this);
+    // this.countAge = this.countAge.bind(this);
     this.makeChart = this.makeChart.bind(this);
   }
   state = {
@@ -25,71 +25,119 @@ class Age extends Component {
     setTimeout(() => {
       const data = this.props.casedata;
 
-      const m = [];
-      const f = [];
-      const tran = [];
-      const unk = [];
-      const sex = [m, f, tran, unk];
+      const m = data
+        .map(function (row) {
+          if (row[2] === "MALE") {
+            return row[1];
+          }
+        })
+        .filter(function (result) {
+          if (!result) {
+            return false;
+          } else {
+            return true;
+          }
+        });
 
-      for (var i = 1; i < data.length - 1; i++) {
-        var row = data[i];
-        if (row[2] === "MALE") {
-          m[i - 1] = row[1];
-        }
-        if (row[2] === "FEMALE") {
-          f[i - 1] = row[1];
-        }
-        if (row[2] === "TRANSGENDER") {
-          tran[i - 1] = row[1];
-        }
-        if (row[2] === "UNKNOWN") {
-          unk[i - 1] = row[1];
-        }
+      const f = data
+        .map(function (row) {
+          if (row[2] === "FEMALE") {
+            return row[1];
+          }
+        })
+        .filter(function (result) {
+          if (!result) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+
+      const tran = data
+        .map(function (row) {
+          if (row[2] === "TRANSGENDER") {
+            return row[1];
+          }
+        })
+        .filter(function (result) {
+          if (!result) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+      const unk = data
+        .map(function (row) {
+          if (row[2] === "UNKNOWN") {
+            return row[1];
+          }
+        })
+        .filter(function (result) {
+          if (!result) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+
+      var maleages = {};
+      var femages = {};
+      var tranages = {};
+      var unkages = {};
+
+      for (var i = 0, j = m.length; i < j; i++) {
+        maleages[m[i]] = (maleages[m[i]] || 0) + 1;
       }
-      console.log(m[2]);
-      console.log(f);
-      this.setState({ sex: sex });
-      console.log(this.state.sex);
-      this.countAge();
+      for (var t = 0, y = f.length; t < y; t++) {
+        femages[f[t]] = (femages[f[t]] || 0) + 1;
+      }
+      for (var x = 0, s = tran.length; x < s; x++) {
+        tranages[tran[x]] = (tranages[tran[x]] || 0) + 1;
+      }
+      for (var k = 0, c = unk.length; k < c; k++) {
+        unkages[unk[k]] = (unkages[unk[k]] || 0) + 1;
+      }
+      this.setState({
+        maleages: maleages,
+        femages: femages,
+        tranages: tranages,
+        unkages: unkages,
+      });
+      this.makeChart();
     }, 0.01);
   }
-  countAge() {
-    const sex = this.state.sex;
-    var male = sex[0];
-    var fem = sex[1];
-    var tran = sex[2];
-    var unk = sex[3];
-
-    var maleages = {};
-    var femages = {};
-    var tranages = {};
-    var unkages = {};
-
-    for (var i = 0, j = male.length; i < j; i++) {
-      maleages[male[i]] = (maleages[male[i]] || 0) + 1;
-    }
-    for (var t = 0, y = fem.length; t < y; t++) {
-      femages[fem[t]] = (femages[fem[t]] || 0) + 1;
-    }
-    for (var m = 0, s = tran.length; m < s; m++) {
-      tranages[tran[m]] = (tranages[tran[m]] || 0) + 1;
-    }
-    for (var k = 0, c = unk.length; k < c; k++) {
-      unkages[unk[k]] = (unkages[unk[k]] || 0) + 1;
-    }
-
-    this.setState({
-      maleages: maleages,
-      femages: femages,
-      tranages: tranages,
-      unkages: unkages,
-    });
-
-    // console.log(maleages, femages, tranages, unkages);
-    // console.log(unkages[undefined], unkages["Unknown"]);
-
-    this.makeChart();
-  }
+  // countAge() {
+  // const sex = this.state.sex;
+  // var m = sex[0];
+  // var f = sex[1];
+  // var tran = sex[2];
+  // var unk = sex[3];
+  // var maleages = {};
+  // var femages = {};
+  // var tranages = {};
+  // var unkages = {};
+  // for (var i = 0, j = m.length; i < j; i++) {
+  //   maleages[m[i]] = (maleages[m[i]] || 0) + 1;
+  // }
+  // for (var t = 0, y = f.length; t < y; t++) {
+  //   femages[f[t]] = (femages[f[t]] || 0) + 1;
+  // }
+  // for (var x = 0, s = tran.length; x < s; x++) {
+  //   tranages[tran[x]] = (tranages[tran[x]] || 0) + 1;
+  // }
+  // for (var k = 0, c = unk.length; k < c; k++) {
+  //   unkages[unk[k]] = (unkages[unk[k]] || 0) + 1;
+  // }
+  // this.setState({
+  //   maleages: maleages,
+  //   femages: femages,
+  //   tranages: tranages,
+  //   unkages: unkages,
+  // });
+  // console.log(maleages, femages, tranages, unkages);
+  // // console.log(unkages[undefined], unkages["Unknown"]);
+  // this.makeChart();
+  //}
 
   makeChart() {
     const mage = this.state.maleages;
