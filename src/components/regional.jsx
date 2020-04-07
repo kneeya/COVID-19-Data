@@ -30,10 +30,13 @@ class City extends Component {
       regions[i - 1] = row[6];
     }
     this.setState({ regions: regions });
-
+    const regionLong = regions.map(function (report) {
+      var wloo = report.replace("Region of Waterloo,", "Waterloo Region");
+      return wloo;
+    });
     var occurrences = {};
-    for (i = 0; i < regions.length; i++) {
-      occurrences[regions[i]] = (occurrences[regions[i]] || 0) + 1;
+    for (i = 0; i < regionLong.length; i++) {
+      occurrences[regionLong[i]] = (occurrences[regionLong[i]] || 0) + 1;
     }
 
     const ordered = {};
@@ -44,21 +47,11 @@ class City extends Component {
       });
     var occ = Object.entries(ordered);
 
-    const regionLong = occ.map(function (inst) {
+    const region = occ.map(function (inst) {
       return inst[0];
     });
     const cases = occ.map(function (inst) {
       return inst[1];
-    });
-    const region = regionLong.map(function (report) {
-      var wloo = report.replace("Region of Waterloo,", "Waterloo Region");
-      // var health = pub.replace("Health", "");
-      // var unit = health.replace("Unit", "");
-      // var dist = unit.replace("District", "");
-      // var serv = dist.replace("Services", "");
-      // var com = serv.replace("o,", "o");
-      // var dept = com.replace("Department", "");
-      return wloo;
     });
 
     this.setState({
