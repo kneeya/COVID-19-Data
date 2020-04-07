@@ -51,14 +51,14 @@ class City extends Component {
       return inst[1];
     });
     const region = regionLong.map(function (report) {
-      var pub = report.replace("Public", "");
-      var health = pub.replace("Health", "");
-      var unit = health.replace("Unit", "");
-      var dist = unit.replace("District", "");
-      var serv = dist.replace("Services", "");
-      var com = serv.replace("o,", "o");
-      var dept = com.replace("Department", "");
-      return dept;
+      var wloo = report.replace("Region of Waterloo,", "Waterloo Region");
+      // var health = pub.replace("Health", "");
+      // var unit = health.replace("Unit", "");
+      // var dist = unit.replace("District", "");
+      // var serv = dist.replace("Services", "");
+      // var com = serv.replace("o,", "o");
+      // var dept = com.replace("Department", "");
+      return wloo;
     });
 
     this.setState({
@@ -80,7 +80,8 @@ class City extends Component {
         //title: { text: "Cases by City" },
         dataLabels: {
           enabled: true,
-          offsetX: 35,
+          textAnchor: "end",
+          offsetX: -30,
           style: { ...labelStyle },
         },
         colors: [colours.orange],
@@ -88,7 +89,7 @@ class City extends Component {
           bar: {
             horizontal: true,
             dataLabels: {
-              position: "top",
+              position: "bottom",
             },
           },
         },
@@ -101,6 +102,7 @@ class City extends Component {
           },
         },
         yaxis: {
+          reversed: true,
           labels: {
             style: { ...labelStyle },
             maxWidth: 500,

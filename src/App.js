@@ -91,36 +91,20 @@ class App extends Component {
                 Summary of Cases in Ontario
               </h2>
               <Stacked data={this.state.data} />
-              <div className="item item-1">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Positive Cases of COVID-19 in Ontario
-                </h2>
-                <Positive data={this.state.data} />
-              </div>
+
               <div className="item item-2">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   Status of COVID-19 cases in Ontario
                 </h2>
                 <TotalTest data={this.state.data} />
               </div>
-              <div className="item item-3">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Total Resolved from COVID-19 in Ontario
-                </h2>
-                <Recovered data={this.state.data} />
-              </div>
-              <div className="item item-4">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Total COVID-19 related Deaths in Ontario
-                </h2>
-                <Deaths data={this.state.data} />
-              </div>
-              <div className="item item-5">
+
+              {/* <div className="item item-5">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   Cases by City
                 </h2>
                 <City casedata={this.state.casedata} />
-              </div>
+              </div> */}
               <div className="item item-6">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   Cases Reported by Public Health Units
@@ -133,6 +117,24 @@ class App extends Component {
                   Breakdown by Age and Sex
                 </h2>
                 <Age casedata={this.state.casedata} />
+              </div>
+              <div className="item item-1">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Positive Cases of COVID-19 in Ontario
+                </h2>
+                <Positive data={this.state.data} />
+              </div>
+              <div className="item item-3">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Total Resolved from COVID-19 in Ontario
+                </h2>
+                <Recovered data={this.state.data} />
+              </div>
+              <div className="item item-4">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Total COVID-19 related Deaths in Ontario
+                </h2>
+                <Deaths data={this.state.data} />
               </div>
             </div>
           </React.Fragment>
