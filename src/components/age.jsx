@@ -26,8 +26,8 @@ class Age extends Component {
 
       const m = data
         .map(function (row) {
-          if (row[2] === "MALE") {
-            return row[1];
+          if (row[3] === "MALE") {
+            return row[2];
           }
         })
         .filter(function (result) {
@@ -40,8 +40,8 @@ class Age extends Component {
 
       const f = data
         .map(function (row) {
-          if (row[2] === "FEMALE") {
-            return row[1];
+          if (row[3] === "FEMALE") {
+            return row[2];
           }
         })
         .filter(function (result) {
@@ -54,8 +54,8 @@ class Age extends Component {
 
       const tran = data
         .map(function (row) {
-          if (row[2] === "TRANSGENDER") {
-            return row[1];
+          if (row[3] === "TRANSGENDER") {
+            return row[2];
           }
         })
         .filter(function (result) {
@@ -67,8 +67,8 @@ class Age extends Component {
         });
       const unk = data
         .map(function (row) {
-          if (row[2] === "UNKNOWN") {
-            return row[1];
+          if (row[3] === "UNKNOWN") {
+            return row[2];
           }
         })
         .filter(function (result) {

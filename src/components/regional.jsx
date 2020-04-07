@@ -27,13 +27,16 @@ class City extends Component {
     const regions = [];
     for (var i = 1; i < data.length - 1; i++) {
       var row = data[i];
-      regions[i - 1] = row[5];
+      regions[i - 1] = row[6];
     }
     this.setState({ regions: regions });
-
+    const regionLong = regions.map(function (report) {
+      var wloo = report.replace("Region of Waterloo,", "Waterloo Region");
+      return wloo;
+    });
     var occurrences = {};
-    for (var i = 0; i < regions.length; i++) {
-      occurrences[regions[i]] = (occurrences[regions[i]] || 0) + 1;
+    for (i = 0; i < regionLong.length; i++) {
+      occurrences[regionLong[i]] = (occurrences[regionLong[i]] || 0) + 1;
     }
 
     const ordered = {};
@@ -50,12 +53,6 @@ class City extends Component {
     const cases = occ.map(function (inst) {
       return inst[1];
     });
-
-    // for (var q = 0; q < occ.length - 1; q++) {
-    //   var inst = occ[q];
-    //   city[q] = inst[0];
-    //   cases[q] = inst[1];
-    // }
 
     this.setState({
       region: region,
@@ -76,7 +73,8 @@ class City extends Component {
         //title: { text: "Cases by City" },
         dataLabels: {
           enabled: true,
-          offsetX: 30,
+          textAnchor: "end",
+          offsetX: -30,
           style: { ...labelStyle },
         },
         colors: [colours.orange],
@@ -84,7 +82,7 @@ class City extends Component {
           bar: {
             horizontal: true,
             dataLabels: {
-              position: "top",
+              position: "bottom",
             },
           },
         },
@@ -97,13 +95,16 @@ class City extends Component {
           },
         },
         yaxis: {
+          reversed: true,
           labels: {
             style: { ...labelStyle },
+            maxWidth: 500,
           },
         },
         xaxis: {
           categories: region,
           labels: {
+            show: true,
             style: { ...labelStyle },
           },
         },
