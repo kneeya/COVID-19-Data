@@ -12,6 +12,7 @@ import Age from "./components/age.jsx";
 import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
 import AgeBreak from "./components/agebreak.jsx";
+import SexBreak from "./components/sexbreak.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -121,9 +122,15 @@ class App extends Component {
               </div>
               <div className="item item-7">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Breakdown by Age and Sex
+                  Case Breakdown by Age
                 </h2>
                 <AgeBreak casedata={this.state.casedata} />
+              </div>
+              <div className="item item-7">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Case Breakdown by Sex
+                </h2>
+                <SexBreak casedata={this.state.casedata} />
               </div>
               <div className="item item-1">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">

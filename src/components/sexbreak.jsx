@@ -4,7 +4,7 @@ import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsive } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 
-class AgeBreak extends Component {
+class SexBreak extends Component {
   constructor(props) {
     super(props);
     this.sortByAge = this.sortByAge.bind(this);
@@ -28,7 +28,7 @@ class AgeBreak extends Component {
       const reso = data
         .map(function (row) {
           if (row[5] === "Resolved") {
-            return row[2];
+            return row[3];
           }
         })
         .filter(function (result) {
@@ -42,7 +42,7 @@ class AgeBreak extends Component {
       const active = data
         .map(function (row) {
           if (row[5] === "Not Resolved") {
-            return row[2];
+            return row[3];
           }
         })
         .filter(function (result) {
@@ -56,7 +56,7 @@ class AgeBreak extends Component {
       const fatal = data
         .map(function (row) {
           if (row[5] === "Fatal") {
-            return row[2];
+            return row[3];
           }
         })
         .filter(function (result) {
@@ -68,77 +68,47 @@ class AgeBreak extends Component {
         });
       console.log(reso, active, fatal);
 
-      var activeages = {};
-      var resoages = {};
-      var fatalages = {};
+      var activesex = {};
+      var resosex = {};
+      var fatalsex = {};
 
       for (var i = 0, j = active.length; i < j; i++) {
-        activeages[active[i]] = (activeages[active[i]] || 0) + 1;
+        activesex[active[i]] = (activesex[active[i]] || 0) + 1;
       }
       for (var t = 0, y = reso.length; t < y; t++) {
-        resoages[reso[t]] = (resoages[reso[t]] || 0) + 1;
+        resosex[reso[t]] = (resosex[reso[t]] || 0) + 1;
       }
       for (var x = 0, s = fatal.length; x < s; x++) {
-        fatalages[fatal[x]] = (fatalages[fatal[x]] || 0) + 1;
+        fatalsex[fatal[x]] = (fatalsex[fatal[x]] || 0) + 1;
       }
-      console.log(fatalages);
+
       this.setState({
-        activeages: activeages,
-        resoages: resoages,
-        fatalages: fatalages,
+        activesex: activesex,
+        resosex: resosex,
+        fatalsex: fatalsex,
       });
       this.makeChart();
     }, 0.01);
   }
 
   makeChart() {
-    const aage = this.state.activeages;
-    const rage = this.state.resoages;
-    const fage = this.state.fatalages;
+    const asex = this.state.activesex;
+    const rsex = this.state.resosex;
+    const fsex = this.state.fatalsex;
 
     this.setState({
       series: [
         {
           name: "Active",
-          data: [
-            aage["<20"],
-            aage["20s"],
-            aage["30s"],
-            aage["40s"],
-            aage["50s"],
-            aage["60s"],
-            aage["70s"],
-            aage["80s"],
-            aage["90s"],
-          ],
+          data: [asex["MALE"], asex["FEMALE"], asex["TRANSGENDER"]],
         },
         {
           name: "Resolved",
-          data: [
-            rage["<20"],
-            rage["20s"],
-            rage["30s"],
-            rage["40s"],
-            rage["50s"],
-            rage["60s"],
-            rage["70s"],
-            rage["80s"],
-            rage["90s"],
-          ],
+          data: [rsex["MALE"], rsex["FEMALE"], rsex["TRANSGENDER"]],
         },
         {
           name: "Fatal",
-          data: [
-            fage["<20"],
-            fage["20s"],
-            fage["30s"],
-            fage["40s"],
-            fage["50s"],
-            fage["60s"],
-            fage["70s"],
-            fage["80s"],
-            fage["90s"],
-          ],
+          data: [fsex["MALE"], fsex["FEMALE"], fsex["TRANSGENDER"]],
         },
       ],
     });
@@ -166,7 +136,7 @@ class AgeBreak extends Component {
           },
         },
 
-        colors: [colours.blue, colours.black, colours.green, colours.magenta],
+        colors: [colours.magenta, colours.green, colours.blue, colours.black],
         plotOptions: {
           bar: { horizontal: false },
         },
@@ -176,31 +146,19 @@ class AgeBreak extends Component {
           },
         },
         xaxis: {
-          categories: [
-            "Under 20",
-            "20-29",
-            "30-39",
-            "40-49",
-            "50-59",
-            "60-69",
-            "70-79",
-            "80-89",
-            "90-99",
-          ],
+          categories: ["Male", "Female", "Transgender"],
           labels: {
             style: { ...labelStyle },
           },
         },
       },
     });
-
-    var a = aage["UNKNOWN"] || 0;
-    var b = rage["UNKNOWN"] || 0;
-    var c = fage["UNKNOWN"] || 0;
+    var a = asex["UNKNOWN"] || 0;
+    var b = rsex["UNKNOWN"] || 0;
+    var c = fsex["UNKNOWN"] || 0;
 
     var unknowns = a + b + c;
     this.setState({ ready: true, unk: unknowns });
-    this.setState({ ready: true });
   }
 
   render() {
@@ -213,7 +171,7 @@ class AgeBreak extends Component {
               series={this.state.series}
               type="bar"
             />
-            <p>There are {this.state.unk} cases of unknown age. </p>
+            <p>There are {this.state.unk} cases of unknown sex. </p>
           </React.Fragment>
         ) : (
           ""
@@ -222,4 +180,4 @@ class AgeBreak extends Component {
     );
   }
 }
-export default AgeBreak;
+export default SexBreak;
