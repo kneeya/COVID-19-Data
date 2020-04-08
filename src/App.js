@@ -22,7 +22,7 @@ class App extends Component {
     this.dataParseCase = this.dataParseCase.bind(this);
     this.storeCaseData = this.storeCaseData.bind(this);
   }
-  state = { loading: false, ready: false, lang: "en" };
+  state = { loading: false, ready: false, lang: "fr" };
 
   componentDidMount() {
     this.dataParse();
@@ -85,15 +85,15 @@ class App extends Component {
               <h1>{trans.hero.title[lang]}</h1>
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                {trans.stacked.positive[lang]}
+                {trans.stacked.title[lang]}
               </h2>
               <Stacked data={this.state.data} lang={lang} />
 
               <div className="item item-2">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Status of COVID-19 cases in Ontario
+                  {trans.totaltest.title[lang]}
                 </h2>
-                <TotalTest data={this.state.data} />
+                <TotalTest data={this.state.data} lang={lang} />
               </div>
 
               {/* <div className="item item-5">
@@ -104,9 +104,9 @@ class App extends Component {
               </div> */}
               <div className="item item-6">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Cases Reported by Public Health Units
+                  {trans.regional.title[lang]}
                 </h2>
-                <Regional casedata={this.state.casedata} />
+                <Regional casedata={this.state.casedata} lang={lang} />
               </div>
 
               <div className="item item-7">

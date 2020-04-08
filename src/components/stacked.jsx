@@ -66,15 +66,15 @@ class Stacked extends Component {
       dead: dead,
       series: [
         {
-          name: "Confirmed Positives",
+          name: trans.stacked.positive[this.props.lang],
           data: confPos,
         },
         {
-          name: "Resolved",
+          name: trans.stacked.resolved[this.props.lang],
           data: resolved,
         },
         {
-          name: "Total Deaths",
+          name: trans.stacked.deaths[this.props.lang],
           data: dead,
         },
       ],

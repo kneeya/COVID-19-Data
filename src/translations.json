@@ -10,9 +10,49 @@
     }
   },
   "stacked": {
-    "positive": {
+    "title": {
       "en": "Summary of Cases in Ontario",
       "fr": "Summary of Cases in Ontario FR"
+    },
+    "positive": {
+      "en": "Confirmed Positives",
+      "fr": "Confirmed Positives FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Total Deaths",
+      "fr": "Total Deaths FR"
+    }
+  },
+  "totaltest": {
+    "title": {
+      "en": "Status of COVID-19 cases in Ontario",
+      "fr": "Status of COVID-19 cases in Ontario FR"
+    },
+    "total": {
+      "en": "Total Cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Confirmed Positives",
+      "fr": "Confirmed Positives FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Total Deaths",
+      "fr": "Total Deaths FR"
+    }
+  },
+  "regional": {
+    "title": {
+      "en": "Cases Reported by Public Health Units",
+      "fr": "Cases Reported by Public Health Units FR"
     }
   }
 }

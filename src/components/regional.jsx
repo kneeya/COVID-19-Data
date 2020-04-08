@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, responsive  } from "./options";
+import { labelStyle, tooltip, responsive } from "./options";
+import trans from "../translations.json";
 
 class City extends Component {
   constructor(props) {
@@ -70,26 +71,28 @@ class City extends Component {
             options: {
               chart: {
                 width: "680px",
-                height: "1000px"
-              }
-            }
-          },{
+                height: "1000px",
+              },
+            },
+          },
+          {
             breakpoint: 1163,
             options: {
               chart: {
                 height: "1000px",
                 width: "100%",
-              }
-            }
-          }, {
+              },
+            },
+          },
+          {
             breakpoint: 1530,
             options: {
               chart: {
                 height: "1000px",
                 width: "100%",
-              }
-            }
-          }
+              },
+            },
+          },
         ],
         chart: {
           type: "bar",
