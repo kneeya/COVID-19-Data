@@ -66,7 +66,7 @@ class SexBreak extends Component {
             return true;
           }
         });
-      console.log(reso, active, fatal);
+      // console.log(reso, active, fatal);
 
       var activesex = {};
       var resosex = {};

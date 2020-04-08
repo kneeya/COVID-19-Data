@@ -66,7 +66,7 @@ class AgeBreak extends Component {
             return true;
           }
         });
-      console.log(reso, active, fatal);
+      //console.log(reso, active, fatal);
 
       var activeages = {};
       var resoages = {};
@@ -81,7 +81,7 @@ class AgeBreak extends Component {
       for (var x = 0, s = fatal.length; x < s; x++) {
         fatalages[fatal[x]] = (fatalages[fatal[x]] || 0) + 1;
       }
-      console.log(fatalages);
+      //console.log(fatalages);
       this.setState({
         activeages: activeages,
         resoages: resoages,
@@ -129,15 +129,15 @@ class AgeBreak extends Component {
         {
           name: "Fatal",
           data: [
-            fage["<20"],
-            fage["20s"],
-            fage["30s"],
-            fage["40s"],
-            fage["50s"],
-            fage["60s"],
-            fage["70s"],
-            fage["80s"],
-            fage["90s"],
+            fage["<20"] || 0,
+            fage["20s"] || 0,
+            fage["30s"] || 0,
+            fage["40s"] || 0,
+            fage["50s"] || 0,
+            fage["60s"] || 0,
+            fage["70s"] || 0,
+            fage["80s"] || 0,
+            fage["90s"] || 0,
           ],
         },
       ],
