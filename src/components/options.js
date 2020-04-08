@@ -76,7 +76,7 @@ export const responsive = [
         breakpoint: 1530,
         options: {
           chart: {
-            height: "650px",
+            height: "500px",
             width: "100%",
           },
           xaxis: {
