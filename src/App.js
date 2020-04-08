@@ -11,7 +11,12 @@ import Loading from "./components/loading/loading.jsx";
 import Age from "./components/age.jsx";
 import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
+<<<<<<< HEAD
 import trans from "./translations.json";
+=======
+import AgeBreak from "./components/agebreak.jsx";
+import SexBreak from "./components/sexbreak.jsx";
+>>>>>>> b687624afdc85048f9b278d7c05e20a975852b5f
 
 class App extends Component {
   constructor(props) {
@@ -114,6 +119,18 @@ class App extends Component {
                   Breakdown by Age and Sex
                 </h2>
                 <Age casedata={this.state.casedata} />
+              </div>
+              <div className="item item-7">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Case Breakdown by Age
+                </h2>
+                <AgeBreak casedata={this.state.casedata} />
+              </div>
+              <div className="item item-7">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Case Breakdown by Sex
+                </h2>
+                <SexBreak casedata={this.state.casedata} />
               </div>
               <div className="item item-1">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
