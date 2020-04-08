@@ -13,6 +13,7 @@ import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
 import AgeBreak from "./components/agebreak.jsx";
 import SexBreak from "./components/sexbreak.jsx";
+import RegBreak from "./components/regbreak.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class App extends Component {
   storeCaseData(results) {
     let parsedD = results.data;
     this.setState({ casedata: parsedD, ready: true });
-    console.log(this.state.casedata);
+    // console.log(this.state.casedata);
   }
 
   dataParse() {
@@ -66,7 +67,7 @@ class App extends Component {
     // );
   }
   display() {
-    console.log(this.state.data);
+    //console.log(this.state.data);
     this.setState({ loaded: true });
   }
 
@@ -112,6 +113,13 @@ class App extends Component {
                   Cases Reported by Public Health Units
                 </h2>
                 <Regional casedata={this.state.casedata} />
+              </div>
+
+              <div className="item item-6">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Breakdown of Cases Reported by Public Health Units
+                </h2>
+                <RegBreak casedata={this.state.casedata} />
               </div>
 
               <div className="item item-7">
