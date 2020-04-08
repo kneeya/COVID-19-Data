@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
-import { labelStyle, tooltip, dataLabelsSize, stroke } from "./options";
+import { labelStyle, tooltip, dataLabelsSize, stroke, responsive } from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 class Recovered extends Component {
@@ -47,6 +47,7 @@ class Recovered extends Component {
       ],
       options: {
         tooltip: tooltip,
+        responsive: responsive,
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },

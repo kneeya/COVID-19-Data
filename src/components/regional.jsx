@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip } from "./options";
+import { labelStyle, tooltip, responsive  } from "./options";
 
 class City extends Component {
   constructor(props) {
@@ -64,17 +64,42 @@ class City extends Component {
         },
       ],
       options: {
+        responsive: [
+          {
+            breakpoint: 640,
+            options: {
+              chart: {
+                width: "680px",
+                height: "1000px"
+              }
+            }
+          },{
+            breakpoint: 1163,
+            options: {
+              chart: {
+                height: "1000px",
+                width: "100%",
+              }
+            }
+          }, {
+            breakpoint: 1530,
+            options: {
+              chart: {
+                height: "1000px",
+                width: "100%",
+              }
+            }
+          }
+        ],
         chart: {
-          height: 1000,
-          width: "100%",
           type: "bar",
           zoom: { enabled: true },
         },
         //title: { text: "Cases by City" },
         dataLabels: {
           enabled: true,
-          textAnchor: "end",
-          offsetX: -30,
+          textAnchor: "start",
+          offsetX: -50,
           style: { ...labelStyle },
         },
         colors: [colours.orange],
@@ -98,7 +123,7 @@ class City extends Component {
           reversed: true,
           labels: {
             style: { ...labelStyle },
-            maxWidth: 500,
+            maxWidth: 440,
           },
         },
         xaxis: {

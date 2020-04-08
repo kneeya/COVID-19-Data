@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
-import { labelStyle, dataLabelsSize, tooltip, stroke } from "./options";
+import { labelStyle, dataLabelsSize, tooltip, stroke, responsive } from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 class Deaths extends Component {
@@ -50,11 +50,10 @@ class Deaths extends Component {
       ],
       options: {
         chart: {
-          height: 650,
-          width: "100%",
           type: "line",
           zoom: { enabled: true }
         },
+        responsive: responsive,
         stroke: stroke,
         tooltip: tooltip,
         dataLabels: {

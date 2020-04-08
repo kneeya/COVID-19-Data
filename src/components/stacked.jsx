@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import {labelStyle, dataLabelsSize, tooltip, stroke, markers, legend} from "./options";
-
+import {labelStyle, tooltip, legend, responsive} from "./options";
 class Stacked extends Component {
   constructor(props) {
     super(props);
@@ -84,8 +83,6 @@ class Stacked extends Component {
           tooltip: tooltip,
           chart: {
             type: "bar",
-            height: 500,
-            width: "100%",
             stacked: true,
             toolbar: {
               show: true
@@ -116,7 +113,7 @@ class Stacked extends Component {
               style: { ...labelStyle  }
             }
           },
-  
+          responsive: responsive,
           fill: {
             opacity: 1
           }
