@@ -11,7 +11,8 @@ import Loading from "./components/loading/loading.jsx";
 import Age from "./components/age.jsx";
 import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
-import trans from "./translations.json"
+import trans from "./translations.json";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,7 @@ class App extends Component {
     this.dataParseCase = this.dataParseCase.bind(this);
     this.storeCaseData = this.storeCaseData.bind(this);
   }
-  state = { loading: false, ready: false, lang: "fr" };
+  state = { loading: false, ready: false, lang: "en" };
 
   componentDidMount() {
     this.dataParse();
@@ -74,7 +75,6 @@ class App extends Component {
     this.display();
   }
   render() {
-
     const lang = this.state.lang;
 
     return (
@@ -83,13 +83,11 @@ class App extends Component {
           <React.Fragment>
             <div className="ontario-row">
               <h1>{trans.hero.title[lang]}</h1>
-              <p className="ontario-lead-statement">
-              {trans.hero.lead[lang]}
-              </p>
+              <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                Summary of Cases in Ontario
+                {trans.stacked.positive[lang]}
               </h2>
-              <Stacked data={this.state.data} lang={lang}/>
+              <Stacked data={this.state.data} lang={lang} />
 
               <div className="item item-2">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
