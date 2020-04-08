@@ -11,7 +11,7 @@ import Loading from "./components/loading/loading.jsx";
 import Age from "./components/age.jsx";
 import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
-
+import trans from "./translations.json"
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class App extends Component {
     this.dataParseCase = this.dataParseCase.bind(this);
     this.storeCaseData = this.storeCaseData.bind(this);
   }
-  state = { loading: false, ready: false };
+  state = { loading: false, ready: false, lang: "fr" };
 
   componentDidMount() {
     this.dataParse();
@@ -74,23 +74,22 @@ class App extends Component {
     this.display();
   }
   render() {
+
+    const lang = this.state.lang;
+
     return (
       <React.Fragment>
         {this.state.loaded && this.state.ready ? (
           <React.Fragment>
             <div className="ontario-row">
-              <h1>Ontario COVID-19 Data</h1>
+              <h1>{trans.hero.title[lang]}</h1>
               <p className="ontario-lead-statement">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+              {trans.hero.lead[lang]}
               </p>
-
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Summary of Cases in Ontario
               </h2>
-              <Stacked data={this.state.data} />
+              <Stacked data={this.state.data} lang={lang}/>
 
               <div className="item item-2">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">

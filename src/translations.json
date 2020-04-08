@@ -1,0 +1,18 @@
+{
+    "hero": {
+        "title": {
+            "en": "Ontario COVID-19 Data",
+            "fr": "Ontario COVID-19 Data FR"
+        },
+        "lead": {
+            "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. FR"
+        }
+    },
+    "stacked":{
+        "positive": {
+            "en": "Positive bla bla",
+            "fr": ""
+        }
+    }
+}
