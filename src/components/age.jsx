@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend } from "./options";
+import { labelStyle, tooltip, legend, responsive } from "./options";
 
 class Age extends Component {
   constructor(props) {
@@ -180,6 +180,7 @@ class Age extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
+        responsive: responsive,
         chart: {
           height: 650,
           width: "100%",

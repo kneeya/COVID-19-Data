@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, dataLabelsSize, tooltip, stroke } from "./options";
+import { labelStyle, tooltip, stroke, responsive } from "./options";
 
 class Positive extends Component {
   constructor(props) {
@@ -51,14 +51,13 @@ class Positive extends Component {
           data: confiPos,
         },
       ],
+
       options: {
         chart: {
-          height: 650,
           type: "line",
           zoom: { enabled: true },
         },
         stroke: stroke,
-        // title: { text: "Positive Cases of COVID-19 in Ontario" },
         yaxis: {
           labels: {
             style: { ...labelStyle },
@@ -74,16 +73,11 @@ class Positive extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: "14px" },
-          textAnchor: "middle",
+          textAnchor: "end",
         },
         tooltip: tooltip,
         colors: [colours.red],
-        // responsive: [
-        //   {
-        //     breakpoint: "1000px",
-        //     options: {}
-        //   }
-        // ]
+        responsive: responsive,
       },
       ready: true,
     });

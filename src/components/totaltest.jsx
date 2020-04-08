@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import {labelStyle, dataLabelsSize, tooltip, stroke, markers, legend} from "./options";
+import {labelStyle, tooltip, stroke, markers, legend, responsive} from "./options";
 
 class TotalTest extends Component {
   constructor(props) {
@@ -96,8 +96,8 @@ class TotalTest extends Component {
           legend: legend,
           tooltip: tooltip,
           stroke: stroke,
-          chart: { height: 650,  width: "100%", type: "line", zoom: { enabled: true } },
-          // title: { text: "Status of COVID-19 cases in Ontario" },
+          responsive: responsive,
+          chart: { height: 650, type: "line", zoom: { enabled: true } },
           yaxis: {
             labels: {
               style: { ...labelStyle  }

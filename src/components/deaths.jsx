@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
-import { labelStyle, dataLabelsSize, tooltip, stroke } from "./options";
+import {
+  labelStyle,
+  dataLabelsSize,
+  tooltip,
+  stroke,
+  responsive,
+} from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 class Deaths extends Component {
@@ -12,7 +18,7 @@ class Deaths extends Component {
     data: this.props.data,
     ready: false,
     series: [],
-    options: {}
+    options: {},
   };
 
   componentDidMount() {
@@ -45,22 +51,21 @@ class Deaths extends Component {
       series: [
         {
           name: "Total Deaths",
-          data: dead
-        }
+          data: dead,
+        },
       ],
       options: {
         chart: {
-          height: 650,
-          width: "100%",
           type: "line",
-          zoom: { enabled: true }
+          zoom: { enabled: true },
         },
+        responsive: responsive,
         stroke: stroke,
         tooltip: tooltip,
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
-          textAnchor: "middle"
+          textAnchor: "end",
         },
         markers: {
           size: 4,
@@ -68,25 +73,25 @@ class Deaths extends Component {
           strokeColors: "#fff",
           strokeWidth: 2,
           hover: {
-            size: 7
-          }
+            size: 7,
+          },
         },
         // title: { text: "Total COVID-19 related Deaths in Ontario" },
         yaxis: {
           labels: {
-            style: { ...labelStyle }
-          }
+            style: { ...labelStyle },
+          },
         },
         xaxis: {
           categories: dates,
           range: 20,
           labels: {
-            style: { ...labelStyle }
-          }
+            style: { ...labelStyle },
+          },
         },
-        colors: [colours.black]
+        colors: [colours.black],
       },
-      ready: true
+      ready: true,
     });
   }
 

@@ -11,6 +11,10 @@ $medium-breakpoint: 73em !default;
 $large-breakpoint:  96em !default;
 $xlarge-breakpoint: 120em !default;
 
+// :export {
+//     smallBreakpoint: $small-breakpoint
+// }
+
 $small-range:   (0, $small-breakpoint) !default;
 $medium-range:  ($small-breakpoint  + 0.0625em, $medium-breakpoint) !default;
 $large-range:   ($medium-breakpoint + 0.0625em, $large-breakpoint) !default;
