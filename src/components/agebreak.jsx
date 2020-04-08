@@ -158,17 +158,21 @@ class AgeBreak extends Component {
         dataLabels: {
           enabled: false,
         },
-        fill: {
-          type: ["solid", "pattern"],
-          opacity: 1,
-          pattern: {
-            style: "slantedLines",
-          },
-        },
+        // fill: {
+        //   type: ["solid", "pattern"],
+        //   opacity: 1,
+        //   pattern: {
+        //     style: "slantedLines",
+        //   },
+        // },
 
         colors: [colours.blue, colours.black, colours.green, colours.magenta],
         plotOptions: {
           bar: { horizontal: false },
+        },
+        stroke: {
+          width: 2,
+          colors: ["#fff"],
         },
         yaxis: {
           labels: {

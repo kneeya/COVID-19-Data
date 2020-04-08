@@ -147,6 +147,10 @@ class RegBreak extends Component {
             },
           },
         },
+        stroke: {
+          width: 2,
+          colors: ["#fff"],
+        },
         yaxis: {
           reversed: true,
           labels: {
