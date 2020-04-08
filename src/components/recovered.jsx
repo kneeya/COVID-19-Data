@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
-import { labelStyle, tooltip, dataLabelsSize, stroke, responsive } from "./options";
+import {
+  labelStyle,
+  tooltip,
+  dataLabelsSize,
+  stroke,
+  responsive,
+} from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 class Recovered extends Component {
@@ -12,7 +18,7 @@ class Recovered extends Component {
     data: this.props.data,
     ready: false,
     series: [],
-    options: {}
+    options: {},
   };
 
   componentDidMount() {
@@ -42,8 +48,8 @@ class Recovered extends Component {
       series: [
         {
           name: "Resolved",
-          data: resolved
-        }
+          data: resolved,
+        },
       ],
       options: {
         tooltip: tooltip,
@@ -51,35 +57,35 @@ class Recovered extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
-          textAnchor: "middle"
+          textAnchor: "end",
         },
         stroke: stroke,
         chart: {
           height: 650,
           width: "100%",
           type: "line",
-          zoom: { enabled: true }
+          zoom: { enabled: true },
         },
         // title: { text: "Total Resolved from COVID-19 in Ontario" },
         yaxis: {
           labels: {
-            style: { ...labelStyle }
-          }
+            style: { ...labelStyle },
+          },
         },
         xaxis: {
           categories: dates,
           range: 30,
           labels: {
-            style: { ...labelStyle }
-          }
+            style: { ...labelStyle },
+          },
         },
         colors: [colours.blue],
         dataLabels: {
           enabled: true,
-          style: { fontSize: dataLabelsSize }
-        }
+          style: { fontSize: dataLabelsSize },
+        },
       },
-      ready: true
+      ready: true,
     });
   }
 

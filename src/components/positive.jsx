@@ -73,11 +73,11 @@ class Positive extends Component {
         dataLabels: {
           enabled: true,
           style: { fontSize: "14px" },
-          textAnchor: "middle",
+          textAnchor: "end",
         },
         tooltip: tooltip,
         colors: [colours.red],
-        responsive: responsive
+        responsive: responsive,
       },
       ready: true,
     });
