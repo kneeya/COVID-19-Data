@@ -8,6 +8,7 @@ import {
   responsive,
 } from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import trans from "../translations.json";
 
 class Deaths extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Deaths extends Component {
       dates: dates,
       series: [
         {
-          name: "Total Deaths",
+          name: trans.deaths.total[this.props.lang],
           data: dead,
         },
       ],

@@ -111,39 +111,39 @@ class App extends Component {
                 <Regional casedata={this.state.casedata} lang={lang} />
               </div>
 
-              <div className="item item-7">
+              {/* <div className="item item-7">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   Breakdown by Age and Sex
                 </h2>
                 <Age casedata={this.state.casedata} lang={lang} />
-              </div>
+              </div> */}
               <div className="item item-7">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Case Breakdown by Age
+                  {trans.agebreak.title[lang]}
                 </h2>
                 <AgeBreak casedata={this.state.casedata} lang={lang} />
               </div>
               <div className="item item-7">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Case Breakdown by Sex
+                  {trans.sexbreak.title[lang]}
                 </h2>
                 <SexBreak casedata={this.state.casedata} lang={lang} />
               </div>
               <div className="item item-1">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Positive Cases of COVID-19 in Ontario
+                  {trans.positive.title[lang]}
                 </h2>
                 <Positive data={this.state.data} lang={lang} />
               </div>
               <div className="item item-3">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Total Resolved from COVID-19 in Ontario
+                  {trans.resolved.title[lang]}
                 </h2>
                 <Recovered data={this.state.data} lang={lang} />
               </div>
               <div className="item item-4">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Total COVID-19 related Deaths in Ontario
+                  {trans.deaths.title[lang]}
                 </h2>
                 <Deaths data={this.state.data} lang={lang} />
               </div>

@@ -3,6 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsive } from "./options";
 import { findAllByAltText } from "@testing-library/react";
+import trans from "../translations.json";
 
 class AgeBreak extends Component {
   constructor(props) {
@@ -99,7 +100,7 @@ class AgeBreak extends Component {
     this.setState({
       series: [
         {
-          name: "Active",
+          name: trans.agebreak.active[this.props.lang],
           data: [
             aage["<20"],
             aage["20s"],
@@ -113,7 +114,7 @@ class AgeBreak extends Component {
           ],
         },
         {
-          name: "Resolved",
+          name: trans.agebreak.resolved[this.props.lang],
           data: [
             rage["<20"],
             rage["20s"],
@@ -127,7 +128,7 @@ class AgeBreak extends Component {
           ],
         },
         {
-          name: "Fatal",
+          name: trans.agebreak.fatal[this.props.lang],
           data: [
             fage["<20"],
             fage["20s"],
@@ -177,7 +178,7 @@ class AgeBreak extends Component {
         },
         xaxis: {
           categories: [
-            "Under 20",
+            trans.agebreak.under20[this.props.lang],
             "20-29",
             "30-39",
             "40-49",
@@ -213,7 +214,10 @@ class AgeBreak extends Component {
               series={this.state.series}
               type="bar"
             />
-            <p>There are {this.state.unk} cases of unknown age. </p>
+            <p>
+              {trans.agebreak.noteA[this.props.lang]} {this.state.unk}{" "}
+              {trans.agebreak.noteB[this.props.lang]}
+            </p>
           </React.Fragment>
         ) : (
           ""
