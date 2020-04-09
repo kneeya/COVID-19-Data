@@ -11,6 +11,7 @@ import Loading from "./components/loading/loading.jsx";
 import Age from "./components/age.jsx";
 import City from "./components/city.jsx";
 import Regional from "./components/regional.jsx";
+import trans from "./translations.json";
 import AgeBreak from "./components/agebreak.jsx";
 import SexBreak from "./components/sexbreak.jsx";
 import RegBreak from "./components/regbreak.jsx";
@@ -25,8 +26,10 @@ class App extends Component {
     this.disp = this.display.bind(this);
     this.dataParseCase = this.dataParseCase.bind(this);
     this.storeCaseData = this.storeCaseData.bind(this);
+    this.handleClickFR = this.handleClickFR.bind(this);
+    this.handleClickEN = this.handleClickEN.bind(this);
   }
-  state = { loading: false, ready: false };
+  state = { loading: false, ready: false, lang: "en" };
 
   componentDidMount() {
     this.dataParse();
@@ -78,7 +81,22 @@ class App extends Component {
     this.setState({ data: parsedD });
     this.display();
   }
+
+  handleClickFR() {
+    this.setState((state) => ({
+      lang: "fr",
+    }));
+  }
+
+  handleClickEN() {
+    this.setState((state) => ({
+      lang: "en",
+    }));
+  }
+
   render() {
+    const lang = this.state.lang;
+
     return (
       <React.Fragment>
         {this.state.loaded && this.state.ready ? (
@@ -90,33 +108,88 @@ class App extends Component {
                 units (PHU) across Ontario.
               </p>
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                Overview{" "}
+                Overview
               </h2>
               <Overview data={this.state.data} />
 
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Summary of Cases in Ontario
               </h2>
-              <Stacked data={this.state.data} />
-
-              <div className="item item-2">
+              <h1>{trans.hero.title[lang]}</h1>
+              {/* <a
+                class="ontario-button ontario-button--tertiary"
+                href="#"
+                onClick={this.handleClickEN}
+              >
+                EN
+              </a> */}
+              <a
+                class="ontario-button ontario-button--tertiary"
+                href="#"
+                onClick={this.handleClickFR}
+              >
+                FR
+              </a>
+              <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
+              <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Status of COVID-19 cases in Ontario
+                  On this Page:
                 </h2>
-                <TotalTest data={this.state.data} />
+                <a style={{ textDecoration: "none" }} href="#stacked">
+                  {trans.stacked.title[lang]}
+                </a>
+                <br />
+                <a style={{ textDecoration: "none" }} href="#totaltest">
+                  {trans.totaltest.title[lang]}
+                </a>
+                <br />
+                {/* <a style={{ textDecoration: "none" }} href="#regional">
+                  {trans.regional.title[lang]}
+                </a>
+                <br /> */}
+                <a style={{ textDecoration: "none" }} href="#regbreak">
+                  Breakdown of Cases Reported by Public Health Units
+                </a>
+                <br />
+                {/* <a style={{ textDecoration: "none" }} href="#age">
+                  Breakdown by Age and Sex
+                </a> */}
+                <a style={{ textDecoration: "none" }} href="#agebreak">
+                  {trans.agebreak.title[lang]}
+                </a>
+                <br />
+                <a style={{ textDecoration: "none" }} href="#sexbreak">
+                  {trans.sexbreak.title[lang]}
+                </a>
+                <br />
+                <a style={{ textDecoration: "none" }} href="#positive">
+                  {trans.positive.title[lang]}
+                </a>
+                <br />
+                <a style={{ textDecoration: "none" }} href="#recovered">
+                  {trans.resolved.title[lang]}
+                </a>
+                <br />
+                <a style={{ textDecoration: "none" }} href="#deaths">
+                  {trans.deaths.title[lang]}
+                </a>
+                <br />
               </div>
-
-              {/* <div className="item item-5">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Cases by City
+              <h2
+                id="stacked"
+                className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+              >
+                {trans.stacked.title[lang]}
+              </h2>
+              <Stacked data={this.state.data} lang={this.state.lang} />
+              <div className="item item-2">
+                <h2
+                  id="totaltest"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.totaltest.title[lang]}
                 </h2>
-                <City casedata={this.state.casedata} />
-              </div> */}
-              <div className="item item-6">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Cases Reported by Public Health Units
-                </h2>
-                <Regional casedata={this.state.casedata} />
+                <TotalTest data={this.state.data} lang={this.state.lang} />
               </div>
               <div className="item item-6">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
@@ -124,49 +197,94 @@ class App extends Component {
                 </h2>
                 <Hospital data={this.state.data} />
               </div>
-
-              <div className="item item-6">
+              {/* <div className="item item-5">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Cases by City
+                </h2>
+                <City casedata={this.state.casedata} />
+              </div> */}
+              {/* <div className="item item-6">
+                <h2
+                  id="regional"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.regional.title[lang]}
+                </h2>
+                <Regional casedata={this.state.casedata} />
+              </div>
+                <Regional
+                  casedata={this.state.casedata}
+                  lang={this.state.lang}
+                />
+              </div> */}
+              <div className="item item-6">
+                <h2
+                  id="regbreak"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
                   Breakdown of Cases Reported by Public Health Units
                 </h2>
                 <RegBreak casedata={this.state.casedata} />
               </div>
-
-              <div className="item item-7">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+              {/* <div className="item item-7">
+                <h2
+                  id="age"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
                   Breakdown by Age and Sex
                 </h2>
-                <Age casedata={this.state.casedata} />
+                <Age casedata={this.state.casedata} lang={lang} />
+              </div>{" "} */}
+              <div className="item item-7">
+                <h2
+                  id="agebreak"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.agebreak.title[lang]}
+                </h2>
+                <AgeBreak
+                  casedata={this.state.casedata}
+                  lang={this.state.lang}
+                />
               </div>
               <div className="item item-7">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Case Breakdown by Age
+                <h2
+                  id="sexbreak"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.sexbreak.title[lang]}
                 </h2>
-                <AgeBreak casedata={this.state.casedata} />
-              </div>
-              <div className="item item-7">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Case Breakdown by Sex
-                </h2>
-                <SexBreak casedata={this.state.casedata} />
+                <SexBreak
+                  casedata={this.state.casedata}
+                  lang={this.state.lang}
+                />
               </div>
               <div className="item item-1">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Positive Cases of COVID-19 in Ontario
+                <h2
+                  id="positive"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.positive.title[lang]}
                 </h2>
-                <Positive data={this.state.data} />
+                <Positive data={this.state.data} lang={this.state.lang} />
               </div>
               <div className="item item-3">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Total Resolved from COVID-19 in Ontario
+                <h2
+                  id="recovered"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.resolved.title[lang]}
                 </h2>
-                <Recovered data={this.state.data} />
+                <Recovered data={this.state.data} lang={this.state.lang} />
               </div>
               <div className="item item-4">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  Total COVID-19 related Deaths in Ontario
+                <h2
+                  id="deaths"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
+                  {trans.deaths.title[lang]}
                 </h2>
-                <Deaths data={this.state.data} />
+                <Deaths data={this.state.data} lang={this.state.lang} />
               </div>
             </div>
           </React.Fragment>

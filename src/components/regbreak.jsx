@@ -19,6 +19,12 @@ class RegBreak extends Component {
     this.makeCities();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
+  }
+
   makeCities() {
     const d = [...this.props.casedata];
     const regions = [];

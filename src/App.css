@@ -69,9 +69,8 @@
   display: flex;
 }
 
-.number-wrap {
-  padding-left: 5%;
-  padding-right: 5%;
+a .link {
+  text-decoration: none;
 }
 
 /* scroll bar for mobile charts */

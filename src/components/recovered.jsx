@@ -8,6 +8,7 @@ import {
   responsive,
 } from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import trans from "../translations.json";
 
 class Recovered extends Component {
   constructor(props) {
@@ -23,6 +24,12 @@ class Recovered extends Component {
 
   componentDidMount() {
     this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
   }
 
   setData() {
@@ -47,7 +54,7 @@ class Recovered extends Component {
       dates: dates,
       series: [
         {
-          name: "Resolved",
+          name: trans.resolved.res[this.props.lang],
           data: resolved,
         },
       ],
