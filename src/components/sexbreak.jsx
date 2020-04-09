@@ -73,7 +73,7 @@ class SexBreak extends Component {
             return true;
           }
         });
-      console.log(reso, active, fatal);
+      // console.log(reso, active, fatal);
 
       var activesex = {};
       var resosex = {};
@@ -135,17 +135,21 @@ class SexBreak extends Component {
         dataLabels: {
           enabled: false,
         },
-        fill: {
-          type: ["solid", "pattern"],
-          opacity: 1,
-          pattern: {
-            style: "slantedLines",
-          },
-        },
+        // fill: {
+        //   type: ["solid", "pattern"],
+        //   opacity: 1,
+        //   pattern: {
+        //     style: "slantedLines",
+        //   },
+        // },
 
         colors: [colours.magenta, colours.green, colours.blue, colours.black],
         plotOptions: {
           bar: { horizontal: false },
+        },
+        stroke: {
+          width: 2,
+          colors: ["#fff"],
         },
         yaxis: {
           labels: {
