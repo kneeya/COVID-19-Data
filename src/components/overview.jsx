@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../ds.scss";
 
 class Overview extends Component {
   constructor(props) {
