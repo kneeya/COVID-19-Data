@@ -116,6 +116,35 @@ class RegBreak extends Component {
         },
       ],
       options: {
+        responsive: [
+          {
+            breakpoint: 640,
+            options: {
+              chart: {
+                width: "680px",
+                height: "1000px",
+              },
+            },
+          },
+          {
+            breakpoint: 1163,
+            options: {
+              chart: {
+                height: "1000px",
+                width: "100%",
+              },
+            },
+          },
+          {
+            breakpoint: 1530,
+            options: {
+              chart: {
+                height: "1000px",
+                width: "100%",
+              },
+            },
+          },
+        ],
         chart: {
           height: 1000,
           width: "100%",

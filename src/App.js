@@ -14,6 +14,7 @@ import Regional from "./components/regional.jsx";
 import AgeBreak from "./components/agebreak.jsx";
 import SexBreak from "./components/sexbreak.jsx";
 import RegBreak from "./components/regbreak.jsx";
+import Overview from "./components/overview.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -84,11 +85,13 @@ class App extends Component {
             <div className="ontario-row">
               <h1>Ontario COVID-19 Data</h1>
               <p className="ontario-lead-statement">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Statistics on the latest cases provided by the 34 public health
+                units (PHU) across Ontario.
               </p>
+              <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                Overview{" "}
+              </h2>
+              <Overview data={this.state.data} />
 
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Summary of Cases in Ontario
