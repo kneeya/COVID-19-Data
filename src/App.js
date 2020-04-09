@@ -15,6 +15,7 @@ import AgeBreak from "./components/agebreak.jsx";
 import SexBreak from "./components/sexbreak.jsx";
 import RegBreak from "./components/regbreak.jsx";
 import Overview from "./components/overview.jsx";
+import Hospital from "./components/hospital.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -116,6 +117,12 @@ class App extends Component {
                   Cases Reported by Public Health Units
                 </h2>
                 <Regional casedata={this.state.casedata} />
+              </div>
+              <div className="item item-6">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Total Hospitalizations Over Time
+                </h2>
+                <Hospital data={this.state.data} />
               </div>
 
               <div className="item item-6">

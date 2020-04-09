@@ -127,7 +127,7 @@ class AgeBreak extends Component {
           ],
         },
         {
-          name: "Fatal",
+          name: "Deaths",
           data: [
             fage["<20"] || 0,
             fage["20s"] || 0,
@@ -166,9 +166,9 @@ class AgeBreak extends Component {
         //   },
         // },
 
-        colors: [colours.blue, colours.black, colours.green, colours.magenta],
+        colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
-          bar: { horizontal: false },
+          bar: { horizontal: true },
         },
         stroke: {
           width: 2,

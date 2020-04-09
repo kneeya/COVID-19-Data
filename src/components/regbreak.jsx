@@ -103,15 +103,15 @@ class RegBreak extends Component {
 
       series: [
         {
-          name: "Active Cases",
+          name: "Active",
           data: arrays.active,
         },
         {
-          name: "Resolved Cases",
+          name: "Resolved",
           data: arrays.resolved,
         },
         {
-          name: "Fatal Cases",
+          name: "Deaths",
           data: arrays.fatal,
         },
       ],
@@ -159,7 +159,7 @@ class RegBreak extends Component {
           offsetX: -30,
           style: { ...labelStyle },
         },
-        colors: [colours.orange, colours.blue, colours.green],
+        colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
           bar: {
             horizontal: true,

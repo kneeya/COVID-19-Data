@@ -65,7 +65,6 @@ class Positive extends Component {
         },
         xaxis: {
           categories: dates,
-          range: 30,
           labels: {
             style: { ...labelStyle },
           },
@@ -75,6 +74,7 @@ class Positive extends Component {
           style: { fontSize: "14px" },
           textAnchor: "end",
         },
+        tickPlacement: "between",
         tooltip: tooltip,
         colors: [colours.red],
         responsive: responsive,
