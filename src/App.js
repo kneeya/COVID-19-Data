@@ -102,11 +102,8 @@ class App extends Component {
         {this.state.loaded && this.state.ready ? (
           <React.Fragment>
             <div className="ontario-row">
-              <h1>Ontario COVID-19 Data</h1>
-              <p className="ontario-lead-statement">
-                Statistics on the latest cases provided by the 34 public health
-                units (PHU) across Ontario.
-              </p>
+              <h1>{trans.hero.title[lang]}</h1>
+              <p className="ontario-lead-statement"></p>
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Overview
               </h2>
@@ -115,7 +112,7 @@ class App extends Component {
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Summary of Cases in Ontario
               </h2>
-              <h1>{trans.hero.title[lang]}</h1>
+
               {/* <a
                 class="ontario-button ontario-button--tertiary"
                 href="#"
@@ -124,7 +121,7 @@ class App extends Component {
                 EN
               </a> */}
               <a
-                class="ontario-button ontario-button--tertiary"
+                className="ontario-button ontario-button--tertiary"
                 href="#"
                 onClick={this.handleClickFR}
               >
