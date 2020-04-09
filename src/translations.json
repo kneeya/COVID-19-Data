@@ -117,6 +117,10 @@
     "noteB": {
       "en": " cases of unknown sex.",
       "fr": " cases of unknown sex. FR"
+    },
+    "noteC": {
+      "en": " active cases of transgender, and ",
+      "fr": " active cases of transgender, and FR"
     }
   },
   "positive": {

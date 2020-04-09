@@ -107,15 +107,15 @@ class SexBreak extends Component {
       series: [
         {
           name: trans.sexbreak.active[this.props.lang],
-          data: [asex["MALE"], asex["FEMALE"], asex["TRANSGENDER"]],
+          data: [asex["MALE"], asex["FEMALE"]],
         },
         {
           name: trans.sexbreak.resolved[this.props.lang],
-          data: [rsex["MALE"], rsex["FEMALE"], rsex["TRANSGENDER"]],
+          data: [rsex["MALE"], rsex["FEMALE"]],
         },
         {
           name: trans.sexbreak.fatal[this.props.lang],
-          data: [fsex["MALE"], fsex["FEMALE"], fsex["TRANSGENDER"]],
+          data: [fsex["MALE"], fsex["FEMALE"]],
         },
       ],
     });
@@ -145,7 +145,7 @@ class SexBreak extends Component {
 
         colors: [colours.magenta, colours.green, colours.blue, colours.black],
         plotOptions: {
-          bar: { horizontal: false },
+          bar: { horizontal: true },
         },
         stroke: {
           width: 2,
@@ -160,7 +160,6 @@ class SexBreak extends Component {
           categories: [
             trans.sexbreak.male[this.props.lang],
             trans.sexbreak.female[this.props.lang],
-            trans.sexbreak.trans[this.props.lang],
           ],
           labels: {
             style: { ...labelStyle },
@@ -187,8 +186,9 @@ class SexBreak extends Component {
               type="bar"
             />
             <p>
-              {trans.agebreak.noteA[this.props.lang]} {this.state.unk}{" "}
-              {trans.sexbreak.noteB[this.props.lang]}
+              {trans.agebreak.noteA[this.props.lang]} {"*"}
+              {trans.sexbreak.noteC[this.props.lang]}
+              {this.state.unk} {trans.sexbreak.noteB[this.props.lang]}
             </p>
           </React.Fragment>
         ) : (
