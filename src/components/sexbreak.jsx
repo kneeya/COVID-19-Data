@@ -3,6 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsive } from "./options";
 import { findAllByAltText } from "@testing-library/react";
+import trans from "../translations.json";
 
 class SexBreak extends Component {
   constructor(props) {
@@ -19,6 +20,12 @@ class SexBreak extends Component {
 
   componentDidMount() {
     this.sortByAge();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.sortByAge();
+    }
   }
 
   sortByAge() {
@@ -99,15 +106,15 @@ class SexBreak extends Component {
     this.setState({
       series: [
         {
-          name: "Active",
+          name: trans.sexbreak.active[this.props.lang],
           data: [asex["MALE"], asex["FEMALE"], asex["TRANSGENDER"]],
         },
         {
-          name: "Resolved",
+          name: trans.sexbreak.resolved[this.props.lang],
           data: [rsex["MALE"], rsex["FEMALE"], rsex["TRANSGENDER"]],
         },
         {
-          name: "Fatal",
+          name: trans.sexbreak.fatal[this.props.lang],
           data: [fsex["MALE"], fsex["FEMALE"], fsex["TRANSGENDER"]],
         },
       ],
@@ -150,7 +157,11 @@ class SexBreak extends Component {
           },
         },
         xaxis: {
-          categories: ["Male", "Female", "Transgender"],
+          categories: [
+            trans.sexbreak.male[this.props.lang],
+            trans.sexbreak.female[this.props.lang],
+            trans.sexbreak.trans[this.props.lang],
+          ],
           labels: {
             style: { ...labelStyle },
           },
@@ -175,7 +186,10 @@ class SexBreak extends Component {
               series={this.state.series}
               type="bar"
             />
-            <p>There are {this.state.unk} cases of unknown sex. </p>
+            <p>
+              {trans.agebreak.noteA[this.props.lang]} {this.state.unk}{" "}
+              {trans.sexbreak.noteB[this.props.lang]}
+            </p>
           </React.Fragment>
         ) : (
           ""

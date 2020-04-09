@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsive } from "./options";
-import trans from "../translations.json";
 
-class Stacked extends Component {
+class Hospital extends Component {
   constructor(props) {
     super(props);
     this.setData = this.setData.bind(this);
@@ -15,74 +14,87 @@ class Stacked extends Component {
     dates: [],
     series: [],
     options: {},
-    lang: this.props.lang,
   };
 
   componentDidMount() {
     this.setData();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.lang !== this.props.lang) {
-      this.setData();
-    }
-  }
-
   setData() {
     //copy the array
-    const data = [...this.props.data];
-    data.splice(1, 29);
+    const d = [...this.props.data];
+    const data = d.splice(57, d.length - 2);
 
-    var dates = [];
-    var confPos = [];
-    var resolved = [];
-    var dead = [];
+    var datez = [];
+    var notICU = [];
+    var ICUwithv = [];
+    var ICUwov = [];
 
-    for (var i = 1; i < data.length - 1; i++) {
-      var row = data[i];
-
-      dates[i - 1] = row[0];
-
-      if (!row[5]) {
-        if (!confPos[i - 2]) {
-          confPos[i - 1] = 0;
+    datez = data
+      .map(function (row) {
+        return row[0];
+      })
+      .filter(function (result) {
+        if (!result) {
+          return false;
         } else {
-          confPos[i - 1] = confPos[i - 2];
+          return true;
         }
-      } else {
-        confPos[i - 1] = row[5];
-      }
+      });
 
-      if (!row[6]) {
-        resolved[i - 1] = 0;
-      } else {
-        resolved[i - 1] = row[6];
-      }
+    notICU = data
+      .map(function (row) {
+        return row[10] - row[11];
+      })
+      .filter(function (result) {
+        if (!result) {
+          return 0;
+        } else {
+          return true;
+        }
+      });
 
-      if (!row[7]) {
-        dead[i - 1] = 0;
-      } else {
-        dead[i - 1] = row[7];
-      }
-    }
+    ICUwithv = data
+      .map(function (row) {
+        return row[12];
+      })
+      .filter(function (result) {
+        if (!result) {
+          return 0;
+        } else {
+          return true;
+        }
+      });
+
+    ICUwov = data
+      .map(function (row) {
+        return row[11] - row[12];
+      })
+      .filter(function (result) {
+        if (!result) {
+          return 0;
+        } else {
+          return true;
+        }
+      });
 
     this.setState({
-      dates: dates,
-      confPos: confPos,
-      resolved: resolved,
-      dead: dead,
+      dates: datez,
+      notICU: notICU,
+      ICUwithv: ICUwithv,
+      ICUwov: ICUwov,
       series: [
         {
-          name: trans.stacked.positive[this.props.lang],
-          data: confPos,
+          name: "Hospitalized, not in ICU",
+          data: notICU,
         },
         {
-          name: trans.stacked.resolved[this.props.lang],
-          data: resolved,
+          name: "In ICU without ventilator",
+          data: ICUwov,
         },
         {
-          name: trans.stacked.deaths[this.props.lang],
-          data: dead,
+          name: "In ICU with ventilator",
+          data: ICUwithv,
         },
       ],
       options: {
@@ -116,8 +128,7 @@ class Stacked extends Component {
           colors: ["#fff"],
         },
         xaxis: {
-          categories: dates,
-          range: 20,
+          categories: datez,
           labels: {
             style: { ...labelStyle },
           },
@@ -147,4 +158,4 @@ class Stacked extends Component {
     );
   }
 }
-export default Stacked;
+export default Hospital;
