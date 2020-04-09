@@ -1,4 +1,4 @@
-#root{
+#root {
   padding: 1rem;
 }
 
@@ -57,15 +57,18 @@
 } */
 
 /* @media screen and (max-width: 40em) { */
-  /* behaviour for charts mobile */
-  .chart {
-    position: relative;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    overflow-y: hidden;
-  }
+/* behaviour for charts mobile */
+.chart {
+  position: relative;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
 /* } */
 
+a .link {
+  text-decoration: none;
+}
 
 /* scroll bar for mobile charts */
 ::-webkit-scrollbar {
@@ -75,6 +78,6 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0, 0, 0, .5);
-  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
