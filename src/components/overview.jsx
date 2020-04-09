@@ -60,36 +60,62 @@ class Overview extends Component {
     return (
       <React.Fragment>
         {this.state.ready ? (
-          <div className="number-container">
-            <div className="number-wrap">
-              <p>Total</p>
-              <p>{this.state.total}</p>
-              <p>+ {this.state.totaldelta}</p>
-            </div>
-            <div className="number-wrap">
-              <p>Active</p>
-              <p>{this.state.active}</p>
-              <p>{this.state.activedelta}</p>
-            </div>
-            <div className="number-wrap">
-              <p>Resolved</p>
-              <p>{this.state.resolved}</p>
-              <p>+ {this.state.resolveddelta}</p>
-            </div>
-            <div className="number-wrap">
-              <p>Deaths</p>
-              <p>{this.state.deaths}</p>
-              <p>+ {this.state.deathsdelta}</p>
-            </div>
-            <div className="number-wrap">
-              <p>Hospitalized</p>
-              <p>{this.state.hospital}</p>
-              <p>{this.state.hospitaldelta}</p>
-            </div>
-            <div className="number-wrap">
-              <p>In ICU</p>
-              <p>{this.state.icu}</p>
-              <p>{this.state.icudelta}</p>
+          <div className="ontario-small-12 ontario-columns">
+            <div className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
+              <li>
+                <div className="ontario-infographic-text">Total</div>
+                <div className="ontario-infographic-number">
+                  {this.state.total}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  + {this.state.totaldelta}
+                </div>
+              </li>
+              <li>
+                <div className="ontario-infographic-text">Active</div>
+                <div className="ontario-infographic-number">
+                  {this.state.active}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  {this.state.activedelta}
+                </div>
+              </li>
+              <li>
+                <div className="ontario-infographic-text">Resolved</div>
+                <div className="ontario-infographic-number">
+                  {this.state.resolved}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  + {this.state.resolveddelta}
+                </div>
+              </li>
+              <li>
+                <div className="ontario-infographic-text">Deaths</div>
+                <div className="ontario-infographic-number">
+                  {this.state.deaths}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  + {this.state.deathsdelta}
+                </div>
+              </li>
+              <li>
+                <div className="ontario-infographic-text">Hospitalized</div>
+                <div className="ontario-infographic-number">
+                  {this.state.hospital}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  {this.state.hospitaldelta}
+                </div>
+              </li>
+              <li>
+                <div className="ontario-infographic-text">In ICU</div>
+                <div className="ontario-infographic-number">
+                  {this.state.icu}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  {this.state.icudelta}
+                </div>
+              </li>
             </div>
           </div>
         ) : (

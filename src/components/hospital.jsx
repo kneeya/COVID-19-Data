@@ -24,7 +24,6 @@ class Hospital extends Component {
     //copy the array
     const d = [...this.props.data];
     const data = d.splice(57, d.length - 2);
-    console.log(data);
 
     var datez = [];
     var notICU = [];
@@ -42,7 +41,7 @@ class Hospital extends Component {
           return true;
         }
       });
-    console.log(datez);
+
     notICU = data
       .map(function (row) {
         return row[10] - row[11];
@@ -78,34 +77,6 @@ class Hospital extends Component {
           return true;
         }
       });
-    console.log(datez, ICUwithv, ICUwov, notICU);
-    // for (var i = 1; i < data.length - 1; i++) {
-    //   var row = data[i];
-
-    //   dates[i - 1] = row[0];
-
-    //   if (!row[5]) {
-    //     if (!confPos[i - 2]) {
-    //       confPos[i - 1] = 0;
-    //     } else {
-    //       confPos[i - 1] = confPos[i - 2];
-    //     }
-    //   } else {
-    //     confPos[i - 1] = row[5];
-    //   }
-
-    //   if (!row[6]) {
-    //     resolved[i - 1] = 0;
-    //   } else {
-    //     resolved[i - 1] = row[6];
-    //   }
-
-    //   if (!row[7]) {
-    //     dead[i - 1] = 0;
-    //   } else {
-    //     dead[i - 1] = row[7];
-    //   }
-    // }
 
     this.setState({
       dates: datez,
