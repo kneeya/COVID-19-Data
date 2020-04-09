@@ -17,10 +17,17 @@ class Positive extends Component {
     confPosi: [],
     series: [{}],
     options: {},
+    lang: this.props.lang,
   };
 
   componentDidMount() {
     this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
   }
 
   setData() {

@@ -22,6 +22,12 @@ class AgeBreak extends Component {
     this.sortByAge();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.sortByAge();
+    }
+  }
+
   sortByAge() {
     setTimeout(() => {
       const data = this.props.casedata;

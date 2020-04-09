@@ -15,10 +15,17 @@ class Stacked extends Component {
     dates: [],
     series: [],
     options: {},
+    lang: this.props.lang,
   };
 
   componentDidMount() {
     this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
   }
 
   setData() {
@@ -125,6 +132,7 @@ class Stacked extends Component {
   }
 
   render() {
+    console.log("this.props", this.props);
     return (
       <div id="stacked" className="chart">
         {this.state.ready ? (

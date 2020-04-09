@@ -23,8 +23,9 @@ class App extends Component {
     this.disp = this.display.bind(this);
     this.dataParseCase = this.dataParseCase.bind(this);
     this.storeCaseData = this.storeCaseData.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  state = { loading: false, ready: false, lang: "fr" };
+  state = { loading: false, ready: false, lang: "en" };
 
   componentDidMount() {
     this.dataParse();
@@ -76,6 +77,13 @@ class App extends Component {
     this.setState({ data: parsedD });
     this.display();
   }
+
+  handleClick() {
+    this.setState((state) => ({
+      lang: "fr",
+    }));
+  }
+
   render() {
     const lang = this.state.lang;
 
@@ -85,17 +93,24 @@ class App extends Component {
           <React.Fragment>
             <div className="ontario-row">
               <h1>{trans.hero.title[lang]}</h1>
+              <a
+                class="ontario-button ontario-button--tertiary"
+                href="#"
+                onClick={this.handleClick}
+              >
+                FR
+              </a>
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 {trans.stacked.title[lang]}
               </h2>
-              <Stacked data={this.state.data} lang={lang} />
+              <Stacked data={this.state.data} lang={this.state.lang} />
 
               <div className="item item-2">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.totaltest.title[lang]}
                 </h2>
-                <TotalTest data={this.state.data} lang={lang} />
+                <TotalTest data={this.state.data} lang={this.state.lang} />
               </div>
 
               {/* <div className="item item-5">
@@ -108,7 +123,10 @@ class App extends Component {
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.regional.title[lang]}
                 </h2>
-                <Regional casedata={this.state.casedata} lang={lang} />
+                <Regional
+                  casedata={this.state.casedata}
+                  lang={this.state.lang}
+                />
               </div>
 
               {/* <div className="item item-7">
@@ -121,31 +139,37 @@ class App extends Component {
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.agebreak.title[lang]}
                 </h2>
-                <AgeBreak casedata={this.state.casedata} lang={lang} />
+                <AgeBreak
+                  casedata={this.state.casedata}
+                  lang={this.state.lang}
+                />
               </div>
               <div className="item item-7">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.sexbreak.title[lang]}
                 </h2>
-                <SexBreak casedata={this.state.casedata} lang={lang} />
+                <SexBreak
+                  casedata={this.state.casedata}
+                  lang={this.state.lang}
+                />
               </div>
               <div className="item item-1">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.positive.title[lang]}
                 </h2>
-                <Positive data={this.state.data} lang={lang} />
+                <Positive data={this.state.data} lang={this.state.lang} />
               </div>
               <div className="item item-3">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.resolved.title[lang]}
                 </h2>
-                <Recovered data={this.state.data} lang={lang} />
+                <Recovered data={this.state.data} lang={this.state.lang} />
               </div>
               <div className="item item-4">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.deaths.title[lang]}
                 </h2>
-                <Deaths data={this.state.data} lang={lang} />
+                <Deaths data={this.state.data} lang={this.state.lang} />
               </div>
             </div>
           </React.Fragment>

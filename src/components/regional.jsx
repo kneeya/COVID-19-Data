@@ -14,10 +14,17 @@ class City extends Component {
     ready: false,
     series: [{}],
     options: {},
+    lang: this.props.lang,
   };
 
   componentDidMount() {
     this.makeCities();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.makeCities();
+    }
   }
 
   makeCities() {

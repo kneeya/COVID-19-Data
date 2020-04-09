@@ -26,6 +26,12 @@ class Recovered extends Component {
     this.setData();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
+  }
+
   setData() {
     const data = [...this.props.data];
 
