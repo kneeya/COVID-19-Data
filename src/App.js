@@ -84,10 +84,7 @@ class App extends Component {
           <React.Fragment>
             <div className="ontario-row">
               <h1>Ontario COVID-19 Data</h1>
-              <p className="ontario-lead-statement">
-                Statistics on the latest cases provided by the 34 public health
-                units (PHU) across Ontario.
-              </p>
+              <p className="ontario-lead-statement"></p>
               <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Overview{" "}
               </h2>
