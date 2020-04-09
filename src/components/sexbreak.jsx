@@ -171,8 +171,13 @@ class SexBreak extends Component {
     var b = rsex["UNKNOWN"] || 0;
     var c = fsex["UNKNOWN"] || 0;
 
+    var d = asex["TRANSGENDER"];
+    var e = rsex["TRANSGENDER"];
+    var f = fsex["TRANSGENDER"];
+
     var unknowns = a + b + c;
-    this.setState({ ready: true, unk: unknowns });
+    var trand = d + e + f;
+    this.setState({ ready: true, unk: unknowns, trank: trand });
   }
 
   render() {
@@ -186,7 +191,7 @@ class SexBreak extends Component {
               type="bar"
             />
             <p>
-              {trans.agebreak.noteA[this.props.lang]} {"*"}
+              {trans.agebreak.noteA[this.props.lang]} {this.state.trank}
               {trans.sexbreak.noteC[this.props.lang]}
               {this.state.unk} {trans.sexbreak.noteB[this.props.lang]}
             </p>

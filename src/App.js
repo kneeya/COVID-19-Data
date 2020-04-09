@@ -120,12 +120,12 @@ class App extends Component {
               </a>
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
 
-              <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+              {/* <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                 Overview
               </h2>
-              <Overview data={this.state.data} />
+              <Overview data={this.state.data} /> */}
 
-              <div>
+              {/* <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   On this Page:
                 </h2>
@@ -137,17 +137,12 @@ class App extends Component {
                   {trans.totaltest.title[lang]}
                 </a>
                 <br />
-                {/* <a style={{ textDecoration: "none" }} href="#regional">
-                  {trans.regional.title[lang]}
-                </a>
-                <br /> */}
+               
                 <a style={{ textDecoration: "none" }} href="#regbreak">
                   Breakdown of Cases Reported by Public Health Units
                 </a>
                 <br />
-                {/* <a style={{ textDecoration: "none" }} href="#age">
-                  Breakdown by Age and Sex
-                </a> */}
+                
                 <a style={{ textDecoration: "none" }} href="#agebreak">
                   {trans.agebreak.title[lang]}
                 </a>
@@ -168,7 +163,7 @@ class App extends Component {
                   {trans.deaths.title[lang]}
                 </a>
                 <br />
-              </div>
+              </div> */}
               <h2
                 id="stacked"
                 className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
