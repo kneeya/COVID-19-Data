@@ -171,9 +171,9 @@ class SexBreak extends Component {
     var b = rsex["UNKNOWN"] || 0;
     var c = fsex["UNKNOWN"] || 0;
 
-    var d = asex["TRANSGENDER"];
-    var e = rsex["TRANSGENDER"];
-    var f = fsex["TRANSGENDER"];
+    var d = asex["TRANSGENDER"] || 0;
+    var e = rsex["TRANSGENDER"] || 0;
+    var f = fsex["TRANSGENDER"] || 0;
 
     var unknowns = a + b + c;
     var trand = d + e + f;
