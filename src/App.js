@@ -23,7 +23,8 @@ class App extends Component {
     this.disp = this.display.bind(this);
     this.dataParseCase = this.dataParseCase.bind(this);
     this.storeCaseData = this.storeCaseData.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickFR = this.handleClickFR.bind(this);
+    this.handleClickEN = this.handleClickEN.bind(this);
   }
   state = { loading: false, ready: false, lang: "en" };
 
@@ -78,9 +79,15 @@ class App extends Component {
     this.display();
   }
 
-  handleClick() {
+  handleClickFR() {
     this.setState((state) => ({
       lang: "fr",
+    }));
+  }
+
+  handleClickEN() {
+    this.setState((state) => ({
+      lang: "en",
     }));
   }
 
@@ -93,10 +100,17 @@ class App extends Component {
           <React.Fragment>
             <div className="ontario-row">
               <h1>{trans.hero.title[lang]}</h1>
+              {/* <a
+                class="ontario-button ontario-button--tertiary"
+                href="#"
+                onClick={this.handleClickEN}
+              >
+                EN
+              </a> */}
               <a
                 class="ontario-button ontario-button--tertiary"
                 href="#"
-                onClick={this.handleClick}
+                onClick={this.handleClickFR}
               >
                 FR
               </a>
