@@ -69,8 +69,8 @@
       "fr": "Resolved FR"
     },
     "fatal": {
-      "en": "Fatal",
-      "fr": "Fatal FR"
+      "en": "Deaths",
+      "fr": "Deaths FR"
     },
     "under20": {
       "en": "Under 20",
@@ -99,8 +99,8 @@
       "fr": "Resolved FR"
     },
     "fatal": {
-      "en": "Fatal",
-      "fr": "Fatal FR"
+      "en": "Deaths",
+      "fr": "Deaths FR"
     },
     "male": {
       "en": "Male",
@@ -115,12 +115,12 @@
       "fr": "Transgender FR"
     },
     "noteB": {
-      "en": " cases of unknown sex.",
-      "fr": " cases of unknown sex. FR"
+      "en": " total cases of unknown sex.",
+      "fr": " total cases of unknown sex. FR"
     },
     "noteC": {
-      "en": " active cases of transgender, and ",
-      "fr": " active cases of transgender, and FR"
+      "en": " total transgender cases, and ",
+      "fr": " total transgender cases, and FR"
     }
   },
   "positive": {
