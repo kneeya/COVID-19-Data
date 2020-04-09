@@ -15,6 +15,8 @@ import trans from "./translations.json";
 import AgeBreak from "./components/agebreak.jsx";
 import SexBreak from "./components/sexbreak.jsx";
 import RegBreak from "./components/regbreak.jsx";
+import Overview from "./components/overview.jsx";
+import Hospital from "./components/hospital.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -100,6 +102,19 @@ class App extends Component {
         {this.state.loaded && this.state.ready ? (
           <React.Fragment>
             <div className="ontario-row">
+              <h1>Ontario COVID-19 Data</h1>
+              <p className="ontario-lead-statement">
+                Statistics on the latest cases provided by the 34 public health
+                units (PHU) across Ontario.
+              </p>
+              <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                Overview
+              </h2>
+              <Overview data={this.state.data} />
+
+              <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                Summary of Cases in Ontario
+              </h2>
               <h1>{trans.hero.title[lang]}</h1>
               {/* <a
                 class="ontario-button ontario-button--tertiary"
@@ -176,6 +191,12 @@ class App extends Component {
                 </h2>
                 <TotalTest data={this.state.data} lang={this.state.lang} />
               </div>
+              <div className="item item-6">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  Total Hospitalizations Over Time
+                </h2>
+                <Hospital data={this.state.data} />
+              </div>
               {/* <div className="item item-5">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   Cases by City
@@ -189,6 +210,8 @@ class App extends Component {
                 >
                   {trans.regional.title[lang]}
                 </h2>
+                <Regional casedata={this.state.casedata} />
+              </div>
                 <Regional
                   casedata={this.state.casedata}
                   lang={this.state.lang}
@@ -212,7 +235,6 @@ class App extends Component {
                 </h2>
                 <Age casedata={this.state.casedata} lang={lang} />
               </div>{" "} */}
-              */}
               <div className="item item-7">
                 <h2
                   id="agebreak"

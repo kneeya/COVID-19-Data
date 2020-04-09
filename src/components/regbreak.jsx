@@ -109,19 +109,48 @@ class RegBreak extends Component {
 
       series: [
         {
-          name: "Active Cases",
+          name: "Active",
           data: arrays.active,
         },
         {
-          name: "Resolved Cases",
+          name: "Resolved",
           data: arrays.resolved,
         },
         {
-          name: "Fatal Cases",
+          name: "Deaths",
           data: arrays.fatal,
         },
       ],
       options: {
+        responsive: [
+          {
+            breakpoint: 640,
+            options: {
+              chart: {
+                width: "680px",
+                height: "1000px",
+              },
+            },
+          },
+          {
+            breakpoint: 1163,
+            options: {
+              chart: {
+                height: "1000px",
+                width: "100%",
+              },
+            },
+          },
+          {
+            breakpoint: 1530,
+            options: {
+              chart: {
+                height: "1000px",
+                width: "100%",
+              },
+            },
+          },
+        ],
         chart: {
           height: 1000,
           width: "100%",
@@ -136,7 +165,7 @@ class RegBreak extends Component {
           offsetX: -30,
           style: { ...labelStyle },
         },
-        colors: [colours.orange, colours.blue, colours.green],
+        colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
           bar: {
             horizontal: true,
