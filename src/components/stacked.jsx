@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsive } from "./options";
+import trans from "../translations.json";
+
 class Stacked extends Component {
   constructor(props) {
     super(props);
@@ -13,10 +15,17 @@ class Stacked extends Component {
     dates: [],
     series: [],
     options: {},
+    lang: this.props.lang,
   };
 
   componentDidMount() {
     this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
   }
 
   setData() {
@@ -64,15 +73,15 @@ class Stacked extends Component {
       dead: dead,
       series: [
         {
-          name: "Confirmed Positives",
+          name: trans.stacked.positive[this.props.lang],
           data: confPos,
         },
         {
-          name: "Resolved",
+          name: trans.stacked.resolved[this.props.lang],
           data: resolved,
         },
         {
-          name: "Total Deaths",
+          name: trans.stacked.deaths[this.props.lang],
           data: dead,
         },
       ],
@@ -123,6 +132,7 @@ class Stacked extends Component {
   }
 
   render() {
+    console.log("this.props", this.props);
     return (
       <div id="stacked" className="chart">
         {this.state.ready ? (

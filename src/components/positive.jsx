@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, stroke, responsive } from "./options";
+import trans from "../translations.json";
 
 class Positive extends Component {
   constructor(props) {
@@ -16,10 +17,17 @@ class Positive extends Component {
     confPosi: [],
     series: [{}],
     options: {},
+    lang: this.props.lang,
   };
 
   componentDidMount() {
     this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
   }
 
   setData() {
@@ -47,7 +55,7 @@ class Positive extends Component {
       datez: dates,
       series: [
         {
-          name: "Confirmed Positives",
+          name: trans.positive.confpos[this.props.lang],
           data: confiPos,
         },
       ],

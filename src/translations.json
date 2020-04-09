@@ -1,0 +1,152 @@
+{
+  "hero": {
+    "title": {
+      "en": "Ontario COVID-19 Data",
+      "fr": "Ontario COVID-19 Data FR"
+    },
+    "lead": {
+      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
+      "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. FR"
+    }
+  },
+  "stacked": {
+    "title": {
+      "en": "Summary of Cases in Ontario",
+      "fr": "Summary of Cases in Ontario FR"
+    },
+    "positive": {
+      "en": "Confirmed Positives",
+      "fr": "Confirmed Positives FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Total Deaths",
+      "fr": "Total Deaths FR"
+    }
+  },
+  "totaltest": {
+    "title": {
+      "en": "Status of COVID-19 cases in Ontario",
+      "fr": "Status of COVID-19 cases in Ontario FR"
+    },
+    "total": {
+      "en": "Total Cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Confirmed Positives",
+      "fr": "Confirmed Positives FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Total Deaths",
+      "fr": "Total Deaths FR"
+    }
+  },
+  "regional": {
+    "title": {
+      "en": "Cases Reported by Public Health Units",
+      "fr": "Cases Reported by Public Health Units FR"
+    }
+  },
+  "agebreak": {
+    "title": {
+      "en": "Case Breakdown by Age",
+      "fr": "Case Breakdown by Age FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "fatal": {
+      "en": "Fatal",
+      "fr": "Fatal FR"
+    },
+    "under20": {
+      "en": "Under 20",
+      "fr": "Under 20 FR"
+    },
+    "noteA": {
+      "en": "There are ",
+      "fr": "There are FR"
+    },
+    "noteB": {
+      "en": " cases of unknown age.",
+      "fr": " cases of unknown age. FR"
+    }
+  },
+  "sexbreak": {
+    "title": {
+      "en": "Case Breakdown by Sex",
+      "fr": "Case Breakdown by Sex FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "fatal": {
+      "en": "Fatal",
+      "fr": "Fatal FR"
+    },
+    "male": {
+      "en": "Male",
+      "fr": "Male FR"
+    },
+    "female": {
+      "en": "Female",
+      "fr": "Female FR"
+    },
+    "trans": {
+      "en": "Transgender",
+      "fr": "Transgender FR"
+    },
+    "noteB": {
+      "en": " cases of unknown sex.",
+      "fr": " cases of unknown sex. FR"
+    }
+  },
+  "positive": {
+    "title": {
+      "en": "Positive Cases of COVID-19 in Ontario",
+      "fr": "Positive Cases of COVID-19 in Ontario FR"
+    },
+    "confpos": {
+      "en": "Confirmed Positives",
+      "fr": "Confirmed Positives FR"
+    }
+  },
+  "resolved": {
+    "title": {
+      "en": "Total Resolved from COVID-19 in Ontario",
+      "fr": "Total Resolved from COVID-19 in Ontario FR"
+    },
+    "res": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    }
+  },
+  "deaths": {
+    "title": {
+      "en": "Total Deaths",
+      "fr": "Total Deaths FR"
+    },
+    "total": {
+      "en": "Total Deaths",
+      "fr": "Total Deaths FR"
+    }
+  }
+}
