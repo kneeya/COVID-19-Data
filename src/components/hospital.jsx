@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsive } from "./options";
+import { labelStyle, tooltip, legend, responsive, stroke } from "./options";
 
 class Hospital extends Component {
   constructor(props) {
@@ -85,11 +85,11 @@ class Hospital extends Component {
       ICUwov: ICUwov,
       series: [
         {
-          name: "Hospitalized, not in ICU",
+          name: "Hospitalized",
           data: notICU,
         },
         {
-          name: "In ICU without ventilator",
+          name: "In ICU",
           data: ICUwov,
         },
         {
@@ -103,8 +103,8 @@ class Hospital extends Component {
         legend: legend,
         tooltip: tooltip,
         chart: {
-          type: "bar",
-          stacked: true,
+          type: "line",
+
           toolbar: {
             show: true,
           },
@@ -123,10 +123,7 @@ class Hospital extends Component {
             style: { ...labelStyle },
           },
         },
-        stroke: {
-          width: 2,
-          colors: ["#fff"],
-        },
+        stroke: stroke,
         xaxis: {
           categories: datez,
           labels: {
@@ -149,7 +146,7 @@ class Hospital extends Component {
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
-            type="bar"
+            type="line"
           />
         ) : (
           ""
