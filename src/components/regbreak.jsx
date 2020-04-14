@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip } from "./options";
+import trans from "../translations.json";
 
 class RegBreak extends Component {
   constructor(props) {
@@ -113,15 +114,15 @@ class RegBreak extends Component {
 
       series: [
         {
-          name: "Active",
+          name: trans.reg.active[this.props.lang],
           data: arrays.active,
         },
         {
-          name: "Resolved",
+          name: trans.reg.resolved[this.props.lang],
           data: arrays.resolved,
         },
         {
-          name: "Deaths",
+          name: trans.reg.deaths[this.props.lang],
           data: arrays.fatal,
         },
       ],
