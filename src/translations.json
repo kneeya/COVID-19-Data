@@ -15,16 +15,16 @@
       "fr": "Summary of Cases in Ontario FR"
     },
     "positive": {
-      "en": "Confirmed Positives",
-      "fr": "Confirmed Positives FR"
+      "en": "Active",
+      "fr": "Active FR"
     },
     "resolved": {
       "en": "Resolved",
       "fr": "Resolved FR"
     },
     "deaths": {
-      "en": "Total Deaths",
-      "fr": "Total Deaths FR"
+      "en": "Deaths",
+      "fr": "Deaths FR"
     }
   },
   "totaltest": {
@@ -37,16 +37,16 @@
       "fr": "Total Cases FR"
     },
     "positive": {
-      "en": "Confirmed Positives",
-      "fr": "Confirmed Positives FR"
+      "en": "Active",
+      "fr": "Active FR"
     },
     "resolved": {
       "en": "Resolved",
       "fr": "Resolved FR"
     },
     "deaths": {
-      "en": "Total Deaths",
-      "fr": "Total Deaths FR"
+      "en": "Deaths",
+      "fr": "Deaths FR"
     }
   },
   "regional": {
@@ -129,8 +129,8 @@
       "fr": "Positive Cases of COVID-19 in Ontario FR"
     },
     "confpos": {
-      "en": "Confirmed Positives",
-      "fr": "Confirmed Positives FR"
+      "en": "Active",
+      "fr": "Active FR"
     }
   },
   "resolved": {
@@ -145,12 +145,12 @@
   },
   "deaths": {
     "title": {
-      "en": "Total Deaths",
-      "fr": "Total Deaths FR"
+      "en": "Deaths",
+      "fr": "Deaths FR"
     },
     "total": {
-      "en": "Total Deaths",
-      "fr": "Total Deaths FR"
+      "en": "Deaths",
+      "fr": "Deaths FR"
     }
   }
 }

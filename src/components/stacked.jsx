@@ -87,7 +87,7 @@ class Stacked extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: [colours.blue, colours.yellow, colours.black],
+        colors: [colours.blue, colours.green, colours.black],
         legend: legend,
         tooltip: tooltip,
         chart: {
