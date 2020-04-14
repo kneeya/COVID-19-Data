@@ -27,6 +27,24 @@
       "fr": "Deaths FR"
     }
   },
+  "hospital": {
+    "title": {
+      "en": "Total Hospitalizations Over Time",
+      "fr": "Total Hospitalizations Over Time FR"
+    },
+    "hospitalized": {
+      "en": "Hospitalized",
+      "fr": "Hospitalized FR"
+    },
+    "icu": {
+      "en": "In ICU",
+      "fr": "In ICU FR"
+    },
+    "icuv": {
+      "en": "In ICU with ventilator",
+      "fr": "In ICU with ventilator FR"
+    }
+  },
   "totaltest": {
     "title": {
       "en": "Status of COVID-19 cases in Ontario",
@@ -49,10 +67,22 @@
       "fr": "Deaths FR"
     }
   },
-  "regional": {
+  "reg": {
     "title": {
-      "en": "Cases Reported by Public Health Units",
-      "fr": "Cases Reported by Public Health Units FR"
+      "en": "Breakdown of Cases Reported by Public Health Units",
+      "fr": "Breakdown of Cases Reported by Public Health Units FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
     }
   },
   "agebreak": {
@@ -123,34 +153,18 @@
       "fr": " total transgender cases, and FR"
     }
   },
-  "positive": {
-    "title": {
-      "en": "Positive Cases of COVID-19 in Ontario",
-      "fr": "Positive Cases of COVID-19 in Ontario FR"
+  "accessible": {
+    "enable": {
+      "en": "Enable Accessibility",
+      "fr": "Enable Accessibility FR"
     },
-    "confpos": {
-      "en": "Active",
-      "fr": "Active FR"
-    }
-  },
-  "resolved": {
-    "title": {
-      "en": "Total Resolved from COVID-19 in Ontario",
-      "fr": "Total Resolved from COVID-19 in Ontario FR"
+    "disable": {
+      "en": "Disable Accessibility",
+      "fr": "Disable Accessibility FR"
     },
-    "res": {
-      "en": "Resolved",
-      "fr": "Resolved FR"
-    }
-  },
-  "deaths": {
-    "title": {
-      "en": "Deaths",
-      "fr": "Deaths FR"
-    },
-    "total": {
-      "en": "Deaths",
-      "fr": "Deaths FR"
+    "select": {
+      "en": "Select:",
+      "fr": "Select FR:"
     }
   }
 }

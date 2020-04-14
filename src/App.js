@@ -102,7 +102,7 @@ class App extends Component {
   render() {
     const Accessible = (props) => (
       <p>
-        Select:
+        {trans.accessible.select[lang]}
         <a
           className=""
           onClick={(e) => {
@@ -115,8 +115,8 @@ class App extends Component {
           style={{ margin: "10px" }}
         >
           {this.state.accessible
-            ? "Disable Accessibility"
-            : "Enable Accessibility"}
+            ? trans.accessible.disable[lang]
+            : trans.accessible.enable[lang]}
         </a>
       </p>
     );
@@ -171,12 +171,12 @@ class App extends Component {
                 <br />
 
                 <a style={{ textDecoration: "none" }} href="#hospitalization">
-                  Total Hospitalizations Over Time
+                  {trans.hospital.title[lang]}
                 </a>
                 <br />
 
                 <a style={{ textDecoration: "none" }} href="#regbreak">
-                  Breakdown of Cases Reported by Public Health Units
+                  {trans.reg.title[lang]}
                 </a>
                 <br />
 
@@ -204,23 +204,24 @@ class App extends Component {
               </div>
 
               <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={"Total Hospitalizations Over Time"}>
+                <ItemWrapper title={trans.hospital.title[lang]}>
                   {accessible ? (
                     <div>Future Table</div>
                   ) : (
-                    <Hospital data={this.state.data} />
+                    <Hospital data={this.state.data} lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
 
               <div id="regbreak" className="item item-6">
-                <ItemWrapper
-                  title={"Breakdown of Cases Reported by Public Health Units"}
-                >
+                <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
                     <div>Future Table</div>
                   ) : (
-                    <RegBreak casedata={this.state.casedata} />
+                    <RegBreak
+                      casedata={this.state.casedata}
+                      lang={this.state.lang}
+                    />
                   )}
                 </ItemWrapper>
               </div>

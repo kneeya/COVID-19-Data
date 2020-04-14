@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsive, stroke } from "./options";
+import trans from "../translations.json";
 
 class Hospital extends Component {
   constructor(props) {
@@ -85,15 +86,15 @@ class Hospital extends Component {
       ICUwov: ICUwov,
       series: [
         {
-          name: "Hospitalized",
+          name: trans.hospital.hospitalized[this.props.lang],
           data: notICU,
         },
         {
-          name: "In ICU",
+          name: trans.hospital.icu[this.props.lang],
           data: ICUwov,
         },
         {
-          name: "In ICU with ventilator",
+          name: trans.hospital.icuv[this.props.lang],
           data: ICUwithv,
         },
       ],
