@@ -9,7 +9,7 @@ class SexBreak extends Component {
   constructor(props) {
     super(props);
     this.sortByAge = this.sortByAge.bind(this);
-    this.makeChart = this.makeChart.bind(this);
+    // this.makeChart = this.makeChart.bind(this);
   }
   state = {
     data: this.props.casedata,
@@ -29,79 +29,68 @@ class SexBreak extends Component {
   }
 
   sortByAge() {
-    setTimeout(() => {
-      const data = this.props.casedata;
+    const data = this.props.casedata;
 
-      const reso = data
-        .map(function (row) {
-          if (row[5] === "Resolved") {
-            return row[3];
-          }
-        })
-        .filter(function (result) {
-          if (!result) {
-            return false;
-          } else {
-            return true;
-          }
-        });
-
-      const active = data
-        .map(function (row) {
-          if (row[5] === "Not Resolved") {
-            return row[3];
-          }
-        })
-        .filter(function (result) {
-          if (!result) {
-            return false;
-          } else {
-            return true;
-          }
-        });
-
-      const fatal = data
-        .map(function (row) {
-          if (row[5] === "Fatal") {
-            return row[3];
-          }
-        })
-        .filter(function (result) {
-          if (!result) {
-            return false;
-          } else {
-            return true;
-          }
-        });
-      // console.log(reso, active, fatal);
-
-      var activesex = {};
-      var resosex = {};
-      var fatalsex = {};
-
-      for (var i = 0, j = active.length; i < j; i++) {
-        activesex[active[i]] = (activesex[active[i]] || 0) + 1;
-      }
-      for (var t = 0, y = reso.length; t < y; t++) {
-        resosex[reso[t]] = (resosex[reso[t]] || 0) + 1;
-      }
-      for (var x = 0, s = fatal.length; x < s; x++) {
-        fatalsex[fatal[x]] = (fatalsex[fatal[x]] || 0) + 1;
-      }
-
-      this.setState({
-        activesex: activesex,
-        resosex: resosex,
-        fatalsex: fatalsex,
+    const reso = data
+      .map(function (row) {
+        if (row[5] === "Resolved") {
+          return row[3];
+        }
+      })
+      .filter(function (result) {
+        if (!result) {
+          return false;
+        } else {
+          return true;
+        }
       });
-      this.makeChart();
-    }, 0.01);
-  }
 
-  makeChart() {
-    const asex = this.state.activesex;
-    const rsex = this.state.resosex;
-    const fsex = this.state.fatalsex;
+    const active = data
+      .map(function (row) {
+        if (row[5] === "Not Resolved") {
+          return row[3];
+        }
+      })
+      .filter(function (result) {
+        if (!result) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+
+    const fatal = data
+      .map(function (row) {
+        if (row[5] === "Fatal") {
+          return row[3];
+        }
+      })
+      .filter(function (result) {
+        if (!result) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+    // console.log(reso, active, fatal);
+
+    var activesex = {};
+    var resosex = {};
+    var fatalsex = {};
+
+    for (var i = 0, j = active.length; i < j; i++) {
+      activesex[active[i]] = (activesex[active[i]] || 0) + 1;
+    }
+    for (var t = 0, y = reso.length; t < y; t++) {
+      resosex[reso[t]] = (resosex[reso[t]] || 0) + 1;
+    }
+    for (var x = 0, s = fatal.length; x < s; x++) {
+      fatalsex[fatal[x]] = (fatalsex[fatal[x]] || 0) + 1;
+    }
+
+    const asex = activesex;
+    const rsex = resosex;
+    const fsex = fatalsex;
 
     this.setState({
       series: [
@@ -118,8 +107,6 @@ class SexBreak extends Component {
           data: [fsex["MALE"], fsex["FEMALE"]],
         },
       ],
-    });
-    this.setState({
       options: {
         legend: legend,
         tooltip: tooltip,
@@ -179,6 +166,88 @@ class SexBreak extends Component {
     var trand = d + e + f;
     this.setState({ ready: true, unk: unknowns, trank: trand });
   }
+
+  // makeChart() {
+  //   const asex = this.state.activesex;
+  //   const rsex = this.state.resosex;
+  //   const fsex = this.state.fatalsex;
+
+  //   this.setState({
+  //     series: [
+  //       {
+  //         name: trans.sexbreak.active[this.props.lang],
+  //         data: [asex["MALE"], asex["FEMALE"]],
+  //       },
+  //       {
+  //         name: trans.sexbreak.resolved[this.props.lang],
+  //         data: [rsex["MALE"], rsex["FEMALE"]],
+  //       },
+  //       {
+  //         name: trans.sexbreak.fatal[this.props.lang],
+  //         data: [fsex["MALE"], fsex["FEMALE"]],
+  //       },
+  //     ],
+  //   });
+  //   this.setState({
+  //     options: {
+  //       legend: legend,
+  //       tooltip: tooltip,
+  //       responsive: responsive,
+  //       chart: {
+  //         height: 650,
+  //         width: "100%",
+  //         type: "bar",
+  //         stacked: true,
+  //         zoom: { enabled: true },
+  //       },
+  //       //title: { text: "Breakdown by Age and Sex" },
+  //       dataLabels: {
+  //         enabled: false,
+  //       },
+  //       // fill: {
+  //       //   type: ["solid", "pattern"],
+  //       //   opacity: 1,
+  //       //   pattern: {
+  //       //     style: "slantedLines",
+  //       //   },
+  //       // },
+
+  //       colors: [colours.blue, colours.green, colours.black],
+  //       plotOptions: {
+  //         bar: { horizontal: true, barHeight: "20%" },
+  //       },
+  //       stroke: {
+  //         width: 2,
+  //         colors: ["#fff"],
+  //       },
+  //       yaxis: {
+  //         labels: {
+  //           style: { ...labelStyle },
+  //         },
+  //       },
+  //       xaxis: {
+  //         categories: [
+  //           trans.sexbreak.male[this.props.lang],
+  //           trans.sexbreak.female[this.props.lang],
+  //         ],
+  //         labels: {
+  //           style: { ...labelStyle },
+  //         },
+  //       },
+  //     },
+  //   });
+  //   var a = asex["UNKNOWN"] || 0;
+  //   var b = rsex["UNKNOWN"] || 0;
+  //   var c = fsex["UNKNOWN"] || 0;
+
+  //   var d = asex["TRANSGENDER"] || 0;
+  //   var e = rsex["TRANSGENDER"] || 0;
+  //   var f = fsex["TRANSGENDER"] || 0;
+
+  //   var unknowns = a + b + c;
+  //   var trand = d + e + f;
+  //   this.setState({ ready: true, unk: unknowns, trank: trand });
+  // }
 
   render() {
     return (
