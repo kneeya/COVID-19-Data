@@ -47,7 +47,6 @@ class RegBreak extends Component {
       return occurrences[b] - occurrences[a];
     });
     var occ = Object.entries(ordered);
-    console.log(ordered, occ);
     const region = occ.map(function (inst) {
       return inst[1];
     });
