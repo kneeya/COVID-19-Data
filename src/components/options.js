@@ -46,6 +46,55 @@ export const responsive = [
     options: {
       chart: {
         height: "300px",
+        width: "100%",
+      },
+      xaxis: {
+        labels: {
+          hideOverlappingLabels: true,
+          offsetY: 10,
+          style: { ...labelStyle, fontSize: "14px" },
+        },
+      },
+    },
+  },
+  {
+    breakpoint: 1163,
+    options: {
+      chart: {
+        height: "400px",
+        width: "125%",
+      },
+      xaxis: {
+        labels: {
+          offsetY: 10,
+          style: { ...labelStyle },
+        },
+      },
+    },
+  },
+  {
+    breakpoint: 1530,
+    options: {
+      chart: {
+        height: "500px",
+        width: "100%",
+      },
+      xaxis: {
+        labels: {
+          offsetY: 10,
+          style: { ...labelStyle },
+        },
+      },
+    },
+  },
+];
+
+export const responsiveB = [
+  {
+    breakpoint: 640,
+    options: {
+      chart: {
+        height: "300px",
         width: "250%",
       },
       xaxis: {

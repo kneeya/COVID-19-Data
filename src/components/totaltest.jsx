@@ -7,7 +7,7 @@ import {
   stroke,
   markers,
   legend,
-  responsive,
+  responsiveB,
 } from "./options";
 import trans from "../translations.json";
 
@@ -110,7 +110,7 @@ class TotalTest extends Component {
         legend: legend,
         tooltip: tooltip,
         stroke: stroke,
-        responsive: responsive,
+        responsive: responsiveB,
         chart: { height: 650, type: "line", zoom: { enabled: true } },
         yaxis: {
           labels: {
