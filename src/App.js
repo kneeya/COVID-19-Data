@@ -198,7 +198,7 @@ class App extends Component {
                       lang={this.state.lang}
                     />
                   ) : (
-                    <Stacked data={this.state.data} lang={this.state.lang} />
+                    <TotalTest data={this.state.data} lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
