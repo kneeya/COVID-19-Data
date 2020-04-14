@@ -1,3 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
+
+a{
+  text-decoration: underline !important;
+}
+
 #root {
   padding: 1rem;
 }
