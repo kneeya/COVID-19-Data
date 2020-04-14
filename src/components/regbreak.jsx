@@ -36,15 +36,20 @@ class RegBreak extends Component {
     for (i = 0; i < regions.length; i++) {
       occurrences[regions[i]] = (occurrences[regions[i]] || 0) + 1;
     }
-    const ordered = {};
-    Object.keys(occurrences)
-      .sort()
-      .forEach(function (key) {
-        ordered[key] = occurrences[key];
-      });
+    var ordered = {};
+    // Object.keys(occurrences)
+    //   .sort()
+    //   .forEach(function (key) {
+    //     ordered[key] = occurrences[key];
+    //   });
+
+    ordered = Object.keys(occurrences).sort(function (a, b) {
+      return occurrences[b] - occurrences[a];
+    });
     var occ = Object.entries(ordered);
+    console.log(ordered, occ);
     const region = occ.map(function (inst) {
-      return inst[0];
+      return inst[1];
     });
 
     const Regions = region.map(function (reg) {
