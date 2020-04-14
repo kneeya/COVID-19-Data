@@ -13,9 +13,9 @@ export const tooltip = {
 };
 
 export const stroke = {
-  width: 12,
+  width: 2,
   curve: "straight",
-  dashArray: [0, 8, 5],
+  dashArray: [0, 8, 0, 15],
 };
 
 export const markers = {
