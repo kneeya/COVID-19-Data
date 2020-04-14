@@ -125,7 +125,7 @@ class App extends Component {
               </h2>
               <Overview data={this.state.data} /> */}
 
-              {/* <div>
+              <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   On this Page:
                 </h2>
@@ -133,16 +133,20 @@ class App extends Component {
                   {trans.stacked.title[lang]}
                 </a>
                 <br />
-                <a style={{ textDecoration: "none" }} href="#totaltest">
+                {/* <a style={{ textDecoration: "none" }} href="#totaltest">
                   {trans.totaltest.title[lang]}
                 </a>
-                <br />
-               
+                <br /> */}
+
                 <a style={{ textDecoration: "none" }} href="#regbreak">
                   Breakdown of Cases Reported by Public Health Units
                 </a>
                 <br />
-                
+                <a style={{ textDecoration: "none" }} href="#hospitalization">
+                  Total Hospitalizations Over Time
+                </a>
+                <br />
+
                 <a style={{ textDecoration: "none" }} href="#agebreak">
                   {trans.agebreak.title[lang]}
                 </a>
@@ -151,7 +155,7 @@ class App extends Component {
                   {trans.sexbreak.title[lang]}
                 </a>
                 <br />
-                <a style={{ textDecoration: "none" }} href="#positive">
+                {/* <a style={{ textDecoration: "none" }} href="#positive">
                   {trans.positive.title[lang]}
                 </a>
                 <br />
@@ -162,8 +166,8 @@ class App extends Component {
                 <a style={{ textDecoration: "none" }} href="#deaths">
                   {trans.deaths.title[lang]}
                 </a>
-                <br />
-              </div> */}
+                <br /> */}
+              </div>
               <h2
                 id="stacked"
                 className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
@@ -171,7 +175,7 @@ class App extends Component {
                 {trans.stacked.title[lang]}
               </h2>
               <Stacked data={this.state.data} lang={this.state.lang} />
-              <div className="item item-2">
+              {/* <div className="item item-2">
                 <h2
                   id="totaltest"
                   className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
@@ -179,9 +183,12 @@ class App extends Component {
                   {trans.totaltest.title[lang]}
                 </h2>
                 <TotalTest data={this.state.data} lang={this.state.lang} />
-              </div>
+              </div> */}
               <div className="item item-6">
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                <h2
+                  id="hospitalization"
+                  className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
+                >
                   Total Hospitalizations Over Time
                 </h2>
                 <Hospital data={this.state.data} />
@@ -248,7 +255,7 @@ class App extends Component {
                   lang={this.state.lang}
                 />
               </div>
-              <div className="item item-1">
+              {/* <div className="item item-1">
                 <h2
                   id="positive"
                   className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
@@ -274,7 +281,7 @@ class App extends Component {
                   {trans.deaths.title[lang]}
                 </h2>
                 <Deaths data={this.state.data} lang={this.state.lang} />
-              </div>
+              </div> */}
             </div>
           </React.Fragment>
         ) : (
