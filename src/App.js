@@ -1,7 +1,5 @@
 import React, { Component, useRef } from "react";
 //import { readRemoteFile } from "react-papaparse";
-//import "../casedataFile.csv";
-//import "../dataFile.csv";
 import "./ds.scss";
 import "./App.css";
 import Positive from "./components/positive.jsx";
