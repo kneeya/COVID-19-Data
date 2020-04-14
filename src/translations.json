@@ -67,6 +67,13 @@
       "fr": "Deaths FR"
     }
   },
+  "newcases": {
+    "title": { "en": "New cases over time", "fr": "New cases over time FR" },
+    "newcase": {
+      "en": "New cases",
+      "fr": "New cases FR"
+    }
+  },
   "reg": {
     "title": {
       "en": "Breakdown of Cases Reported by Public Health Units",

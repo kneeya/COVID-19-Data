@@ -1,22 +1,21 @@
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
-
 export const labelStyle = {
   fontSize: "16px",
-  colors: [colours.black]
+  colors: [colours.black],
 };
 
 export const dataLabelsSize = "15px";
 
 export const tooltip = {
   followCursor: true,
-  style: { ...labelStyle }
+  style: { ...labelStyle },
 };
 
 export const stroke = {
-  width: 12,
+  width: 2,
   curve: "straight",
-  dashArray: [0, 8, 5]
+  dashArray: [0, 8, 0, 15],
 };
 
 export const markers = {
@@ -25,68 +24,66 @@ export const markers = {
   strokeColors: "#fff",
   strokeWidth: 3,
   hover: {
-    size: 9
-  }
+    size: 9,
+  },
 };
 
 export const legend = {
-    fontSize: dataLabelsSize,
-    position: 'top',
-    horizontalAlign: 'left',
-    onItemClick: {
-    toggleDataSeries: true
+  fontSize: dataLabelsSize,
+  position: "top",
+  horizontalAlign: "left",
+  onItemClick: {
+    toggleDataSeries: true,
   },
   onItemHover: {
-    highlightDataSeries: true
-  }
+    highlightDataSeries: true,
+  },
 };
 
 export const responsive = [
-    {
-      breakpoint: 640,
-      options: {
-        chart: {
-          height: "300px",
-          width: "250%",
-        },
-        xaxis: {
-            labels: {
-              offsetY: 10,
-              style: { ...labelStyle, fontSize: "14px" },
-            },
-        }
-      }
-    },
-    {
-        breakpoint: 1163,
-        options: {
-          chart: {
-            height: "400px",
-            width: "125%",
-          },
-          xaxis: {
-            labels: {
-              offsetY: 10,
-              style: { ...labelStyle },
-            },
-            }
-        }
+  {
+    breakpoint: 640,
+    options: {
+      chart: {
+        height: "300px",
+        width: "250%",
       },
-      {
-        breakpoint: 1530,
-        options: {
-          chart: {
-            height: "500px",
-            width: "100%",
-          },
-          xaxis: {
-            labels: {
-              offsetY: 10,
-              style: { ...labelStyle },
-            },
-            }
-        }
-      }
-  ]
-
-  
+      xaxis: {
+        labels: {
+          offsetY: 10,
+          style: { ...labelStyle, fontSize: "14px" },
+        },
+      },
+    },
+  },
+  {
+    breakpoint: 1163,
+    options: {
+      chart: {
+        height: "400px",
+        width: "125%",
+      },
+      xaxis: {
+        labels: {
+          offsetY: 10,
+          style: { ...labelStyle },
+        },
+      },
+    },
+  },
+  {
+    breakpoint: 1530,
+    options: {
+      chart: {
+        height: "500px",
+        width: "100%",
+      },
+      xaxis: {
+        labels: {
+          offsetY: 10,
+          style: { ...labelStyle },
+        },
+      },
+    },
+  },
+];

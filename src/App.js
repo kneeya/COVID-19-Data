@@ -19,6 +19,7 @@ import SexBreak from "./components/sexbreak.jsx";
 import RegBreak from "./components/regbreak.jsx";
 import Overview from "./components/overview.jsx";
 import Hospital from "./components/hospital.jsx";
+import NewCases from "./components/newcases.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -165,7 +166,7 @@ class App extends Component {
               <h1>{trans.hero.title[lang]}</h1>
 
               <p className="ontario-lead-statement">
-                {trans.hero.lead[lang]}, this page is available in accessible
+                {trans.hero.lead[lang]} This page is available in accessible
                 format <Accessible />
               </p>
 
@@ -207,6 +208,15 @@ class App extends Component {
                     />
                   ) : (
                     <TotalTest data={this.state.data} lang={this.state.lang} />
+                  )}
+                </ItemWrapper>
+              </div>
+              <div id="newcases" className="item item-2">
+                <ItemWrapper title={trans.newcases.title[lang]}>
+                  {accessible ? (
+                    <div>Future Table</div>
+                  ) : (
+                    <NewCases data={this.state.data} lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
