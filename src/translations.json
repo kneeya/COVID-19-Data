@@ -155,12 +155,12 @@
   },
   "accessible": {
     "enable": {
-      "en": "Enable Accessibility",
-      "fr": "Enable Accessibility FR"
+      "en": "Enable accessibility",
+      "fr": "Enable accessibility FR"
     },
     "disable": {
-      "en": "Disable Accessibility",
-      "fr": "Disable Accessibility FR"
+      "en": "Disable accessibility",
+      "fr": "Disable accessibility FR"
     },
     "select": {
       "en": "Select:",
