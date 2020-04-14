@@ -1,5 +1,7 @@
 import React, { Component, useRef } from "react";
-import { readRemoteFile } from "react-papaparse";
+//import { readRemoteFile } from "react-papaparse";
+//import "../casedataFile.csv";
+//import "../dataFile.csv";
 import "./ds.scss";
 import "./App.css";
 import Positive from "./components/positive.jsx";
@@ -42,7 +44,7 @@ class App extends Component {
   }
 
   dataParseCase = () => {
-    var csv = require("./components/conposcovidloc.csv");
+    var csv = require("./casedataFile.csv");
     var Papa = require("papaparse/papaparse.min.js");
     Papa.parse(csv, {
       download: true,
@@ -67,7 +69,7 @@ class App extends Component {
   dataParse = () => {
     //reading a local file
 
-    var csv = require("./components/covidtesting.csv");
+    var csv = require("./dataFile.csv");
     var Papa = require("papaparse/papaparse.min.js");
     Papa.parse(csv, {
       download: true,
