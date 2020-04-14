@@ -1,8 +1,8 @@
 {
   "hero": {
     "title": {
-      "en": "Ontario COVID-19 Data",
-      "fr": "Ontario COVID-19 Data FR"
+      "en": "Ontario COVID-19 data",
+      "fr": "Ontario COVID-19 data FR"
     },
     "lead": {
       "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
@@ -11,8 +11,8 @@
   },
   "stacked": {
     "title": {
-      "en": "Summary of Cases in Ontario",
-      "fr": "Summary of Cases in Ontario FR"
+      "en": "Summary of cases in Ontario",
+      "fr": "Summary of cases in Ontario FR"
     },
     "positive": {
       "en": "Active",
@@ -29,8 +29,8 @@
   },
   "hospital": {
     "title": {
-      "en": "Total Hospitalizations Over Time",
-      "fr": "Total Hospitalizations Over Time FR"
+      "en": "Total hospitalizations over time",
+      "fr": "Total hospitalizations over time FR"
     },
     "hospitalized": {
       "en": "Hospitalized",
@@ -76,8 +76,8 @@
   },
   "reg": {
     "title": {
-      "en": "Breakdown of Cases Reported by Public Health Units",
-      "fr": "Breakdown of Cases Reported by Public Health Units FR"
+      "en": "Breakdown of cases reported by Public Health Units",
+      "fr": "Breakdown of cases reported by Public Health Units FR"
     },
     "active": {
       "en": "Active",
@@ -94,8 +94,8 @@
   },
   "agebreak": {
     "title": {
-      "en": "Case Breakdown by Age",
-      "fr": "Case Breakdown by Age FR"
+      "en": "Case breakdown by age",
+      "fr": "Case breakdown by age FR"
     },
     "active": {
       "en": "Active",
@@ -124,8 +124,8 @@
   },
   "sexbreak": {
     "title": {
-      "en": "Case Breakdown by Sex",
-      "fr": "Case Breakdown by Sex FR"
+      "en": "Case breakdown by sex",
+      "fr": "Case breakdown by sex FR"
     },
     "active": {
       "en": "Active",
