@@ -127,6 +127,9 @@ class RegBreak extends Component {
         },
       ],
       options: {
+        legend: {
+          position: "top",
+        },
         responsive: [
           {
             breakpoint: 640,
