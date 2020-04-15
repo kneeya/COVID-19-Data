@@ -28,11 +28,9 @@ build:stage:
     only:
       - develop
     variables:
-        NODE_ENV: production
         PUBLIC_URL: "${STAGE_URL}"
     script:
-        - ls -ltr node_modules/
-        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=${NODE_ENV} npm run build
+        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=production npm run build
     environment:
         name: Stage
 
@@ -49,10 +47,9 @@ build:prod:
         - branches
         - develop
     variables:
-      NODE_ENV: production
       PUBLIC_URL: "${PROD_URL}"     
     script:
-        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=${NODE_ENV} npm run build
+        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=production npm run build
     environment:
         name: production
 
