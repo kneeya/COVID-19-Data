@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../ds.scss";
+import trans from "../translations.json";
 
 class Overview extends Component {
   constructor(props) {
@@ -10,6 +11,12 @@ class Overview extends Component {
 
   componentDidMount() {
     this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.lang !== this.props.lang) {
+      this.setData();
+    }
   }
 
   setData() {
@@ -61,9 +68,11 @@ class Overview extends Component {
       <React.Fragment>
         {this.state.ready ? (
           <div className="ontario-small-12 ontario-columns">
-            <div className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
+            <ul className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
               <li>
-                <div className="ontario-infographic-text">Total</div>
+                <div className="ontario-infographic-text">
+                  {trans.overview.total[this.props.lang]}
+                </div>
                 <div className="ontario-infographic-number">
                   {this.state.total}
                 </div>
@@ -72,7 +81,9 @@ class Overview extends Component {
                 </div>
               </li>
               <li>
-                <div className="ontario-infographic-text">Active</div>
+                <div className="ontario-infographic-text">
+                  {trans.overview.active[this.props.lang]}
+                </div>
                 <div className="ontario-infographic-number">
                   {this.state.active}
                 </div>
@@ -81,7 +92,9 @@ class Overview extends Component {
                 </div>
               </li>
               <li>
-                <div className="ontario-infographic-text">Resolved</div>
+                <div className="ontario-infographic-text">
+                  {trans.overview.res[this.props.lang]}
+                </div>
                 <div className="ontario-infographic-number">
                   {this.state.resolved}
                 </div>
@@ -90,7 +103,9 @@ class Overview extends Component {
                 </div>
               </li>
               <li>
-                <div className="ontario-infographic-text">Deaths</div>
+                <div className="ontario-infographic-text">
+                  {trans.overview.deaths[this.props.lang]}
+                </div>
                 <div className="ontario-infographic-number">
                   {this.state.deaths}
                 </div>
@@ -99,7 +114,9 @@ class Overview extends Component {
                 </div>
               </li>
               <li>
-                <div className="ontario-infographic-text">Hospitalized</div>
+                <div className="ontario-infographic-text">
+                  {trans.overview.hos[this.props.lang]}
+                </div>
                 <div className="ontario-infographic-number">
                   {this.state.hospital}
                 </div>
@@ -108,7 +125,9 @@ class Overview extends Component {
                 </div>
               </li>
               <li>
-                <div className="ontario-infographic-text">In ICU</div>
+                <div className="ontario-infographic-text">
+                  {trans.overview.icu[this.props.lang]}
+                </div>
                 <div className="ontario-infographic-number">
                   {this.state.icu}
                 </div>
@@ -116,7 +135,7 @@ class Overview extends Component {
                   {this.state.icudelta}
                 </div>
               </li>
-            </div>
+            </ul>
           </div>
         ) : (
           ""

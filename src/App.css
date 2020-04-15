@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
-a{
+a {
   text-decoration: underline !important;
 }
 
@@ -110,7 +110,7 @@ a{
 .ontario-covid-stats li {
   margin-right: 2.5rem;
   margin-bottom: 1.5rem;
-  flex-basis: 13%;
+  /* flex-basis: 13%; */
 }
 
 /* .ontario-covid-stats li:last-of-type {
@@ -141,9 +141,9 @@ a{
     flex-basis: calc(33% - 2.5rem);
     margin-bottom: 2rem;
   }
-  .ontario-covid-stats li:last-of-type {
+  /* .ontario-covid-stats li:last-of-type {
     flex-basis: calc(40% - 2.5rem);
-  }
+  } */
 }
 
 @media screen and (max-width: 40em) {
