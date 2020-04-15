@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsive } from "./options";
+import { labelStyle, tooltip, legend, responsiveFun } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 
@@ -110,15 +110,15 @@ class SexBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsive,
+        responsive: responsiveFun().map((item,z)=> {
+          item.options.chart.height = "200px";
+            return item;
+        } ),
         chart: {
-          height: 650,
-          width: "100%",
           type: "bar",
           stacked: true,
-          zoom: { enabled: true },
+          // zoom: { enabled: true },
         },
-        //title: { text: "Breakdown by Age and Sex" },
         dataLabels: {
           enabled: false,
         },
@@ -192,7 +192,7 @@ class SexBreak extends Component {
   //     options: {
   //       legend: legend,
   //       tooltip: tooltip,
-  //       responsive: responsive,
+  //       responsive: responsiveFun(),
   //       chart: {
   //         height: 650,
   //         width: "100%",
@@ -258,6 +258,7 @@ class SexBreak extends Component {
               options={this.state.options}
               series={this.state.series}
               type="bar"
+              height="250"
             />
             <p>
               {trans.agebreak.noteA[this.props.lang]} {this.state.trank}

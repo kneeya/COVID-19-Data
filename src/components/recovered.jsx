@@ -5,7 +5,7 @@ import {
   tooltip,
   dataLabelsSize,
   stroke,
-  responsive,
+  responsiveFun,
 } from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import trans from "../translations.json";
@@ -60,7 +60,7 @@ class Recovered extends Component {
       ],
       options: {
         tooltip: tooltip,
-        responsive: responsive,
+        responsive: responsiveFun(),
         dataLabels: {
           enabled: true,
           style: { fontSize: dataLabelsSize },
