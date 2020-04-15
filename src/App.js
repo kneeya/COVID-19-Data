@@ -166,9 +166,13 @@ class App extends Component {
               <h1>{trans.hero.title[lang]}</h1>
 
               <p className="ontario-lead-statement">
-                {trans.hero.lead[lang]} This page is available in accessible
-                format <Accessible />
+                {trans.hero.lead[lang]} This page is available in an accessible
+                format. <Accessible />
               </p>
+              <div id="overview" className="item item-2">
+                <h2>Overview</h2>
+                <Overview data={this.state.data} lang={this.state.lang} />
+              </div>
 
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">

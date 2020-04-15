@@ -61,7 +61,7 @@ class Overview extends Component {
       <React.Fragment>
         {this.state.ready ? (
           <div className="ontario-small-12 ontario-columns">
-            <div className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
+            <ul className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
               <li>
                 <div className="ontario-infographic-text">Total</div>
                 <div className="ontario-infographic-number">
@@ -116,7 +116,7 @@ class Overview extends Component {
                   {this.state.icudelta}
                 </div>
               </li>
-            </div>
+            </ul>
           </div>
         ) : (
           ""
