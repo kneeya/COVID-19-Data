@@ -1,4 +1,4 @@
-image: 608395931184.dkr.ecr.us-east-1.amazonaws.com/ci/centos/nodejs-12-centos7:latest
+image: node:12
 
 stages:
     - build
