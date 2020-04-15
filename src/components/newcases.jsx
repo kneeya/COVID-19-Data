@@ -45,7 +45,7 @@ class NewCases extends Component {
       var tday = data[i];
       var yday = data[i - 1];
       datez[i - 1] = tday[0];
-      delta[i - 1] = tday[5] - yday[5];
+      delta[i - 1] = tday[9] - yday[9];
     }
 
     this.setState({
@@ -101,7 +101,6 @@ class NewCases extends Component {
           labels: {
             style: { ...labelStyle },
           },
-          offsetY: 40,
         },
         responsive: responsive,
         fill: {
