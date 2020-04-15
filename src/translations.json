@@ -5,8 +5,44 @@
       "fr": "Ontario COVID-19 data FR"
     },
     "lead": {
-      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
-      "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. FR"
+      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. This page is available in an accessible format.",
+      "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. This page is available in an accessible format. FR"
+    }
+  },
+  "overview": {
+    "title": {
+      "en": "Overview",
+      "fr": "Overview FR"
+    },
+    "total": {
+      "en": "Total",
+      "fr": "Total FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "res": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "hos": {
+      "en": "Hospitalized",
+      "fr": "Hospitalized FR"
+    },
+    "icu": {
+      "en": "In ICU",
+      "fr": "In ICU FR"
+    }
+  },
+  "otp": {
+    "title": {
+      "en": "On this page",
+      "fr": "On this page FR"
     }
   },
   "stacked": {
