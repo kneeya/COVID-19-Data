@@ -31,6 +31,7 @@ build:stage:
         NODE_ENV: production
         PUBLIC_URL: "${STAGE_URL}"
     script:
+        - ls -ltr node_modules/
         - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=${NODE_ENV} npm run build
     environment:
         name: Stage
