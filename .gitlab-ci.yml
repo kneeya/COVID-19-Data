@@ -82,10 +82,10 @@ deploy:prod:
         - develop
     when: manual
     environment:
-        name: prod
+        name: production
     variables:
         S3_DEPLOY_BUCKET: "${PROD_S3_DEPLOY_BUCKET}"
         AWS_ACCESS_KEY_ID: "${PROD_ACCESS_KEY}"
         AWS_SECRET_ACCESS_KEY: "${PROD_ACCESS_SECRET}"
     dependencies:
-        - build:production
+        - build:prod
