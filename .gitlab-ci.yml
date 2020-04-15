@@ -30,7 +30,7 @@ build:stage:
     variables:
         PUBLIC_URL: "${STAGE_URL}"
     script:
-        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=production npm run build
+        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=production CI=false npm run build
     environment:
         name: Stage
 
@@ -49,7 +49,7 @@ build:prod:
     variables:
       PUBLIC_URL: "${PROD_URL}"     
     script:
-        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=production npm run build
+        - PUBLIC_URL=${PUBLIC_URL}  NODE_ENV=production CI=false npm run build
     environment:
         name: production
 
