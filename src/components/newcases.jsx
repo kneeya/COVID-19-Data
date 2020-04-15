@@ -82,11 +82,11 @@ class NewCases extends Component {
           //textAnchor: "start",
           offsetY: -30,
           style: { ...labelStyle },
-          formatter: function (val) {
-            if (val < 0) {
-              return val;
-            } else {
+          formatter: function (val, opt) {
+            if (opt.dataPointIndex % 2) {
               return "+" + val;
+            } else {
+              return "";
             }
           },
         },
