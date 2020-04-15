@@ -193,9 +193,9 @@ class AgeBreak extends Component {
       },
     });
 
-    var a = aage["UNKNOWN"] || 0;
-    var b = rage["UNKNOWN"] || 0;
-    var c = fage["UNKNOWN"] || 0;
+    var a = aage["Unknown"] || 0;
+    var b = rage["Unknown"] || 0;
+    var c = fage["Unknown"] || 0;
 
     var unknowns = a + b + c;
     this.setState({ ready: true, unk: unknowns });

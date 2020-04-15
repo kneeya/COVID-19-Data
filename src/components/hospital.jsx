@@ -45,7 +45,7 @@ class Hospital extends Component {
 
     notICU = data
       .map(function (row) {
-        return row[10] - row[11];
+        return row[10];
       })
       .filter(function (result) {
         if (!result) {
@@ -69,7 +69,7 @@ class Hospital extends Component {
 
     ICUwov = data
       .map(function (row) {
-        return row[11] - row[12];
+        return row[11];
       })
       .filter(function (result) {
         if (!result) {
