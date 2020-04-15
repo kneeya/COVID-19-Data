@@ -198,16 +198,16 @@
   },
   "accessible": {
     "enable": {
-      "en": "Enable accessibility",
-      "fr": "Enable accessibility FR"
+      "en": "Switch to accessible data table format.",
+      "fr": "Switch to accessible data table format. FR"
     },
     "disable": {
-      "en": "Disable accessibility",
-      "fr": "Disable accessibility FR"
+      "en": "Switch to interactive chart table format.",
+      "fr": "Switch to interactive chart table format. FR"
     },
     "select": {
-      "en": "Select:",
-      "fr": "Select FR:"
+      "en": "",
+      "fr": ""
     }
   }
 }

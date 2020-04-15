@@ -111,7 +111,6 @@ class App extends Component {
   render() {
     const Accessible = (props) => (
       <p>
-        {trans.accessible.select[lang]}
         <a
           className=""
           onClick={(e) => {
@@ -121,7 +120,6 @@ class App extends Component {
             //props.executeScroll();
           }}
           href="#"
-          style={{ margin: "10px" }}
         >
           {this.state.accessible
             ? trans.accessible.disable[lang]
