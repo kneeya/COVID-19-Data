@@ -163,9 +163,7 @@ class App extends Component {
             <div className="ontario-row">
               <h1>{trans.hero.title[lang]}</h1>
 
-              <p className="ontario-lead-statement">
-                {trans.hero.lead[lang]} <Accessible />
-              </p>
+              <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview data={this.state.data} lang={this.state.lang} />
