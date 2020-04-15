@@ -45,7 +45,7 @@ class NewCases extends Component {
       var tday = data[i];
       var yday = data[i - 1];
       datez[i - 1] = tday[0];
-      delta[i - 1] = tday[9] - yday[9];
+      delta[i - 1] = tday[7] - yday[7];
     }
 
     this.setState({

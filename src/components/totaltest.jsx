@@ -48,36 +48,36 @@ class TotalTest extends Component {
 
       dates[i - 1] = row[0];
 
-      if (!row[5]) {
+      if (!row[4]) {
         if (!confPos[i - 2]) {
           confPos[i - 1] = 0;
         } else {
           confPos[i - 1] = confPos[i - 2];
         }
       } else {
-        confPos[i - 1] = row[5];
+        confPos[i - 1] = row[4];
       }
 
-      if (!row[9]) {
+      if (!row[7]) {
         if (!totaltest[i - 2]) {
           totaltest[i - 1] = 0;
         } else {
           totaltest[i - 1] = totaltest[i - 2];
         }
       } else {
-        totaltest[i - 1] = row[9];
+        totaltest[i - 1] = row[7];
+      }
+
+      if (!row[5]) {
+        resolved[i - 1] = 0;
+      } else {
+        resolved[i - 1] = row[5];
       }
 
       if (!row[6]) {
-        resolved[i - 1] = 0;
-      } else {
-        resolved[i - 1] = row[6];
-      }
-
-      if (!row[7]) {
         dead[i - 1] = 0;
       } else {
-        dead[i - 1] = row[7];
+        dead[i - 1] = row[6];
       }
     }
 

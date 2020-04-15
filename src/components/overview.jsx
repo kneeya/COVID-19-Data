@@ -18,23 +18,23 @@ class Overview extends Component {
     var tday = data[data.length - 2];
     var yday = data[data.length - 3];
 
-    const totaldelta = tday[9] - yday[9];
-    this.setState({ total: tday[9], totaldelta: totaldelta });
+    const totaldelta = tday[7] - yday[7];
+    this.setState({ total: tday[7], totaldelta: totaldelta });
 
-    const activecalc = tday[5] - yday[5];
+    const activecalc = tday[4] - yday[4];
     var activedelta = "";
     if (activecalc > 0) {
       activedelta = "+ " + activecalc;
     } else {
       activedelta = activecalc;
     }
-    this.setState({ active: tday[5], activedelta: activedelta });
+    this.setState({ active: tday[4], activedelta: activedelta });
 
-    const resolveddelta = tday[6] - yday[6];
-    this.setState({ resolved: tday[6], resolveddelta: resolveddelta });
+    const resolveddelta = tday[5] - yday[5];
+    this.setState({ resolved: tday[5], resolveddelta: resolveddelta });
 
-    const deathsdelta = tday[7] - yday[7];
-    this.setState({ deaths: tday[7], deathsdelta: deathsdelta });
+    const deathsdelta = tday[6] - yday[6];
+    this.setState({ deaths: tday[6], deathsdelta: deathsdelta });
 
     const hospitalcalc = tday[10] - yday[10];
     var hospitaldelta = "";
@@ -43,16 +43,16 @@ class Overview extends Component {
     } else {
       hospitaldelta = hospitalcalc;
     }
-    this.setState({ hospital: tday[10], hospitaldelta: hospitaldelta });
+    this.setState({ hospital: tday[11], hospitaldelta: hospitaldelta });
 
-    const icucalc = tday[11] - yday[11];
+    const icucalc = tday[12] - yday[12];
     var icudelta = "";
     if (icucalc > 0) {
       icudelta = "+ " + icucalc;
     } else {
       icudelta = icucalc;
     }
-    this.setState({ icu: tday[11], icudelta: icudelta });
+    this.setState({ icu: tday[12], icudelta: icudelta });
 
     this.setState({ ready: true });
   }
