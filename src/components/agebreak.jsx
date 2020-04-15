@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsive } from "./options";
+import { labelStyle, tooltip, legend, responsiveFun } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
-
 class AgeBreak extends Component {
   constructor(props) {
     super(props);
@@ -141,9 +140,9 @@ class AgeBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsive,
+        responsive: responsiveFun(),
         chart: {
-          height: 650,
+//          height: 650,
           width: "100%",
           type: "bar",
           stacked: true,
@@ -257,7 +256,7 @@ class AgeBreak extends Component {
   //     options: {
   //       legend: legend,
   //       tooltip: tooltip,
-  //       responsive: responsive,
+  //       responsive: responsiveFun(),
   //       chart: {
   //         height: 650,
   //         width: "100%",

@@ -1,12 +1,13 @@
 const axios = require("axios");
 const fs = require("fs");
-axios
+
+  axios
   .get(
     "https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv"
   )
   .then(function (response) {
     // handle success
-    console.log(response);
+    //console.log(response);
     fs.writeFileSync("./src/dataFile.csv", response.data, {
       encoding: "utf8",
       flag: "w",
@@ -14,11 +15,11 @@ axios
   })
   .catch(function (error) {
     // handle error
-    console.log(error);
+    //console.log(error);
+    throw Error("FAILED TO FETCH DATA!!", error)
+
   })
-  .finally(function () {
-    // always executed
-  });
+
 
 axios
   .get(
@@ -26,7 +27,7 @@ axios
   )
   .then(function (response) {
     // handle success
-    console.log(response);
+    //console.log(response);
     fs.writeFileSync("./src/casedataFile.csv", response.data, {
       encoding: "utf8",
       flag: "w",
@@ -34,8 +35,8 @@ axios
   })
   .catch(function (error) {
     // handle error
-    console.log(error);
+    //console.log(error);
+    throw Error("FAILED TO FETCH DATA!!", error)
+
   })
-  .finally(function () {
-    // always executed
-  });
+
