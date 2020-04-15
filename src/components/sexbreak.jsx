@@ -110,10 +110,10 @@ class SexBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsiveFun().map((item,z)=> {
+        responsive: responsiveFun().map((item, z) => {
           item.options.chart.height = "200px";
-            return item;
-        } ),
+          return item;
+        }),
         chart: {
           type: "bar",
           stacked: true,
@@ -122,13 +122,6 @@ class SexBreak extends Component {
         dataLabels: {
           enabled: false,
         },
-        // fill: {
-        //   type: ["solid", "pattern"],
-        //   opacity: 1,
-        //   pattern: {
-        //     style: "slantedLines",
-        //   },
-        // },
 
         colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
@@ -166,88 +159,6 @@ class SexBreak extends Component {
     var trand = d + e + f;
     this.setState({ ready: true, unk: unknowns, trank: trand });
   }
-
-  // makeChart() {
-  //   const asex = this.state.activesex;
-  //   const rsex = this.state.resosex;
-  //   const fsex = this.state.fatalsex;
-
-  //   this.setState({
-  //     series: [
-  //       {
-  //         name: trans.sexbreak.active[this.props.lang],
-  //         data: [asex["MALE"], asex["FEMALE"]],
-  //       },
-  //       {
-  //         name: trans.sexbreak.resolved[this.props.lang],
-  //         data: [rsex["MALE"], rsex["FEMALE"]],
-  //       },
-  //       {
-  //         name: trans.sexbreak.fatal[this.props.lang],
-  //         data: [fsex["MALE"], fsex["FEMALE"]],
-  //       },
-  //     ],
-  //   });
-  //   this.setState({
-  //     options: {
-  //       legend: legend,
-  //       tooltip: tooltip,
-  //       responsive: responsiveFun(),
-  //       chart: {
-  //         height: 650,
-  //         width: "100%",
-  //         type: "bar",
-  //         stacked: true,
-  //         zoom: { enabled: true },
-  //       },
-  //       //title: { text: "Breakdown by Age and Sex" },
-  //       dataLabels: {
-  //         enabled: false,
-  //       },
-  //       // fill: {
-  //       //   type: ["solid", "pattern"],
-  //       //   opacity: 1,
-  //       //   pattern: {
-  //       //     style: "slantedLines",
-  //       //   },
-  //       // },
-
-  //       colors: [colours.blue, colours.green, colours.black],
-  //       plotOptions: {
-  //         bar: { horizontal: true, barHeight: "20%" },
-  //       },
-  //       stroke: {
-  //         width: 2,
-  //         colors: ["#fff"],
-  //       },
-  //       yaxis: {
-  //         labels: {
-  //           style: { ...labelStyle },
-  //         },
-  //       },
-  //       xaxis: {
-  //         categories: [
-  //           trans.sexbreak.male[this.props.lang],
-  //           trans.sexbreak.female[this.props.lang],
-  //         ],
-  //         labels: {
-  //           style: { ...labelStyle },
-  //         },
-  //       },
-  //     },
-  //   });
-  //   var a = asex["UNKNOWN"] || 0;
-  //   var b = rsex["UNKNOWN"] || 0;
-  //   var c = fsex["UNKNOWN"] || 0;
-
-  //   var d = asex["TRANSGENDER"] || 0;
-  //   var e = rsex["TRANSGENDER"] || 0;
-  //   var f = fsex["TRANSGENDER"] || 0;
-
-  //   var unknowns = a + b + c;
-  //   var trand = d + e + f;
-  //   this.setState({ ready: true, unk: unknowns, trank: trand });
-  // }
 
   render() {
     return (
