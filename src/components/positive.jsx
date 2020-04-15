@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, stroke, responsive } from "./options";
+import { labelStyle, tooltip, stroke, responsiveFun } from "./options";
 import trans from "../translations.json";
 
 class Positive extends Component {
@@ -85,7 +85,7 @@ class Positive extends Component {
         tickPlacement: "between",
         tooltip: tooltip,
         colors: [colours.red],
-        responsive: responsive,
+        responsive: responsiveFun(),
       },
       ready: true,
     });

@@ -5,7 +5,7 @@ import {
   dataLabelsSize,
   tooltip,
   stroke,
-  responsive,
+  responsiveFun,
 } from "./options";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import trans from "../translations.json";
@@ -66,7 +66,7 @@ class Deaths extends Component {
           type: "line",
           zoom: { enabled: true },
         },
-        responsive: responsive,
+        responsive: responsiveFun(),
         stroke: stroke,
         tooltip: tooltip,
         dataLabels: {
