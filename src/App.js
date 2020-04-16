@@ -1,5 +1,4 @@
 import React, { Component, useRef } from "react";
-//import { readRemoteFile } from "react-papaparse";
 import "./ds.scss";
 import "./App.css";
 import TotalTest from "./components/totaltest.jsx";
@@ -23,52 +22,16 @@ class App extends Component {
     super(props);
   }
 
-  state = { loading: false, ready: false, lang: "en", accessible: false };
+  state = { loading: false, lang: "en", accessible: false };
 
   componentDidMount() {
-    this.dataParse();
-    this.dataParseCase();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-  }
-
-  dataParseCase = () => {
-    var csv = require("./casedataFile.csv");
-    var Papa = require("papaparse/papaparse.min.js");
-    Papa.parse(csv, {
-      download: true,
-      complete: this.storeCaseData,
-    });
-  };
-
-  storeCaseData = (results) => {
-    let parsedD = results.data;
-    this.setState({ casedata: parsedD, ready: true });
-    // console.log(this.state.casedata);
-  };
-
-  dataParse = () => {
-    //reading a local file
-
-    var csv = require("./dataFile.csv");
-    var Papa = require("papaparse/papaparse.min.js");
-    Papa.parse(csv, {
-      download: true,
-      complete: this.storeData,
-    });
-
-    //reading a remote file
-  };
-  display = () => {
-    //console.log(this.state.data);
-    this.setState({ loaded: true });
-  };
-
-  storeData = (results) => {
-    let parsedD = results.data;
-    this.setState({ data: parsedD });
     this.display();
+  }
+
+  componentDidUpdate(prevProps, prevState) {}
+
+  display = () => {
+    this.setState({ loaded: true });
   };
 
   handleLangToggle = () => {
@@ -126,7 +89,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        {this.state.loaded && this.state.ready ? (
+        {this.state.loaded ? (
           <React.Fragment>
             <a
               className="ontario-button ontario-button--tertiary"
@@ -142,7 +105,7 @@ class App extends Component {
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
-                <Overview data={this.state.data} lang={this.state.lang} />
+                <Overview lang={this.state.lang} />
               </div>
 
               <div>
@@ -177,9 +140,9 @@ class App extends Component {
               <div id="stacked" className="item item-2">
                 <ItemWrapper title={trans.totaltest.title[lang]}>
                   {accessible ? (
-                    <TotalTable  lang={this.state.lang} />
+                    <TotalTable lang={this.state.lang} />
                   ) : (
-                    <TotalTest data={this.state.data} lang={this.state.lang} />
+                    <TotalTest lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -188,7 +151,7 @@ class App extends Component {
                   {accessible ? (
                     <NewCasesTable lang={this.state.lang} />
                   ) : (
-                    <NewCases data={this.state.data} lang={this.state.lang} />
+                    <NewCases lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -197,8 +160,8 @@ class App extends Component {
                 <ItemWrapper title={trans.hospital.title[lang]}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
-                    ) : (
-                    <Hospital data={this.state.data} lang={this.state.lang} />
+                  ) : (
+                    <Hospital lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -206,14 +169,9 @@ class App extends Component {
               <div id="regbreak" className="item item-6">
                 <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
-                     <RegBreakTable
-                     lang={this.state.lang}
-                   />
+                    <RegBreakTable lang={this.state.lang} />
                   ) : (
-                    <RegBreak
-                    casedata={this.state.casedata}
-                      lang={this.state.lang}
-                    />
+                    <RegBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -225,14 +183,9 @@ class App extends Component {
               >
                 <ItemWrapper title={trans.agebreak.title[lang]}>
                   {accessible ? (
-                     <AgeBreakTable
-                     lang={this.state.lang}
-                   />
+                    <AgeBreakTable lang={this.state.lang} />
                   ) : (
-                    <AgeBreak
-                    casedata={this.state.casedata}
-                      lang={this.state.lang}
-                    />
+                    <AgeBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -240,14 +193,9 @@ class App extends Component {
               <div id="sexbreak" className="item item-7">
                 <ItemWrapper title={trans.sexbreak.title[lang]}>
                   {accessible ? (
-                    <SexBreakTable
-                    lang={this.state.lang}
-                  />
+                    <SexBreakTable lang={this.state.lang} />
                   ) : (
-                    <SexBreak
-                      casedata={this.state.casedata}
-                      lang={this.state.lang}
-                    />
+                    <SexBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>

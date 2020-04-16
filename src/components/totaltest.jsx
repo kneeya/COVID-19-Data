@@ -27,7 +27,6 @@ class TotalTest extends Component {
 
   componentDidMount() {
     this.setData();
-    //console.log(this.state.chartData);
   }
 
   componentDidUpdate(prevProps) {

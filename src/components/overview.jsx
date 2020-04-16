@@ -22,7 +22,6 @@ class Overview extends Component {
   }
 
   setData() {
-    const data = this.props.data;
     const chartData = [...covidData.result.records];
 
     var tday = chartData[chartData.length - 1];

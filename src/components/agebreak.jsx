@@ -14,7 +14,6 @@ class AgeBreak extends Component {
     //this.makeChart = this.makeChart.bind(this);
   }
   state = {
-    data: this.props.casedata,
     ready: false,
     series: [{}],
     options: {},

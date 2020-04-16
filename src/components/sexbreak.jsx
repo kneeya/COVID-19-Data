@@ -13,7 +13,6 @@ class SexBreak extends Component {
     this.sortByAge = this.sortByAge.bind(this);
   }
   state = {
-    data: this.props.casedata,
     ready: false,
     series: [{}],
     options: {},

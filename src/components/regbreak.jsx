@@ -12,7 +12,6 @@ class RegBreak extends Component {
     this.makeCities = this.makeCities.bind(this);
   }
   state = {
-    data: this.props.casedata,
     ready: false,
     series: [{}],
     options: {},
