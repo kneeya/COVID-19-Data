@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
 import {ReactComponent as Search} from '../ds/icons/svg/ontario-icon-search.svg';
+import ReducedData from '../reducedData.json'; 
+import dict from "../dictionary";
 const SearchOutlined = () => <Search/>;
 
 class StackedTable extends React.Component {
@@ -77,43 +79,44 @@ class StackedTable extends React.Component {
 
   render() {
 
-    //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = [...this.props.data].splice(1, 29).map((item,z)=>{
-        //console.log('item', item)
-        return {
-            index: z,
-            date: item[0],
-            confirmed: item[5], 
-            resolved: item[6],
-            deaths: item[7]
-        }
-    })
+    var data = ReducedData.reduceSex.map((item,z)=>{
+      //console.log('item', item)
+      return {
+          ...item,
+          index: z,
+          total: item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]
+      }
+  })
 
     const columns = [
       {
-        title: 'Date',
-        dataIndex: 'date',
-        key: 'date',
-        width: '30%',
+        title: 'Gender',
+        dataIndex: dict.CLIENT_GENDER,
+        key: dict.CLIENT_GENDER,
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: 'Confirmed',
-        dataIndex: 'confirmed',
-        key: 'confirmed',
-        width: '20%',
-        //...this.getColumnSearchProps('age'),
+        title: 'Resolved',
+        dataIndex: dict.resolved,
+        key: dict.resolved,
+        //...this.getColumnSearchProps('address'),
       },
       {
-        title: 'Resolved',
-        dataIndex: 'resolved',
-        key: 'resolved',
+        title: 'Not Resolved',
+        dataIndex: dict.NotResolved,
+        key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
       {
         title: 'Total Deaths',
-        dataIndex: 'deaths',
-        key: 'deaths',
+        dataIndex: dict.deaths,
+        key: dict.deaths,
+        //...this.getColumnSearchProps('address'),
+      },
+      {
+        title: 'Total',
+        dataIndex: 'total',
+        key: 'total',
         //...this.getColumnSearchProps('address'),
       }
     ];
