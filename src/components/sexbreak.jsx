@@ -125,7 +125,7 @@ class SexBreak extends Component {
 
         colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
-          bar: { horizontal: true, barHeight: "20%" },
+          bar: { horizontal: true, barHeight: "60%" },
         },
         stroke: {
           width: 2,

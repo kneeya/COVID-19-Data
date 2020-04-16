@@ -126,6 +126,10 @@
     "deaths": {
       "en": "Deaths",
       "fr": "Deaths FR"
+    },
+    "total": {
+      "en": "Total",
+      "fr": "Total FR"
     }
   },
   "agebreak": {
@@ -156,6 +160,14 @@
     "noteB": {
       "en": " cases of unknown age.",
       "fr": " cases of unknown age. FR"
+    },
+    "unk": {
+      "en": "Unknown",
+      "fr": "Unknown FR"
+    },
+    "group": {
+      "en": "Age Group",
+      "fr": "Age Group FR"
     }
   },
   "sexbreak": {
@@ -194,6 +206,10 @@
     "noteC": {
       "en": " total transgender cases, and ",
       "fr": " total transgender cases, and FR"
+    },
+    "sex": {
+      "en": "Sex",
+      "fr": "Sex FR"
     }
   },
   "accessible": {
@@ -209,5 +225,9 @@
       "en": "",
       "fr": ""
     }
+  },
+  "date": {
+    "en": "Date",
+    "fr": "Date FR"
   }
 }
