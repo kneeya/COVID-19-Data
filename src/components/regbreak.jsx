@@ -179,12 +179,20 @@ class RegBreak extends Component {
         //title: { text: "Cases by City" },
         dataLabels: {
           enabled: true,
-          enabledOnSeries: [2],
+
           textAnchor: "end",
           offsetX: -30,
           style: { ...labelStyle },
           formatter: function (value, { seriesIndex, dataPointIndex, w }) {
-            return w.globals.stackedSeriesTotals[dataPointIndex];
+            let indices = w.config.series.map((item, i) => i);
+            indices = indices.filter(
+              (i) =>
+                !w.globals.collapsedSeriesIndices.includes(i) &&
+                w.config.series[i].data[dataPointIndex] > 0
+            );
+            if (seriesIndex === indices[indices.length - 1])
+              return w.globals.stackedSeriesTotals[dataPointIndex];
+            return "";
           },
         },
         colors: [colours.blue, colours.green, colours.black],

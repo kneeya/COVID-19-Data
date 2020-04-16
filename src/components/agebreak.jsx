@@ -151,7 +151,21 @@ class AgeBreak extends Component {
         },
         //title: { text: "Breakdown by Age and Sex" },
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          textAnchor: "start",
+          offsetX: 25,
+          style: { ...labelStyle },
+          formatter: function (value, { seriesIndex, dataPointIndex, w }) {
+            let indices = w.config.series.map((item, i) => i);
+            indices = indices.filter(
+              (i) =>
+                !w.globals.collapsedSeriesIndices.includes(i) &&
+                w.config.series[i].data[dataPointIndex] > 0
+            );
+            if (seriesIndex === indices[indices.length - 1])
+              return w.globals.stackedSeriesTotals[dataPointIndex];
+            return "";
+          },
         },
         // fill: {
         //   type: ["solid", "pattern"],
@@ -163,7 +177,12 @@ class AgeBreak extends Component {
 
         colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
-          bar: { horizontal: true },
+          bar: {
+            horizontal: true,
+            dataLabels: {
+              position: "top",
+            },
+          },
         },
         stroke: {
           width: 2,
@@ -203,7 +222,7 @@ class AgeBreak extends Component {
   }
 
   render() {
-    console.log('this', this)
+    console.log("this", this);
     return (
       <div id="regional" className="chart">
         {this.state.ready ? (

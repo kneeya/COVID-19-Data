@@ -120,12 +120,32 @@ class SexBreak extends Component {
           // zoom: { enabled: true },
         },
         dataLabels: {
-          enabled: false,
+          enabled: true,
+          textAnchor: "start",
+          offsetX: 20,
+          style: { ...labelStyle },
+          formatter: function (value, { seriesIndex, dataPointIndex, w }) {
+            let indices = w.config.series.map((item, i) => i);
+            indices = indices.filter(
+              (i) =>
+                !w.globals.collapsedSeriesIndices.includes(i) &&
+                w.config.series[i].data[dataPointIndex] > 0
+            );
+            if (seriesIndex === indices[indices.length - 1])
+              return w.globals.stackedSeriesTotals[dataPointIndex];
+            return "";
+          },
         },
 
         colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
-          bar: { horizontal: true, barHeight: "20%" },
+          bar: {
+            horizontal: true,
+            barHeight: "20%",
+            dataLabels: {
+              position: "bottom",
+            },
+          },
         },
         stroke: {
           width: 2,
