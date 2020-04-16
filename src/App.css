@@ -113,10 +113,6 @@ a {
   /* flex-basis: 13%; */
 }
 
-/* .ontario-covid-stats li:last-of-type {
-  flex-basis: 25%;
-} */
-
 .ontario-flex--justify-content {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -141,9 +137,6 @@ a {
     flex-basis: calc(33% - 2.5rem);
     margin-bottom: 2rem;
   }
-  /* .ontario-covid-stats li:last-of-type {
-    flex-basis: calc(40% - 2.5rem);
-  } */
 }
 
 @media screen and (max-width: 40em) {

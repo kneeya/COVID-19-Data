@@ -203,6 +203,7 @@ class AgeBreak extends Component {
   }
 
   render() {
+    console.log('this', this)
     return (
       <div id="regional" className="chart">
         {this.state.ready ? (

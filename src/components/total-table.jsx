@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
 import {ReactComponent as Search} from '../ds/icons/svg/ontario-icon-search.svg';
+import covidData from "../covidData.json";
+import dict from "../dictionary";
 const SearchOutlined = () => <Search/>;
 
-class StackedTable extends React.Component {
+class TotalTable extends React.Component {
   state = {
     searchText: '',
     searchedColumn: '',
@@ -78,14 +80,14 @@ class StackedTable extends React.Component {
   render() {
 
     //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = [...this.props.data].splice(1, 29).map((item,z)=>{
-        //console.log('item', item)
+    var chartData = [...covidData.result.records].filter(item=>item[dict.totaCases] > 100).map((item,z)=>{
+        console.log('item', item)
         return {
             index: z,
-            date: item[0],
-            confirmed: item[5], 
-            resolved: item[6],
-            deaths: item[7]
+            date: item[dict.reportedDate],
+            confirmed: item[dict.totaCases], 
+            resolved: item[dict.resolved],
+            deaths: item[dict.deaths]
         }
     })
 
@@ -94,14 +96,12 @@ class StackedTable extends React.Component {
         title: 'Date',
         dataIndex: 'date',
         key: 'date',
-        width: '30%',
         //...this.getColumnSearchProps('name'),
       },
       {
         title: 'Confirmed',
         dataIndex: 'confirmed',
         key: 'confirmed',
-        width: '20%',
         //...this.getColumnSearchProps('age'),
       },
       {
@@ -117,8 +117,8 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       }
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={chartData} />;
   }
 }
 
-export default StackedTable;
+export default TotalTable;
