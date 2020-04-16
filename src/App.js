@@ -2,17 +2,9 @@ import React, { Component, useRef } from "react";
 //import { readRemoteFile } from "react-papaparse";
 import "./ds.scss";
 import "./App.css";
-import Positive from "./components/positive.jsx";
 import TotalTest from "./components/totaltest.jsx";
-import Recovered from "./components/recovered";
-import Deaths from "./components/deaths";
-import Stacked from "./components/stacked.jsx";
-import StackedTable from "./components/stacked-table.jsx";
-
+import TotalTable from "./components/total-table.jsx";
 import Loading from "./components/loading/loading.jsx";
-import Age from "./components/age.jsx";
-import City from "./components/city.jsx";
-import Regional from "./components/regional.jsx";
 import trans from "./translations.json";
 import AgeBreak from "./components/agebreak.jsx";
 import SexBreak from "./components/sexbreak.jsx";
@@ -20,6 +12,11 @@ import RegBreak from "./components/regbreak.jsx";
 import Overview from "./components/overview.jsx";
 import Hospital from "./components/hospital.jsx";
 import NewCases from "./components/newcases.jsx";
+import AgeBreakTable from "./components/agebreak-table.jsx";
+import SexBreakTable from "./components/sexbreak-table.jsx";
+import RegBreakTable from "./components/regbreak-table.jsx";
+import HospitalTable from "./components/hospital-table.jsx";
+import NewCasesTable from "./components/newcases-table.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -34,11 +31,6 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // this.refSetter();
-    if (prevState.accessible !== this.state.accessible) {
-      //alert("Changed")
-      //this.scrollToRef(this.testRef)
-    }
   }
 
   dataParseCase = () => {
@@ -48,14 +40,6 @@ class App extends Component {
       download: true,
       complete: this.storeCaseData,
     });
-
-    // readRemoteFile(
-    //   "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/dataset/f4112442-bdc8-45d2-be3c-12efae72fb27/resource/455fd63b-603d-4608-8216-7d8647f43350/download/conposcovidloc.csv",
-    //   {
-    //     download: true,
-    //     complete: this.storeCaseData,
-    //   }
-    // );
   };
 
   storeCaseData = (results) => {
@@ -75,14 +59,6 @@ class App extends Component {
     });
 
     //reading a remote file
-
-    // readRemoteFile(
-    //   "https://cors-anywhere.herokuapp.com/https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
-    //   {
-    //     download: true,
-    //     complete: this.storeData,
-    //   }
-    // );
   };
   display = () => {
     //console.log(this.state.data);
@@ -201,10 +177,7 @@ class App extends Component {
               <div id="stacked" className="item item-2">
                 <ItemWrapper title={trans.totaltest.title[lang]}>
                   {accessible ? (
-                    <StackedTable
-                      data={this.state.data}
-                      lang={this.state.lang}
-                    />
+                    <TotalTable  lang={this.state.lang} />
                   ) : (
                     <TotalTest data={this.state.data} lang={this.state.lang} />
                   )}
@@ -213,7 +186,7 @@ class App extends Component {
               <div id="newcases" className="item item-2">
                 <ItemWrapper title={trans.newcases.title[lang]}>
                   {accessible ? (
-                    <div>Future Table</div>
+                    <NewCasesTable lang={this.state.lang} />
                   ) : (
                     <NewCases data={this.state.data} lang={this.state.lang} />
                   )}
@@ -223,8 +196,8 @@ class App extends Component {
               <div id="hospitalization" className="item item-6">
                 <ItemWrapper title={trans.hospital.title[lang]}>
                   {accessible ? (
-                    <div>Future Table</div>
-                  ) : (
+                    <HospitalTable lang={this.state.lang} />
+                    ) : (
                     <Hospital data={this.state.data} lang={this.state.lang} />
                   )}
                 </ItemWrapper>
@@ -233,10 +206,12 @@ class App extends Component {
               <div id="regbreak" className="item item-6">
                 <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
-                    <div>Future Table</div>
+                     <RegBreakTable
+                     lang={this.state.lang}
+                   />
                   ) : (
                     <RegBreak
-                      casedata={this.state.casedata}
+                    casedata={this.state.casedata}
                       lang={this.state.lang}
                     />
                   )}
@@ -250,10 +225,12 @@ class App extends Component {
               >
                 <ItemWrapper title={trans.agebreak.title[lang]}>
                   {accessible ? (
-                    <div>Future Table</div>
+                     <AgeBreakTable
+                     lang={this.state.lang}
+                   />
                   ) : (
                     <AgeBreak
-                      casedata={this.state.casedata}
+                    casedata={this.state.casedata}
                       lang={this.state.lang}
                     />
                   )}
@@ -263,7 +240,9 @@ class App extends Component {
               <div id="sexbreak" className="item item-7">
                 <ItemWrapper title={trans.sexbreak.title[lang]}>
                   {accessible ? (
-                    <div>Future Table</div>
+                    <SexBreakTable
+                    lang={this.state.lang}
+                  />
                   ) : (
                     <SexBreak
                       casedata={this.state.casedata}

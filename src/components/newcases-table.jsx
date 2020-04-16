@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
 import {ReactComponent as Search} from '../ds/icons/svg/ontario-icon-search.svg';
+import covidData from "../covidData.json";
+import dict from "../dictionary";
+
 const SearchOutlined = () => <Search/>;
 
 class StackedTable extends React.Component {
@@ -76,48 +79,34 @@ class StackedTable extends React.Component {
   };
 
   render() {
-
-    //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = [...this.props.data].splice(1, 29).map((item,z)=>{
+    // console.log('this.state.data', this.props, covidData)
+    let d = [...covidData.result.records].filter(item=>item[dict.totaCases] > 100);
+    let tableData = d.map((item,z)=>{
         //console.log('item', item)
         return {
             index: z,
-            date: item[0],
-            confirmed: item[5], 
-            resolved: item[6],
-            deaths: item[7]
+            date: item[dict.reportedDate],
+            //check if yeterday data exists and find diff
+            new: d[z-1] && item[dict.totaCases] - d[z-1][dict.totaCases],
         }
     })
-
     const columns = [
       {
         title: 'Date',
         dataIndex: 'date',
         key: 'date',
-        width: '30%',
+        width: '25%',
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: 'Confirmed',
-        dataIndex: 'confirmed',
-        key: 'confirmed',
-        width: '20%',
+        title: 'New cases',
+        dataIndex: 'new',
+        key: 'new',
+        width: '50%',
         //...this.getColumnSearchProps('age'),
       },
-      {
-        title: 'Resolved',
-        dataIndex: 'resolved',
-        key: 'resolved',
-        //...this.getColumnSearchProps('address'),
-      },
-      {
-        title: 'Total Deaths',
-        dataIndex: 'deaths',
-        key: 'deaths',
-        //...this.getColumnSearchProps('address'),
-      }
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={tableData} />;
   }
 }
 
