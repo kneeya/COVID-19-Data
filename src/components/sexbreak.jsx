@@ -141,7 +141,7 @@ class SexBreak extends Component {
         plotOptions: {
           bar: {
             horizontal: true,
-            barHeight: "20%",
+            barHeight: "60%",
             dataLabels: {
               position: "bottom",
             },
