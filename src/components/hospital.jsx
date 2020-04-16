@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsiveFun, stroke } from "./options";
+import dict from "../dictionary";
+import covidData from "../covidData.json";
 import trans from "../translations.json";
 
 class Hospital extends Component {
@@ -10,7 +12,6 @@ class Hospital extends Component {
     this.setData = this.setData.bind(this);
   }
   state = {
-    data: this.props.data,
     ready: false,
     dates: [],
     series: [],
@@ -22,62 +23,45 @@ class Hospital extends Component {
   }
 
   setData() {
-    //copy the array
-    const d = [...this.props.data];
-    const data = d.splice(57, d.length - 2);
+    const datz = [...covidData.result.records].filter(
+      (item) => item[dict.patientHospitalizedCOVID19]
+    );
 
-    var datez = [];
-    var notICU = [];
-    var ICUwithv = [];
-    var ICUwov = [];
+    var datez = datz.map((item) => {
+      var date = item[dict.reportedDate].slice(0, 10);
+      var monthStrings = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      var result =
+        monthStrings[parseInt(date.split("-")[1]) - 1] +
+        " " +
+        date.slice(8, 10);
 
-    datez = data
-      .map(function (row) {
-        return row[0];
-      })
-      .filter(function (result) {
-        if (!result) {
-          return false;
-        } else {
-          return true;
-        }
-      });
+      return result;
+    });
 
-    notICU = data
-      .map(function (row) {
-        return row[11];
-      })
-      .filter(function (result) {
-        if (!result) {
-          return 0;
-        } else {
-          return true;
-        }
-      });
+    var notICU = datz.map((item) => {
+      return item[dict.patientHospitalizedCOVID19];
+    });
 
-    ICUwithv = data
-      .map(function (row) {
-        return row[13];
-      })
-      .filter(function (result) {
-        if (!result) {
-          return 0;
-        } else {
-          return true;
-        }
-      });
+    var ICUwithv = datz.map((item) => {
+      return item[dict.patientsICUventilatorwCOVID19];
+    });
 
-    ICUwov = data
-      .map(function (row) {
-        return row[12];
-      })
-      .filter(function (result) {
-        if (!result) {
-          return 0;
-        } else {
-          return true;
-        }
-      });
+    var ICUwov = datz.map((item) => {
+      return item[dict.patientsICUwCOVID19];
+    });
 
     this.setState({
       dates: datez,
@@ -147,7 +131,6 @@ class Hospital extends Component {
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
-            type="line"
           />
         ) : (
           ""

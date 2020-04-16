@@ -4,12 +4,13 @@ import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsiveFun } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
+import ReducedData from "../reducedData.json";
+import dict from "../dictionary";
 
 class SexBreak extends Component {
   constructor(props) {
     super(props);
     this.sortByAge = this.sortByAge.bind(this);
-    // this.makeChart = this.makeChart.bind(this);
   }
   state = {
     data: this.props.casedata,
@@ -29,82 +30,83 @@ class SexBreak extends Component {
   }
 
   sortByAge() {
-    const data = this.props.casedata;
-
-    const reso = data
-      .map(function (row) {
-        if (row[5] === "Resolved") {
-          return row[3];
-        }
-      })
-      .filter(function (result) {
-        if (!result) {
+    var cD = Object.values(ReducedData.reduceSex);
+    var a = 0;
+    var b = 0;
+    var c = 0;
+    var d = 0;
+    var e = 0;
+    var f = 0;
+    const reso = cD
+      .filter((item) => {
+        if (
+          item[dict.CLIENT_GENDER] === "UNKNOWN" ||
+          item[dict.CLIENT_GENDER] === "OTHER"
+        ) {
+          a = a + item[dict.resolved];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+          d = d + item[dict.resolved];
           return false;
         } else {
           return true;
         }
+      })
+      .map((item) => {
+        return item[dict.resolved];
       });
 
-    const active = data
-      .map(function (row) {
-        if (row[5] === "Not Resolved") {
-          return row[3];
-        }
-      })
-      .filter(function (result) {
-        if (!result) {
+    const active = cD
+      .filter((item) => {
+        if (
+          item[dict.CLIENT_GENDER] === "UNKNOWN" ||
+          item[dict.CLIENT_GENDER] === "OTHER"
+        ) {
+          a = a + item[dict.NotResolved];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+          e = e + item[dict.NotResolved];
           return false;
         } else {
           return true;
         }
-      });
-
-    const fatal = data
-      .map(function (row) {
-        if (row[5] === "Fatal") {
-          return row[3];
-        }
       })
-      .filter(function (result) {
-        if (!result) {
+      .map((item) => {
+        return item[dict.NotResolved];
+      });
+    const fatal = cD
+      .filter((item) => {
+        if (
+          item[dict.CLIENT_GENDER] === "UNKNOWN" ||
+          item[dict.CLIENT_GENDER] === "TRANSGENDER" ||
+          item[dict.CLIENT_GENDER] === "OTHER"
+        ) {
+          a = a + item[dict.deaths];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+          f = f + item[dict.deaths];
           return false;
         } else {
           return true;
         }
+      })
+      .map((item) => {
+        return item[dict.deaths];
       });
-    // console.log(reso, active, fatal);
-
-    var activesex = {};
-    var resosex = {};
-    var fatalsex = {};
-
-    for (var i = 0, j = active.length; i < j; i++) {
-      activesex[active[i]] = (activesex[active[i]] || 0) + 1;
-    }
-    for (var t = 0, y = reso.length; t < y; t++) {
-      resosex[reso[t]] = (resosex[reso[t]] || 0) + 1;
-    }
-    for (var x = 0, s = fatal.length; x < s; x++) {
-      fatalsex[fatal[x]] = (fatalsex[fatal[x]] || 0) + 1;
-    }
-
-    const asex = activesex;
-    const rsex = resosex;
-    const fsex = fatalsex;
 
     this.setState({
       series: [
         {
           name: trans.sexbreak.active[this.props.lang],
-          data: [asex["MALE"], asex["FEMALE"]],
+          data: active,
         },
         {
           name: trans.sexbreak.resolved[this.props.lang],
-          data: [rsex["MALE"], rsex["FEMALE"]],
+          data: reso,
         },
         {
           name: trans.sexbreak.fatal[this.props.lang],
-          data: [fsex["MALE"], fsex["FEMALE"]],
+          data: fatal,
         },
       ],
       options: {
@@ -167,13 +169,6 @@ class SexBreak extends Component {
         },
       },
     });
-    var a = asex["UNKNOWN"] || 0;
-    var b = rsex["UNKNOWN"] || 0;
-    var c = fsex["UNKNOWN"] || 0;
-
-    var d = asex["TRANSGENDER"] || 0;
-    var e = rsex["TRANSGENDER"] || 0;
-    var f = fsex["TRANSGENDER"] || 0;
 
     var unknowns = a + b + c;
     var trand = d + e + f;
