@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
 import {ReactComponent as Search} from '../ds/icons/svg/ontario-icon-search.svg';
+import trans from "../translations.json";
+import covidData from "../covidData.json";
+import dict from "../dictionary";
+
 const SearchOutlined = () => <Search/>;
 
 class StackedTable extends React.Component {
@@ -76,16 +80,14 @@ class StackedTable extends React.Component {
   };
 
   render() {
-
-    //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = [...this.props.data].splice(1, 29).map((item,z)=>{
-        //console.log('item', item)
+    let tableData = [...covidData.result.records].filter(item=> item[dict.patientHospitalizedCOVID19]).map((item,z)=>{
+        //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
         return {
             index: z,
-            date: item[0],
-            confirmed: item[5], 
-            resolved: item[6],
-            deaths: item[7]
+            date: item[dict.reportedDate],
+            hospital: item[dict.patientHospitalizedCOVID19],
+            icu: item[dict.patientsICUwCOVID19],
+            icuwv: item[dict.patientsICUventilatorwCOVID19],
         }
     })
 
@@ -98,26 +100,26 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: 'Confirmed',
-        dataIndex: 'confirmed',
-        key: 'confirmed',
+        title: 'Hospitalized',
+        dataIndex: 'hospital',
+        key: 'hospital',
         width: '20%',
         //...this.getColumnSearchProps('age'),
       },
       {
-        title: 'Resolved',
-        dataIndex: 'resolved',
-        key: 'resolved',
+        title: 'In ICU',
+        dataIndex: 'icu',
+        key: 'icu',
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: 'Total Deaths',
-        dataIndex: 'deaths',
-        key: 'deaths',
+        title: 'In ICU with ventilator',
+        dataIndex: 'icuwv',
+        key: 'icuwv',
         //...this.getColumnSearchProps('address'),
       }
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={tableData} />;
   }
 }
 

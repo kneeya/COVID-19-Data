@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
+import ReducedData from '../reducedData.json'; 
+import dict from "../dictionary";
 import {ReactComponent as Search} from '../ds/icons/svg/ontario-icon-search.svg';
 const SearchOutlined = () => <Search/>;
 
@@ -78,42 +80,44 @@ class StackedTable extends React.Component {
   render() {
 
     //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = [...this.props.data].splice(1, 29).map((item,z)=>{
+    var data = ReducedData.reduceAges.map((item,z)=>{
         //console.log('item', item)
         return {
+            ...item,
             index: z,
-            date: item[0],
-            confirmed: item[5], 
-            resolved: item[6],
-            deaths: item[7]
+            total: item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]
         }
     })
 
     const columns = [
       {
-        title: 'Date',
-        dataIndex: 'date',
-        key: 'date',
-        width: '30%',
-        //...this.getColumnSearchProps('name'),
-      },
-      {
-        title: 'Confirmed',
-        dataIndex: 'confirmed',
-        key: 'confirmed',
-        width: '20%',
+        title: 'Age Group',
+        dataIndex: 'Age_Group',
+        key: 'Age_Group',
         //...this.getColumnSearchProps('age'),
       },
       {
         title: 'Resolved',
-        dataIndex: 'resolved',
-        key: 'resolved',
+        dataIndex: dict.resolved,
+        key: dict.resolved,
+        //...this.getColumnSearchProps('address'),
+      },
+      {
+        title: 'Not Resolved',
+        dataIndex: dict.NotResolved,
+        key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
       {
         title: 'Total Deaths',
-        dataIndex: 'deaths',
-        key: 'deaths',
+        dataIndex: dict.deaths,
+        key: dict.deaths,
+        //...this.getColumnSearchProps('address'),
+      },
+      {
+        title: 'Total',
+        dataIndex: 'total',
+        key: 'total',
         //...this.getColumnSearchProps('address'),
       }
     ];
