@@ -91,14 +91,47 @@ class StackedTable extends React.Component {
   };
 
   render() {
-    var data = ReducedData.reduceSex.map((item, z) => {
-      //console.log('item', item)
-      return {
-        ...item,
-        index: z,
-        total: item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
-      };
-    });
+    const cD = Object.values(ReducedData.reduceSex);
+    console.log(cD);
+    var unk = 0;
+    var tran = 0;
+    var oth = 0;
+    var data = cD
+      .filter((item) => {
+        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+          unk =
+            unk +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+          tran =
+            tran +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+          oth =
+            oth +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .map((item, z) => {
+        console.log("item", item);
+        return {
+          ...item,
+          index: z,
+          total:
+            item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
+        };
+      });
 
     const columns = [
       {
@@ -132,7 +165,17 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return (
+      <React.Fragment>
+        <Table columns={columns} dataSource={data} />
+        <p>
+          {trans.agebreak.noteA[this.props.lang]} {tran}
+          {trans.sexbreak.noteTran[this.props.lang]}
+          {oth} {trans.sexbreak.noteOth[this.props.lang]}
+          {unk} {trans.sexbreak.noteUnk[this.props.lang]}
+        </p>
+      </React.Fragment>
+    );
   }
 }
 

@@ -36,10 +36,7 @@ class SexBreak extends Component {
 
     const reso = cD
       .filter((item) => {
-        if (
-          item[dict.CLIENT_GENDER] === "UNKNOWN" ||
-          item[dict.CLIENT_GENDER] === "OTHER"
-        ) {
+        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
           a = a + item[dict.resolved];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
@@ -83,7 +80,7 @@ class SexBreak extends Component {
           b = b + item[dict.deaths];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-          c = c + item[dict.NotResolved];
+          c = c + item[dict.deaths];
           return false;
         } else {
           return true;
