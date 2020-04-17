@@ -9,6 +9,32 @@
       "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. FR"
     }
   },
+  "understand": {
+    "title": {
+      "en": "Understand the numbers",
+      "fr": "Understand the numbers FR"
+    },
+    "where": {
+      "en": "Where the numbers come from",
+      "fr": "Where the numbers come from FR"
+    },
+    "wheredesc": {
+      "en": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). The numbers in these graphs come from the iPHIS database. If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date.",
+      "fr": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). The numbers in these graphs come from the iPHIS database. If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date. FR"
+    },
+    "terms": {
+      "en": "Terms used in the graphs",
+      "fr": "Terms used in the graphs FR"
+    },
+    "inICU": {
+      "en": "In ICU with ventilator",
+      "fr": "In ICU with ventilator FR"
+    },
+    "ICUdesc": {
+      "en": "ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
+      "fr": "ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
+    }
+  },
   "overview": {
     "title": {
       "en": "Current cases",
@@ -16,7 +42,7 @@
     },
     "total": {
       "en": "Total cases",
-      "fr": "Total FR"
+      "fr": "Total cases FR"
     },
     "active": {
       "en": "Active",
@@ -104,9 +130,9 @@
     }
   },
   "newcases": {
-    "title": { 
-      "en": "New cases over time", 
-      "fr": "New cases over time FR" 
+    "title": {
+      "en": "New cases over time",
+      "fr": "New cases over time FR"
     },
     "newcase": {
       "en": "New cases",
@@ -218,11 +244,11 @@
   "accessible": {
     "enable": {
       "en": "Switch to table format.",
-      "fr": "Switch to accessible data table format. FR"
+      "fr": "Switch to table format. FR"
     },
     "disable": {
       "en": "Switch to interactive chart.",
-      "fr": "Switch to interactive chart table format. FR"
+      "fr": "Switch to interactive chart. FR"
     },
     "select": {
       "en": "",

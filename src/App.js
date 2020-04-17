@@ -110,6 +110,19 @@ class App extends Component {
 
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  {trans.understand.title[lang]}
+                </h2>
+                <h3>{trans.understand.where[lang]}</h3>
+                <p>{trans.understand.wheredesc[lang]}</p>
+                <h3>{trans.understand.terms[lang]}</h3>
+                <p>{trans.understand.inICU[lang]}</p>
+                <p>{trans.understand.ICUdesc[lang]}</p>
+              </div>
+
+              <hr class="hrule-a"></hr>
+
+              <div>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
                 </h2>
                 <a style={{ textDecoration: "none" }} href="#stacked">
