@@ -30,8 +30,7 @@ class App extends Component {
     this.dataParseCase();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-  }
+  componentDidUpdate(prevProps, prevState) {}
 
   dataParseCase = () => {
     var csv = require("./casedataFile.csv");
@@ -154,13 +153,18 @@ class App extends Component {
                 </a>
                 <br />
 
-                <a style={{ textDecoration: "none" }} href="#hospitalization">
-                  {trans.hospital.title[lang]}
+                <a style={{ textDecoration: "none" }} href="#newcases">
+                  {trans.newcases.title[lang]}
                 </a>
                 <br />
 
                 <a style={{ textDecoration: "none" }} href="#regbreak">
                   {trans.reg.title[lang]}
+                </a>
+                <br />
+
+                <a style={{ textDecoration: "none" }} href="#hospitalization">
+                  {trans.hospital.title[lang]}
                 </a>
                 <br />
 
@@ -177,7 +181,7 @@ class App extends Component {
               <div id="stacked" className="item item-2">
                 <ItemWrapper title={trans.totaltest.title[lang]}>
                   {accessible ? (
-                    <TotalTable  lang={this.state.lang} />
+                    <TotalTable lang={this.state.lang} />
                   ) : (
                     <TotalTest data={this.state.data} lang={this.state.lang} />
                   )}
@@ -193,27 +197,25 @@ class App extends Component {
                 </ItemWrapper>
               </div>
 
-              <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={trans.hospital.title[lang]}>
+              <div id="regbreak" className="item item-6">
+                <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
-                    <HospitalTable lang={this.state.lang} />
-                    ) : (
-                    <Hospital data={this.state.data} lang={this.state.lang} />
+                    <RegBreakTable lang={this.state.lang} />
+                  ) : (
+                    <RegBreak
+                      casedata={this.state.casedata}
+                      lang={this.state.lang}
+                    />
                   )}
                 </ItemWrapper>
               </div>
 
-              <div id="regbreak" className="item item-6">
-                <ItemWrapper title={trans.reg.title[lang]}>
+              <div id="hospitalization" className="item item-6">
+                <ItemWrapper title={trans.hospital.title[lang]}>
                   {accessible ? (
-                     <RegBreakTable
-                     lang={this.state.lang}
-                   />
+                    <HospitalTable lang={this.state.lang} />
                   ) : (
-                    <RegBreak
-                    casedata={this.state.casedata}
-                      lang={this.state.lang}
-                    />
+                    <Hospital data={this.state.data} lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -225,12 +227,10 @@ class App extends Component {
               >
                 <ItemWrapper title={trans.agebreak.title[lang]}>
                   {accessible ? (
-                     <AgeBreakTable
-                     lang={this.state.lang}
-                   />
+                    <AgeBreakTable lang={this.state.lang} />
                   ) : (
                     <AgeBreak
-                    casedata={this.state.casedata}
+                      casedata={this.state.casedata}
                       lang={this.state.lang}
                     />
                   )}
@@ -240,9 +240,7 @@ class App extends Component {
               <div id="sexbreak" className="item item-7">
                 <ItemWrapper title={trans.sexbreak.title[lang]}>
                   {accessible ? (
-                    <SexBreakTable
-                    lang={this.state.lang}
-                  />
+                    <SexBreakTable lang={this.state.lang} />
                   ) : (
                     <SexBreak
                       casedata={this.state.casedata}
