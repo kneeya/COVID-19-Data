@@ -108,8 +108,6 @@ class App extends Component {
                 <Overview lang={this.state.lang} />
               </div>
 
-              <hr class="hrule-special" />
-
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}

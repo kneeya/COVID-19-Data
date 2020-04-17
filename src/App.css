@@ -214,25 +214,7 @@ a .link {
 }
 
 .hrule-special {
-  margin-top: 150px;
+  margin-top: 10px;
   border: 1px solid #d8d8d8;
-}
-
-.hrule-special {
-  margin-top: 160px;
-  border: 1px solid #d8d8d8;
-}
-
-@media only screen and (max-width: 640px) {
-  .hrule-special {
-    margin-top: 600px;
-    border: 1px solid #d8d8d8;
-  }
-}
-
-@media only screen and (min-width: 640px) and (max-width: 1163px) {
-  .hrule-special {
-    margin-top: 300px;
-    border: 1px solid #d8d8d8;
-  }
+  width: 100%;
 }

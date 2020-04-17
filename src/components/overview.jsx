@@ -151,6 +151,11 @@ class Overview extends Component {
                 </div>
               </li>
             </ul>
+            <p>
+              Numbers with “+” or “-“ indicate the change in cases in the last
+              24 hours
+            </p>
+            <hr class="hrule-special"></hr>
           </div>
         ) : (
           ""
