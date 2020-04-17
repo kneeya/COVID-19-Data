@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
+import dict from "../dictionary";
+import covidData from "../covidData.json";
 import {
   labelStyle,
   tooltip,
@@ -17,7 +19,6 @@ class TotalTest extends Component {
     this.setData = this.setData.bind(this);
   }
   state = {
-    data: this.props.data,
     ready: false,
     dates: [],
     series: [],
@@ -35,51 +36,45 @@ class TotalTest extends Component {
   }
 
   setData() {
-    const data = [...this.props.data];
+    const chartData = [...covidData.result.records];
 
-    var dates = [];
-    var totaltest = [];
-    var confPos = [];
-    var resolved = [];
-    var dead = [];
+    var dates = chartData.map((item) => {
+      var date = item[dict.reportedDate].slice(0, 10);
+      var monthStrings = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      var result =
+        monthStrings[parseInt(date.split("-")[1]) - 1] +
+        " " +
+        date.slice(8, 10);
 
-    for (var i = 1; i < data.length - 1; i++) {
-      var row = data[i];
+      return result;
+    });
 
-      dates[i - 1] = row[0];
+    var totaltest = chartData.map((item) => {
+      return item[dict.totaCases];
+    });
 
-      if (!row[4]) {
-        if (!confPos[i - 2]) {
-          confPos[i - 1] = 0;
-        } else {
-          confPos[i - 1] = confPos[i - 2];
-        }
-      } else {
-        confPos[i - 1] = row[4];
-      }
-
-      if (!row[7]) {
-        if (!totaltest[i - 2]) {
-          totaltest[i - 1] = 0;
-        } else {
-          totaltest[i - 1] = totaltest[i - 2];
-        }
-      } else {
-        totaltest[i - 1] = row[7];
-      }
-
-      if (!row[5]) {
-        resolved[i - 1] = 0;
-      } else {
-        resolved[i - 1] = row[5];
-      }
-
-      if (!row[6]) {
-        dead[i - 1] = 0;
-      } else {
-        dead[i - 1] = row[6];
-      }
-    }
+    var confPos = chartData.map((item) => {
+      return item[dict.confirmedPositive];
+    });
+    var resolved = chartData.map((item) => {
+      return item[dict.resolved];
+    });
+    var dead = chartData.map((item) => {
+      return item[dict.deaths];
+    });
 
     this.setState({
       totaltest: totaltest,

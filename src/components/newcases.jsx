@@ -3,6 +3,8 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip, legend, responsiveFun, stroke } from "./options";
 import trans from "../translations.json";
+import dict from "../dictionary";
+import covidData from "../covidData.json";
 
 class NewCases extends Component {
   constructor(props) {
@@ -22,31 +24,47 @@ class NewCases extends Component {
   }
 
   setData() {
-    //copy the array
-    const d = [...this.props.data];
-    const data = d.splice(d.length - 22, d.length - 2);
+    const cData = [...covidData.result.records];
+    const chartData = cData.splice(cData.length - 22, cData.length - 1);
 
-    var datez = [];
-    var delta = [];
+    var datez = chartData.map((item) => {
+      var date = item[dict.reportedDate].slice(0, 10);
+      var monthStrings = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sept",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      var result =
+        monthStrings[parseInt(date.split("-")[1]) - 1] +
+        " " +
+        date.slice(8, 10);
 
-    // datez = data
-    //   .map(function (row) {
-    //     return row[0];
-    //   })
-    //   .filter(function (result) {
-    //     if (!result) {
-    //       return false;
-    //     } else {
-    //       return true;
-    //     }
-    //   });
+      return result;
+    });
 
-    for (var i = 1; i < data.length - 1; i++) {
-      var tday = data[i];
-      var yday = data[i - 1];
-      datez[i - 1] = tday[0];
-      delta[i - 1] = tday[7] - yday[7];
-    }
+    var delta = chartData
+      .map((item, z) => {
+        if (chartData[z - 1]) {
+          var result = item[dict.totaCases] - chartData[z - 1][dict.totaCases];
+          return result;
+        }
+      })
+      .filter((item) => {
+        if (!item) {
+          return false;
+        } else {
+          return true;
+        }
+      });
 
     this.setState({
       dates: datez,

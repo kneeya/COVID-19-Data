@@ -58,7 +58,7 @@ export const responsiveFun = () => [
         labels: {
           hideOverlappingLabels: true,
           offsetY: 10,
-          style: { ...labelStyle, fontSize: "14px" },
+          style: { ...labelStyle, fontSize: "12px" },
         },
       },
       legend: {
