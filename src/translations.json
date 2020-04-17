@@ -5,17 +5,17 @@
       "fr": "Ontario COVID-19 data FR"
     },
     "lead": {
-      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. This page is available in an accessible format.",
+      "en": "Graphs and statistics on the COVID-19 cases provided by the 34 public health units (PHU) across Ontario.",
       "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. This page is available in an accessible format. FR"
     }
   },
   "overview": {
     "title": {
-      "en": "Overview",
+      "en": "Current cases",
       "fr": "Overview FR"
     },
     "total": {
-      "en": "Total",
+      "en": "Total cases",
       "fr": "Total FR"
     },
     "active": {
@@ -47,7 +47,7 @@
   },
   "stacked": {
     "title": {
-      "en": "Summary of cases in Ontario",
+      "en": "Case status over time",
       "fr": "Summary of cases in Ontario FR"
     },
     "positive": {
@@ -65,7 +65,7 @@
   },
   "hospital": {
     "title": {
-      "en": "Total hospitalizations over time",
+      "en": "Hospitalizations over time",
       "fr": "Total hospitalizations over time FR"
     },
     "hospitalized": {
@@ -83,11 +83,11 @@
   },
   "totaltest": {
     "title": {
-      "en": "Status of COVID-19 cases in Ontario",
+      "en": "Case status over time",
       "fr": "Status of COVID-19 cases in Ontario FR"
     },
     "total": {
-      "en": "Total Cases",
+      "en": "Total cases",
       "fr": "Total Cases FR"
     },
     "positive": {
@@ -104,7 +104,10 @@
     }
   },
   "newcases": {
-    "title": { "en": "New cases over time", "fr": "New cases over time FR" },
+    "title": { 
+      "en": "New cases over time", 
+      "fr": "New cases over time FR" 
+    },
     "newcase": {
       "en": "New cases",
       "fr": "New cases FR"
@@ -112,7 +115,7 @@
   },
   "reg": {
     "title": {
-      "en": "Breakdown of cases reported by Public Health Units",
+      "en": "Case status by location",
       "fr": "Breakdown of cases reported by Public Health Units FR"
     },
     "active": {
@@ -134,7 +137,7 @@
   },
   "agebreak": {
     "title": {
-      "en": "Case breakdown by age",
+      "en": "Case status by age",
       "fr": "Case breakdown by age FR"
     },
     "active": {
@@ -172,7 +175,7 @@
   },
   "sexbreak": {
     "title": {
-      "en": "Case breakdown by sex",
+      "en": "Case status by sex",
       "fr": "Case breakdown by sex FR"
     },
     "active": {
@@ -214,11 +217,11 @@
   },
   "accessible": {
     "enable": {
-      "en": "Switch to accessible data table format.",
+      "en": "Switch to table format.",
       "fr": "Switch to accessible data table format. FR"
     },
     "disable": {
-      "en": "Switch to interactive chart table format.",
+      "en": "Switch to interactive chart.",
       "fr": "Switch to interactive chart table format. FR"
     },
     "select": {
