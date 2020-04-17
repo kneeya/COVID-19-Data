@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../ds.scss";
 import trans from "../translations.json";
+import dict from "../dictionary";
+import covidData from "../covidData.json";
 
 class Overview extends Component {
   constructor(props) {
@@ -20,46 +22,59 @@ class Overview extends Component {
   }
 
   setData() {
-    const data = this.props.data;
+    const chartData = [...covidData.result.records];
 
-    var tday = data[data.length - 2];
-    var yday = data[data.length - 3];
+    var tday = chartData[chartData.length - 1];
+    var yday = chartData[chartData.length - 2];
 
-    const totaldelta = tday[7] - yday[7];
-    this.setState({ total: tday[7], totaldelta: totaldelta });
+    const totaldelta = tday[dict.totaCases] - yday[dict.totaCases];
+    this.setState({ total: tday[dict.totaCases], totaldelta: totaldelta });
 
-    const activecalc = tday[4] - yday[4];
+    const activecalc =
+      tday[dict.confirmedPositive] - yday[dict.confirmedPositive];
     var activedelta = "";
     if (activecalc > 0) {
       activedelta = "+ " + activecalc;
     } else {
       activedelta = activecalc;
     }
-    this.setState({ active: tday[4], activedelta: activedelta });
+    this.setState({
+      active: tday[dict.confirmedPositive],
+      activedelta: activedelta,
+    });
 
-    const resolveddelta = tday[5] - yday[5];
-    this.setState({ resolved: tday[5], resolveddelta: resolveddelta });
+    const resolveddelta = tday[dict.resolved] - yday[dict.resolved];
+    this.setState({
+      resolved: tday[dict.resolved],
+      resolveddelta: resolveddelta,
+    });
 
-    const deathsdelta = tday[6] - yday[6];
-    this.setState({ deaths: tday[6], deathsdelta: deathsdelta });
+    const deathsdelta = tday[dict.deaths] - yday[dict.deaths];
+    this.setState({ deaths: tday[dict.deaths], deathsdelta: deathsdelta });
 
-    const hospitalcalc = tday[10] - yday[10];
+    const hospitalcalc =
+      tday[dict.patientHospitalizedCOVID19] -
+      yday[dict.patientHospitalizedCOVID19];
     var hospitaldelta = "";
     if (hospitalcalc > 0) {
       hospitaldelta = "+ " + hospitalcalc;
     } else {
       hospitaldelta = hospitalcalc;
     }
-    this.setState({ hospital: tday[11], hospitaldelta: hospitaldelta });
+    this.setState({
+      hospital: tday[dict.patientHospitalizedCOVID19],
+      hospitaldelta: hospitaldelta,
+    });
 
-    const icucalc = tday[12] - yday[12];
+    const icucalc =
+      tday[dict.patientsICUwCOVID19] - yday[dict.patientsICUwCOVID19];
     var icudelta = "";
     if (icucalc > 0) {
       icudelta = "+ " + icucalc;
     } else {
       icudelta = icucalc;
     }
-    this.setState({ icu: tday[12], icudelta: icudelta });
+    this.setState({ icu: tday[dict.patientsICUwCOVID19], icudelta: icudelta });
 
     this.setState({ ready: true });
   }

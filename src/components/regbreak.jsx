@@ -3,6 +3,8 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import { labelStyle, tooltip } from "./options";
 import trans from "../translations.json";
+import ReducedData from "../reducedData.json";
+import dict from "../dictionary";
 
 class RegBreak extends Component {
   constructor(props) {
@@ -10,7 +12,6 @@ class RegBreak extends Component {
     this.makeCities = this.makeCities.bind(this);
   }
   state = {
-    data: this.props.casedata,
     ready: false,
     series: [{}],
     options: {},
@@ -27,86 +28,29 @@ class RegBreak extends Component {
   }
 
   makeCities() {
-    const d = [...this.props.casedata];
-    const regions = [];
-    for (var i = 1; i < d.length - 1; i++) {
-      var row = d[i];
-      regions[i - 1] = row[6];
-    }
-    var occurrences = {};
-    for (i = 0; i < regions.length; i++) {
-      occurrences[regions[i]] = (occurrences[regions[i]] || 0) + 1;
-    }
-    var ordered = {};
-    // Object.keys(occurrences)
-    //   .sort()
-    //   .forEach(function (key) {
-    //     ordered[key] = occurrences[key];
-    //   });
-
-    ordered = Object.keys(occurrences).sort(function (a, b) {
-      return occurrences[b] - occurrences[a];
-    });
-    var occ = Object.entries(ordered);
-    const region = occ.map(function (inst) {
-      return inst[1];
+    var cD = Object.values(ReducedData.reducePHU);
+    cD.sort(function (a, b) {
+      return parseFloat(
+        b[dict.resolved] +
+          b[dict.NotResolved] +
+          b[dict.deaths] -
+          (a[dict.resolved] + a[dict.NotResolved] + a[dict.deaths])
+      );
     });
 
-    const Regions = region.map(function (reg) {
-      return { region: reg, count: 0 };
+    const region = cD.map((item) => {
+      return item[dict.Reporting_PHU];
     });
 
-    let defaultRegions = Regions.reduce(
-      (a, x) => ({ ...a, [x.region]: x.count }),
-      {}
-    );
-
-    const da = d.map(function (row) {
-      return { region: row[6], status: row[5] };
+    const active = cD.map((item) => {
+      return item[dict.NotResolved];
+    });
+    const resolved = cD.map((item) => {
+      return item[dict.resolved];
     });
 
-    var datr = da.slice(1, da.length - 1);
-
-    const items = datr.sort(function (a, b) {
-      if (a.region < b.region) {
-        return -1;
-      }
-      if (a.region > b.region) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-
-    const reduced = items.reduce(
-      (sum, item) => {
-        sum[item.status][item.region]++;
-
-        return sum;
-      },
-      {
-        Resolved: {
-          ...defaultRegions,
-        },
-        "Not Resolved": {
-          ...defaultRegions,
-        },
-        Fatal: {
-          ...defaultRegions,
-        },
-      }
-    );
-
-    const arrays = {
-      active: [],
-      fatal: [],
-      resolved: [],
-    };
-
-    region.map((item) => {
-      arrays.resolved.push(reduced.Resolved[item]);
-      arrays.fatal.push(reduced.Fatal[item]);
-      arrays.active.push(reduced["Not Resolved"][item]);
+    const fatal = cD.map((item) => {
+      return item[dict.deaths];
     });
 
     this.setState({
@@ -115,15 +59,15 @@ class RegBreak extends Component {
       series: [
         {
           name: trans.reg.active[this.props.lang],
-          data: arrays.active,
+          data: active,
         },
         {
           name: trans.reg.resolved[this.props.lang],
-          data: arrays.resolved,
+          data: resolved,
         },
         {
           name: trans.reg.deaths[this.props.lang],
-          data: arrays.fatal,
+          data: fatal,
         },
       ],
       options: {
