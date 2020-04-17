@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun, stroke } from "./options";
+import { labelStyle, tooltip, legend, responsiveA, stroke } from "./options";
 import trans from "../translations.json";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
@@ -120,7 +120,7 @@ class NewCases extends Component {
             style: { ...labelStyle },
           },
         },
-        responsive: responsiveFun(),
+        responsive: responsiveA(),
         fill: {
           opacity: 1,
         },

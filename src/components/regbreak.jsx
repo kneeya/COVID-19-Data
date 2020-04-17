@@ -88,8 +88,6 @@ class RegBreak extends Component {
                   style: { color: colours.black, fontSize: "12px" },
                   maxWidth: 300,
                   offsetX: -5,
-                  offsetY: 15,
-                  rotate: 45,
                 },
               },
             },
