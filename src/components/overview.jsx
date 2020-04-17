@@ -151,6 +151,8 @@ class Overview extends Component {
                 </div>
               </li>
             </ul>
+            <p>{trans.overview.bottom[this.props.lang]}</p>
+            <hr class="hrule-special"></hr>
           </div>
         ) : (
           ""

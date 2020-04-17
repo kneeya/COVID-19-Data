@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun } from "./options";
+import { labelStyle, tooltip, legend } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 import ReducedData from "../reducedData.json";
@@ -108,10 +108,75 @@ class SexBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsiveFun().map((item, z) => {
-          item.options.chart.height = "200px";
-          return item;
-        }),
+        responsive: [
+          {
+            breakpoint: 640,
+            options: {
+              chart: {
+                offsetX: 10,
+                height: "200px",
+                width: "100%",
+                toolbar: {
+                  tools: {
+                    zoomin: false,
+                    zoomout: false,
+                  },
+                },
+              },
+              yaxis: {
+                labels: {
+                  style: { ...labelStyle, fontSize: "12px" },
+                },
+              },
+              xaxis: {
+                labels: {
+                  hideOverlappingLabels: true,
+                  offsetY: 10,
+                  style: { ...labelStyle, fontSize: "12px" },
+                },
+              },
+              legend: {
+                fontSize: "12px",
+              },
+              dataLabels: {
+                offsetX: -4,
+                style: { ...labelStyle, fontSize: "12px" },
+                orientation: "horizontal",
+              },
+            },
+          },
+          {
+            breakpoint: 1163,
+            options: {
+              chart: {
+                height: "200px",
+                width: "100%",
+              },
+              xaxis: {
+                labels: {
+                  hideOverlappingLabels: true,
+                  offsetY: 10,
+                  style: { ...labelStyle },
+                },
+              },
+            },
+          },
+          {
+            breakpoint: 1530,
+            options: {
+              chart: {
+                height: "200px",
+                width: "100%",
+              },
+              xaxis: {
+                labels: {
+                  offsetY: 10,
+                  style: { ...labelStyle },
+                },
+              },
+            },
+          },
+        ],
         chart: {
           type: "bar",
           stacked: true,
@@ -135,7 +200,7 @@ class SexBreak extends Component {
           },
         },
 
-        colors: [colours.blue, colours.green, colours.black],
+        colors: ["#00B2E3", "#39B54A", colours.black],
         plotOptions: {
           bar: {
             horizontal: true,
@@ -155,6 +220,9 @@ class SexBreak extends Component {
           },
         },
         xaxis: {
+          title: {
+            text: trans.totaltest.yaxis[this.props.lang],
+          },
           categories: [
             trans.sexbreak.male[this.props.lang],
             trans.sexbreak.female[this.props.lang],
@@ -175,6 +243,7 @@ class SexBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
+        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <React.Fragment>
             <ReactApexChart

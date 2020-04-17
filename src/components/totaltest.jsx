@@ -109,6 +109,9 @@ class TotalTest extends Component {
         responsive: responsiveFun(),
         chart: { height: 650, type: "line", zoom: { enabled: true } },
         yaxis: {
+          title: {
+            text: trans.totaltest.yaxis[this.props.lang],
+          },
           labels: {
             style: { ...labelStyle },
           },
@@ -120,7 +123,7 @@ class TotalTest extends Component {
             style: { ...labelStyle },
           },
         },
-        colors: ["#C64A1C", colours.blue, colours.green, colours.black],
+        colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],
         //markers: markers,
       },
       ready: true,
@@ -129,19 +132,18 @@ class TotalTest extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div id="totaltest" className="chart">
-          {this.state.ready ? (
-            <ReactApexChart
-              options={this.state.options}
-              series={this.state.series}
-              type="line"
-            />
-          ) : (
-            ""
-          )}
-        </div>
-      </React.Fragment>
+      <div id="totaltest" className="chart">
+        <p>{trans.hideshow[this.props.lang]}</p>
+        {this.state.ready ? (
+          <ReactApexChart
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+          />
+        ) : (
+          ""
+        )}
+      </div>
     );
   }
 }

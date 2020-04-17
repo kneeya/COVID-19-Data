@@ -45,6 +45,7 @@ export const responsiveFun = () => [
     breakpoint: 640,
     options: {
       chart: {
+        offsetX: 10,
         height: "300px",
         width: "100%",
         toolbar: {
@@ -52,6 +53,11 @@ export const responsiveFun = () => [
             zoomin: false,
             zoomout: false,
           },
+        },
+      },
+      yaxis: {
+        labels: {
+          style: { ...labelStyle, fontSize: "12px" },
         },
       },
       xaxis: {
@@ -65,18 +71,8 @@ export const responsiveFun = () => [
         fontSize: "12px",
       },
       dataLabels: {
-        offsetY: -18,
-        style: { ...labelStyle, fontSize: "10px" },
+        style: { ...labelStyle, fontSize: "12px" },
         orientation: "horizontal",
-        background: {
-          enabled: true,
-          foreColor: "#fff",
-          padding: 2,
-          borderRadius: 1,
-          borderWidth: 1,
-          borderColor: "#fff",
-          opacity: 0.8,
-        },
       },
     },
   },
@@ -107,6 +103,11 @@ export const responsiveFun = () => [
         labels: {
           offsetY: 10,
           style: { ...labelStyle },
+        },
+        dataLabels: {
+          offsetX: 10,
+          style: { ...labelStyle, fontSize: "12px" },
+          orientation: "horizontal",
         },
       },
     },

@@ -84,7 +84,7 @@ class Hospital extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: [colours.blue, colours.yellow, colours.black],
+        colors: ["#00B2E3", colours.yellow, colours.black],
         legend: legend,
         tooltip: tooltip,
         chart: {
@@ -104,6 +104,9 @@ class Hospital extends Component {
           enabled: false,
         },
         yaxis: {
+          title: {
+            text: trans.totaltest.yaxis[this.props.lang],
+          },
           labels: {
             style: { ...labelStyle },
           },
@@ -127,6 +130,7 @@ class Hospital extends Component {
   render() {
     return (
       <div id="stacked" className="chart">
+        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

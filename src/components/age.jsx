@@ -199,7 +199,7 @@ class Age extends Component {
           },
         },
 
-        colors: [colours.green, colours.blue, colours.magenta, colours.black],
+        colors: ["#39B54A", "#00B2E3", colours.magenta, colours.black],
         plotOptions: {
           bar: { horizontal: false },
         },

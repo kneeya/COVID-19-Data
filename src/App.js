@@ -113,6 +113,19 @@ class App extends Component {
 
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  {trans.understand.title[lang]}
+                </h2>
+                <h3>{trans.understand.where[lang]}</h3>
+                <p>{trans.understand.wheredesc[lang]}</p>
+                <h3>{trans.understand.terms[lang]}</h3>
+                <p>{trans.understand.inICU[lang]}</p>
+                <p>{trans.understand.ICUdesc[lang]}</p>
+              </div>
+
+              <hr class="hrule-a"></hr>
+
+              <div>
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
                 </h2>
                 <a style={{ textDecoration: "none" }} href="#stacked">
@@ -120,13 +133,18 @@ class App extends Component {
                 </a>
                 <br />
 
-                <a style={{ textDecoration: "none" }} href="#hospitalization">
-                  {trans.hospital.title[lang]}
+                <a style={{ textDecoration: "none" }} href="#newcases">
+                  {trans.newcases.title[lang]}
                 </a>
                 <br />
 
                 <a style={{ textDecoration: "none" }} href="#regbreak">
                   {trans.reg.title[lang]}
+                </a>
+                <br />
+
+                <a style={{ textDecoration: "none" }} href="#hospitalization">
+                  {trans.hospital.title[lang]}
                 </a>
                 <br />
 
@@ -138,8 +156,13 @@ class App extends Component {
                   {trans.sexbreak.title[lang]}
                 </a>
                 <br />
+                <a style={{ textDecoration: "none" }} href="#future">
+                  {trans.future.title[lang]}
+                </a>
+                <br />
               </div>
 
+              <hr class="hrule-a" />
               <div id="stacked" className="item item-2">
                 <ItemWrapper title={trans.totaltest.title[lang]}>
                   {accessible ? (
@@ -149,6 +172,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
+              <hr class="hrule" />
               <div id="newcases" className="item item-2">
                 <ItemWrapper title={trans.newcases.title[lang]}>
                   {accessible ? (
@@ -158,17 +182,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
-              <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={trans.hospital.title[lang]}>
-                  {accessible ? (
-                    <HospitalTable lang={this.state.lang} />
-                  ) : (
-                    <Hospital lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
-              </div>
-
+              <hr class="hrule-b" />
               <div id="regbreak" className="item item-6">
                 <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
@@ -178,7 +192,17 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
+              <div id="hospitalization" className="item item-6">
+                <ItemWrapper title={trans.hospital.title[lang]}>
+                  {accessible ? (
+                    <HospitalTable lang={this.state.lang} />
+                  ) : (
+                    <Hospital lang={this.state.lang} />
+                  )}
+                </ItemWrapper>
+              </div>
+              <hr class="hrule" />
               <div
                 id="agebreak"
                 className="item item-7"
@@ -192,7 +216,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
               <div id="sexbreak" className="item item-7">
                 <ItemWrapper title={trans.sexbreak.title[lang]}>
                   {accessible ? (
@@ -201,6 +225,10 @@ class App extends Component {
                     <SexBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+              </div>
+              <hr class="hrule" />
+              <div id="future" className="item item-7">
+                <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
               </div>
             </div>
           </React.Fragment>

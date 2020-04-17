@@ -74,14 +74,16 @@ a {
 
 .ontario-infographic-number {
   font-size: 1.85rem;
-  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .ontario-infographic-text,
 .ontario-font-raleway {
-  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-size: 1.2rem;
 }
 
@@ -162,8 +164,60 @@ a .link {
   text-decoration: none;
 }
 
+@media only screen and (min-width: 1163px) {
+  .hrule {
+    margin-top: 10px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+.hrule-a {
+  margin-top: 45px;
+  border: 1px solid #d8d8d8;
+}
+
+.hrule-b {
+  margin-top: 10px;
+  border: 1px solid #d8d8d8;
+}
+
+@media only screen and (max-width: 640px) {
+  .hrule-b {
+    margin-top: 10px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1163px) {
+  .hrule {
+    margin-top: 40px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .hrule {
+    margin-top: 40px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1163px) {
+  .hrule {
+    margin-top: 40px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+.hrule-special {
+  margin-top: 10px;
+  border: 1px solid #d8d8d8;
+  width: 100%;
+}
+
 /* Tables */
 
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
   padding: 4px 4px !important;
 }
+
