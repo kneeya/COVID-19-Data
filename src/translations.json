@@ -229,5 +229,11 @@
   "date": {
     "en": "Date",
     "fr": "Date FR"
+  },
+  "future": {
+    "title": {
+      "en": "Future projections",
+      "fr": "Future projections FR"
+    }
   }
 }

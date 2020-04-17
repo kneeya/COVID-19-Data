@@ -142,7 +142,7 @@ class AgeBreak extends Component {
         tooltip: tooltip,
         responsive: responsiveFun(),
         chart: {
-//          height: 650,
+          //          height: 650,
           width: "100%",
           type: "bar",
           stacked: true,
@@ -160,7 +160,7 @@ class AgeBreak extends Component {
         //   },
         // },
 
-        colors: [colours.blue, colours.green, colours.black],
+        colors: ["#00B2E3", "#39B54A", colours.black],
         plotOptions: {
           bar: { horizontal: true },
         },
@@ -318,7 +318,7 @@ class AgeBreak extends Component {
   // }
 
   render() {
-    console.log('this', this)
+    console.log("this", this);
     return (
       <div id="regional" className="chart">
         {this.state.ready ? (

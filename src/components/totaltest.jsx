@@ -124,7 +124,7 @@ class TotalTest extends Component {
             style: { ...labelStyle },
           },
         },
-        colors: ["#C64A1C", colours.blue, colours.green, colours.black],
+        colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],
         //markers: markers,
       },
       ready: true,
