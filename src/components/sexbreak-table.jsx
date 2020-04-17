@@ -93,7 +93,7 @@ class StackedTable extends React.Component {
   render() {
     const cData = Object.values(ReducedData.reduceSex);
     var unknown = 0;
-    var trans = 0;
+    var transG = 0;
     var other = 0;
     var data = cData
       .filter((item) => {
@@ -105,8 +105,8 @@ class StackedTable extends React.Component {
             item[dict.deaths];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          trans =
-            trans +
+          transG =
+          transG +
             item[dict.resolved] +
             item[dict.NotResolved] +
             item[dict.deaths];
@@ -167,9 +167,9 @@ class StackedTable extends React.Component {
     ];
     return (
       <React.Fragment>
-         <Table columns={columns} dataSource={data}  pagination={false}  />;
+         <Table columns={columns} dataSource={data}  pagination={false}  />
         <p>
-          {trans.agebreak.noteA[this.props.lang]} {trans}
+          {trans.agebreak.noteA[this.props.lang]} {transG}
           {trans.sexbreak.noteTran[this.props.lang]}
           {other} {trans.sexbreak.noteOth[this.props.lang]}
           {unknown} {trans.sexbreak.noteUnk[this.props.lang]}
