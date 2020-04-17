@@ -124,7 +124,7 @@ class AgeBreak extends Component {
         //   },
         // },
 
-        colors: [colours.blue, colours.green, colours.black],
+        colors: ["#00B2E3", "#39B54A", colours.black],
         plotOptions: {
           bar: {
             horizontal: true,

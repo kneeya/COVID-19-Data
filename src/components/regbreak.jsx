@@ -88,8 +88,6 @@ class RegBreak extends Component {
                   style: { color: colours.black, fontSize: "12px" },
                   maxWidth: 300,
                   offsetX: -5,
-                  offsetY: 15,
-                  rotate: 45,
                 },
               },
             },
@@ -139,7 +137,7 @@ class RegBreak extends Component {
             return "";
           },
         },
-        colors: [colours.blue, colours.green, colours.black],
+        colors: ["#00B2E3", "#39B54A", colours.black],
         plotOptions: {
           bar: {
             horizontal: true,

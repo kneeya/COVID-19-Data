@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun } from "./options";
+import { labelStyle, tooltip, legend, responsiveB } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 import ReducedData from "../reducedData.json";
@@ -111,7 +111,7 @@ class SexBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsiveFun().map((item, z) => {
+        responsive: responsiveB().map((item, z) => {
           item.options.chart.height = "200px";
           return item;
         }),
@@ -138,7 +138,7 @@ class SexBreak extends Component {
           },
         },
 
-        colors: [colours.blue, colours.green, colours.black],
+        colors: ["#00B2E3", "#39B54A", colours.black],
         plotOptions: {
           bar: {
             horizontal: true,

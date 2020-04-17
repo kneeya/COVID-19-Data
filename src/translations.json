@@ -5,8 +5,8 @@
       "fr": "Ontario COVID-19 data FR"
     },
     "lead": {
-      "en": "Graphs and statistics on the COVID-19 cases provided by the 34 public health units (PHU) across Ontario.",
-      "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. This page is available in an accessible format. FR"
+      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
+      "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. FR"
     }
   },
   "overview": {
@@ -66,7 +66,7 @@
   "hospital": {
     "title": {
       "en": "Hospitalizations over time",
-      "fr": "Total hospitalizations over time FR"
+      "fr": "Hospitalizations over time FR"
     },
     "hospitalized": {
       "en": "Hospitalized",
@@ -84,7 +84,7 @@
   "totaltest": {
     "title": {
       "en": "Case status over time",
-      "fr": "Status of COVID-19 cases in Ontario FR"
+      "fr": "Case status over time FR"
     },
     "total": {
       "en": "Total cases",
@@ -115,8 +115,8 @@
   },
   "reg": {
     "title": {
-      "en": "Case status by location",
-      "fr": "Breakdown of cases reported by Public Health Units FR"
+      "en": "Case status by geography",
+      "fr": "Case status by geography FR"
     },
     "active": {
       "en": "Active",
@@ -138,7 +138,7 @@
   "agebreak": {
     "title": {
       "en": "Case status by age",
-      "fr": "Case breakdown by age FR"
+      "fr": "Case status by age FR"
     },
     "active": {
       "en": "Active",
@@ -176,7 +176,7 @@
   "sexbreak": {
     "title": {
       "en": "Case status by sex",
-      "fr": "Case breakdown by sex FR"
+      "fr": "Case status by sex FR"
     },
     "active": {
       "en": "Active",
@@ -232,5 +232,11 @@
   "date": {
     "en": "Date",
     "fr": "Date FR"
+  },
+  "future": {
+    "title": {
+      "en": "Future projections",
+      "fr": "Future projections FR"
+    }
   }
 }
