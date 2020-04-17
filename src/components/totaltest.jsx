@@ -3,6 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
+
 import {
   labelStyle,
   tooltip,
@@ -128,17 +129,19 @@ class TotalTest extends Component {
 
   render() {
     return (
-      <div id="totaltest" className="chart">
-        {this.state.ready ? (
-          <ReactApexChart
-            options={this.state.options}
-            series={this.state.series}
-            type="line"
-          />
-        ) : (
-          ""
-        )}
-      </div>
+      <React.Fragment>
+        <div id="totaltest" className="chart">
+          {this.state.ready ? (
+            <ReactApexChart
+              options={this.state.options}
+              series={this.state.series}
+              type="line"
+            />
+          ) : (
+            ""
+          )}
+        </div>
+      </React.Fragment>
     );
   }
 }

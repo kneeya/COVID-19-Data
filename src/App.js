@@ -1,6 +1,7 @@
 import React, { Component, useRef } from "react";
 import "./ds.scss";
 import "./App.css";
+import Add from "./components/addnotes/add.jsx";
 import TotalTest from "./components/totaltest.jsx";
 import TotalTable from "./components/total-table.jsx";
 import Loading from "./components/loading/loading.jsx";
@@ -145,6 +146,7 @@ class App extends Component {
                     <TotalTest lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+                <Add notes="Additional Notes for total test" />
               </div>
               <div id="newcases" className="item item-2">
                 <ItemWrapper title={trans.newcases.title[lang]}>
@@ -154,6 +156,7 @@ class App extends Component {
                     <NewCases lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+                <Add notes="Additional Notes for New cases" />
               </div>
 
               <div id="hospitalization" className="item item-6">
@@ -164,6 +167,7 @@ class App extends Component {
                     <Hospital lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+                <Add notes="Additional Notes for hospi" />
               </div>
 
               <div id="regbreak" className="item item-6">
@@ -174,6 +178,7 @@ class App extends Component {
                     <RegBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+                <Add notes="Additional Notes for total test" />
               </div>
 
               <div
@@ -188,6 +193,7 @@ class App extends Component {
                     <AgeBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+                <Add notes="Additional Notes for total test" />
               </div>
 
               <div id="sexbreak" className="item item-7">
@@ -198,6 +204,7 @@ class App extends Component {
                     <SexBreak lang={this.state.lang} />
                   )}
                 </ItemWrapper>
+                <Add notes="Additional Notes for total test" />
               </div>
             </div>
           </React.Fragment>
