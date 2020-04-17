@@ -126,8 +126,10 @@ class StackedTable extends React.Component {
         return {
           ...item,
           index: z,
-          total:
-            item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
+          [dict.resolved]: item[dict.resolved] && item[dict.resolved].toLocaleString(),
+          [dict.NotResolved]: item[dict.NotResolved] && item[dict.NotResolved].toLocaleString(),
+          [dict.deaths]: item[dict.deaths] && item[dict.deaths].toLocaleString(),
+          total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
         };
       });
 
@@ -165,7 +167,7 @@ class StackedTable extends React.Component {
     ];
     return (
       <React.Fragment>
-        <Table columns={columns} dataSource={data} />
+         <Table columns={columns} dataSource={data}  pagination={false}  />;
         <p>
           {trans.agebreak.noteA[this.props.lang]} {trans}
           {trans.sexbreak.noteTran[this.props.lang]}

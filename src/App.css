@@ -6,10 +6,6 @@ a {
   text-decoration: underline !important;
 }
 
-#root {
-  padding: 1rem;
-}
-
 .App {
   text-align: center;
 }
@@ -164,4 +160,10 @@ a {
 }
 a .link {
   text-decoration: none;
+}
+
+/* Tables */
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
+  padding: 4px 4px !important;
 }

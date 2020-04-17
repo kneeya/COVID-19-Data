@@ -58,7 +58,7 @@ class App extends Component {
 
   scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
-  render() {
+  render() {   
     const Accessible = (props) => (
       <p>
         <a
@@ -102,14 +102,6 @@ class App extends Component {
       <React.Fragment>
         {this.state.loaded ? (
           <React.Fragment>
-            <a
-              className="ontario-button ontario-button--tertiary"
-              href="#"
-              onClick={this.handleLangToggle}
-            >
-              {lang === "en" ? "Français" : "English"}
-            </a>
-
             <div className="ontario-row">
               <h1>{trans.hero.title[lang]}</h1>
 

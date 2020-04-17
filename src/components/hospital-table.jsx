@@ -5,6 +5,7 @@ import { ReactComponent as Search } from "../ds/icons/svg/ontario-icon-search.sv
 import trans from "../translations.json";
 import covidData from "../covidData.json";
 import dict from "../dictionary";
+import {formatDate} from './utils';
 
 const SearchOutlined = () => <Search />;
 
@@ -98,7 +99,7 @@ class StackedTable extends React.Component {
         //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
         return {
           index: z,
-          date: item[dict.reportedDate],
+          date: formatDate(item[dict.reportedDate]),
           hospital: item[dict.patientHospitalizedCOVID19],
           icu: item[dict.patientsICUwCOVID19],
           icuwv: item[dict.patientsICUventilatorwCOVID19],
