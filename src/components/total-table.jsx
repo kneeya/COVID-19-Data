@@ -5,6 +5,7 @@ import { ReactComponent as Search } from "../ds/icons/svg/ontario-icon-search.sv
 import covidData from "../covidData.json";
 import dict from "../dictionary";
 import trans from "../translations.json";
+import {formatDate} from './utils';
 const SearchOutlined = () => <Search />;
 
 class TotalTable extends React.Component {
@@ -95,13 +96,13 @@ class TotalTable extends React.Component {
     var chartData = [...covidData.result.records]
       .filter((item) => item[dict.totaCases] > 100)
       .map((item, z) => {
-        console.log("item", item);
         return {
           index: z,
-          date: item[dict.reportedDate],
-          confirmed: item[dict.totaCases],
-          resolved: item[dict.resolved],
-          deaths: item[dict.deaths],
+          date: formatDate(item[dict.reportedDate]),
+          confirmed: item[dict.totaCases] && item[dict.totaCases].toLocaleString(),
+          resolved: item[dict.resolved] && item[dict.resolved].toLocaleString(),
+          deaths: item[dict.deaths] && item[dict.deaths].toLocaleString(),
+          total: (item[dict.resolved] + item[dict.totaCases] + item[dict.deaths]).toLocaleString()
         };
       });
 
@@ -128,6 +129,12 @@ class TotalTable extends React.Component {
         title: trans.totaltest.deaths[this.props.lang],
         dataIndex: "deaths",
         key: "deaths",
+        //...this.getColumnSearchProps('address'),
+      },
+      {
+        title: trans.totaltest.total[this.props.lang],
+        dataIndex: "total",
+        key: "total",
         //...this.getColumnSearchProps('address'),
       },
     ];

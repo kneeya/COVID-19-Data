@@ -240,13 +240,17 @@
       "en": "Transgender",
       "fr": "Transgender FR"
     },
-    "noteB": {
+    "noteUnk": {
       "en": " total cases of unknown sex.",
       "fr": " total cases of unknown sex. FR"
     },
-    "noteC": {
-      "en": " total transgender cases, and ",
-      "fr": " total transgender cases, and FR"
+    "noteTran": {
+      "en": " total transgender cases, ",
+      "fr": " total transgender cases, FR"
+    },
+    "noteOth": {
+      "en": " total cases of other sex, and ",
+      "fr": " total cases of other sex, and FR"
     },
     "sex": {
       "en": "Sex",
