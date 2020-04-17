@@ -182,6 +182,8 @@ class AgeBreak extends Component {
               options={this.state.options}
               series={this.state.series}
               type="bar"
+              height="600px"
+
             />
             <p>
               {trans.agebreak.noteA[this.props.lang]} {this.state.unk}{" "}

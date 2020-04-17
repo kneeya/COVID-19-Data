@@ -135,6 +135,8 @@ class Hospital extends Component {
           <ReactApexChart
             options={this.state.options}
             series={this.state.series}
+            height="500px"
+
           />
         ) : (
           ""
