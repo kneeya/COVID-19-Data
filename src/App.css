@@ -78,14 +78,16 @@ a {
 
 .ontario-infographic-number {
   font-size: 1.85rem;
-  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .ontario-infographic-text,
 .ontario-font-raleway {
-  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-size: 1.2rem;
 }
 
@@ -164,4 +166,14 @@ a {
 }
 a .link {
   text-decoration: none;
+}
+
+.hrule {
+  margin-top: 40px;
+  border: 1px solid #d8d8d8;
+}
+
+.hrule-special {
+  margin-top: 580px;
+  border: 1px solid #d8d8d8;
 }

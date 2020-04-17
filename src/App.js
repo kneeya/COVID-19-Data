@@ -108,6 +108,8 @@ class App extends Component {
                 <Overview lang={this.state.lang} />
               </div>
 
+              <hr class="hrule-special" />
+
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
@@ -146,6 +148,7 @@ class App extends Component {
                 <br />
               </div>
 
+              <hr class="hrule" />
               <div id="stacked" className="item item-2">
                 <ItemWrapper title={trans.totaltest.title[lang]}>
                   {accessible ? (
@@ -155,6 +158,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
+              <hr class="hrule" />
               <div id="newcases" className="item item-2">
                 <ItemWrapper title={trans.newcases.title[lang]}>
                   {accessible ? (
@@ -164,7 +168,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
               <div id="regbreak" className="item item-6">
                 <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
@@ -174,7 +178,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
               <div id="hospitalization" className="item item-6">
                 <ItemWrapper title={trans.hospital.title[lang]}>
                   {accessible ? (
@@ -184,7 +188,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
               <div
                 id="agebreak"
                 className="item item-7"
@@ -198,7 +202,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
               <div id="sexbreak" className="item item-7">
                 <ItemWrapper title={trans.sexbreak.title[lang]}>
                   {accessible ? (
@@ -208,7 +212,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
+              <hr class="hrule" />
               <div id="future" className="item item-7">
                 <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
               </div>
