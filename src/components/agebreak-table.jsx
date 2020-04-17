@@ -92,15 +92,57 @@ class StackedTable extends React.Component {
 
   render() {
     //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = ReducedData.reduceAges.map((item, z) => {
-      //console.log('item', item)
-      return {
-        ...item,
-        index: z,
-        total: item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
-      };
-    });
-
+    const cD = Object.values(ReducedData.reduceAges);
+    var unk = 0;
+    var data = cD
+      .filter((item) => {
+        if (item[dict.Age_Group] === "Unknown") {
+          unk =
+            unk +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .map((item, z) => {
+        //console.log('item', item)
+        if (item[dict.Age_Group] === "<20") {
+          item[dict.Age_Group] = "Under 20";
+        }
+        if (item[dict.Age_Group] === "20s") {
+          item[dict.Age_Group] = "20-29";
+        }
+        if (item[dict.Age_Group] === "30s") {
+          item[dict.Age_Group] = "30-39";
+        }
+        if (item[dict.Age_Group] === "40s") {
+          item[dict.Age_Group] = "40-49";
+        }
+        if (item[dict.Age_Group] === "50s") {
+          item[dict.Age_Group] = "50-59";
+        }
+        if (item[dict.Age_Group] === "60s") {
+          item[dict.Age_Group] = "60-69";
+        }
+        if (item[dict.Age_Group] === "70s") {
+          item[dict.Age_Group] = "70-79";
+        }
+        if (item[dict.Age_Group] === "80s") {
+          item[dict.Age_Group] = "80-89";
+        }
+        if (item[dict.Age_Group] === "90s") {
+          item[dict.Age_Group] = "90-99";
+        }
+        return {
+          ...item,
+          index: z,
+          total:
+            item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
+        };
+      });
     const columns = [
       {
         title: trans.agebreak.group[this.props.lang],
@@ -133,7 +175,15 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return (
+      <React.Fragment>
+        <Table columns={columns} dataSource={data} />
+        <p>
+          {trans.agebreak.noteA[this.props.lang]} {unk}
+          {trans.agebreak.noteB[this.props.lang]}
+        </p>
+      </React.Fragment>
+    );
   }
 }
 

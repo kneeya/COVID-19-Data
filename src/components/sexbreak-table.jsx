@@ -92,7 +92,6 @@ class StackedTable extends React.Component {
 
   render() {
     const cD = Object.values(ReducedData.reduceSex);
-    console.log(cD);
     var unk = 0;
     var tran = 0;
     var oth = 0;
@@ -124,7 +123,6 @@ class StackedTable extends React.Component {
         }
       })
       .map((item, z) => {
-        console.log("item", item);
         return {
           ...item,
           index: z,
