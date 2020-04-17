@@ -176,6 +176,10 @@ class App extends Component {
                   {trans.sexbreak.title[lang]}
                 </a>
                 <br />
+                <a style={{ textDecoration: "none" }} href="#future">
+                  {trans.future.title[lang]}
+                </a>
+                <br />
               </div>
 
               <div id="stacked" className="item item-2">
@@ -248,6 +252,10 @@ class App extends Component {
                     />
                   )}
                 </ItemWrapper>
+              </div>
+
+              <div id="future" className="item item-7">
+                <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
               </div>
             </div>
           </React.Fragment>
