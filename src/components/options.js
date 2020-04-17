@@ -47,12 +47,35 @@ export const responsiveFun = () => [
       chart: {
         height: "300px",
         width: "100%",
+        toolbar: {
+          tools: {
+            zoomin: false,
+            zoomout: false,
+          },
+        },
       },
       xaxis: {
         labels: {
           hideOverlappingLabels: true,
           offsetY: 10,
           style: { ...labelStyle, fontSize: "14px" },
+        },
+      },
+      legend: {
+        fontSize: "12px",
+      },
+      dataLabels: {
+        offsetY: -18,
+        style: { ...labelStyle, fontSize: "10px" },
+        orientation: "horizontal",
+        background: {
+          enabled: true,
+          foreColor: "#fff",
+          padding: 2,
+          borderRadius: 1,
+          borderWidth: 1,
+          borderColor: "#fff",
+          opacity: 0.8,
         },
       },
     },
