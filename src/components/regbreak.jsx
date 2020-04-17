@@ -138,6 +138,16 @@ class RegBreak extends Component {
                 width: "680px",
                 height: "1000px",
               },
+              yaxis: {
+                reversed: true,
+                labels: {
+                  style: { color: colours.black, fontSize: "12px" },
+                  maxWidth: 300,
+                  offsetX: -5,
+                  offsetY: 15,
+                  rotate: 45,
+                },
+              },
             },
           },
           {
@@ -168,10 +178,22 @@ class RegBreak extends Component {
         },
         //title: { text: "Cases by City" },
         dataLabels: {
-          enabled: false,
+          enabled: true,
+
           textAnchor: "end",
           offsetX: -30,
           style: { ...labelStyle },
+          formatter: function (value, { seriesIndex, dataPointIndex, w }) {
+            let indices = w.config.series.map((item, i) => i);
+            indices = indices.filter(
+              (i) =>
+                !w.globals.collapsedSeriesIndices.includes(i) &&
+                w.config.series[i].data[dataPointIndex] > 0
+            );
+            if (seriesIndex === indices[indices.length - 1])
+              return w.globals.stackedSeriesTotals[dataPointIndex];
+            return "";
+          },
         },
         colors: [colours.blue, colours.green, colours.black],
         plotOptions: {
