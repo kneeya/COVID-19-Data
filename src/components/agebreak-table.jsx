@@ -97,7 +97,7 @@ class StackedTable extends React.Component {
       return {
         ...item,
         index: z,
-        total: item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
+        total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
       };
     });
 
@@ -133,7 +133,7 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={data} pagination={false} />;
   }
 }
 

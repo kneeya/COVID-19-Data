@@ -5,6 +5,7 @@ import { ReactComponent as Search } from "../ds/icons/svg/ontario-icon-search.sv
 import covidData from "../covidData.json";
 import dict from "../dictionary";
 import trans from "../translations.json";
+import {formatDate} from './utils';
 
 const SearchOutlined = () => <Search />;
 
@@ -100,7 +101,7 @@ class StackedTable extends React.Component {
       //console.log('item', item)
       return {
         index: z,
-        date: item[dict.reportedDate],
+        date: formatDate(item[dict.reportedDate]),
         //check if yeterday data exists and find diff
         new: d[z - 1] && item[dict.totaCases] - d[z - 1][dict.totaCases],
       };
