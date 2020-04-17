@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveB } from "./options";
+import { labelStyle, tooltip, legend } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 import ReducedData from "../reducedData.json";
@@ -111,10 +111,75 @@ class SexBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsiveB().map((item, z) => {
-          item.options.chart.height = "200px";
-          return item;
-        }),
+        responsive: [
+          {
+            breakpoint: 640,
+            options: {
+              chart: {
+                offsetX: 10,
+                height: "200px",
+                width: "100%",
+                toolbar: {
+                  tools: {
+                    zoomin: false,
+                    zoomout: false,
+                  },
+                },
+              },
+              yaxis: {
+                labels: {
+                  style: { ...labelStyle, fontSize: "12px" },
+                },
+              },
+              xaxis: {
+                labels: {
+                  hideOverlappingLabels: true,
+                  offsetY: 10,
+                  style: { ...labelStyle, fontSize: "12px" },
+                },
+              },
+              legend: {
+                fontSize: "12px",
+              },
+              dataLabels: {
+                offsetX: -4,
+                style: { ...labelStyle, fontSize: "12px" },
+                orientation: "horizontal",
+              },
+            },
+          },
+          {
+            breakpoint: 1163,
+            options: {
+              chart: {
+                height: "200px",
+                width: "100%",
+              },
+              xaxis: {
+                labels: {
+                  hideOverlappingLabels: true,
+                  offsetY: 10,
+                  style: { ...labelStyle },
+                },
+              },
+            },
+          },
+          {
+            breakpoint: 1530,
+            options: {
+              chart: {
+                height: "200px",
+                width: "100%",
+              },
+              xaxis: {
+                labels: {
+                  offsetY: 10,
+                  style: { ...labelStyle },
+                },
+              },
+            },
+          },
+        ],
         chart: {
           type: "bar",
           stacked: true,
