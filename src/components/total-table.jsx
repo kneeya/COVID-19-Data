@@ -95,7 +95,6 @@ class TotalTable extends React.Component {
     var chartData = [...covidData.result.records]
       .filter((item) => item[dict.totaCases] > 100)
       .map((item, z) => {
-        console.log("item", item);
         return {
           index: z,
           date: item[dict.reportedDate],
