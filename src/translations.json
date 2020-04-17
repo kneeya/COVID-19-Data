@@ -65,8 +65,8 @@
   },
   "hospital": {
     "title": {
-      "en": "Total hospitalizations over time",
-      "fr": "Total hospitalizations over time FR"
+      "en": "Hospitalizations over time",
+      "fr": "Hospitalizations over time FR"
     },
     "hospitalized": {
       "en": "Hospitalized",
@@ -83,8 +83,8 @@
   },
   "totaltest": {
     "title": {
-      "en": "Status of COVID-19 cases in Ontario",
-      "fr": "Status of COVID-19 cases in Ontario FR"
+      "en": "Case status over time",
+      "fr": "Case status over time FR"
     },
     "total": {
       "en": "Total Cases",
@@ -112,8 +112,8 @@
   },
   "reg": {
     "title": {
-      "en": "Breakdown of cases reported by Public Health Units",
-      "fr": "Breakdown of cases reported by Public Health Units FR"
+      "en": "Case status by geography",
+      "fr": "Case status by geography FR"
     },
     "active": {
       "en": "Active",
@@ -134,8 +134,8 @@
   },
   "agebreak": {
     "title": {
-      "en": "Case breakdown by age",
-      "fr": "Case breakdown by age FR"
+      "en": "Case status by age",
+      "fr": "Case status by age FR"
     },
     "active": {
       "en": "Active",
@@ -172,8 +172,8 @@
   },
   "sexbreak": {
     "title": {
-      "en": "Case breakdown by sex",
-      "fr": "Case breakdown by sex FR"
+      "en": "Case status by sex",
+      "fr": "Case status by sex FR"
     },
     "active": {
       "en": "Active",

@@ -92,11 +92,7 @@ class AgeBreak extends Component {
         tooltip: tooltip,
         responsive: responsiveFun(),
         chart: {
-<<<<<<< HEAD
-          //          height: 650,
-=======
           height: 650,
->>>>>>> 57bbd2369ea0934807ad38416141d7d9070f6292
           width: "100%",
           type: "bar",
           stacked: true,
@@ -171,10 +167,6 @@ class AgeBreak extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    console.log("this", this);
-=======
->>>>>>> 57bbd2369ea0934807ad38416141d7d9070f6292
     return (
       <div id="regional" className="chart">
         {this.state.ready ? (

@@ -25,16 +25,8 @@ class App extends Component {
   state = { loading: false, lang: "en", accessible: false };
 
   componentDidMount() {
-<<<<<<< HEAD
-    this.dataParse();
-    this.dataParseCase();
-  }
-
-  componentDidUpdate(prevProps, prevState) {}
-=======
     this.display();
   }
->>>>>>> 57bbd2369ea0934807ad38416141d7d9070f6292
 
   componentDidUpdate(prevProps, prevState) {}
 
@@ -173,42 +165,22 @@ class App extends Component {
                 </ItemWrapper>
               </div>
 
-<<<<<<< HEAD
-=======
+              <div id="regbreak" className="item item-6">
+                <ItemWrapper title={trans.reg.title[lang]}>
+                  {accessible ? (
+                    <RegBreakTable lang={this.state.lang} />
+                  ) : (
+                    <RegBreak lang={this.state.lang} />
+                  )}
+                </ItemWrapper>
+              </div>
+
               <div id="hospitalization" className="item item-6">
                 <ItemWrapper title={trans.hospital.title[lang]}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
                     <Hospital lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
-              </div>
-
->>>>>>> 57bbd2369ea0934807ad38416141d7d9070f6292
-              <div id="regbreak" className="item item-6">
-                <ItemWrapper title={trans.reg.title[lang]}>
-                  {accessible ? (
-                    <RegBreakTable lang={this.state.lang} />
-                  ) : (
-<<<<<<< HEAD
-                    <RegBreak
-                      casedata={this.state.casedata}
-                      lang={this.state.lang}
-                    />
-=======
-                    <RegBreak lang={this.state.lang} />
->>>>>>> 57bbd2369ea0934807ad38416141d7d9070f6292
-                  )}
-                </ItemWrapper>
-              </div>
-
-              <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={trans.hospital.title[lang]}>
-                  {accessible ? (
-                    <HospitalTable lang={this.state.lang} />
-                  ) : (
-                    <Hospital data={this.state.data} lang={this.state.lang} />
                   )}
                 </ItemWrapper>
               </div>
@@ -222,14 +194,7 @@ class App extends Component {
                   {accessible ? (
                     <AgeBreakTable lang={this.state.lang} />
                   ) : (
-<<<<<<< HEAD
-                    <AgeBreak
-                      casedata={this.state.casedata}
-                      lang={this.state.lang}
-                    />
-=======
                     <AgeBreak lang={this.state.lang} />
->>>>>>> 57bbd2369ea0934807ad38416141d7d9070f6292
                   )}
                 </ItemWrapper>
               </div>
