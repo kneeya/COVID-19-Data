@@ -139,6 +139,8 @@ class TotalTest extends Component {
             options={this.state.options}
             series={this.state.series}
             type="line"
+            height="400px"
+
           />
         ) : (
           ""
