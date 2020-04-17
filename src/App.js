@@ -148,7 +148,7 @@ class App extends Component {
                 <br />
               </div>
 
-              <hr class="hrule" />
+              <hr class="hrule-a" />
               <div id="stacked" className="item item-2">
                 <ItemWrapper title={trans.totaltest.title[lang]}>
                   {accessible ? (
@@ -168,7 +168,7 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-              <hr class="hrule" />
+              <hr class="hrule-b" />
               <div id="regbreak" className="item item-6">
                 <ItemWrapper title={trans.reg.title[lang]}>
                   {accessible ? (
