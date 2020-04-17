@@ -108,6 +108,9 @@ class TotalTest extends Component {
         responsive: responsiveFun(),
         chart: { height: 650, type: "line", zoom: { enabled: true } },
         yaxis: {
+          title: {
+            text: trans.totaltest.yaxis[this.props.lang],
+          },
           labels: {
             style: { ...labelStyle },
           },
@@ -129,6 +132,7 @@ class TotalTest extends Component {
   render() {
     return (
       <div id="totaltest" className="chart">
+        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

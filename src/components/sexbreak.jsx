@@ -158,6 +158,9 @@ class SexBreak extends Component {
           },
         },
         xaxis: {
+          title: {
+            text: trans.totaltest.yaxis[this.props.lang],
+          },
           categories: [
             trans.sexbreak.male[this.props.lang],
             trans.sexbreak.female[this.props.lang],
@@ -177,6 +180,7 @@ class SexBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
+        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <React.Fragment>
             <ReactApexChart

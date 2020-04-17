@@ -27,12 +27,12 @@
       "fr": "Terms used in the graphs FR"
     },
     "inICU": {
-      "en": "In ICU with ventilator",
-      "fr": "In ICU with ventilator FR"
+      "en": "In ICU (Intensive Care Unit) with ventilator",
+      "fr": "In ICU (Intensive Care Unit) with ventilator FR"
     },
     "ICUdesc": {
-      "en": "ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
-      "fr": "ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
+      "en": "ICU (Intensive Care Unit) data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU (Intensive Care Unit) beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
+      "fr": "ICU (Intensive Care Unit) data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU (Intensive Care Unit) beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
     }
   },
   "overview": {
@@ -61,8 +61,12 @@
       "fr": "Hospitalized FR"
     },
     "icu": {
-      "en": "In ICU",
-      "fr": "In ICU FR"
+      "en": "In ICU (Intensive Care Unit)",
+      "fr": "In ICU (Intensive Care Unit) FR"
+    },
+    "bottom": {
+      "en": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours",
+      "fr": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours FR"
     }
   },
   "otp": {
@@ -99,12 +103,12 @@
       "fr": "Hospitalized FR"
     },
     "icu": {
-      "en": "In ICU",
-      "fr": "In ICU FR"
+      "en": "In ICU (Intensive Care Unit)",
+      "fr": "In ICU (Intensive Care Unit) FR"
     },
     "icuv": {
-      "en": "In ICU with ventilator",
-      "fr": "In ICU with ventilator FR"
+      "en": "In ICU (Intensive Care Unit) with ventilator",
+      "fr": "In ICU (Intensive Care Unit) with ventilator FR"
     }
   },
   "totaltest": {
@@ -127,6 +131,10 @@
     "deaths": {
       "en": "Deaths",
       "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
     }
   },
   "newcases": {
@@ -159,6 +167,10 @@
     "total": {
       "en": "Total",
       "fr": "Total FR"
+    },
+    "text": {
+      "en": "Find your local Public Health Unit",
+      "fr": "Find your local Public Health Unit FR"
     }
   },
   "agebreak": {
@@ -264,5 +276,13 @@
       "en": "Future projections",
       "fr": "Future projections FR"
     }
+  },
+  "hideshow": {
+    "en": "You can hide or show the cases by clicking the legend below.",
+    "fr": "You can hide or show the cases by clicking the legend below. FR"
+  },
+  "age": {
+    "en": "Age",
+    "fr": "Age FR"
   }
 }

@@ -138,11 +138,17 @@ class AgeBreak extends Component {
           colors: ["#fff"],
         },
         yaxis: {
+          title: {
+            text: trans.age[this.props.lang],
+          },
           labels: {
             style: { ...labelStyle },
           },
         },
         xaxis: {
+          title: {
+            text: trans.totaltest.yaxis[this.props.lang],
+          },
           categories: [
             trans.agebreak.under20[this.props.lang],
             "20-29",
@@ -169,6 +175,7 @@ class AgeBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
+        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <React.Fragment>
             <ReactApexChart
