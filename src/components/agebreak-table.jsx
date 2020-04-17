@@ -92,13 +92,13 @@ class StackedTable extends React.Component {
 
   render() {
     //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    const cD = Object.values(ReducedData.reduceAges);
-    var unk = 0;
-    var data = cD
+    const cData = Object.values(ReducedData.reduceAges);
+    var unknown = 0;
+    var data = cData
       .filter((item) => {
         if (item[dict.Age_Group] === "Unknown") {
-          unk =
-            unk +
+          unknown =
+            unknown +
             item[dict.resolved] +
             item[dict.NotResolved] +
             item[dict.deaths];
@@ -182,7 +182,7 @@ class StackedTable extends React.Component {
       <React.Fragment>
         <Table columns={columns} dataSource={data} />
         <p>
-          {trans.agebreak.noteA[this.props.lang]} {unk}
+          {trans.agebreak.noteA[this.props.lang]} {unknown}
           {trans.agebreak.noteB[this.props.lang]}
         </p>
       </React.Fragment>

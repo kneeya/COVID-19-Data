@@ -91,29 +91,29 @@ class StackedTable extends React.Component {
   };
 
   render() {
-    const cD = Object.values(ReducedData.reduceSex);
-    var unk = 0;
-    var tran = 0;
-    var oth = 0;
-    var data = cD
+    const cData = Object.values(ReducedData.reduceSex);
+    var unknown = 0;
+    var trans = 0;
+    var other = 0;
+    var data = cData
       .filter((item) => {
         if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-          unk =
-            unk +
+          unknown =
+            unknown +
             item[dict.resolved] +
             item[dict.NotResolved] +
             item[dict.deaths];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          tran =
-            tran +
+          trans =
+            trans +
             item[dict.resolved] +
             item[dict.NotResolved] +
             item[dict.deaths];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-          oth =
-            oth +
+          other =
+            other +
             item[dict.resolved] +
             item[dict.NotResolved] +
             item[dict.deaths];
@@ -167,10 +167,10 @@ class StackedTable extends React.Component {
       <React.Fragment>
         <Table columns={columns} dataSource={data} />
         <p>
-          {trans.agebreak.noteA[this.props.lang]} {tran}
+          {trans.agebreak.noteA[this.props.lang]} {trans}
           {trans.sexbreak.noteTran[this.props.lang]}
-          {oth} {trans.sexbreak.noteOth[this.props.lang]}
-          {unk} {trans.sexbreak.noteUnk[this.props.lang]}
+          {other} {trans.sexbreak.noteOth[this.props.lang]}
+          {unknown} {trans.sexbreak.noteUnk[this.props.lang]}
         </p>
       </React.Fragment>
     );

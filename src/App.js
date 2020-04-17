@@ -1,7 +1,6 @@
 import React, { Component, useRef } from "react";
 import "./ds.scss";
 import "./App.css";
-import Add from "./components/addnotes/add.jsx";
 import TotalTest from "./components/totaltest.jsx";
 import TotalTable from "./components/total-table.jsx";
 import Loading from "./components/loading/loading.jsx";
@@ -18,12 +17,23 @@ import RegBreakTable from "./components/regbreak-table.jsx";
 import HospitalTable from "./components/hospital-table.jsx";
 import NewCasesTable from "./components/newcases-table.jsx";
 
+var Url = require("url-parse");
+
+const currLang = () => {
+  const url = Url(window.location.href, true);
+  console.log("url", url);
+  if (url.query.lang === "fr") {
+    return url.query.lang;
+  } else {
+    return "en";
+  }
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = { loading: false, lang: currLang(), accessible: false };
   }
-
-  state = { loading: false, lang: "en", accessible: false };
 
   componentDidMount() {
     this.display();
