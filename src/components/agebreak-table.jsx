@@ -92,14 +92,58 @@ class StackedTable extends React.Component {
 
   render() {
     //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
-    var data = ReducedData.reduceAges.map((item, z) => {
-      //console.log('item', item)
-      return {
-        ...item,
-        index: z,
-        total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
-      };
-    });
+    const cData = Object.values(ReducedData.reduceAges);
+    var unknown = 0;
+    var data = cData
+      .filter((item) => {
+        if (item[dict.Age_Group] === "Unknown") {
+          unknown =
+            unknown +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .map((item, z) => {
+        //console.log('item', item)
+        switch (item[dict.Age_Group]) {
+          case "<20":
+            item[dict.Age_Group] = "Under 20";
+            break;
+          case "20s":
+            item[dict.Age_Group] = "20-29";
+            break;
+          case "30s":
+            item[dict.Age_Group] = "30-39";
+            break;
+          case "40s":
+            item[dict.Age_Group] = "40-49";
+            break;
+          case "50s":
+            item[dict.Age_Group] = "50-59";
+            break;
+          case "60s":
+            item[dict.Age_Group] = "60-69";
+            break;
+          case "70s":
+            item[dict.Age_Group] = "70-79";
+            break;
+          case "80s":
+            item[dict.Age_Group] = "80-89";
+            break;
+          case "90s":
+            item[dict.Age_Group] = "90-99";
+            break;
+        }
+        return {
+          ...item,
+          index: z,
+          total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
+        };
+      });
 
     const columns = [
       {
@@ -133,7 +177,15 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
     ];
-    return <Table columns={columns} dataSource={data} pagination={false} />;
+    return (
+      <React.Fragment>
+       <Table columns={columns} dataSource={data} pagination={false} />
+        <p>
+          {trans.agebreak.noteA[this.props.lang]} {unknown}
+          {trans.agebreak.noteB[this.props.lang]}
+        </p>
+      </React.Fragment>
+    );
   }
 }
 

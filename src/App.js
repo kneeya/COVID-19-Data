@@ -16,17 +16,18 @@ import SexBreakTable from "./components/sexbreak-table.jsx";
 import RegBreakTable from "./components/regbreak-table.jsx";
 import HospitalTable from "./components/hospital-table.jsx";
 import NewCasesTable from "./components/newcases-table.jsx";
-var Url = require('url-parse');
+
+var Url = require("url-parse");
 
 const currLang = () => {
   const url = Url(window.location.href, true);
-  console.log('url', url)
-  if(url.query.lang === "fr"){
+  console.log("url", url);
+  if (url.query.lang === "fr") {
     return url.query.lang;
-  }else{
+  } else {
     return "en";
   }
-}
+};
 
 class App extends Component {
   constructor(props) {
@@ -58,7 +59,6 @@ class App extends Component {
   scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
   render() {   
-
     const Accessible = (props) => (
       <p>
         <a
@@ -103,7 +103,8 @@ class App extends Component {
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
-              {/* <h1>{trans.hero.title[lang]}</h1> */}
+              <h1>{trans.hero.title[lang]}</h1>
+
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
