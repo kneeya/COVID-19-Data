@@ -11,11 +11,11 @@
   },
   "overview": {
     "title": {
-      "en": "Overview",
+      "en": "Current cases",
       "fr": "Overview FR"
     },
     "total": {
-      "en": "Total",
+      "en": "Total cases",
       "fr": "Total FR"
     },
     "active": {
@@ -47,7 +47,7 @@
   },
   "stacked": {
     "title": {
-      "en": "Summary of cases in Ontario",
+      "en": "Case status over time",
       "fr": "Summary of cases in Ontario FR"
     },
     "positive": {
@@ -87,7 +87,7 @@
       "fr": "Case status over time FR"
     },
     "total": {
-      "en": "Total Cases",
+      "en": "Total cases",
       "fr": "Total Cases FR"
     },
     "positive": {
@@ -104,7 +104,10 @@
     }
   },
   "newcases": {
-    "title": { "en": "New cases over time", "fr": "New cases over time FR" },
+    "title": { 
+      "en": "New cases over time", 
+      "fr": "New cases over time FR" 
+    },
     "newcase": {
       "en": "New cases",
       "fr": "New cases FR"
@@ -214,11 +217,11 @@
   },
   "accessible": {
     "enable": {
-      "en": "Switch to accessible data table format.",
+      "en": "Switch to table format.",
       "fr": "Switch to accessible data table format. FR"
     },
     "disable": {
-      "en": "Switch to interactive chart table format.",
+      "en": "Switch to interactive chart.",
       "fr": "Switch to interactive chart table format. FR"
     },
     "select": {
