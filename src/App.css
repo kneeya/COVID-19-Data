@@ -77,19 +77,22 @@ a {
 /* from ontario covid website*/
 
 .ontario-infographic-number {
-  font: 1.85rem "Raleway";
+  font-size: 1.85rem;
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .ontario-infographic-text,
 .ontario-font-raleway {
-  font: 1.2rem "Raleway";
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-size: 1.2rem;
 }
 
 .ontario-infographic-subtext {
   margin: 0;
-  font: 1rem "Open Sans";
+  font-size: 1rem;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .ontario-font-raleway {
