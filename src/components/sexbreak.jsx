@@ -33,9 +33,7 @@ class SexBreak extends Component {
     var a = 0;
     var b = 0;
     var c = 0;
-    var d = 0;
-    var e = 0;
-    var f = 0;
+
     const reso = cD
       .filter((item) => {
         if (
@@ -45,7 +43,10 @@ class SexBreak extends Component {
           a = a + item[dict.resolved];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          d = d + item[dict.resolved];
+          b = b + item[dict.resolved];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+          c = c + item[dict.resolved];
           return false;
         } else {
           return true;
@@ -57,14 +58,14 @@ class SexBreak extends Component {
 
     const active = cD
       .filter((item) => {
-        if (
-          item[dict.CLIENT_GENDER] === "UNKNOWN" ||
-          item[dict.CLIENT_GENDER] === "OTHER"
-        ) {
+        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
           a = a + item[dict.NotResolved];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          e = e + item[dict.NotResolved];
+          b = b + item[dict.NotResolved];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+          c = c + item[dict.NotResolved];
           return false;
         } else {
           return true;
@@ -75,15 +76,14 @@ class SexBreak extends Component {
       });
     const fatal = cD
       .filter((item) => {
-        if (
-          item[dict.CLIENT_GENDER] === "UNKNOWN" ||
-          item[dict.CLIENT_GENDER] === "TRANSGENDER" ||
-          item[dict.CLIENT_GENDER] === "OTHER"
-        ) {
+        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
           a = a + item[dict.deaths];
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          f = f + item[dict.deaths];
+          b = b + item[dict.deaths];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+          c = c + item[dict.NotResolved];
           return false;
         } else {
           return true;
@@ -169,9 +169,10 @@ class SexBreak extends Component {
       },
     });
 
-    var unknowns = a + b + c;
-    var trand = d + e + f;
-    this.setState({ ready: true, unk: unknowns, trank: trand });
+    var unknowns = a;
+    var trand = b;
+    var other = c;
+    this.setState({ ready: true, unk: unknowns, trank: trand, other: other });
   }
 
   render() {
@@ -187,8 +188,9 @@ class SexBreak extends Component {
             />
             <p>
               {trans.agebreak.noteA[this.props.lang]} {this.state.trank}
-              {trans.sexbreak.noteC[this.props.lang]}
-              {this.state.unk} {trans.sexbreak.noteB[this.props.lang]}
+              {trans.sexbreak.noteTran[this.props.lang]}
+              {this.state.other} {trans.sexbreak.noteOth[this.props.lang]}
+              {this.state.unk} {trans.sexbreak.noteUnk[this.props.lang]}
             </p>
           </React.Fragment>
         ) : (
