@@ -109,32 +109,34 @@ class StackedTable extends React.Component {
       })
       .map((item, z) => {
         //console.log('item', item)
-        if (item[dict.Age_Group] === "<20") {
-          item[dict.Age_Group] = "Under 20";
-        }
-        if (item[dict.Age_Group] === "20s") {
-          item[dict.Age_Group] = "20-29";
-        }
-        if (item[dict.Age_Group] === "30s") {
-          item[dict.Age_Group] = "30-39";
-        }
-        if (item[dict.Age_Group] === "40s") {
-          item[dict.Age_Group] = "40-49";
-        }
-        if (item[dict.Age_Group] === "50s") {
-          item[dict.Age_Group] = "50-59";
-        }
-        if (item[dict.Age_Group] === "60s") {
-          item[dict.Age_Group] = "60-69";
-        }
-        if (item[dict.Age_Group] === "70s") {
-          item[dict.Age_Group] = "70-79";
-        }
-        if (item[dict.Age_Group] === "80s") {
-          item[dict.Age_Group] = "80-89";
-        }
-        if (item[dict.Age_Group] === "90s") {
-          item[dict.Age_Group] = "90-99";
+        switch (item[dict.Age_Group]) {
+          case "<20":
+            item[dict.Age_Group] = "Under 20";
+            break;
+          case "20s":
+            item[dict.Age_Group] = "20-29";
+            break;
+          case "30s":
+            item[dict.Age_Group] = "30-39";
+            break;
+          case "40s":
+            item[dict.Age_Group] = "40-49";
+            break;
+          case "50s":
+            item[dict.Age_Group] = "50-59";
+            break;
+          case "60s":
+            item[dict.Age_Group] = "60-69";
+            break;
+          case "70s":
+            item[dict.Age_Group] = "70-79";
+            break;
+          case "80s":
+            item[dict.Age_Group] = "80-89";
+            break;
+          case "90s":
+            item[dict.Age_Group] = "90-99";
+            break;
         }
         return {
           ...item,
@@ -143,6 +145,7 @@ class StackedTable extends React.Component {
             item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
         };
       });
+
     const columns = [
       {
         title: trans.agebreak.group[this.props.lang],
