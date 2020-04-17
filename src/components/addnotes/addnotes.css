@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.additional-notes-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.additional {
+  color: #0066cc;
+  font: 1.1rem "Open Sans";
+}
+
+.notes {
+  font: 1rem "Open Sans";
+}
+
+.material-icons {
+  color: #0066cc;
+}

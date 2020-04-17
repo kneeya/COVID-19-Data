@@ -91,14 +91,47 @@ class StackedTable extends React.Component {
   };
 
   render() {
-    var data = ReducedData.reduceSex.map((item, z) => {
-      //console.log('item', item)
-      return {
-        ...item,
-        index: z,
-        total: item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths],
-      };
-    });
+    const cData = Object.values(ReducedData.reduceSex);
+    var unknown = 0;
+    var transG = 0;
+    var other = 0;
+    var data = cData
+      .filter((item) => {
+        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+          unknown =
+            unknown +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+          transG =
+          transG +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+          other =
+            other +
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths];
+          return false;
+        } else {
+          return true;
+        }
+      })
+      .map((item, z) => {
+        return {
+          ...item,
+          index: z,
+          [dict.resolved]: item[dict.resolved] && item[dict.resolved].toLocaleString(),
+          [dict.NotResolved]: item[dict.NotResolved] && item[dict.NotResolved].toLocaleString(),
+          [dict.deaths]: item[dict.deaths] && item[dict.deaths].toLocaleString(),
+          total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
+        };
+      });
 
     const columns = [
       {
@@ -132,7 +165,17 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return (
+      <React.Fragment>
+         <Table columns={columns} dataSource={data}  pagination={false}  />
+        <p>
+          {trans.agebreak.noteA[this.props.lang]} {transG}
+          {trans.sexbreak.noteTran[this.props.lang]}
+          {other} {trans.sexbreak.noteOth[this.props.lang]}
+          {unknown} {trans.sexbreak.noteUnk[this.props.lang]}
+        </p>
+      </React.Fragment>
+    );
   }
 }
 

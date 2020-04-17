@@ -3,6 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
+
 import {
   labelStyle,
   tooltip,
