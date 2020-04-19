@@ -1,5 +1,8 @@
-html {
+html, body {
   scroll-behavior: smooth;
+
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 a {
@@ -49,6 +52,10 @@ a {
   overflow: initial !important;
 }
 
+.apexcharts-canvas {
+  margin-left: -5px;
+}
+
 /* use ds for grid */
 /* .chart {
   padding-left: 90px;
@@ -62,12 +69,12 @@ a {
 
 /* @media screen and (max-width: 40em) { */
 /* behaviour for charts mobile */
-.chart {
+/* .chart {
   position: relative;
   overflow: scroll;
   scroll-behavior: smooth;
   overflow-y: hidden;
-}
+} */
 /* } */
 
 /* from ontario covid website*/
@@ -221,3 +228,16 @@ a .link {
   padding: 4px 4px !important;
 }
 
+/* Visibility */
+
+@media screen and (max-width: 0em), screen and (min-width: 40em) {
+  .ontario-show-for-small-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .ontario-hide-for-small-only {
+    display: none !important;
+  }
+}

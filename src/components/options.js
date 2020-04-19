@@ -1,7 +1,7 @@
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 
 export const labelStyle = {
-  fontSize: "16px",
+  fontSize: "12px",
   colors: [colours.black],
 };
 
@@ -40,6 +40,13 @@ export const legend = {
   },
 };
 
+export const lgXaxisLabels ={
+  rotateAlways: true,
+  rotate: -45,
+  offsetY: 5,
+  style: { ...labelStyle },
+}
+
 export const responsiveFun = () => [
   {
     breakpoint: 640,
@@ -47,7 +54,7 @@ export const responsiveFun = () => [
       chart: {
         offsetX: 10,
         height: "300px",
-        width: "100%",
+        //width: "100%",
         toolbar: {
           tools: {
             zoomin: false,
@@ -57,22 +64,43 @@ export const responsiveFun = () => [
       },
       yaxis: {
         labels: {
-          style: { ...labelStyle, fontSize: "12px" },
+          style: { ...labelStyle, fontSize: "10px" },
         },
       },
       xaxis: {
+        // max: 10,
+        // min: 10,
+        // tickAmount: 5,
+        // axisTicks: {
+        //   show: true,
+        //   borderType: 'solid',
+        //   color: '#78909C',
+        //   height: 6,
+        //   offsetX: 0,
+        //   offsetY: 0
+        // },
         labels: {
           hideOverlappingLabels: true,
-          offsetY: 10,
+          offsetY: 5,
+          rotateAlways: true,
+          rotate: -45,
+          formatter: function (value, timestamp, index) {
+            //console.log('object', value, index)
+            
+            if (index % 2 || index === undefined) {
+              return value;
+            } else {
+              return "";
+            }
+          },
           style: { ...labelStyle, fontSize: "12px" },
         },
       },
       legend: {
-        fontSize: "12px",
+        fontSize: "10px",
       },
       dataLabels: {
-        style: { ...labelStyle, fontSize: "12px" },
-        orientation: "horizontal",
+        enabled: false,
       },
     },
   },
@@ -83,12 +111,22 @@ export const responsiveFun = () => [
         height: "400px",
         width: "100%",
       },
+      legend: {
+        fontSize: "12px",
+      },
       xaxis: {
+        // max: 30,
         labels: {
           hideOverlappingLabels: true,
-          offsetY: 10,
+          offsetY: 5,
+          rotateAlways: true,
+          rotate: -45,
           style: { ...labelStyle },
         },
+      },
+      dataLabels: {
+        style: { ...labelStyle, fontSize: "10px" },
+        orientation: "horizontal",
       },
     },
   },
@@ -99,9 +137,15 @@ export const responsiveFun = () => [
         height: "500px",
         width: "100%",
       },
+      legend: {
+        fontSize: "12px",
+      },
       xaxis: {
         labels: {
-          offsetY: 10,
+          offsetY: 5,
+          hideOverlappingLabels: true,
+          rotateAlways: true,
+          rotate: -45,
           style: { ...labelStyle },
         },
         dataLabels: {

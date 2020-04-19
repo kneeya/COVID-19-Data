@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun } from "./options";
+import { labelStyle, tooltip, legend, responsiveFun, lgXaxisLabels } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 import ReducedData from "../reducedData.json";
@@ -147,6 +147,7 @@ class AgeBreak extends Component {
         },
         xaxis: {
           title: {
+            offsetY: 20,
             text: trans.totaltest.yaxis[this.props.lang],
           },
           categories: [
@@ -161,7 +162,7 @@ class AgeBreak extends Component {
             "90-99",
           ],
           labels: {
-            style: { ...labelStyle },
+           ...lgXaxisLabels
           },
         },
       },

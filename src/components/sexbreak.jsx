@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend } from "./options";
+import { labelStyle, tooltip, legend, lgXaxisLabels, responsiveFun } from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 import ReducedData from "../reducedData.json";
@@ -108,75 +108,79 @@ class SexBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: [
-          {
-            breakpoint: 640,
-            options: {
-              chart: {
-                offsetX: 10,
-                height: "200px",
-                width: "100%",
-                toolbar: {
-                  tools: {
-                    zoomin: false,
-                    zoomout: false,
-                  },
-                },
-              },
-              yaxis: {
-                labels: {
-                  style: { ...labelStyle, fontSize: "12px" },
-                },
-              },
-              xaxis: {
-                labels: {
-                  hideOverlappingLabels: true,
-                  offsetY: 10,
-                  style: { ...labelStyle, fontSize: "12px" },
-                },
-              },
-              legend: {
-                fontSize: "12px",
-              },
-              dataLabels: {
-                offsetX: -4,
-                style: { ...labelStyle, fontSize: "12px" },
-                orientation: "horizontal",
-              },
-            },
-          },
-          {
-            breakpoint: 1163,
-            options: {
-              chart: {
-                height: "200px",
-                width: "100%",
-              },
-              xaxis: {
-                labels: {
-                  hideOverlappingLabels: true,
-                  offsetY: 10,
-                  style: { ...labelStyle },
-                },
-              },
-            },
-          },
-          {
-            breakpoint: 1530,
-            options: {
-              chart: {
-                height: "200px",
-                width: "100%",
-              },
-              xaxis: {
-                labels: {
-                  offsetY: 10,
-                  style: { ...labelStyle },
-                },
-              },
-            },
-          },
-        ],
+        // responsive: [
+        //   {
+        //     breakpoint: 640,
+        //     options: {
+        //       chart: {
+        //         offsetX: 10,
+        //         height: "200px",
+        //         width: "100%",
+        //         toolbar: {
+        //           tools: {
+        //             zoomin: false,
+        //             zoomout: false,
+        //           },
+        //         },
+        //       },
+        //       yaxis: {
+        //         labels: {
+        //           style: { ...labelStyle, fontSize: "12px" },
+        //         },
+        //       },
+        //       xaxis: {
+        //         labels: {
+        //           hideOverlappingLabels: true,
+        //           offsetY: 10,
+        //           style: { ...labelStyle, fontSize: "12px" },
+        //         },
+        //       },
+        //       legend: {
+        //         fontSize: "12px",
+        //       },
+        //       dataLabels: {
+        //         offsetX: -4,
+        //         style: { ...labelStyle, fontSize: "12px" },
+        //         orientation: "horizontal",
+        //       },
+        //     },
+        //   },
+        //   {
+        //     breakpoint: 1163,
+        //     options: {
+        //       chart: {
+        //         height: "200px",
+        //         width: "100%",
+        //       },
+        //       xaxis: {
+        //         labels: {
+        //           hideOverlappingLabels: true,
+        //           offsetY: 10,
+        //           style: { ...labelStyle },
+        //         },
+        //       },
+        //     },
+        //   },
+        //   {
+        //     breakpoint: 1530,
+        //     options: {
+        //       chart: {
+        //         height: "200px",
+        //         width: "100%",
+        //       },
+        //       xaxis: {
+        //         labels: {
+        //           offsetY: 10,
+        //           style: { ...labelStyle },
+        //         },
+        //       },
+        //     },
+        //   },
+        // ],
+        responsive: responsiveFun().map(item=>{
+          item.options.chart.height = "200px";
+          return item;
+        }),
         chart: {
           type: "bar",
           stacked: true,
@@ -185,7 +189,7 @@ class SexBreak extends Component {
         dataLabels: {
           enabled: true,
           textAnchor: "start",
-          offsetX: 20,
+          offsetX: 35,
           style: { ...labelStyle },
           formatter: function (value, { seriesIndex, dataPointIndex, w }) {
             let indices = w.config.series.map((item, i) => i);
@@ -221,6 +225,7 @@ class SexBreak extends Component {
         },
         xaxis: {
           title: {
+            offsetY: 20,
             text: trans.totaltest.yaxis[this.props.lang],
           },
           categories: [
@@ -228,7 +233,7 @@ class SexBreak extends Component {
             trans.sexbreak.female[this.props.lang],
           ],
           labels: {
-            style: { ...labelStyle },
+            ...lgXaxisLabels
           },
         },
       },

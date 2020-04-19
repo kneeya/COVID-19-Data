@@ -11,6 +11,7 @@ import {
   markers,
   legend,
   responsiveFun,
+  lgXaxisLabels
 } from "./options";
 import trans from "../translations.json";
 
@@ -37,7 +38,8 @@ class TotalTest extends Component {
   }
 
   setData() {
-    const chartData = [...covidData.result.records];
+    const cData = [...covidData.result.records];
+    const chartData = cData.splice(cData.length - 50, cData.length - 1);
 
     var dates = chartData.map((item) => {
       var date = item[dict.reportedDate].slice(0, 10);
@@ -77,6 +79,8 @@ class TotalTest extends Component {
       return item[dict.deaths];
     });
 
+    console.log('dates', dates);
+
     this.setState({
       totaltest: totaltest,
       dates: dates,
@@ -107,7 +111,7 @@ class TotalTest extends Component {
         tooltip: tooltip,
         stroke: stroke,
         responsive: responsiveFun(),
-        chart: { height: 650, type: "line", zoom: { enabled: true } },
+        chart: { type: "line", zoom: { enabled: true } },
         yaxis: {
           title: {
             text: trans.totaltest.yaxis[this.props.lang],
@@ -118,9 +122,9 @@ class TotalTest extends Component {
         },
         xaxis: {
           categories: dates,
-          range: 30,
+          // range: 30,
           labels: {
-            style: { ...labelStyle },
+           ...lgXaxisLabels
           },
         },
         colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],

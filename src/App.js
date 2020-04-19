@@ -58,7 +58,7 @@ class App extends Component {
 
   scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
-  render() {   
+  render() {
     const Accessible = (props) => (
       <p>
         <a
@@ -87,7 +87,7 @@ class App extends Component {
           <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
             {props.title}
           </h2>
-          <Accessible executeScroll={executeScroll} />
+          {props.accessToggle && <Accessible executeScroll={executeScroll} />}
           {props.children}
         </div>
       );
@@ -164,7 +164,7 @@ class App extends Component {
 
               <hr class="hrule-a" />
               <div id="stacked" className="item item-2">
-                <ItemWrapper title={trans.totaltest.title[lang]}>
+                <ItemWrapper title={trans.totaltest.title[lang]} accessToggle={true}>
                   {accessible ? (
                     <TotalTable lang={this.state.lang} />
                   ) : (
@@ -174,7 +174,7 @@ class App extends Component {
               </div>
               <hr class="hrule" />
               <div id="newcases" className="item item-2">
-                <ItemWrapper title={trans.newcases.title[lang]}>
+                <ItemWrapper title={trans.newcases.title[lang]} accessToggle={true}>
                   {accessible ? (
                     <NewCasesTable lang={this.state.lang} />
                   ) : (
@@ -184,17 +184,31 @@ class App extends Component {
               </div>
               <hr class="hrule-b" />
               <div id="regbreak" className="item item-6">
-                <ItemWrapper title={trans.reg.title[lang]}>
-                  {accessible ? (
-                    <RegBreakTable lang={this.state.lang} />
-                  ) : (
-                    <RegBreak lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
+
+                {/* show only on phones */}
+                <div className="ontario-show-for-small-only">
+                <ItemWrapper title={trans.reg.title[lang]} accessToggle={false}>
+
+                  <RegBreakTable lang={this.state.lang} />
+                  </ItemWrapper>
+
+                </div>
+
+                {/* show only on all else */}
+                <div className="ontario-hide-for-small-only">
+                <ItemWrapper title={trans.reg.title[lang]} accessToggle={true}>
+                    {accessible ? (
+                      <RegBreakTable lang={this.state.lang} />
+                    ) : (
+                      <RegBreak lang={this.state.lang} />
+                    )}
+                   </ItemWrapper>
+                </div>
+
               </div>
               <hr class="hrule" />
               <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={trans.hospital.title[lang]}>
+                <ItemWrapper title={trans.hospital.title[lang]} accessToggle={true}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
@@ -208,7 +222,7 @@ class App extends Component {
                 className="item item-7"
                 title={trans.agebreak.title[lang]}
               >
-                <ItemWrapper title={trans.agebreak.title[lang]}>
+                <ItemWrapper title={trans.agebreak.title[lang]} accessToggle={true}>
                   {accessible ? (
                     <AgeBreakTable lang={this.state.lang} />
                   ) : (
@@ -218,7 +232,7 @@ class App extends Component {
               </div>
               <hr class="hrule" />
               <div id="sexbreak" className="item item-7">
-                <ItemWrapper title={trans.sexbreak.title[lang]}>
+                <ItemWrapper title={trans.sexbreak.title[lang]} accessToggle={true}>
                   {accessible ? (
                     <SexBreakTable lang={this.state.lang} />
                   ) : (
