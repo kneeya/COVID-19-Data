@@ -111,10 +111,88 @@
       "fr": "In ICU (Intensive Care Unit) with ventilator FR"
     }
   },
-  "totaltest": {
+  "casesTotal": {
     "title": {
-      "en": "Case status over time",
-      "fr": "Case status over time FR"
+      "en": "Total cases",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "casesDaily": {
+    "title": {
+      "en": "Daily cases",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "deathsTotal": {
+    "title": {
+      "en": "Total Deaths",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "deathsDaily": {
+    "title": {
+      "en": "Daily Deaths",
+      "fr": "Total cases FR"
     },
     "total": {
       "en": "Total cases",
@@ -173,7 +251,7 @@
       "fr": "Find your local Public Health Unit FR"
     }
   },
-  "agebreak": {
+  "casesByAge": {
     "title": {
       "en": "Case status by age",
       "fr": "Case status by age FR"
@@ -211,7 +289,7 @@
       "fr": "Age Group FR"
     }
   },
-  "sexbreak": {
+  "casesBySex": {
     "title": {
       "en": "Case status by sex",
       "fr": "Case status by sex FR"
@@ -255,6 +333,21 @@
     "sex": {
       "en": "Sex",
       "fr": "Sex FR"
+    }
+  },
+  "testing": {
+    "title": { "en": "Testing", "fr": "Testing FR" },
+    "totalTesting": {
+      "en": "Total tests completed",
+      "fr": "Total test completed FR"
+    },
+    "underInvestigation": {
+      "en": "Currently under investigation",
+      "fr": "Currently under investigation FR"
+    },
+    "testsDoneYesterday": {
+      "en": "Total tests completed in the previous day",
+      "fr": "Total tests completed in the previous day FR"
     }
   },
   "accessible": {

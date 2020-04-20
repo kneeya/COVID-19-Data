@@ -5,7 +5,7 @@ import { ReactComponent as Search } from "../ds/icons/svg/ontario-icon-search.sv
 import trans from "../translations.json";
 import covidData from "../covidData.json";
 import dict from "../dictionary";
-import {formatDate} from './utils';
+import { formatDate } from "./utils";
 
 const SearchOutlined = () => <Search />;
 
@@ -100,9 +100,12 @@ class StackedTable extends React.Component {
         return {
           index: z,
           date: formatDate(item[dict.reportedDate]),
-          hospital: item[dict.patientHospitalizedCOVID19],
-          icu: item[dict.patientsICUwCOVID19],
-          icuwv: item[dict.patientsICUventilatorwCOVID19],
+          hospital:
+            item[dict.patientHospitalizedCOVID19] &&
+            item[dict.patientHospitalizedCOVID19].toLocaleString(),
+          icu:
+            item[dict.patientsICUwCOVID19] &&
+            item[dict.patientsICUwCOVID19].toLocaleString(),
         };
       });
 
@@ -125,12 +128,6 @@ class StackedTable extends React.Component {
         title: trans.hospital.icu[this.props.lang],
         dataIndex: "icu",
         key: "icu",
-        //...this.getColumnSearchProps('address'),
-      },
-      {
-        title: trans.hospital.icuv[this.props.lang],
-        dataIndex: "icuwv",
-        key: "icuwv",
         //...this.getColumnSearchProps('address'),
       },
     ];
