@@ -19,10 +19,10 @@ export const stroke = {
 };
 
 export const markers = {
-  size: 7,
+  size: 3,
   colors: [colours.blue],
   strokeColors: "#fff",
-  strokeWidth: 3,
+  strokeWidth: 1,
   hover: {
     size: 9,
   },
@@ -40,11 +40,34 @@ export const legend = {
   },
 };
 
+export const skipLabelsFormater = function (value, timestamp, index) {
+  //console.log('object', value, index)
+  
+  if (index % 2 || index === undefined) {
+    return value;
+  } else {
+    return "";
+  }
+}
+
 export const lgXaxisLabels ={
   rotateAlways: true,
   rotate: -45,
   offsetY: 5,
   style: { ...labelStyle },
+  formatter: skipLabelsFormater
+}
+
+export const lineXaxis = {
+  type: "datetime",
+  labels: {
+    hideOverlappingLabels: true,
+    format: 'MMM dd',
+    rotateAlways: true,
+    rotate: -45,
+    offsetY: 5,
+    style: { ...labelStyle },
+  }
 }
 
 export const responsiveFun = () => [
@@ -84,15 +107,7 @@ export const responsiveFun = () => [
           offsetY: 5,
           rotateAlways: true,
           rotate: -45,
-          formatter: function (value, timestamp, index) {
-            //console.log('object', value, index)
-            
-            if (index % 2 || index === undefined) {
-              return value;
-            } else {
-              return "";
-            }
-          },
+          formatter: skipLabelsFormater,
           style: { ...labelStyle, fontSize: "12px" },
         },
       },
