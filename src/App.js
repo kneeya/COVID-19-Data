@@ -1,23 +1,35 @@
 import React, { Component, useRef } from "react";
 import "./ds.scss";
 import "./App.css";
-import Overview from "./components/overview.jsx";
-import TotalTest from "./components/totaltest.jsx";
-import CasesTotalTable from "./components/casesTotal-table.jsx";
-import NewCases from "./components/newcases.jsx";
-import CasesDailyTable from "./components/casesDaily-table.jsx";
-import DeathsTotalTable from "./components/deathsTotal-table.jsx";
-import DeathsDailyTable from "./components/deathsDaily-table.jsx";
-import RegBreak from "./components/regbreak.jsx";
-import RegBreakTable from "./components/regbreak-table.jsx";
 import Loading from "./components/loading/loading.jsx";
 import trans from "./translations.json";
+import Overview from "./components/overview.jsx";
+
+// charts & tables
+import CasesTotal from "./components/casesTotal.jsx";
+import CasesTotalTable from "./components/casesTotal-table.jsx";
+import CasesDaily from "./components/casesDaily.jsx";
+import CasesDailyTable from "./components/casesDaily-table.jsx";
+import DeathsTotal from "./components/deathsTotal.jsx";
+import DeathsTotalTable from "./components/deathsTotal-table.jsx";
+
+import DeathsDaily from "./components/deathsDaily.jsx";
+import DeathsDailyTable from "./components/deathsDaily-table.jsx";
+
+import RegBreak from "./components/regbreak.jsx";
+import RegBreakTable from "./components/regbreak-table.jsx";
+
 import Hospital from "./components/hospital.jsx";
 import HospitalTable from "./components/hospital-table.jsx";
-import AgeBreak from "./components/agebreak.jsx";
+
+import CasesByAge from "./components/casesByAge.jsx";
 import CasesByAgeTable from "./components/casesByAge-table.jsx";
-import SexBreak from "./components/sexbreak.jsx";
+
+import CasesBySex from "./components/casesBySex.jsx";
 import CasesBySexTable from "./components/casesBySex-table.jsx";
+
+//import TestsTotal from "./components/testsTotal.jsx";
+//import TestsTotalTable from "./components/testsTotal-table.jsx";
 
 var Url = require("url-parse");
 
@@ -105,14 +117,13 @@ class App extends Component {
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
-              <h1>{trans.hero.title[lang]}</h1>
-
+              <h1>{trans.hero.title[lang]}</h1>​
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
               </div>
-
+              ​
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.understand.title[lang]}
@@ -123,9 +134,7 @@ class App extends Component {
                 <p>{trans.understand.inICU[lang]}</p>
                 <p>{trans.understand.ICUdesc[lang]}</p>
               </div>
-
-              <hr class="hrule-a"></hr>
-
+              ​<hr class="hrule-a"></hr>​
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
@@ -133,29 +142,25 @@ class App extends Component {
                 <a style={{ textDecoration: "none" }} href="#stacked">
                   {trans.stacked.title[lang]}
                 </a>
-                <br />
-
+                <br />​
                 <a style={{ textDecoration: "none" }} href="#newcases">
                   {trans.newcases.title[lang]}
                 </a>
-                <br />
-
+                <br />​
                 <a style={{ textDecoration: "none" }} href="#regbreak">
                   {trans.reg.title[lang]}
                 </a>
-                <br />
-
-                <a style={{ textDecoration: "none" }} href="#hospitalization">
+                <br />​
+                <a style={{ textDecoration: "none" }} href="#Hospital">
                   {trans.hospital.title[lang]}
                 </a>
-                <br />
-
-                <a style={{ textDecoration: "none" }} href="#agebreak">
-                  {trans.agebreak.title[lang]}
+                <br />​
+                <a style={{ textDecoration: "none" }} href="#casesByAge">
+                  {trans.casesByAge.title[lang]}
                 </a>
                 <br />
-                <a style={{ textDecoration: "none" }} href="#sexbreak">
-                  {trans.sexbreak.title[lang]}
+                <a style={{ textDecoration: "none" }} href="#CasesBySex">
+                  {trans.casesBySex.title[lang]}
                 </a>
                 <br />
                 <a style={{ textDecoration: "none" }} href="#future">
@@ -163,34 +168,78 @@ class App extends Component {
                 </a>
                 <br />
               </div>
-
-              <hr class="hrule-a" />
-              <div id="stacked" className="item item-2">
-                <ItemWrapper
-                  title={trans.totaltest.title[lang]}
-                  accessToggle={true}
+              ​
+              <hr class="hrule-a" />​
+              <div className="ontario-row">
+                <div
+                  id="CasesTotal"
+                  className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
                 >
-                  {accessible ? (
-                    <CasesTotalTable lang={this.state.lang} />
-                  ) : (
-                    <TotalTest lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
-              </div>
-              <hr class="hrule" />
-              <div id="newcases" className="item item-2">
-                <ItemWrapper
-                  title={trans.newcases.title[lang]}
-                  accessToggle={true}
+                  <ItemWrapper
+                    title={trans.casesTotal.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <CasesTotalTable lang={this.state.lang} />
+                    ) : (
+                      <CasesTotal lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                ​
+                <div
+                  id="CasesDaily"
+                  className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
                 >
-                  {accessible ? (
-                    <CasesDailyTable lang={this.state.lang} />
-                  ) : (
-                    <NewCases lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
+                  <ItemWrapper
+                    title={trans.casesDaily.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <CasesDailyTable lang={this.state.lang} />
+                    ) : (
+                      <CasesDaily lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
               </div>
-              <hr class="hrule-b" />
+              ​
+              <hr class="hrule" />​
+              <div className="ontario-row">
+                <div
+                  id="DeathsTotal"
+                  className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title={trans.deathsTotal.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <DeathsTotalTable lang={this.state.lang} />
+                    ) : (
+                      <DeathsTotal lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                ​
+                <div
+                  id="DeathsDaily"
+                  className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title={trans.deathsDaily.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <DeathsDailyTable lang={this.state.lang} />
+                    ) : (
+                      <DeathsDaily lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+              </div>
+              ​
+              <hr class="hrule-b" />​
               <div id="regbreak" className="item item-6">
                 {/* show only on phones */}
                 <div className="ontario-show-for-small-only">
@@ -201,8 +250,7 @@ class App extends Component {
                     <RegBreakTable lang={this.state.lang} />
                   </ItemWrapper>
                 </div>
-
-                {/* show only on all else */}
+                ​{/* show only on all else */}
                 <div className="ontario-hide-for-small-only">
                   <ItemWrapper
                     title={trans.reg.title[lang]}
@@ -216,49 +264,80 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              <hr class="hrule" />
-              <div id="hospitalization" className="item item-6">
-                <ItemWrapper
-                  title={trans.hospital.title[lang]}
-                  accessToggle={true}
+              ​
+              <hr class="hrule" />​
+              <div className="ontario-row">
+                <div
+                  id="Hospital"
+                  className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
                 >
-                  {accessible ? (
-                    <HospitalTable lang={this.state.lang} />
-                  ) : (
-                    <Hospital lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
-              </div>
-              <hr class="hrule" />
-              <div
-                id="agebreak"
-                className="item item-7"
-                title={trans.agebreak.title[lang]}
-              >
-                <ItemWrapper
-                  title={trans.agebreak.title[lang]}
-                  accessToggle={true}
+                  <ItemWrapper
+                    title={trans.hospital.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <HospitalTable lang={this.state.lang} />
+                    ) : (
+                      <Hospital lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                ​
+                <div
+                  id="InICU"
+                  className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
                 >
-                  {accessible ? (
-                    <CasesByAgeTable lang={this.state.lang} />
-                  ) : (
-                    <AgeBreak lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
+                  {/* <ItemWrapper
+                    title={trans.hospital.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <InICUTable lang={this.state.lang} />
+                    ) : (
+                      <InICU lang={this.state.lang} />
+                    )}
+                  </ItemWrapper> */}
+                </div>
               </div>
-              <hr class="hrule" />
-              <div id="sexbreak" className="item item-7">
-                <ItemWrapper
-                  title={trans.sexbreak.title[lang]}
-                  accessToggle={true}
+              ​
+              <hr class="hrule" />​
+              <div className="ontario-row">
+                ​
+                <div
+                  id="CasesByAge"
+                  className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                  title={trans.casesByAge.title[lang]}
                 >
-                  {accessible ? (
-                    <CasesBySexTable lang={this.state.lang} />
-                  ) : (
-                    <SexBreak lang={this.state.lang} />
-                  )}
-                </ItemWrapper>
+                  <ItemWrapper
+                    title={trans.casesByAge.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <CasesByAgeTable lang={this.state.lang} />
+                    ) : (
+                      <CasesByAge lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                ​ ​
+                <div
+                  id="CasesBySex"
+                  className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title={trans.casesBySex.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <CasesBySexTable lang={this.state.lang} />
+                    ) : (
+                      <CasesBySex lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                ​
               </div>
+              ​
               <hr class="hrule" />
               <div id="future" className="item item-7">
                 <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>

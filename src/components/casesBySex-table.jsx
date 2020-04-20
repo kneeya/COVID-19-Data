@@ -106,7 +106,7 @@ class StackedTable extends React.Component {
           return false;
         } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
           transG =
-          transG +
+            transG +
             item[dict.resolved] +
             item[dict.NotResolved] +
             item[dict.deaths];
@@ -126,34 +126,41 @@ class StackedTable extends React.Component {
         return {
           ...item,
           index: z,
-          [dict.resolved]: item[dict.resolved] && item[dict.resolved].toLocaleString(),
-          [dict.NotResolved]: item[dict.NotResolved] && item[dict.NotResolved].toLocaleString(),
-          [dict.deaths]: item[dict.deaths] && item[dict.deaths].toLocaleString(),
-          total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
+          [dict.resolved]:
+            item[dict.resolved] && item[dict.resolved].toLocaleString(),
+          [dict.NotResolved]:
+            item[dict.NotResolved] && item[dict.NotResolved].toLocaleString(),
+          [dict.deaths]:
+            item[dict.deaths] && item[dict.deaths].toLocaleString(),
+          total: (
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths]
+          ).toLocaleString(),
         };
       });
 
     const columns = [
       {
-        title: trans.sexbreak.sex[this.props.lang],
+        title: trans.casesBySex.sex[this.props.lang],
         dataIndex: dict.CLIENT_GENDER,
         key: dict.CLIENT_GENDER,
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: trans.sexbreak.resolved[this.props.lang],
+        title: trans.casesBySex.resolved[this.props.lang],
         dataIndex: dict.resolved,
         key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.sexbreak.active[this.props.lang],
+        title: trans.casesBySex.active[this.props.lang],
         dataIndex: dict.NotResolved,
         key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.sexbreak.fatal[this.props.lang],
+        title: trans.casesBySex.fatal[this.props.lang],
         dataIndex: dict.deaths,
         key: dict.deaths,
         //...this.getColumnSearchProps('address'),
@@ -167,12 +174,12 @@ class StackedTable extends React.Component {
     ];
     return (
       <React.Fragment>
-         <Table columns={columns} dataSource={data}  pagination={false}  />
+        <Table columns={columns} dataSource={data} pagination={false} />
         <p>
-          {trans.agebreak.noteA[this.props.lang]} {transG}
-          {trans.sexbreak.noteTran[this.props.lang]}
-          {other} {trans.sexbreak.noteOth[this.props.lang]}
-          {unknown} {trans.sexbreak.noteUnk[this.props.lang]}
+          {trans.casesByAge.noteA[this.props.lang]} {transG}
+          {trans.casesBySex.noteTran[this.props.lang]}
+          {other} {trans.casesBySex.noteOth[this.props.lang]}
+          {unknown} {trans.casesBySex.noteUnk[this.props.lang]}
         </p>
       </React.Fragment>
     );

@@ -75,15 +75,15 @@ class AgeBreak extends Component {
     this.setState({
       series: [
         {
-          name: trans.agebreak.active[this.props.lang],
+          name: trans.casesByAge.active[this.props.lang],
           data: active,
         },
         {
-          name: trans.agebreak.resolved[this.props.lang],
+          name: trans.casesByAge.resolved[this.props.lang],
           data: reso,
         },
         {
-          name: trans.agebreak.fatal[this.props.lang],
+          name: trans.casesByAge.fatal[this.props.lang],
           data: fatal,
         },
       ],
@@ -148,10 +148,10 @@ class AgeBreak extends Component {
         xaxis: {
           title: {
             offsetY: 20,
-            text: trans.totaltest.yaxis[this.props.lang],
+            text: trans.casesTotal.yaxis[this.props.lang],
           },
           categories: [
-            trans.agebreak.under20[this.props.lang],
+            trans.casesByAge.under20[this.props.lang],
             "20-29",
             "30-39",
             "40-49",
@@ -187,8 +187,8 @@ class AgeBreak extends Component {
 
             />
             <p>
-              {trans.agebreak.noteA[this.props.lang]} {this.state.unk}{" "}
-              {trans.agebreak.noteB[this.props.lang]}
+              {trans.casesByAge.noteA[this.props.lang]} {this.state.unk}{" "}
+              {trans.casesByAge.noteB[this.props.lang]}
             </p>
           </React.Fragment>
         ) : (

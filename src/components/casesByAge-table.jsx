@@ -147,25 +147,25 @@ class StackedTable extends React.Component {
 
     const columns = [
       {
-        title: trans.agebreak.group[this.props.lang],
+        title: trans.casesByAge.group[this.props.lang],
         dataIndex: "Age_Group",
         key: "Age_Group",
         //...this.getColumnSearchProps('age'),
       },
       {
-        title: trans.agebreak.resolved[this.props.lang],
+        title: trans.casesByAge.resolved[this.props.lang],
         dataIndex: dict.resolved,
         key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.agebreak.active[this.props.lang],
+        title: trans.casesByAge.active[this.props.lang],
         dataIndex: dict.NotResolved,
         key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.agebreak.fatal[this.props.lang],
+        title: trans.casesByAge.fatal[this.props.lang],
         dataIndex: dict.deaths,
         key: dict.deaths,
         //...this.getColumnSearchProps('address'),
@@ -181,8 +181,8 @@ class StackedTable extends React.Component {
       <React.Fragment>
        <Table columns={columns} dataSource={data} pagination={false} />
         <p>
-          {trans.agebreak.noteA[this.props.lang]} {unknown}
-          {trans.agebreak.noteB[this.props.lang]}
+          {trans.casesByAge.noteA[this.props.lang]} {unknown}
+          {trans.casesByAge.noteB[this.props.lang]}
         </p>
       </React.Fragment>
     );

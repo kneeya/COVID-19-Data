@@ -110,9 +110,8 @@ class TotalTable extends React.Component {
         key: "date",
         //...this.getColumnSearchProps('name'),
       },
-
       {
-        title: trans.totaltest.total[this.props.lang],
+        title: trans.casesTotal.total[this.props.lang],
         dataIndex: "total",
         key: "total",
         //...this.getColumnSearchProps('address'),

@@ -72,17 +72,13 @@ class Hospital extends Component {
       ICUwov: ICUwov,
       series: [
         {
-          name: trans.hospital.hospitalized[this.props.lang],
-          data: notICU,
-        },
-        {
           name: trans.hospital.icu[this.props.lang],
           data: ICUwov,
         },
-        // {
-        //   name: trans.hospital.icuv[this.props.lang],
-        //   data: ICUwithv,
-        // },
+        {
+          name: trans.hospital.icuv[this.props.lang],
+          data: ICUwithv,
+        },
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },

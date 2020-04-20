@@ -11,7 +11,8 @@ import {
   markers,
   legend,
   responsiveFun,
-  lgXaxisLabels
+  lgXaxisLabels,
+  lineXaxis
 } from "./options";
 import trans from "../translations.json";
 
@@ -42,67 +43,18 @@ class TotalTest extends Component {
     const chartData = cData.splice(cData.length - 50, cData.length - 1);
 
     var dates = chartData.map((item) => {
-      var date = item[dict.reportedDate].slice(0, 10);
-      var monthStrings = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      var result =
-        monthStrings[parseInt(date.split("-")[1]) - 1] +
-        " " +
-        date.slice(8, 10);
-
-      return result;
+      return [item[dict.reportedDate], item[dict.totaCases] ] ;
     });
 
-    var totaltest = chartData.map((item) => {
-      return item[dict.totaCases];
-    });
 
-    var confPos = chartData.map((item) => {
-      return item[dict.confirmedPositive];
-    });
-    var resolved = chartData.map((item) => {
-      return item[dict.resolved];
-    });
-    var dead = chartData.map((item) => {
-      return item[dict.deaths];
-    });
-
-    console.log('dates', dates);
+    console.log('casesTotal Dates:', dates);
 
     this.setState({
-      totaltest: totaltest,
-      dates: dates,
-      confPos: confPos,
-      resolved: resolved,
-      dead: dead,
+
       series: [
         {
-          name: trans.totaltest.total[this.props.lang],
-          data: totaltest,
-        },
-        {
-          name: trans.totaltest.positive[this.props.lang],
-          data: confPos,
-        },
-        {
-          name: trans.totaltest.resolved[this.props.lang],
-          data: resolved,
-        },
-        {
-          name: trans.totaltest.deaths[this.props.lang],
-          data: dead,
+          name: trans.casesTotal.total[this.props.lang],
+          data: dates,
         },
       ],
 
@@ -110,23 +62,21 @@ class TotalTest extends Component {
         legend: legend,
         tooltip: tooltip,
         stroke: stroke,
-        responsive: responsiveFun(),
+        markers: markers,
+        responsive: responsiveFun().map(item=>{
+          item.options.xaxis = {...lineXaxis};
+          return item;
+        }),
         chart: { type: "line", zoom: { enabled: true } },
         yaxis: {
           title: {
-            text: trans.totaltest.yaxis[this.props.lang],
+            text: trans.casesTotal.yaxis[this.props.lang],
           },
           labels: {
             style: { ...labelStyle },
           },
         },
-        xaxis: {
-          categories: dates,
-          // range: 30,
-          labels: {
-           ...lgXaxisLabels
-          },
-        },
+        xaxis: { ...lineXaxis },
         colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],
         //markers: markers,
       },
@@ -136,7 +86,7 @@ class TotalTest extends Component {
 
   render() {
     return (
-      <div id="totaltest" className="chart">
+      <div id="casesTotal" className="chart">
         <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart

@@ -93,90 +93,21 @@ class SexBreak extends Component {
     this.setState({
       series: [
         {
-          name: trans.sexbreak.active[this.props.lang],
+          name: trans.casesBySex.active[this.props.lang],
           data: active,
         },
         {
-          name: trans.sexbreak.resolved[this.props.lang],
+          name: trans.casesBySex.resolved[this.props.lang],
           data: reso,
         },
         {
-          name: trans.sexbreak.fatal[this.props.lang],
+          name: trans.casesBySex.fatal[this.props.lang],
           data: fatal,
         },
       ],
       options: {
         legend: legend,
         tooltip: tooltip,
-        // responsive: [
-        //   {
-        //     breakpoint: 640,
-        //     options: {
-        //       chart: {
-        //         offsetX: 10,
-        //         height: "200px",
-        //         width: "100%",
-        //         toolbar: {
-        //           tools: {
-        //             zoomin: false,
-        //             zoomout: false,
-        //           },
-        //         },
-        //       },
-        //       yaxis: {
-        //         labels: {
-        //           style: { ...labelStyle, fontSize: "12px" },
-        //         },
-        //       },
-        //       xaxis: {
-        //         labels: {
-        //           hideOverlappingLabels: true,
-        //           offsetY: 10,
-        //           style: { ...labelStyle, fontSize: "12px" },
-        //         },
-        //       },
-        //       legend: {
-        //         fontSize: "12px",
-        //       },
-        //       dataLabels: {
-        //         offsetX: -4,
-        //         style: { ...labelStyle, fontSize: "12px" },
-        //         orientation: "horizontal",
-        //       },
-        //     },
-        //   },
-        //   {
-        //     breakpoint: 1163,
-        //     options: {
-        //       chart: {
-        //         height: "200px",
-        //         width: "100%",
-        //       },
-        //       xaxis: {
-        //         labels: {
-        //           hideOverlappingLabels: true,
-        //           offsetY: 10,
-        //           style: { ...labelStyle },
-        //         },
-        //       },
-        //     },
-        //   },
-        //   {
-        //     breakpoint: 1530,
-        //     options: {
-        //       chart: {
-        //         height: "200px",
-        //         width: "100%",
-        //       },
-        //       xaxis: {
-        //         labels: {
-        //           offsetY: 10,
-        //           style: { ...labelStyle },
-        //         },
-        //       },
-        //     },
-        //   },
-        // ],
         responsive: responsiveFun().map(item=>{
           item.options.chart.height = "200px";
           return item;
@@ -226,11 +157,11 @@ class SexBreak extends Component {
         xaxis: {
           title: {
             offsetY: 20,
-            text: trans.totaltest.yaxis[this.props.lang],
+            text: trans.casesTotal.yaxis[this.props.lang],
           },
           categories: [
-            trans.sexbreak.male[this.props.lang],
-            trans.sexbreak.female[this.props.lang],
+            trans.casesBySex.male[this.props.lang],
+            trans.casesBySex.female[this.props.lang],
           ],
           labels: {
             ...lgXaxisLabels
@@ -258,10 +189,10 @@ class SexBreak extends Component {
               height="250"
             />
             <p>
-              {trans.agebreak.noteA[this.props.lang]} {this.state.trank}
-              {trans.sexbreak.noteTran[this.props.lang]}
-              {this.state.other} {trans.sexbreak.noteOth[this.props.lang]}
-              {this.state.unk} {trans.sexbreak.noteUnk[this.props.lang]}
+              {trans.casesByAge.noteA[this.props.lang]} {this.state.trank}
+              {trans.casesBySex.noteTran[this.props.lang]}
+              {this.state.other} {trans.casesBySex.noteOth[this.props.lang]}
+              {this.state.unk} {trans.casesBySex.noteUnk[this.props.lang]}
             </p>
           </React.Fragment>
         ) : (
