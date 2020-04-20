@@ -259,11 +259,13 @@ class App extends Component {
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.understand.title[lang]}
                 </h2>
-                <h3>{trans.understand.where[lang]}</h3>
-                <p>{trans.understand.wheredesc[lang]}</p>
+                {/* <h3>{trans.understand.where[lang]}</h3>
+                <p>{trans.understand.wheredesc1[lang]}</p>
+                <p>{trans.understand.wheredesc2[lang]}</p>
+                <p>{trans.understand.wheredesc3[lang]}</p>
                 <h3>{trans.understand.terms[lang]}</h3>
                 <p>{trans.understand.inICU[lang]}</p>
-                <p>{trans.understand.ICUdesc[lang]}</p>
+                <p>{trans.understand.ICUdesc[lang]}</p> */}
               </div>
             </div>
           </React.Fragment>
