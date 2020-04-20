@@ -111,17 +111,6 @@ class App extends Component {
                 <Overview lang={this.state.lang} />
               </div>
 
-              <div>
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  {trans.understand.title[lang]}
-                </h2>
-                <h3>{trans.understand.where[lang]}</h3>
-                <p>{trans.understand.wheredesc[lang]}</p>
-                <h3>{trans.understand.terms[lang]}</h3>
-                <p>{trans.understand.inICU[lang]}</p>
-                <p>{trans.understand.ICUdesc[lang]}</p>
-              </div>
-
               <hr class="hrule-a"></hr>
 
               <div>
@@ -160,11 +149,18 @@ class App extends Component {
                   {trans.future.title[lang]}
                 </a>
                 <br />
+                <a style={{ textDecoration: "none" }} href="#understand">
+                  {trans.understand.title[lang]}
+                </a>
+                <br />
               </div>
 
               <hr class="hrule-a" />
               <div id="stacked" className="item item-2">
-                <ItemWrapper title={trans.totaltest.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.totaltest.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
                     <TotalTable lang={this.state.lang} />
                   ) : (
@@ -174,7 +170,10 @@ class App extends Component {
               </div>
               <hr class="hrule" />
               <div id="newcases" className="item item-2">
-                <ItemWrapper title={trans.newcases.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.newcases.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
                     <NewCasesTable lang={this.state.lang} />
                   ) : (
@@ -184,31 +183,36 @@ class App extends Component {
               </div>
               <hr class="hrule-b" />
               <div id="regbreak" className="item item-6">
-
                 {/* show only on phones */}
                 <div className="ontario-show-for-small-only">
-                <ItemWrapper title={trans.reg.title[lang]} accessToggle={false}>
-
-                  <RegBreakTable lang={this.state.lang} />
+                  <ItemWrapper
+                    title={trans.reg.title[lang]}
+                    accessToggle={false}
+                  >
+                    <RegBreakTable lang={this.state.lang} />
                   </ItemWrapper>
-
                 </div>
 
                 {/* show only on all else */}
                 <div className="ontario-hide-for-small-only">
-                <ItemWrapper title={trans.reg.title[lang]} accessToggle={true}>
+                  <ItemWrapper
+                    title={trans.reg.title[lang]}
+                    accessToggle={true}
+                  >
                     {accessible ? (
                       <RegBreakTable lang={this.state.lang} />
                     ) : (
                       <RegBreak lang={this.state.lang} />
                     )}
-                   </ItemWrapper>
+                  </ItemWrapper>
                 </div>
-
               </div>
               <hr class="hrule" />
               <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={trans.hospital.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.hospital.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
@@ -222,7 +226,10 @@ class App extends Component {
                 className="item item-7"
                 title={trans.agebreak.title[lang]}
               >
-                <ItemWrapper title={trans.agebreak.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.agebreak.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
                     <AgeBreakTable lang={this.state.lang} />
                   ) : (
@@ -232,7 +239,10 @@ class App extends Component {
               </div>
               <hr class="hrule" />
               <div id="sexbreak" className="item item-7">
-                <ItemWrapper title={trans.sexbreak.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.sexbreak.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
                     <SexBreakTable lang={this.state.lang} />
                   ) : (
@@ -243,6 +253,17 @@ class App extends Component {
               <hr class="hrule" />
               <div id="future" className="item item-7">
                 <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
+              </div>
+              <hr class="hrule" />
+              <div id="understand">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  {trans.understand.title[lang]}
+                </h2>
+                <h3>{trans.understand.where[lang]}</h3>
+                <p>{trans.understand.wheredesc[lang]}</p>
+                <h3>{trans.understand.terms[lang]}</h3>
+                <p>{trans.understand.inICU[lang]}</p>
+                <p>{trans.understand.ICUdesc[lang]}</p>
               </div>
             </div>
           </React.Fragment>
