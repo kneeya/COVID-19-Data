@@ -79,10 +79,10 @@ class Hospital extends Component {
           name: trans.hospital.icu[this.props.lang],
           data: ICUwov,
         },
-        {
-          name: trans.hospital.icuv[this.props.lang],
-          data: ICUwithv,
-        },
+        // {
+        //   name: trans.hospital.icuv[this.props.lang],
+        //   data: ICUwithv,
+        // },
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
@@ -107,7 +107,7 @@ class Hospital extends Component {
         },
         yaxis: {
           title: {
-            text: trans.totaltest.yaxis[this.props.lang],
+            text: trans.casesTotal.yaxis[this.props.lang],
           },
           labels: {
             style: { ...labelStyle },
