@@ -20,7 +20,7 @@ export const stroke = {
 
 export const markers = {
   size: 3,
-  colors: [colours.blue],
+  colors: ["#00b2e3", "#1a1a1a"],
   strokeColors: "#fff",
   strokeWidth: 1,
   hover: {
@@ -42,33 +42,33 @@ export const legend = {
 
 export const skipLabelsFormater = function (value, timestamp, index) {
   //console.log('object', value, index)
-  
+
   if (index % 2 || index === undefined) {
     return value;
   } else {
     return "";
   }
-}
+};
 
-export const lgXaxisLabels ={
+export const lgXaxisLabels = {
   rotateAlways: true,
   rotate: -45,
   offsetY: 5,
   style: { ...labelStyle },
-  formatter: skipLabelsFormater
-}
+  formatter: skipLabelsFormater,
+};
 
 export const lineXaxis = {
   type: "datetime",
   labels: {
     hideOverlappingLabels: true,
-    format: 'MMM dd',
+    format: "MMM dd",
     rotateAlways: true,
     rotate: -45,
     offsetY: 5,
     style: { ...labelStyle },
-  }
-}
+  },
+};
 
 export const responsiveFun = () => [
   {

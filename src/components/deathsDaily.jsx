@@ -12,7 +12,7 @@ import {
   legend,
   responsiveFun,
   lgXaxisLabels,
-  lineXaxis
+  lineXaxis,
 } from "./options";
 import trans from "../translations.json";
 
@@ -45,11 +45,16 @@ class CasesDaily extends Component {
       return item[dict.totaCases];
     });
 
-    var dailydata = chartData.map((item,z) => {
-      if(chartData[z-1]){
-        return [item[dict.reportedDate], item[dict.deaths] - chartData[z-1][dict.deaths]];
-      }
-    }).filter(item=> item !==  undefined);
+    var dailydata = chartData
+      .map((item, z) => {
+        if (chartData[z - 1]) {
+          return [
+            item[dict.reportedDate],
+            item[dict.deaths] - chartData[z - 1][dict.deaths],
+          ];
+        }
+      })
+      .filter((item) => item !== undefined);
 
     this.setState({
       casesTotal: casesTotal,
@@ -75,8 +80,8 @@ class CasesDaily extends Component {
           enabled: false,
         },
         //stroke: stroke,
-        responsive: responsiveFun().map(item=>{
-          item.options.xaxis = {...lineXaxis};
+        responsive: responsiveFun().map((item) => {
+          item.options.xaxis = { ...lineXaxis };
           return item;
         }),
         chart: { zoom: { enabled: true } },
@@ -88,9 +93,8 @@ class CasesDaily extends Component {
             style: { ...labelStyle },
           },
         },
-        xaxis: { ...lineXaxis
-        },
-        colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],
+        xaxis: { ...lineXaxis },
+        colors: ["#00B2E3"],
         //markers: markers,
       },
       ready: true,
@@ -107,7 +111,6 @@ class CasesDaily extends Component {
             series={this.state.series}
             type="bar"
             height="400px"
-
           />
         ) : (
           ""

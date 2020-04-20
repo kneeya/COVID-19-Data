@@ -12,7 +12,7 @@ import {
   legend,
   responsiveFun,
   lgXaxisLabels,
-  lineXaxis
+  lineXaxis,
 } from "./options";
 import trans from "../translations.json";
 
@@ -43,14 +43,12 @@ class TotalTest extends Component {
     const chartData = cData.splice(cData.length - 50, cData.length - 1);
 
     var dates = chartData.map((item) => {
-      return [item[dict.reportedDate], item[dict.totaCases] ] ;
+      return [item[dict.reportedDate], item[dict.totaCases]];
     });
 
-
-    console.log('casesTotal Dates:', dates);
+    console.log("casesTotal Dates:", dates);
 
     this.setState({
-
       series: [
         {
           name: trans.casesTotal.total[this.props.lang],
@@ -63,8 +61,8 @@ class TotalTest extends Component {
         tooltip: tooltip,
         stroke: stroke,
         markers: markers,
-        responsive: responsiveFun().map(item=>{
-          item.options.xaxis = {...lineXaxis};
+        responsive: responsiveFun().map((item) => {
+          item.options.xaxis = { ...lineXaxis };
           return item;
         }),
         chart: { type: "line", zoom: { enabled: true } },
@@ -77,7 +75,7 @@ class TotalTest extends Component {
           },
         },
         xaxis: { ...lineXaxis },
-        colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],
+        colors: ["#00B2E3"],
         //markers: markers,
       },
       ready: true,
@@ -94,7 +92,6 @@ class TotalTest extends Component {
             series={this.state.series}
             type="line"
             height="400px"
-
           />
         ) : (
           ""

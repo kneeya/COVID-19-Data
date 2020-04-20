@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun, stroke, lgXaxisLabels } from "./options";
+import {
+  labelStyle,
+  tooltip,
+  legend,
+  responsiveFun,
+  stroke,
+  markers,
+  lgXaxisLabels,
+} from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
 import trans from "../translations.json";
@@ -23,9 +31,7 @@ class Hospital extends Component {
   }
 
   setData() {
-    const datz = [...covidData.result.records]
-    
-    .filter(
+    const datz = [...covidData.result.records].filter(
       (item) => item[dict.patientHospitalizedCOVID19]
     );
 
@@ -86,7 +92,8 @@ class Hospital extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#00B2E3", colours.yellow, colours.black],
+        colors: ["#00B2E3", "#1A1A1A"],
+        markers: markers,
         legend: legend,
         tooltip: tooltip,
         chart: {
@@ -113,11 +120,10 @@ class Hospital extends Component {
             style: { ...labelStyle },
           },
         },
-        stroke: stroke,
         xaxis: {
           categories: datez,
           labels: {
-           ...lgXaxisLabels
+            ...lgXaxisLabels,
           },
         },
         responsive: responsiveFun(),
@@ -138,7 +144,6 @@ class Hospital extends Component {
             options={this.state.options}
             series={this.state.series}
             height="500px"
-
           />
         ) : (
           ""

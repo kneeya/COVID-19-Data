@@ -76,7 +76,7 @@ class TestingYday extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: [colours.yellow],
+        colors: ["#00b2e3"],
         legend: legend,
         tooltip: tooltip,
         chart: {

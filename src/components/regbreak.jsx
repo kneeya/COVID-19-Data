@@ -137,7 +137,7 @@ class RegBreak extends Component {
             return "";
           },
         },
-        colors: ["#00B2E3", "#39B54A", colours.black],
+        colors: ["#00B2E3", "#8dc63f", "#1a1a1a"],
         plotOptions: {
           bar: {
             horizontal: true,
