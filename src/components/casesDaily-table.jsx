@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Table, Input, Button } from "antd";
 import Highlighter from "react-highlight-words";
 import { ReactComponent as Search } from "../ds/icons/svg/ontario-icon-search.svg";
-import trans from "../translations.json";
 import covidData from "../covidData.json";
 import dict from "../dictionary";
+import trans from "../translations.json";
 import { formatDate } from "./utils";
 
 const SearchOutlined = () => <Search />;
@@ -93,42 +93,34 @@ class StackedTable extends React.Component {
   };
 
   render() {
-    let tableData = [...covidData.result.records]
-      .filter((item) => item[dict.patientHospitalizedCOVID19])
-      .map((item, z) => {
-        //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
-        return {
-          index: z,
-          date: formatDate(item[dict.reportedDate]),
-          hospital:
-            item[dict.patientHospitalizedCOVID19] &&
-            item[dict.patientHospitalizedCOVID19].toLocaleString(),
-          icu:
-            item[dict.patientsICUwCOVID19] &&
-            item[dict.patientsICUwCOVID19].toLocaleString(),
-        };
-      });
-
+    // console.log('this.state.data', this.props, covidData)
+    let d = [...covidData.result.records].filter(
+      (item) => item[dict.totaCases] > 100
+    );
+    let tableData = d.map((item, z) => {
+      //console.log('item', item)
+      return {
+        index: z,
+        date: formatDate(item[dict.reportedDate]),
+        //check if yeterday data exists and find diff
+        new: d[z - 1] && item[dict.totaCases] - d[z - 1][dict.totaCases],
+      };
+    });
+    tableData.shift();
     const columns = [
       {
         title: trans.date[this.props.lang],
         dataIndex: "date",
         key: "date",
-        width: "30%",
+        width: "25%",
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: trans.hospital.hospitalized[this.props.lang],
-        dataIndex: "hospital",
-        key: "hospital",
-        width: "20%",
+        title: trans.newcases.newcase[this.props.lang],
+        dataIndex: "new",
+        key: "new",
+        width: "50%",
         //...this.getColumnSearchProps('age'),
-      },
-      {
-        title: trans.hospital.icu[this.props.lang],
-        dataIndex: "icu",
-        key: "icu",
-        //...this.getColumnSearchProps('address'),
       },
     ];
     return <Table columns={columns} dataSource={tableData} />;

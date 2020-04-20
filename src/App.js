@@ -1,21 +1,23 @@
 import React, { Component, useRef } from "react";
 import "./ds.scss";
 import "./App.css";
+import Overview from "./components/overview.jsx";
 import TotalTest from "./components/totaltest.jsx";
-import TotalTable from "./components/total-table.jsx";
+import CasesTotalTable from "./components/casesTotal-table.jsx";
+import NewCases from "./components/newcases.jsx";
+import CasesDailyTable from "./components/casesDaily-table.jsx";
+import DeathsTotalTable from "./components/deathsTotal-table.jsx";
+import DeathsDailyTable from "./components/deathsDaily-table.jsx";
+import RegBreak from "./components/regbreak.jsx";
+import RegBreakTable from "./components/regbreak-table.jsx";
 import Loading from "./components/loading/loading.jsx";
 import trans from "./translations.json";
-import AgeBreak from "./components/agebreak.jsx";
-import SexBreak from "./components/sexbreak.jsx";
-import RegBreak from "./components/regbreak.jsx";
-import Overview from "./components/overview.jsx";
 import Hospital from "./components/hospital.jsx";
-import NewCases from "./components/newcases.jsx";
-import AgeBreakTable from "./components/agebreak-table.jsx";
-import SexBreakTable from "./components/sexbreak-table.jsx";
-import RegBreakTable from "./components/regbreak-table.jsx";
 import HospitalTable from "./components/hospital-table.jsx";
-import NewCasesTable from "./components/newcases-table.jsx";
+import AgeBreak from "./components/agebreak.jsx";
+import CasesByAgeTable from "./components/casesByAge-table.jsx";
+import SexBreak from "./components/sexbreak.jsx";
+import CasesBySexTable from "./components/casesBySex-table.jsx";
 
 var Url = require("url-parse");
 
@@ -164,9 +166,12 @@ class App extends Component {
 
               <hr class="hrule-a" />
               <div id="stacked" className="item item-2">
-                <ItemWrapper title={trans.totaltest.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.totaltest.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
-                    <TotalTable lang={this.state.lang} />
+                    <CasesTotalTable lang={this.state.lang} />
                   ) : (
                     <TotalTest lang={this.state.lang} />
                   )}
@@ -174,9 +179,12 @@ class App extends Component {
               </div>
               <hr class="hrule" />
               <div id="newcases" className="item item-2">
-                <ItemWrapper title={trans.newcases.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.newcases.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
-                    <NewCasesTable lang={this.state.lang} />
+                    <CasesDailyTable lang={this.state.lang} />
                   ) : (
                     <NewCases lang={this.state.lang} />
                   )}
@@ -184,31 +192,36 @@ class App extends Component {
               </div>
               <hr class="hrule-b" />
               <div id="regbreak" className="item item-6">
-
                 {/* show only on phones */}
                 <div className="ontario-show-for-small-only">
-                <ItemWrapper title={trans.reg.title[lang]} accessToggle={false}>
-
-                  <RegBreakTable lang={this.state.lang} />
+                  <ItemWrapper
+                    title={trans.reg.title[lang]}
+                    accessToggle={false}
+                  >
+                    <RegBreakTable lang={this.state.lang} />
                   </ItemWrapper>
-
                 </div>
 
                 {/* show only on all else */}
                 <div className="ontario-hide-for-small-only">
-                <ItemWrapper title={trans.reg.title[lang]} accessToggle={true}>
+                  <ItemWrapper
+                    title={trans.reg.title[lang]}
+                    accessToggle={true}
+                  >
                     {accessible ? (
                       <RegBreakTable lang={this.state.lang} />
                     ) : (
                       <RegBreak lang={this.state.lang} />
                     )}
-                   </ItemWrapper>
+                  </ItemWrapper>
                 </div>
-
               </div>
               <hr class="hrule" />
               <div id="hospitalization" className="item item-6">
-                <ItemWrapper title={trans.hospital.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.hospital.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
@@ -222,9 +235,12 @@ class App extends Component {
                 className="item item-7"
                 title={trans.agebreak.title[lang]}
               >
-                <ItemWrapper title={trans.agebreak.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.agebreak.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
-                    <AgeBreakTable lang={this.state.lang} />
+                    <CasesByAgeTable lang={this.state.lang} />
                   ) : (
                     <AgeBreak lang={this.state.lang} />
                   )}
@@ -232,9 +248,12 @@ class App extends Component {
               </div>
               <hr class="hrule" />
               <div id="sexbreak" className="item item-7">
-                <ItemWrapper title={trans.sexbreak.title[lang]} accessToggle={true}>
+                <ItemWrapper
+                  title={trans.sexbreak.title[lang]}
+                  accessToggle={true}
+                >
                   {accessible ? (
-                    <SexBreakTable lang={this.state.lang} />
+                    <CasesBySexTable lang={this.state.lang} />
                   ) : (
                     <SexBreak lang={this.state.lang} />
                   )}

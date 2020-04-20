@@ -94,18 +94,13 @@ class StackedTable extends React.Component {
 
   render() {
     let tableData = [...covidData.result.records]
-      .filter((item) => item[dict.patientHospitalizedCOVID19])
+      .filter((item) => item[dict.deaths])
       .map((item, z) => {
         //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
         return {
           index: z,
           date: formatDate(item[dict.reportedDate]),
-          hospital:
-            item[dict.patientHospitalizedCOVID19] &&
-            item[dict.patientHospitalizedCOVID19].toLocaleString(),
-          icu:
-            item[dict.patientsICUwCOVID19] &&
-            item[dict.patientsICUwCOVID19].toLocaleString(),
+          deaths: item[dict.deaths] && item[dict.deaths].toLocaleString(),
         };
       });
 
@@ -117,17 +112,11 @@ class StackedTable extends React.Component {
         width: "30%",
         //...this.getColumnSearchProps('name'),
       },
+
       {
-        title: trans.hospital.hospitalized[this.props.lang],
-        dataIndex: "hospital",
-        key: "hospital",
-        width: "20%",
-        //...this.getColumnSearchProps('age'),
-      },
-      {
-        title: trans.hospital.icu[this.props.lang],
-        dataIndex: "icu",
-        key: "icu",
+        title: "Total deaths",
+        dataIndex: "deaths",
+        key: "deaths",
         //...this.getColumnSearchProps('address'),
       },
     ];
