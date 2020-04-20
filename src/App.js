@@ -337,12 +337,15 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
+                ​
+              </div>
+              <div className="ontario-row">
                 <div
                   id="TotalTests"
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
                 >
                   <ItemWrapper
-                    title={trans.casesBySex.title[lang]}
+                    title={trans.testing.title[lang]}
                     accessToggle={true}
                   >
                     {accessible ? (
@@ -357,7 +360,7 @@ class App extends Component {
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
                 >
                   <ItemWrapper
-                    title={trans.casesBySex.title[lang]}
+                    title={trans.testing.title[lang]}
                     accessToggle={true}
                   >
                     {accessible ? (
@@ -367,7 +370,6 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
               </div>
               ​
               <hr class="hrule" />

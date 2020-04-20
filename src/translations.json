@@ -335,6 +335,21 @@
       "fr": "Sex FR"
     }
   },
+  "testing": {
+    "title": { "en": "Testing", "fr": "Testing FR" },
+    "totalTesting": {
+      "en": "Total tests completed",
+      "fr": "Total test completed FR"
+    },
+    "underInvestigation": {
+      "en": "Currently under investigation",
+      "fr": "Currently under investigation FR"
+    },
+    "testsDoneYesterday": {
+      "en": "Total tests completed in the previous day",
+      "fr": "Total tests completed in the previous day FR"
+    }
+  },
   "accessible": {
     "enable": {
       "en": "Switch to table format.",
