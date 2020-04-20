@@ -28,8 +28,10 @@ import CasesByAgeTable from "./components/casesByAge-table.jsx";
 import CasesBySex from "./components/casesBySex.jsx";
 import CasesBySexTable from "./components/casesBySex-table.jsx";
 
-//import TestsTotal from "./components/testsTotal.jsx";
-//import TestsTotalTable from "./components/testsTotal-table.jsx";
+import TestsTotal from "./components/testsTotal.jsx";
+import TestsTotalTable from "./components/testsTotal-Table.jsx";
+import TestsDaily from "./components/testsDaily.jsx";
+import TestsDailyTable from "./components/testsDaily-Table.jsx";
 
 var Url = require("url-parse");
 
@@ -332,6 +334,36 @@ class App extends Component {
                       <CasesBySexTable lang={this.state.lang} />
                     ) : (
                       <CasesBySex lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                <div
+                  id="TotalTests"
+                  className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title={trans.casesBySex.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <TestsTotalTable lang={this.state.lang} />
+                    ) : (
+                      <TestsTotal lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                <div
+                  id="TotalTestsDaily"
+                  className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title={trans.casesBySex.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <TestsDailyTable lang={this.state.lang} />
+                    ) : (
+                      <TestsDaily lang={this.state.lang} />
                     )}
                   </ItemWrapper>
                 </div>
