@@ -8,8 +8,10 @@ import Overview from "./components/overview.jsx";
 // charts & tables
 import CasesTotal from "./components/casesTotal.jsx";
 import CasesTotalTable from "./components/casesTotal-table.jsx";
+
 import CasesDaily from "./components/casesDaily.jsx";
 import CasesDailyTable from "./components/casesDaily-table.jsx";
+
 import DeathsTotal from "./components/deathsTotal.jsx";
 import DeathsTotalTable from "./components/deathsTotal-table.jsx";
 
@@ -30,6 +32,7 @@ import CasesBySexTable from "./components/casesBySex-table.jsx";
 
 import TestsTotal from "./components/testsTotal.jsx";
 import TestsTotalTable from "./components/testsTotal-Table.jsx";
+
 import TestsDaily from "./components/testsDaily.jsx";
 import TestsDailyTable from "./components/testsDaily-Table.jsx";
 
@@ -119,24 +122,12 @@ class App extends Component {
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
-              <h1>{trans.hero.title[lang]}</h1>​
               <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
               </div>
-              ​
-              <div>
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  {trans.understand.title[lang]}
-                </h2>
-                <h3>{trans.understand.where[lang]}</h3>
-                <p>{trans.understand.wheredesc[lang]}</p>
-                <h3>{trans.understand.terms[lang]}</h3>
-                <p>{trans.understand.inICU[lang]}</p>
-                <p>{trans.understand.ICUdesc[lang]}</p>
-              </div>
-              ​<hr class="hrule-a"></hr>​
+              <hr class="hrule-a"></hr>
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
@@ -167,6 +158,10 @@ class App extends Component {
                 <br />
                 <a style={{ textDecoration: "none" }} href="#future">
                   {trans.future.title[lang]}
+                </a>
+                <br />
+                <a style={{ textDecoration: "none" }} href="#understand">
+                  {trans.understand.title[lang]}
                 </a>
                 <br />
               </div>
@@ -375,6 +370,19 @@ class App extends Component {
               <hr class="hrule" />
               <div id="future" className="item item-7">
                 <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
+              </div>
+              <hr class="hrule" />
+              <div id="understand">
+                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+                  {trans.understand.title[lang]}
+                </h2>
+                {/* <h3>{trans.understand.where[lang]}</h3>
+                <p>{trans.understand.wheredesc1[lang]}</p>
+                <p>{trans.understand.wheredesc2[lang]}</p>
+                <p>{trans.understand.wheredesc3[lang]}</p>
+                <h3>{trans.understand.terms[lang]}</h3>
+                <p>{trans.understand.inICU[lang]}</p>
+                <p>{trans.understand.ICUdesc[lang]}</p> */}
               </div>
             </div>
           </React.Fragment>

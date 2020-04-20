@@ -18,9 +18,25 @@
       "en": "Where the numbers come from",
       "fr": "Where the numbers come from FR"
     },
-    "wheredesc": {
-      "en": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). The numbers in these graphs come from the iPHIS database. If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date.",
-      "fr": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). The numbers in these graphs come from the iPHIS database. If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date. FR"
+    "wheredesc1": {
+      "en": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). With the exception of hospitalization numbers, the numbers in these graphs come from the iPHIS database.",
+      "fr": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). With the exception of hospitalization numbers, the numbers in these graphs come from the iPHIS database. FR"
+    },
+    "wheredesc2": {
+      "en": "If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date.",
+      "fr": "If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date. FR"
+    },
+    "wheredesc3": {
+      "en": "Hospitals report their own numbers - learn more in the “Terms used in the graphs” section below.",
+      "fr": "Hospitals report their own numbers - learn more in the “Terms used in the graphs” section below. FR"
+    },
+    "wheredesc4": {
+      "en": "In ICU - ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds.",
+      "fr": "In ICU - ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. FR"
+    },
+    "wheredesc5": {
+      "en": "The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
+      "fr": "The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
     },
     "terms": {
       "en": "Terms used in the graphs",
@@ -103,12 +119,12 @@
       "fr": "Hospitalized FR"
     },
     "icu": {
-      "en": "In ICU (Intensive Care Unit)",
-      "fr": "In ICU (Intensive Care Unit) FR"
+      "en": "In <abbr title=\"Intensive Care Unit\">ICU</abbr>",
+      "fr": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> FR"
     },
     "icuv": {
-      "en": "In ICU (Intensive Care Unit) with ventilator",
-      "fr": "In ICU (Intensive Care Unit) with ventilator FR"
+      "en": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> with ventilator",
+      "fr": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> with ventilator FR"
     }
   },
   "casesTotal": {
