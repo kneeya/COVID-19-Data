@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun, lgXaxisLabels } from "./options";
+import {
+  labelStyle,
+  tooltip,
+  legend,
+  responsiveFun,
+  lgXaxisLabels,
+} from "./options";
 import { findAllByAltText } from "@testing-library/react";
 import trans from "../translations.json";
 import ReducedData from "../reducedData.json";
@@ -124,7 +130,7 @@ class AgeBreak extends Component {
         //   },
         // },
 
-        colors: ["#00B2E3", "#39B54A", colours.black],
+        colors: ["#00B2E3", "#8dc63f", "#1a1a1a"],
         plotOptions: {
           bar: {
             horizontal: true,
@@ -162,7 +168,7 @@ class AgeBreak extends Component {
             "90-99",
           ],
           labels: {
-           ...lgXaxisLabels
+            ...lgXaxisLabels,
           },
         },
       },
@@ -184,7 +190,6 @@ class AgeBreak extends Component {
               series={this.state.series}
               type="bar"
               height="600px"
-
             />
             <p>
               {trans.casesByAge.noteA[this.props.lang]} {this.state.unk}{" "}

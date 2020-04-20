@@ -127,17 +127,24 @@ class App extends Component {
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
               </div>
-              <hr class="hrule-a"></hr>
               <div>
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
                 </h2>
-                <a style={{ textDecoration: "none" }} href="#stacked">
-                  {trans.stacked.title[lang]}
+                <a style={{ textDecoration: "none" }} href="#CasesTotal">
+                  {trans.casesTotal.title[lang]}
                 </a>
                 <br />​
-                <a style={{ textDecoration: "none" }} href="#newcases">
-                  {trans.newcases.title[lang]}
+                <a style={{ textDecoration: "none" }} href="#CasesDaily">
+                  {trans.casesDaily.title[lang]}
+                </a>
+                <br />​
+                <a style={{ textDecoration: "none" }} href="#DeathsTotal">
+                  {trans.deathsTotal.title[lang]}
+                </a>
+                <br />​
+                <a style={{ textDecoration: "none" }} href="#DeathsDaily">
+                  {trans.deathsDaily.title[lang]}
                 </a>
                 <br />​
                 <a style={{ textDecoration: "none" }} href="#regbreak">
@@ -148,7 +155,7 @@ class App extends Component {
                   {trans.hospital.title[lang]}
                 </a>
                 <br />​
-                <a style={{ textDecoration: "none" }} href="#casesByAge">
+                <a style={{ textDecoration: "none" }} href="#CasesByAge">
                   {trans.casesByAge.title[lang]}
                 </a>
                 <br />
@@ -236,7 +243,7 @@ class App extends Component {
                 </div>
               </div>
               ​
-              <hr class="hrule-b" />​
+              <hr class="hrule" />​
               <div id="regbreak" className="item item-6">
                 {/* show only on phones */}
                 <div className="ontario-show-for-small-only">
@@ -334,6 +341,7 @@ class App extends Component {
                 </div>
                 ​
               </div>
+              <hr class="hrule" />
               <div className="ontario-row">
                 <div
                   id="TotalTests"
@@ -370,12 +378,17 @@ class App extends Component {
               <hr class="hrule" />
               <div id="future" className="item item-7">
                 <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
+                <a href="https://files.ontario.ca/moh-covid-19-modelling-potential-scenarios-en-2020-04-20.pdf">
+                  COVID-19: Modelling and Potential Scenarios
+                </a>
+                <p>[Insert text]</p>
               </div>
               <hr class="hrule" />
               <div id="understand">
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.understand.title[lang]}
                 </h2>
+                <p>[Insert text]</p>
                 {/* <h3>{trans.understand.where[lang]}</h3>
                 <p>{trans.understand.wheredesc1[lang]}</p>
                 <p>{trans.understand.wheredesc2[lang]}</p>

@@ -12,7 +12,7 @@ import {
   legend,
   responsiveFun,
   lgXaxisLabels,
-  lineXaxis
+  lineXaxis,
 } from "./options";
 import trans from "../translations.json";
 
@@ -40,9 +40,11 @@ class TotalTest extends Component {
 
   setData() {
     const cData = [...covidData.result.records];
-    const chartData = cData.splice(cData.length - 35, cData.length - 1).map((item) => {
-      return [item[dict.reportedDate], item[dict.deaths]];
-    });
+    const chartData = cData
+      .splice(cData.length - 35, cData.length - 1)
+      .map((item) => {
+        return [item[dict.reportedDate], item[dict.deaths]];
+      });
 
     this.setState({
       series: [
@@ -56,11 +58,11 @@ class TotalTest extends Component {
         legend: legend,
         tooltip: tooltip,
         stroke: stroke,
-        responsive: responsiveFun().map(item=>{
-          item.options.xaxis = {...lineXaxis};
+        responsive: responsiveFun().map((item) => {
+          item.options.xaxis = { ...lineXaxis };
           return item;
         }),
-        chart: {zoom: { enabled: true } },
+        chart: { zoom: { enabled: true } },
         yaxis: {
           title: {
             text: trans.casesTotal.yaxis[this.props.lang],
@@ -73,14 +75,14 @@ class TotalTest extends Component {
           type: "datetime",
           labels: {
             hideOverlappingLabels: true,
-            format: 'MMM dd',
+            format: "MMM dd",
             rotateAlways: true,
             rotate: -45,
             offsetY: 5,
             style: { ...labelStyle },
           },
         },
-        colors: ["#C64A1C", "#00B2E3", "#39B54A", colours.black],
+        colors: ["#00B2E3"],
         markers: markers,
       },
       ready: true,
@@ -97,7 +99,6 @@ class TotalTest extends Component {
             series={this.state.series}
             type="line"
             height="400px"
-
           />
         ) : (
           ""

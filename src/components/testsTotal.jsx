@@ -7,6 +7,7 @@ import {
   legend,
   responsiveFun,
   stroke,
+  markers,
   lgXaxisLabels,
 } from "./options";
 import dict from "../dictionary";
@@ -77,7 +78,8 @@ class Testing extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: [colours.yellow, "#00B2E3", colours.black],
+        colors: ["#00b2e3"],
+        markers: markers,
         legend: legend,
         tooltip: tooltip,
         chart: {
