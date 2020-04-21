@@ -56,16 +56,32 @@ class Hospital extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#00B2E3", "#ccc"],
+        colors: ["#4d4d4d", "#00B2E3"],
         legend: legend,
         stroke: stroke,
-        markers: markers,
+        markers: {
+          size: 3,
+          colors: ["#4d4d4d", "#00b2e3"],
+          strokeColors: "#fff",
+          strokeWidth: 1,
+          hover: {
+            size: 9,
+          },
+        },
         tooltip: tooltip,
         chart: {
           type: "line",
-
           toolbar: {
             show: true,
+            tools: {
+              download: true,
+              selection: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
+              reset: false,
+            },
           },
           zoom: { enabled: true },
         },

@@ -111,20 +111,24 @@
   },
   "hospital": {
     "title": {
-      "en": "Hospitalizations over time",
-      "fr": "Hospitalizations over time FR"
+      "en": "Hospitalized and in ICU cases",
+      "fr": "Hospitalized and in ICU cases FR"
     },
     "hospitalized": {
       "en": "Hospitalized",
       "fr": "Hospitalized FR"
     },
     "icu": {
-      "en": "In <abbr title=\"Intensive Care Unit\">ICU</abbr>",
-      "fr": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> FR"
+      "en": "In ICU",
+      "fr": "In ICU FR"
     },
     "icuv": {
-      "en": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> with ventilator",
-      "fr": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> with ventilator FR"
+      "en": "In ICU with ventilator",
+      "fr": "In ICU with ventilator FR"
+    },
+    "active": {
+      "en": "Active and hospitalized cases",
+      "fr": "Active and hospitalized cases FR"
     }
   },
   "casesTotal": {
@@ -155,8 +159,8 @@
   },
   "casesDaily": {
     "title": {
-      "en": "Daily cases",
-      "fr": "Total cases FR"
+      "en": "Daily new cases",
+      "fr": "Daily new cases FR"
     },
     "total": {
       "en": "Total cases",
@@ -181,8 +185,8 @@
   },
   "deathsTotal": {
     "title": {
-      "en": "Total Deaths",
-      "fr": "Total cases FR"
+      "en": "Total deaths",
+      "fr": "Total deaths FR"
     },
     "total": {
       "en": "Total cases",
@@ -207,12 +211,12 @@
   },
   "deathsDaily": {
     "title": {
-      "en": "Daily Deaths",
-      "fr": "Total cases FR"
+      "en": "Daily deaths",
+      "fr": "Daily deaths FR"
     },
     "total": {
       "en": "Total cases",
-      "fr": "Total Cases FR"
+      "fr": "Total cases FR"
     },
     "positive": {
       "en": "Active",
@@ -243,8 +247,8 @@
   },
   "reg": {
     "title": {
-      "en": "Case status by geography",
-      "fr": "Case status by geography FR"
+      "en": "Cases by location",
+      "fr": "Cases by location FR"
     },
     "active": {
       "en": "Active",
@@ -269,8 +273,8 @@
   },
   "casesByAge": {
     "title": {
-      "en": "Case status by age",
-      "fr": "Case status by age FR"
+      "en": "Cases by age",
+      "fr": "Cases by age FR"
     },
     "active": {
       "en": "Active",
@@ -307,8 +311,8 @@
   },
   "casesBySex": {
     "title": {
-      "en": "Case status by sex",
-      "fr": "Case status by sex FR"
+      "en": "Cases by sex",
+      "fr": "Cases by sex FR"
     },
     "active": {
       "en": "Active",
@@ -360,7 +364,8 @@
     }
   },
   "testing": {
-    "title": { "en": "Testing", "fr": "Testing FR" },
+    "titleA": { "en": "Total tests", "fr": "Total tests FR" },
+    "titleB": { "en": "Daily tests", "fr": "Daily tests FR" },
     "totalTesting": {
       "en": "Total tests completed",
       "fr": "Total test completed FR"

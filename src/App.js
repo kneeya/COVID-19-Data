@@ -4,7 +4,7 @@ import "./App.css";
 import Loading from "./components/loading/loading";
 import trans from "./translations.json";
 import Overview from "./components/overview";
-import GoogleTagManager from "./components/tagManager/tagManager"
+import GoogleTagManager from "./components/tagManager/tagManager";
 // charts & tables
 import CasesTotal from "./components/casesTotal.jsx";
 import CasesTotalTable from "./components/casesTotal-table.jsx";
@@ -122,7 +122,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <GoogleTagManager gtmId={'GTM-5G4CS4L'} />
+        <GoogleTagManager gtmId={"GTM-5G4CS4L"} />
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
@@ -139,31 +139,34 @@ class App extends Component {
               <div class="ontario-row">
                 <div class="ontario-columns ontario-small-12 ontario-medium-4">
                   <a style={{ textDecoration: "none" }} href="#CasesTotal">
-                    {trans.casesTotal.title[lang]}
-                  </a>
-                  <br />​
+                    {trans.casesTotal.title[lang]}{" "}
+                  </a>{" "}
+                  |{" "}
                   <a style={{ textDecoration: "none" }} href="#CasesDaily">
                     {trans.casesDaily.title[lang]}
                   </a>
                   <br />​
                   <a style={{ textDecoration: "none" }} href="#DeathsTotal">
                     {trans.deathsTotal.title[lang]}
-                  </a>
-                  <br />​
+                  </a>{" "}
+                  |{" "}
                   <a style={{ textDecoration: "none" }} href="#DeathsDaily">
                     {trans.deathsDaily.title[lang]}
                   </a>
                   <br />​
-                  <a style={{ textDecoration: "none" }} href="#regbreak">
-                    {trans.reg.title[lang]}
+                  <a style={{ textDecoration: "none" }} href="#InICU">
+                    {trans.hospital.active[lang]}
                   </a>
                   <br />​
                   <a style={{ textDecoration: "none" }} href="#Hospital">
                     {trans.hospital.title[lang]}
                   </a>
-                  <br />​
                 </div>
                 <div class="ontario-columns ontario-small-12 ontario-medium-4">
+                  <a style={{ textDecoration: "none" }} href="#regbreak">
+                    {trans.reg.title[lang]}
+                  </a>
+                  <br />​
                   <a style={{ textDecoration: "none" }} href="#CasesByAge">
                     {trans.casesByAge.title[lang]}
                   </a>
@@ -174,6 +177,14 @@ class App extends Component {
                   <br />
                 </div>
                 <div class="ontario-columns ontario-small-12 ontario-medium-4">
+                  <a style={{ textDecoration: "none" }} href="#TotalTests">
+                    {trans.testing.titleA[lang]}
+                  </a>{" "}
+                  |{" "}
+                  <a style={{ textDecoration: "none" }} href="#TotalTestsDaily">
+                    {trans.testing.titleB[lang]}
+                  </a>
+                  <br />
                   <a style={{ textDecoration: "none" }} href="#future">
                     {trans.future.title[lang]}
                   </a>
@@ -181,7 +192,6 @@ class App extends Component {
                   <a style={{ textDecoration: "none" }} href="#understand">
                     {trans.understand.title[lang]}
                   </a>
-                  <br />
                 </div>
               </div>
               ​
@@ -261,7 +271,7 @@ class App extends Component {
                   className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
                 >
                   <ItemWrapper
-                    title="Active vs Hospitalized Cases"
+                    title={trans.hospital.active[lang]}
                     accessToggle={true}
                   >
                     {accessible ? (
@@ -358,7 +368,7 @@ class App extends Component {
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
                 >
                   <ItemWrapper
-                    title={trans.testing.title[lang]}
+                    title={trans.testing.titleA[lang]}
                     accessToggle={true}
                   >
                     {accessible ? (
@@ -373,7 +383,7 @@ class App extends Component {
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
                 >
                   <ItemWrapper
-                    title={trans.testing.title[lang]}
+                    title={trans.testing.titleB[lang]}
                     accessToggle={true}
                   >
                     {accessible ? (
