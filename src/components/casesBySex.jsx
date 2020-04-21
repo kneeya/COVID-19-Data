@@ -41,57 +41,57 @@ class SexBreak extends Component {
     var c = 0;
 
     const reso = cD
-      .filter((item) => {
-        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-          a = a + item[dict.resolved];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          b = b + item[dict.resolved];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-          c = c + item[dict.resolved];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+      //     a = a + item[dict.resolved];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+      //     b = b + item[dict.resolved];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+      //     c = c + item[dict.resolved];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item) => {
         return item[dict.resolved];
       });
 
     const active = cD
-      .filter((item) => {
-        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-          a = a + item[dict.NotResolved];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          b = b + item[dict.NotResolved];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-          c = c + item[dict.NotResolved];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+      //     a = a + item[dict.NotResolved];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+      //     b = b + item[dict.NotResolved];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+      //     c = c + item[dict.NotResolved];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item) => {
         return item[dict.NotResolved];
       });
     const fatal = cD
-      .filter((item) => {
-        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-          a = a + item[dict.deaths];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          b = b + item[dict.deaths];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-          c = c + item[dict.deaths];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+      //     a = a + item[dict.deaths];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+      //     b = b + item[dict.deaths];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+      //     c = c + item[dict.deaths];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item) => {
         return item[dict.deaths];
       });
@@ -115,7 +115,7 @@ class SexBreak extends Component {
         legend: legend,
         tooltip: tooltip,
         responsive: responsiveFun().map((item) => {
-          item.options.chart.height = "200px";
+          item.options.chart.height = "300px";
           return item;
         }),
         chart: {
@@ -168,6 +168,9 @@ class SexBreak extends Component {
           categories: [
             trans.casesBySex.male[this.props.lang],
             trans.casesBySex.female[this.props.lang],
+            trans.casesBySex.trans[this.props.lang],
+            trans.casesBySex.unknown[this.props.lang],
+            trans.casesBySex.other[this.props.lang],
           ],
           labels: {
             ...lgXaxisLabels,
@@ -194,12 +197,12 @@ class SexBreak extends Component {
               type="bar"
               height="250"
             />
-            <p>
+            {/* <p>
               {trans.casesByAge.noteA[this.props.lang]} {this.state.trank}
               {trans.casesBySex.noteTran[this.props.lang]}
               {this.state.other} {trans.casesBySex.noteOth[this.props.lang]}
               {this.state.unk} {trans.casesBySex.noteUnk[this.props.lang]}
-            </p>
+            </p> */}
           </React.Fragment>
         ) : (
           ""
