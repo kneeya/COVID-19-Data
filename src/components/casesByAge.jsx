@@ -133,6 +133,7 @@ class AgeBreak extends Component {
         colors: ["#00B2E3", "#8dc63f", "#1a1a1a"],
         plotOptions: {
           bar: {
+            barHeight: "70%",
             horizontal: true,
             dataLabels: {
               position: "top",

@@ -92,7 +92,7 @@ class Hospital extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#00B2E3", "#1A1A1A"],
+        colors: ["#00B2E3", "#4d4d4d"],
         markers: markers,
         legend: legend,
         tooltip: tooltip,
