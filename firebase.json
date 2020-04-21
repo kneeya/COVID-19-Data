@@ -1,7 +1,0 @@
-{
-  "hosting": {
-    "site": "covid19data",
-    "public": "build",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
-}
