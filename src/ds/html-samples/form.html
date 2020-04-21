@@ -1,0 +1,60 @@
+
+
+<form>
+    <div class="ontario-form-group">
+    <label class="ontario-label" for="address">
+        Address    </label>
+    <input required  class="ontario-input" type="text" id="address">
+</div>
+    <div class="ontario-form-group">
+    <label class="ontario-label" for="postal">
+        Postal<span class="ontario-label__flag">(required/optional)</span>
+    </label>
+    <input required  class="ontario-input ontario-input--7-char-width" type="text" id="postal">
+</div>
+    <div class="ontario-form-group">
+    <label class="ontario-label" for="your-age">
+        Age    </label>
+    <select required class="ontario-input ontario-dropdown" id="your-age" name="your-age">
+        <option value="">Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
+
+    <div class="ontario-form-group">
+<fieldset class="ontario-fieldset" >
+    <legend class="ontario-fieldset__legend">
+            <div class="ontario-radios">
+        <div class="ontario-radios__item">
+            <input class="ontario-radios__input" id="1-year-renewal" name="licence-renewal"
+                type="radio" value="1-year">
+            <label class="ontario-label ontario-radios__label" for="1-year-renewal">
+                Option 1 is good
+            </label>
+        </div>
+        <div class="ontario-radios__item">
+            <input class="ontario-radios__input" id="2-year-renewal" name="licence-renewal"
+                type="radio" value="2-years">
+            <label class="ontario-label ontario-radios__label" for="2-year-renewal">
+                Option 2 is the best
+            </label>
+        </div>
+    </div>
+</fieldset>
+</div>
+
+    <div class="ontario-form-group">
+    <label class="ontario-label" for="text-area-example">
+        Label<span class="ontario-label__flag">(required/optional)</span>
+    </label>
+    <textarea class="ontario-input ontario-textarea"  name="text-area-example" id="text-area-example"></textarea>
+</div>
+
+    <a class="ontario-button ontario-button--primary" href="#">
+    Primary - default
+</a>
+
+</form>
