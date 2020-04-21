@@ -1,54 +1,12 @@
 {
   "hero": {
     "title": {
-      "en": "Ontario COVID-19 data",
-      "fr": "Ontario COVID-19 data FR"
+      "en": "Ontario COVID-19 (coronavirus) data",
+      "fr": "Ontario COVID-19 (coronavirus) data FR"
     },
     "lead": {
-      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
-      "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. FR"
-    }
-  },
-  "understand": {
-    "title": {
-      "en": "Understand the numbers",
-      "fr": "Understand the numbers FR"
-    },
-    "where": {
-      "en": "Where the numbers come from",
-      "fr": "Where the numbers come from FR"
-    },
-    "wheredesc1": {
-      "en": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). With the exception of hospitalization numbers, the numbers in these graphs come from the iPHIS database.",
-      "fr": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). With the exception of hospitalization numbers, the numbers in these graphs come from the iPHIS database. FR"
-    },
-    "wheredesc2": {
-      "en": "If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date.",
-      "fr": "If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date. FR"
-    },
-    "wheredesc3": {
-      "en": "Hospitals report their own numbers - learn more in the “Terms used in the graphs” section below.",
-      "fr": "Hospitals report their own numbers - learn more in the “Terms used in the graphs” section below. FR"
-    },
-    "wheredesc4": {
-      "en": "In ICU - ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds.",
-      "fr": "In ICU - ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. FR"
-    },
-    "wheredesc5": {
-      "en": "The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
-      "fr": "The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
-    },
-    "terms": {
-      "en": "Terms used in the graphs",
-      "fr": "Terms used in the graphs FR"
-    },
-    "inICU": {
-      "en": "In ICU (Intensive Care Unit) with ventilator",
-      "fr": "In ICU (Intensive Care Unit) with ventilator FR"
-    },
-    "ICUdesc": {
-      "en": "ICU (Intensive Care Unit) data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU (Intensive Care Unit) beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
-      "fr": "ICU (Intensive Care Unit) data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU (Intensive Care Unit) beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
+      "en": "Graphs and tables show Ontario’s COVID-19 cases in total, by location, age and sex as well as hospitalizations and projected future cases.",
+      "fr": "Graphs and tables show Ontario’s COVID-19 cases in total, by location, age and sex as well as hospitalizations and projected future cases. FR"
     }
   },
   "overview": {
@@ -77,8 +35,8 @@
       "fr": "Hospitalized FR"
     },
     "icu": {
-      "en": "In ICU (Intensive Care Unit)",
-      "fr": "In ICU (Intensive Care Unit) FR"
+      "en": "In ICU",
+      "fr": "In ICU FR"
     },
     "bottom": {
       "en": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours",
@@ -89,6 +47,26 @@
     "title": {
       "en": "On this page",
       "fr": "On this page FR"
+    },
+    "casestatus": {
+      "en": "Case-status data",
+      "fr": "Case-status data FR"
+    },
+    "demo": {
+      "en": "Demographic data",
+      "fr": "Demographic data FR"
+    },
+    "testing": {
+      "en": "Testing data",
+      "fr": "Testing data FR"
+    },
+    "future": {
+      "en": "Future projections",
+      "fr": "Future projections FR"
+    },
+    "understand": {
+      "en": "Understand the numbers",
+      "fr": "Understand the numbers FR"
     }
   },
   "stacked": {
@@ -111,8 +89,8 @@
   },
   "hospital": {
     "title": {
-      "en": "Hospitalized and in ICU cases",
-      "fr": "Hospitalized and in ICU cases FR"
+      "en": "Comparing hospitalized and in-ICU cases",
+      "fr": "Comparing hospitalized and in-ICU cases FR"
     },
     "hospitalized": {
       "en": "Hospitalized",
@@ -127,18 +105,22 @@
       "fr": "In ICU with ventilator FR"
     },
     "active": {
-      "en": "Active and hospitalized cases",
-      "fr": "Active and hospitalized cases FR"
+      "en": "Comparing active and hospitalized cases",
+      "fr": "Comparing active and hospitalized cases FR"
     }
   },
   "casesTotal": {
     "title": {
-      "en": "Total cases",
-      "fr": "Total cases FR"
+      "en": "Total cases over time",
+      "fr": "Total cases over time FR"
     },
     "total": {
       "en": "Total cases",
       "fr": "Total Cases FR"
+    },
+    "desc": {
+      "en": "This data is cumulative – each day’s total is added to the total of all previous days.",
+      "fr": "This data is cumulative – each day’s total is added to the total of all previous days. FR"
     },
     "positive": {
       "en": "Active",
@@ -166,6 +148,11 @@
       "en": "Total cases",
       "fr": "Total Cases FR"
     },
+    "desc": {
+      "en": "This data is not cumulative – each bar/number shows how many new cases were reported on a single day.",
+      "fr": "This data is not cumulative – each bar/number shows how many new cases were reported on a single day. FR"
+    },
+
     "positive": {
       "en": "Active",
       "fr": "Active FR"
@@ -185,12 +172,16 @@
   },
   "deathsTotal": {
     "title": {
-      "en": "Total deaths",
-      "fr": "Total deaths FR"
+      "en": "Total deaths over time",
+      "fr": "Total deaths over time FR"
     },
     "total": {
       "en": "Total cases",
       "fr": "Total Cases FR"
+    },
+    "desc": {
+      "en": "This data is cumulative – each day’s total is added to the total of all previous days.",
+      "fr": "This data is cumulative – each day’s total is added to the total of all previous days. FR"
     },
     "positive": {
       "en": "Active",
@@ -217,6 +208,10 @@
     "total": {
       "en": "Total cases",
       "fr": "Total cases FR"
+    },
+    "desc": {
+      "en": "This data is not cumulative – each bar/number shows how many new deaths were reported on a single day.",
+      "fr": "This data is not cumulative – each bar/number shows how many new deaths were reported on a single day. FR"
     },
     "positive": {
       "en": "Active",
@@ -250,6 +245,14 @@
       "en": "Cases by location",
       "fr": "Cases by location FR"
     },
+    "desc": {
+      "en": "This data is cumulative – numbers are the total of all cases since January 15, 2020.",
+      "fr": "This data is cumulative – numbers are the total of all cases since January 15, 2020. FR"
+    },
+    "titletable": {
+      "en": "Public Health Unit",
+      "fr": "Public Health Unit FR"
+    },
     "active": {
       "en": "Active",
       "fr": "Active FR"
@@ -269,6 +272,10 @@
     "text": {
       "en": "Find your local Public Health Unit",
       "fr": "Find your local Public Health Unit FR"
+    },
+    "hideshow": {
+      "en": "You can hide or show the different case statuses by clicking each word in the legend below.",
+      "fr": "You can hide or show the different case statuses by clicking each word in the legend below. FR"
     }
   },
   "casesByAge": {
@@ -370,6 +377,15 @@
       "en": "Total tests completed",
       "fr": "Total test completed FR"
     },
+    "descA": {
+      "en": "This data is cumulative – each day’s total is added to the total of all previous days.",
+      "fr": "This data is cumulative – each day’s total is added to the total of all previous days. FR"
+    },
+    "descB": {
+      "en": "This data is not cumulative – each bar/number shows how many new tests were reported on a single day.",
+      "fr": "This data is not cumulative – each bar/number shows how many new tests were reported on a single day. FR"
+    },
+
     "underInvestigation": {
       "en": "Currently under investigation",
       "fr": "Currently under investigation FR"
@@ -381,27 +397,39 @@
   },
   "accessible": {
     "enable": {
-      "en": "Switch to table format.",
-      "fr": "Switch to table format. FR"
+      "en": "Switch to table format",
+      "fr": "Switch to table format FR"
     },
     "disable": {
-      "en": "Switch to interactive chart.",
-      "fr": "Switch to interactive chart. FR"
+      "en": "Switch to interactive chart",
+      "fr": "Switch to interactive chart FR"
     },
     "select": {
       "en": "",
       "fr": ""
     }
   },
+  "learn": {
+    "a": {
+      "en": "Learn ",
+      "fr": "Learn  FR"
+    },
+    "b": {
+      "en": "where these numbers come from",
+      "fr": "where these numbers come from FR"
+    },
+    "c": {
+      "en": " and ",
+      "fr": " and FR"
+    },
+    "d": {
+      "en": "what the terms in the data mean",
+      "fr": "what the terms in the data mean FR"
+    }
+  },
   "date": {
     "en": "Date",
     "fr": "Date FR"
-  },
-  "future": {
-    "title": {
-      "en": "Future projections",
-      "fr": "Future projections FR"
-    }
   },
   "hideshow": {
     "en": "You can hide or show the cases by clicking the legend below.",
@@ -410,5 +438,13 @@
   "age": {
     "en": "Age",
     "fr": "Age FR"
+  },
+  "catalogue": {
+    "en": "Get the raw data from the Ontario Data Catalogue",
+    "fr": "Get the raw data from the Ontario Data Catalogue FR"
+  },
+  "summaries": {
+    "en": "See daily epidemiologic summaries from Public Health Ontario",
+    "fr": "See daily epidemiologic summaries from Public Health Ontario FR"
   }
 }

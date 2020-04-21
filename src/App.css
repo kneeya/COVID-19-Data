@@ -181,14 +181,9 @@ a .link {
 
 @media only screen and (min-width: 1163px) {
   .hrule {
-    margin-top: 45px;
+    margin-top: 1rem;
     border: 1px solid #d8d8d8;
   }
-}
-
-.hrule-a {
-  margin-top: 45px;
-  border: 1px solid #d8d8d8;
 }
 
 @media only screen and (max-width: 640px) {
@@ -246,4 +241,28 @@ a .link {
   .ontario-hide-for-small-only {
     display: none !important;
   }
+}
+
+.arow a {
+  padding: 1.5rem;
+  padding-left: 0;
+}
+
+/* .arow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.acol {
+  flex: 1 0 18%;
+  margin: 0.2rem;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+} */
+
+.margins {
+  padding-top: 1.2rem;
 }
