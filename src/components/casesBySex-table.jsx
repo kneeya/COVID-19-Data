@@ -148,27 +148,28 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: trans.casesBySex.resolved[this.props.lang],
-        dataIndex: dict.resolved,
-        key: dict.resolved,
+        title: trans.overview.total[this.props.lang],
+        dataIndex: "total",
+        key: "total",
         //...this.getColumnSearchProps('address'),
       },
       {
         title: trans.casesBySex.active[this.props.lang],
         dataIndex: dict.NotResolved,
+        key: dict.NotResolved,
+        //...this.getColumnSearchProps('address'),
+      },
+      {
+        title: trans.casesBySex.resolved[this.props.lang],
+        dataIndex: dict.resolved,
         key: dict.resolved,
         //...this.getColumnSearchProps('address'),
       },
+
       {
         title: trans.casesBySex.fatal[this.props.lang],
         dataIndex: dict.deaths,
         key: dict.deaths,
-        //...this.getColumnSearchProps('address'),
-      },
-      {
-        title: trans.overview.total[this.props.lang],
-        dataIndex: "total",
-        key: "total",
         //...this.getColumnSearchProps('address'),
       },
     ];

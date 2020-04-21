@@ -59,9 +59,17 @@ class TestingYday extends Component {
         tooltip: tooltip,
         chart: {
           type: "bar",
-
           toolbar: {
             show: true,
+            tools: {
+              download: true,
+              selection: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
+              reset: false,
+            },
           },
           zoom: { enabled: true },
         },

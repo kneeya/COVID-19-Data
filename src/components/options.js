@@ -79,7 +79,7 @@ export const responsiveFun = () => [
     options: {
       chart: {
         offsetX: 10,
-        height: "300px",
+        height: "200px",
         //width: "100%",
         toolbar: {
           tools: {
@@ -126,7 +126,7 @@ export const responsiveFun = () => [
     breakpoint: 1163,
     options: {
       chart: {
-        height: "400px",
+        height: "250px",
         width: "100%",
       },
       legend: {
@@ -152,7 +152,7 @@ export const responsiveFun = () => [
     breakpoint: 1530,
     options: {
       chart: {
-        height: "500px",
+        height: "250px",
         width: "100%",
       },
       legend: {

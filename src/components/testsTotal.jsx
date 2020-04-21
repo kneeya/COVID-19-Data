@@ -60,9 +60,17 @@ class Testing extends Component {
         tooltip: tooltip,
         chart: {
           type: "line",
-
           toolbar: {
             show: true,
+            tools: {
+              download: true,
+              selection: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
+              reset: false,
+            },
           },
           zoom: { enabled: true },
         },

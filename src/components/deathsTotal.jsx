@@ -62,7 +62,21 @@ class TotalTest extends Component {
           item.options.xaxis = { ...lineXaxis };
           return item;
         }),
-        chart: { zoom: { enabled: true } },
+        chart: {
+          zoom: { enabled: true },
+          toolbar: {
+            show: true,
+            tools: {
+              download: true,
+              selection: false,
+              zoom: false,
+              zoomin: false,
+              zoomout: false,
+              pan: false,
+              reset: false,
+            },
+          },
+        },
         yaxis: {
           title: {
             text: trans.casesTotal.yaxis[this.props.lang],
