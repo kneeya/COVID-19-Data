@@ -121,7 +121,7 @@ class App extends Component {
     // console.log('accessible', accessible, this.testRef)
 
     return (
-      <React.Fragment>
+      <div id="ontario-covid-viz">
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
         {this.state.loaded ? (
           <React.Fragment>
@@ -414,7 +414,7 @@ class App extends Component {
             <Loading />
           </React.Fragment>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
