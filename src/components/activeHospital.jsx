@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun, stroke, lgXaxisLabels } from "./options";
+import {
+  labelStyle,
+  tooltip,
+  legend,
+  responsiveFun,
+  stroke,
+  lgXaxisLabels,
+  markers,
+} from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
 import trans from "../translations.json";
@@ -23,9 +31,7 @@ class Hospital extends Component {
   }
 
   setData() {
-    const datz = [...covidData.result.records]
-    
-    .filter(
+    const datz = [...covidData.result.records].filter(
       (item) => item[dict.patientHospitalizedCOVID19]
     );
 
@@ -53,37 +59,35 @@ class Hospital extends Component {
       return result;
     });
 
-    var notICU = datz.map((item) => {
+    var hospital = datz.map((item) => {
       return item[dict.patientHospitalizedCOVID19];
     });
 
-    var ICUwithv = datz.map((item) => {
-      return item[dict.patientsICUventilatorwCOVID19];
-    });
-
-    var ICUwov = datz.map((item) => {
-      return item[dict.patientsICUwCOVID19];
+    var active = datz.map((item) => {
+      return item[dict.confirmedPositive];
     });
 
     this.setState({
       dates: datez,
-      notICU: notICU,
-      ICUwithv: ICUwithv,
-      ICUwov: ICUwov,
+      hospital: hospital,
+      active: active,
+
       series: [
         {
-          name: trans.hospital.icu[this.props.lang],
-          data: ICUwov,
+          name: trans.hospital.hospitalized[this.props.lang],
+          data: hospital,
         },
         {
-          name: trans.hospital.icuv[this.props.lang],
-          data: ICUwithv,
+          name: trans.stacked.positive[this.props.lang],
+          data: active,
         },
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#00B2E3", colours.yellow, colours.black],
+        colors: ["#00B2E3", "#1a1a1a"],
         legend: legend,
+        stroke: stroke,
+        markers: markers,
         tooltip: tooltip,
         chart: {
           type: "line",
@@ -109,11 +113,11 @@ class Hospital extends Component {
             style: { ...labelStyle },
           },
         },
-        stroke: stroke,
+
         xaxis: {
           categories: datez,
           labels: {
-           ...lgXaxisLabels
+            ...lgXaxisLabels,
           },
         },
         responsive: responsiveFun(),
@@ -134,7 +138,6 @@ class Hospital extends Component {
             options={this.state.options}
             series={this.state.series}
             height="500px"
-
           />
         ) : (
           ""

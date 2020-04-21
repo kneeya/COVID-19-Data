@@ -100,12 +100,12 @@ class StackedTable extends React.Component {
         return {
           index: z,
           date: formatDate(item[dict.reportedDate]),
-          icu:
-            item[dict.patientsICUwCOVID19] &&
-            item[dict.patientsICUwCOVID19].toLocaleString(),
-          icuwv:
-            item[dict.patientsICUventilatorwCOVID19] &&
-            item[dict.patientsICUventilatorwCOVID19].toLocaleString(),
+          hospital:
+            item[dict.patientHospitalizedCOVID19] &&
+            item[dict.patientHospitalizedCOVID19].toLocaleString(),
+          active:
+            item[dict.confirmedPositive] &&
+            item[dict.confirmedPositive].toLocaleString(),
         };
       });
 
@@ -118,15 +118,15 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: trans.hospital.icu[this.props.lang],
-        dataIndex: "icu",
-        key: "icu",
+        title: trans.hospital.hospitalized[this.props.lang],
+        dataIndex: "hospital",
+        key: "hospital",
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.hospital.icuv[this.props.lang],
-        dataIndex: "icuwv",
-        key: "icuwv",
+        title: trans.stacked.positive[this.props.lang],
+        dataIndex: "active",
+        key: "active",
         //...this.getColumnSearchProps('address'),
       },
     ];
