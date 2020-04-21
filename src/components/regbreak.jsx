@@ -73,6 +73,7 @@ class RegBreak extends Component {
       options: {
         legend: {
           position: "top",
+          horizontalAlign: "left",
         },
         responsive: [
           {
@@ -137,7 +138,7 @@ class RegBreak extends Component {
             return "";
           },
         },
-        colors: ["#00B2E3", "#8dc63f", "#1a1a1a"],
+        colors: ["#00B2E3", "#8dc63f", "#4d4d4d"],
         plotOptions: {
           bar: {
             horizontal: true,
@@ -166,6 +167,9 @@ class RegBreak extends Component {
           },
         },
         xaxis: {
+          title: {
+            text: trans.casesTotal.yaxis[this.props.lang],
+          },
           categories: region,
           labels: {
             show: true,

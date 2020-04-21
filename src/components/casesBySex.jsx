@@ -156,6 +156,9 @@ class SexBreak extends Component {
           colors: ["#fff"],
         },
         yaxis: {
+          title: {
+            text: trans.casesBySex.sex[this.props.lang],
+          },
           labels: {
             style: { ...labelStyle },
           },

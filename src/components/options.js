@@ -23,7 +23,7 @@ export const stroke = {
 
 export const markers = {
   size: 3,
-  colors: ["#00b2e3", "#1a1a1a"],
+  colors: ["#00b2e3", "#4d4d4d"],
   strokeColors: "#fff",
   strokeWidth: 1,
   hover: {

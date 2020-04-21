@@ -135,46 +135,54 @@ class App extends Component {
                 <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
                   {trans.otp.title[lang]}
                 </h2>
-                <a style={{ textDecoration: "none" }} href="#CasesTotal">
-                  {trans.casesTotal.title[lang]}
-                </a>
-                <br />​
-                <a style={{ textDecoration: "none" }} href="#CasesDaily">
-                  {trans.casesDaily.title[lang]}
-                </a>
-                <br />​
-                <a style={{ textDecoration: "none" }} href="#DeathsTotal">
-                  {trans.deathsTotal.title[lang]}
-                </a>
-                <br />​
-                <a style={{ textDecoration: "none" }} href="#DeathsDaily">
-                  {trans.deathsDaily.title[lang]}
-                </a>
-                <br />​
-                <a style={{ textDecoration: "none" }} href="#regbreak">
-                  {trans.reg.title[lang]}
-                </a>
-                <br />​
-                <a style={{ textDecoration: "none" }} href="#Hospital">
-                  {trans.hospital.title[lang]}
-                </a>
-                <br />​
-                <a style={{ textDecoration: "none" }} href="#CasesByAge">
-                  {trans.casesByAge.title[lang]}
-                </a>
-                <br />
-                <a style={{ textDecoration: "none" }} href="#CasesBySex">
-                  {trans.casesBySex.title[lang]}
-                </a>
-                <br />
-                <a style={{ textDecoration: "none" }} href="#future">
-                  {trans.future.title[lang]}
-                </a>
-                <br />
-                <a style={{ textDecoration: "none" }} href="#understand">
-                  {trans.understand.title[lang]}
-                </a>
-                <br />
+              </div>
+              <div class="ontario-row">
+                <div class="ontario-columns ontario-small-12 ontario-medium-4">
+                  <a style={{ textDecoration: "none" }} href="#CasesTotal">
+                    {trans.casesTotal.title[lang]}
+                  </a>
+                  <br />​
+                  <a style={{ textDecoration: "none" }} href="#CasesDaily">
+                    {trans.casesDaily.title[lang]}
+                  </a>
+                  <br />​
+                  <a style={{ textDecoration: "none" }} href="#DeathsTotal">
+                    {trans.deathsTotal.title[lang]}
+                  </a>
+                  <br />​
+                  <a style={{ textDecoration: "none" }} href="#DeathsDaily">
+                    {trans.deathsDaily.title[lang]}
+                  </a>
+                  <br />​
+                  <a style={{ textDecoration: "none" }} href="#regbreak">
+                    {trans.reg.title[lang]}
+                  </a>
+                  <br />​
+                  <a style={{ textDecoration: "none" }} href="#Hospital">
+                    {trans.hospital.title[lang]}
+                  </a>
+                  <br />​
+                </div>
+                <div class="ontario-columns ontario-small-12 ontario-medium-4">
+                  <a style={{ textDecoration: "none" }} href="#CasesByAge">
+                    {trans.casesByAge.title[lang]}
+                  </a>
+                  <br />
+                  <a style={{ textDecoration: "none" }} href="#CasesBySex">
+                    {trans.casesBySex.title[lang]}
+                  </a>
+                  <br />
+                </div>
+                <div class="ontario-columns ontario-small-12 ontario-medium-4">
+                  <a style={{ textDecoration: "none" }} href="#future">
+                    {trans.future.title[lang]}
+                  </a>
+                  <br />
+                  <a style={{ textDecoration: "none" }} href="#understand">
+                    {trans.understand.title[lang]}
+                  </a>
+                  <br />
+                </div>
               </div>
               ​
               <hr class="hrule-a" />​
