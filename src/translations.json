@@ -1,14 +1,4 @@
 {
-  "hero": {
-    "title": {
-      "en": "Ontario COVID-19 data",
-      "fr": "Ontario COVID-19 data FR"
-    },
-    "lead": {
-      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
-      "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. FR"
-    }
-  },
   "understand": {
     "title": {
       "en": "Understand the numbers",

@@ -93,7 +93,7 @@ class Overview extends Component {
       <React.Fragment>
         {this.state.ready ? (
           <div className="ontario-small-12">
-            <ul className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
+            <ul className="ontario-no-bullet ontario-data-viz-flex ontario-data-viz-flex--justify-content ontario-covid-stats">
               <li>
                 <div className="ontario-infographic-text">
                   {trans.overview.total[this.props.lang]}
