@@ -33,17 +33,18 @@ class Overview extends Component {
       totaldelta: totaldelta.toLocaleString(),
     });
 
-    const activecalc =
-      tday[dict.confirmedPositive] - yday[dict.confirmedPositive];
-    var activedelta = "";
-    if (activecalc > 0) {
-      activedelta = "+ " + activecalc;
+    const icuwventcalc =
+      tday[dict.patientsICUventilatorwCOVID19] -
+      yday[dict.patientsICUventilatorwCOVID19];
+    var icuwventdelta = "";
+    if (icuwventcalc > 0) {
+      icuwventdelta = "+ " + icuwventcalc;
     } else {
-      activedelta = activecalc;
+      icuwventdelta = icuwventcalc;
     }
     this.setState({
-      active: tday[dict.confirmedPositive].toLocaleString(),
-      activedelta: activedelta.toLocaleString(),
+      ICUwVent: tday[dict.patientsICUventilatorwCOVID19].toLocaleString(),
+      ICUwVentdelta: icuwventdelta.toLocaleString(),
     });
 
     const resolveddelta = tday[dict.resolved] - yday[dict.resolved];
@@ -92,7 +93,7 @@ class Overview extends Component {
       <React.Fragment>
         {this.state.ready ? (
           <div className="ontario-small-12">
-            <ul className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
+            <ul className="ontario-no-bullet ontario-data-viz-flex ontario-data-viz-flex--justify-content ontario-covid-stats">
               <li>
                 <div className="ontario-infographic-text">
                   {trans.overview.total[this.props.lang]}
@@ -102,17 +103,6 @@ class Overview extends Component {
                 </div>
                 <div className="ontario-infographic-subtext">
                   + {this.state.totaldelta}
-                </div>
-              </li>
-              <li>
-                <div className="ontario-infographic-text">
-                  {trans.overview.active[this.props.lang]}
-                </div>
-                <div className="ontario-infographic-number">
-                  {this.state.active}
-                </div>
-                <div className="ontario-infographic-subtext">
-                  {this.state.activedelta}
                 </div>
               </li>
               <li>
@@ -157,6 +147,17 @@ class Overview extends Component {
                 </div>
                 <div className="ontario-infographic-subtext">
                   {this.state.icudelta}
+                </div>
+              </li>
+              <li>
+                <div className="ontario-infographic-text">
+                  {trans.hospital.icuv[this.props.lang]}
+                </div>
+                <div className="ontario-infographic-number">
+                  {this.state.ICUwVent}
+                </div>
+                <div className="ontario-infographic-subtext">
+                  {this.state.ICUwVentdelta}
                 </div>
               </li>
             </ul>

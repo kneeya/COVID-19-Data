@@ -46,7 +46,7 @@ class TotalTest extends Component {
       return [item[dict.reportedDate], item[dict.totaCases]];
     });
 
-    console.log("casesTotal Dates:", dates);
+    //console.log("casesTotal Dates:", dates);
 
     this.setState({
       series: [

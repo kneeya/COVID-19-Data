@@ -1,10 +1,11 @@
 import React, { Component, useRef } from "react";
+import preval from "preval.macro";
 import "./ds.scss";
 import "./App.css";
 import Loading from "./components/loading/loading";
 import trans from "./translations.json";
 import Overview from "./components/overview";
-import GoogleTagManager from "./components/tagManager/tagManager";
+// import GoogleTagManager from "./components/tagManager/tagManager"
 // charts & tables
 import CasesTotal from "./components/casesTotal.jsx";
 import CasesTotalTable from "./components/casesTotal-table.jsx";
@@ -121,11 +122,16 @@ class App extends Component {
     // console.log('accessible', accessible, this.testRef)
 
     return (
-      <React.Fragment>
-        <GoogleTagManager gtmId={"GTM-5G4CS4L"} />
+      <div id="ontario-covid-viz">
+        {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
+              <p>
+                Last updated:{" "}
+                {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString();`}
+                .
+              </p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
@@ -160,8 +166,7 @@ class App extends Component {
                   {trans.otp.understand[lang]}{" "}
                 </a>
               </div>
-              ​
-              <hr class="hrule" />​
+              <hr class="hrule-a" />​
               <div className="ontario-row">
                 <h2
                   id="casestatus"
@@ -189,7 +194,7 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
+
                 <div
                   id="CasesDaily"
                   className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
@@ -205,7 +210,6 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​
               <hr class="hrule" />​
               <div className="ontario-row">
                 <div
@@ -223,7 +227,7 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
+
                 <div
                   id="DeathsDaily"
                   className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
@@ -273,7 +277,6 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​
               <hr class="hrule" />​
               <div id="regbreak" className="item item-6">
                 <h2
@@ -309,10 +312,8 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​ ​
               <hr class="hrule" />​
               <div className="ontario-row">
-                ​
                 <div
                   id="CasesByAge"
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
@@ -328,7 +329,6 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​ ​
                 <div
                   id="CasesBySex"
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
@@ -343,7 +343,6 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
               </div>
               <hr class="hrule" />
               <h2
@@ -396,7 +395,7 @@ class App extends Component {
             <Loading />
           </React.Fragment>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }

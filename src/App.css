@@ -1,84 +1,21 @@
 html,
 body {
   scroll-behavior: smooth;
-
   max-width: 100%;
   overflow-x: hidden;
 }
 
-a {
+#ontario-covid-viz a {
   text-decoration: underline !important;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.apexcharts-svg {
+#ontario-covid-viz .apexcharts-svg {
   overflow: initial !important;
 }
 
-.apexcharts-canvas {
+#ontario-covid-viz .apexcharts-canvas {
   margin-left: -5px;
 }
-
-/* use ds for grid */
-/* .chart {
-  padding-left: 90px;
-  padding-right: 90px;
-} */
-
-/* .container {
-  padding-left: 3rem;
-  padding-right: 3rem;
-} */
-
-/* @media screen and (max-width: 40em) { */
-/* behaviour for charts mobile */
-/* .chart {
-  position: relative;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  overflow-y: hidden;
-} */
-/* } */
-
-/* from ontario covid website*/
 
 .ontario-infographic-number {
   font-size: 1.85rem;
@@ -122,7 +59,7 @@ a {
   /* flex-basis: 13%; */
 }
 
-.ontario-flex--justify-content {
+.ontario-data-viz-flex--justify-content {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -131,7 +68,7 @@ a {
   align-items: center;
 }
 
-.ontario-flex {
+.ontario-data-viz-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,57 +101,51 @@ a {
 
 /* end of from ontario covid website*/
 
-/* scroll bar for mobile charts */
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 7px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-}
-a .link {
+#ontario-covid-viz a .link {
   text-decoration: none;
 }
 
 @media only screen and (min-width: 1163px) {
-  .hrule {
-    margin-top: 1rem;
+  #ontario-covid-viz .hrule {
+    margin-top: 2rem;
     border: 1px solid #d8d8d8;
   }
 }
 
+#ontario-covid-viz .hrule-a {
+  margin-top: 45px;
+  border: 1px solid #d8d8d8;
+}
+
 @media only screen and (max-width: 640px) {
-  .hrule-b {
+  #ontario-covid-viz .hrule-b {
     margin-top: 10px;
     border: 1px solid #d8d8d8;
   }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1163px) {
-  .hrule {
+  #ontario-covid-viz .hrule {
     margin-top: 40px;
     border: 1px solid #d8d8d8;
   }
 }
 
 @media only screen and (max-width: 640px) {
-  .hrule {
+  #ontario-covid-viz .hrule {
     margin-top: 40px;
     border: 1px solid #d8d8d8;
   }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1163px) {
-  .hrule {
+  #ontario-covid-viz .hrule {
     margin-top: 40px;
     border: 1px solid #d8d8d8;
   }
 }
 
-.hrule-special {
+#ontario-covid-viz .hrule-special {
   margin-top: 10px;
   border: 1px solid #d8d8d8;
   width: 100%;
@@ -265,4 +196,10 @@ a .link {
 
 .margins {
   padding-top: 1.2rem;
+}
+
+/* Fix for legands with Drupal */
+.apexcharts-legend.position-top {
+  height: auto !important;
+  transform: initial !important;
 }

@@ -149,12 +149,6 @@ try {
         [dict.deaths]: 0,
       },
       {
-        [dict.CLIENT_GENDER]: "UNKNOWN",
-        [dict.resolved]: 0,
-        [dict.NotResolved]: 0,
-        [dict.deaths]: 0,
-      },
-      {
         [dict.CLIENT_GENDER]: "TRANSGENDER",
         [dict.resolved]: 0,
         [dict.NotResolved]: 0,
@@ -162,6 +156,12 @@ try {
       },
       {
         [dict.CLIENT_GENDER]: "OTHER",
+        [dict.resolved]: 0,
+        [dict.NotResolved]: 0,
+        [dict.deaths]: 0,
+      },
+      {
+        [dict.CLIENT_GENDER]: "UNKNOWN",
         [dict.resolved]: 0,
         [dict.NotResolved]: 0,
         [dict.deaths]: 0,
@@ -177,11 +177,11 @@ try {
         index = 0;
       } else if (item[dict.CLIENT_GENDER] === "FEMALE") {
         index = 1;
-      } else if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-        index = 2;
       } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-        index = 3;
+        index = 2;
       } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+        index = 3;
+      } else if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
         index = 4;
       }
 

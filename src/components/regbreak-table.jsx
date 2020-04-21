@@ -125,9 +125,9 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: trans.reg.resolved[this.props.lang],
-        dataIndex: dict.resolved,
-        key: dict.resolved,
+        title: trans.reg.total[this.props.lang],
+        dataIndex: "total",
+        key: "total",
         width: "15%",
 
         //...this.getColumnSearchProps('address'),
@@ -141,17 +141,17 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.reg.deaths[this.props.lang],
-        dataIndex: dict.deaths,
-        key: dict.deaths,
+        title: trans.reg.resolved[this.props.lang],
+        dataIndex: dict.resolved,
+        key: dict.resolved,
         width: "15%",
 
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.reg.total[this.props.lang],
-        dataIndex: "total",
-        key: "total",
+        title: trans.reg.deaths[this.props.lang],
+        dataIndex: dict.deaths,
+        key: dict.deaths,
         width: "15%",
 
         //...this.getColumnSearchProps('address'),
