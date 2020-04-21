@@ -45,6 +45,7 @@
   "devDependencies": {
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "preval.macro": "^5.0.0"
   }
 }
