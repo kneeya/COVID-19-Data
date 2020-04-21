@@ -40,40 +40,40 @@ class AgeBreak extends Component {
 
     var a, b, c;
     const reso = cD
-      .filter((item) => {
-        if (item[dict.Age_Group] === "Unknown") {
-          a = item[dict.resolved];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.Age_Group] === "Unknown") {
+      //     a = item[dict.resolved];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item) => {
         return item[dict.resolved];
       });
 
     const active = cD
-      .filter((item) => {
-        if (item[dict.Age_Group] === "Unknown") {
-          b = item[dict.NotResolved];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.Age_Group] === "Unknown") {
+      //     b = item[dict.NotResolved];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item) => {
         return item[dict.NotResolved];
       });
 
     const fatal = cD
-      .filter((item) => {
-        if (item[dict.Age_Group] === "Unknown") {
-          c = item[dict.deaths];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.Age_Group] === "Unknown") {
+      //     c = item[dict.deaths];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item) => {
         return item[dict.deaths];
       });
@@ -96,7 +96,10 @@ class AgeBreak extends Component {
       options: {
         legend: legend,
         tooltip: tooltip,
-        responsive: responsiveFun(),
+        responsive: responsiveFun().map((item) => {
+          item.options.chart.height = "350px";
+          return item;
+        }),
         chart: {
           height: 650,
           width: "100%",
@@ -166,6 +169,7 @@ class AgeBreak extends Component {
             "70-79",
             "80-89",
             "90-99",
+            "Unknown",
           ],
           labels: {
             ...lgXaxisLabels,
@@ -191,10 +195,10 @@ class AgeBreak extends Component {
               type="bar"
               height="600px"
             />
-            <p>
+            {/* <p>
               {trans.casesByAge.noteA[this.props.lang]} {this.state.unk}{" "}
               {trans.casesByAge.noteB[this.props.lang]}
-            </p>
+            </p> */}
           </React.Fragment>
         ) : (
           ""

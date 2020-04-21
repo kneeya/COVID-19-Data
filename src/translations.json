@@ -334,6 +334,14 @@
       "en": "Transgender",
       "fr": "Transgender FR"
     },
+    "unknown": {
+      "en": "Unknown",
+      "fr": "Unknown FR"
+    },
+    "other": {
+      "en": "Other",
+      "fr": "Other FR"
+    },
     "noteUnk": {
       "en": " total cases of unknown sex.",
       "fr": " total cases of unknown sex. FR"

@@ -10,12 +10,15 @@ export const dataLabelsSize = "15px";
 export const tooltip = {
   followCursor: true,
   style: { ...labelStyle },
+  x: {
+    format: "MMM dd",
+  },
 };
 
 export const stroke = {
   width: 2,
   curve: "straight",
-  dashArray: [0, 8, 0, 15],
+  //dashArray: [0, 8, 0, 15],
 };
 
 export const markers = {

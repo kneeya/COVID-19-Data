@@ -93,18 +93,21 @@ class StackedTable extends React.Component {
   };
 
   render() {
-    let tableData = [...covidData.result.records]
-      .filter((item) => item[dict.totalTestsCompletedinthelastday])
-      .map((item, z) => {
-        //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
-        return {
-          index: z,
-          date: formatDate(item[dict.reportedDate]),
-          testsDoneYday:
-            item[dict.totalTestsCompletedinthelastday] &&
-            item[dict.totalTestsCompletedinthelastday].toLocaleString(),
-        };
-      });
+    let d = [...covidData.result.records].filter(
+      (item) => item[dict.patientsApprovedTestingasofDate]
+    );
+    let tableData = d.map((item, z) => {
+      //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
+      return {
+        index: z,
+        date: formatDate(item[dict.reportedDate]),
+        testsDoneYday:
+          d[z - 1] &&
+          item[dict.patientsApprovedTestingasofDate] -
+            d[z - 1][dict.patientsApprovedTestingasofDate],
+      };
+    });
+    tableData.shift();
 
     const columns = [
       {

@@ -40,7 +40,7 @@ class CasesDaily extends Component {
 
   setData() {
     const cData = [...covidData.result.records];
-    const chartData = cData.splice(cData.length - 50, cData.length - 1);
+    const chartData = cData.filter((item) => item[dict.totaCases] > 0);
 
     var dailydata = chartData
       .map((item, z) => {
@@ -56,7 +56,7 @@ class CasesDaily extends Component {
     this.setState({
       series: [
         {
-          name: trans.casesTotal.total[this.props.lang],
+          name: "New cases",
           data: dailydata,
         },
       ],

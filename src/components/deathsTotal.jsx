@@ -41,7 +41,7 @@ class TotalTest extends Component {
   setData() {
     const cData = [...covidData.result.records];
     const chartData = cData
-      .splice(cData.length - 35, cData.length - 1)
+      .filter((item) => item[dict.deaths] > 0)
       .map((item) => {
         return [item[dict.reportedDate], item[dict.deaths]];
       });

@@ -8,7 +8,7 @@ import {
   responsiveFun,
   stroke,
   markers,
-  lgXaxisLabels,
+  lineXaxis,
 } from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
@@ -32,44 +32,20 @@ class Testing extends Component {
 
   setData() {
     const datz = [...covidData.result.records].filter(
-      (item) => item[dict.patientHospitalizedCOVID19]
+      (item) => item[dict.patientsApprovedTestingasofDate]
     );
-
-    var datez = datz.map((item) => {
-      var date = item[dict.reportedDate].slice(0, 10);
-      var monthStrings = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      var result =
-        monthStrings[parseInt(date.split("-")[1]) - 1] +
-        " " +
-        date.slice(8, 10);
-
-      return result;
-    });
 
     var totalTested = datz.map((item) => {
       if (!item[dict.patientsApprovedTestingasofDate]) {
         return 0;
       }
-      return item[dict.patientsApprovedTestingasofDate];
+      return [
+        item[dict.reportedDate],
+        item[dict.patientsApprovedTestingasofDate],
+      ];
     });
 
     this.setState({
-      dates: datez,
-      totalTested: totalTested,
-
       series: [
         {
           name: trans.testing.totalTesting[this.props.lang],
@@ -108,10 +84,7 @@ class Testing extends Component {
         },
         stroke: stroke,
         xaxis: {
-          categories: datez,
-          labels: {
-            ...lgXaxisLabels,
-          },
+          ...lineXaxis,
         },
         responsive: responsiveFun(),
         fill: {

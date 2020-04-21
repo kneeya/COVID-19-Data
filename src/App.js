@@ -24,6 +24,9 @@ import RegBreakTable from "./components/regbreak-table.jsx";
 import Hospital from "./components/hospital.jsx";
 import HospitalTable from "./components/hospital-table.jsx";
 
+import ActiveHospital from "./components/activeHospital.jsx";
+import ActiveHospitalTable from "./components/activeHospital-table.jsx";
+
 import CasesByAge from "./components/casesByAge.jsx";
 import CasesByAgeTable from "./components/casesByAge-table.jsx";
 
@@ -243,6 +246,39 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
+              <hr class="hrule" />​
+              <div className="ontario-row">
+                <div
+                  id="InICU"
+                  className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title="Active vs Hospitalized Cases"
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <ActiveHospitalTable lang={this.state.lang} />
+                    ) : (
+                      <ActiveHospital lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+                <div
+                  id="Hospital"
+                  className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
+                >
+                  <ItemWrapper
+                    title={trans.hospital.title[lang]}
+                    accessToggle={true}
+                  >
+                    {accessible ? (
+                      <HospitalTable lang={this.state.lang} />
+                    ) : (
+                      <Hospital lang={this.state.lang} />
+                    )}
+                  </ItemWrapper>
+                </div>
+              </div>
               ​
               <hr class="hrule" />​
               <div id="regbreak" className="item item-6">
@@ -269,42 +305,7 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​
-              <hr class="hrule" />​
-              <div className="ontario-row">
-                <div
-                  id="Hospital"
-                  className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
-                >
-                  <ItemWrapper
-                    title={trans.hospital.title[lang]}
-                    accessToggle={true}
-                  >
-                    {accessible ? (
-                      <HospitalTable lang={this.state.lang} />
-                    ) : (
-                      <Hospital lang={this.state.lang} />
-                    )}
-                  </ItemWrapper>
-                </div>
-                ​
-                <div
-                  id="InICU"
-                  className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
-                >
-                  {/* <ItemWrapper
-                    title={trans.hospital.title[lang]}
-                    accessToggle={true}
-                  >
-                    {accessible ? (
-                      <InICUTable lang={this.state.lang} />
-                    ) : (
-                      <InICU lang={this.state.lang} />
-                    )}
-                  </ItemWrapper> */}
-                </div>
-              </div>
-              ​
+              ​ ​
               <hr class="hrule" />​
               <div className="ontario-row">
                 ​

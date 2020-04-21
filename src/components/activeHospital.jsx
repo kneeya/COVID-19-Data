@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
-import { labelStyle, tooltip, legend, responsiveFun, stroke, lgXaxisLabels } from "./options";
+import {
+  labelStyle,
+  tooltip,
+  legend,
+  responsiveFun,
+  stroke,
+  lineXaxis,
+  markers,
+} from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
 import trans from "../translations.json";
@@ -23,67 +31,35 @@ class Hospital extends Component {
   }
 
   setData() {
-    const datz = [...covidData.result.records]
-    
-    .filter(
+    const datz = [...covidData.result.records].filter(
       (item) => item[dict.patientHospitalizedCOVID19]
     );
 
-    var datez = datz.map((item) => {
-      var date = item[dict.reportedDate].slice(0, 10);
-      var monthStrings = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      var result =
-        monthStrings[parseInt(date.split("-")[1]) - 1] +
-        " " +
-        date.slice(8, 10);
-
-      return result;
+    var hospital = datz.map((item) => {
+      return [item[dict.reportedDate], item[dict.patientHospitalizedCOVID19]];
     });
 
-    var notICU = datz.map((item) => {
-      return item[dict.patientHospitalizedCOVID19];
-    });
-
-    var ICUwithv = datz.map((item) => {
-      return item[dict.patientsICUventilatorwCOVID19];
-    });
-
-    var ICUwov = datz.map((item) => {
-      return item[dict.patientsICUwCOVID19];
+    var active = datz.map((item) => {
+      return [item[dict.reportedDate], item[dict.confirmedPositive]];
     });
 
     this.setState({
-      dates: datez,
-      notICU: notICU,
-      ICUwithv: ICUwithv,
-      ICUwov: ICUwov,
       series: [
         {
-          name: trans.hospital.icu[this.props.lang],
-          data: ICUwov,
+          name: trans.hospital.hospitalized[this.props.lang],
+          data: hospital,
         },
         {
-          name: trans.hospital.icuv[this.props.lang],
-          data: ICUwithv,
+          name: trans.stacked.positive[this.props.lang],
+          data: active,
         },
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#00B2E3", colours.yellow, colours.black],
+        colors: ["#00B2E3", "#ccc"],
         legend: legend,
+        stroke: stroke,
+        markers: markers,
         tooltip: tooltip,
         chart: {
           type: "line",
@@ -109,12 +85,9 @@ class Hospital extends Component {
             style: { ...labelStyle },
           },
         },
-        stroke: stroke,
+
         xaxis: {
-          categories: datez,
-          labels: {
-           ...lgXaxisLabels
-          },
+          ...lineXaxis,
         },
         responsive: responsiveFun(),
         fill: {
@@ -134,7 +107,6 @@ class Hospital extends Component {
             options={this.state.options}
             series={this.state.series}
             height="500px"
-
           />
         ) : (
           ""

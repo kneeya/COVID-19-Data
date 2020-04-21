@@ -95,18 +95,18 @@ class StackedTable extends React.Component {
     const cData = Object.values(ReducedData.reduceAges);
     var unknown = 0;
     var data = cData
-      .filter((item) => {
-        if (item[dict.Age_Group] === "Unknown") {
-          unknown =
-            unknown +
-            item[dict.resolved] +
-            item[dict.NotResolved] +
-            item[dict.deaths];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.Age_Group] === "Unknown") {
+      //     unknown =
+      //       unknown +
+      //       item[dict.resolved] +
+      //       item[dict.NotResolved] +
+      //       item[dict.deaths];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item, z) => {
         //console.log('item', item)
         switch (item[dict.Age_Group]) {
@@ -141,7 +141,11 @@ class StackedTable extends React.Component {
         return {
           ...item,
           index: z,
-          total: (item[dict.resolved] + item[dict.NotResolved] + item[dict.deaths]).toLocaleString(),
+          total: (
+            item[dict.resolved] +
+            item[dict.NotResolved] +
+            item[dict.deaths]
+          ).toLocaleString(),
         };
       });
 
@@ -179,11 +183,11 @@ class StackedTable extends React.Component {
     ];
     return (
       <React.Fragment>
-       <Table columns={columns} dataSource={data} pagination={false} />
-        <p>
+        <Table columns={columns} dataSource={data} pagination={false} />
+        {/* <p>
           {trans.casesByAge.noteA[this.props.lang]} {unknown}
           {trans.casesByAge.noteB[this.props.lang]}
-        </p>
+        </p> */}
       </React.Fragment>
     );
   }
