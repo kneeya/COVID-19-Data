@@ -94,7 +94,7 @@ class TotalTable extends React.Component {
   render() {
     //copy data coming in from props to a new object, remove some items that are too old, and build the new data for table
     var chartData = [...covidData.result.records]
-      .filter((item) => item[dict.totaCases] > 100)
+      .filter((item) => item[dict.totaCases] > 0)
       .map((item, z) => {
         return {
           index: z,

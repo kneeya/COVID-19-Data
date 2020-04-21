@@ -39,7 +39,7 @@ class CasesDaily extends Component {
 
   setData() {
     const cData = [...covidData.result.records];
-    const chartData = cData.splice(cData.length - 50, cData.length - 1);
+    const chartData = cData.filter((item) => item[dict.deaths] > 0);
 
     var casesTotal = chartData.map((item) => {
       return item[dict.totaCases];
