@@ -4,7 +4,7 @@ import "./App.css";
 import Loading from "./components/loading/loading";
 import trans from "./translations.json";
 import Overview from "./components/overview";
-import GoogleTagManager from "./components/tagManager/tagManager"
+// import GoogleTagManager from "./components/tagManager/tagManager"
 // charts & tables
 import CasesTotal from "./components/casesTotal.jsx";
 import CasesTotalTable from "./components/casesTotal-table.jsx";
@@ -122,11 +122,11 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <GoogleTagManager gtmId={'GTM-5G4CS4L'} />
+        {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
-              <p className="ontario-lead-statement">{trans.hero.lead[lang]}</p>
+              <a href="#test-link">Test Link</a>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
