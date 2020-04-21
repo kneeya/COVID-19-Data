@@ -1,4 +1,5 @@
 import React, { Component, useRef } from "react";
+import preval from 'preval.macro'
 import "./ds.scss";
 import "./App.css";
 import Loading from "./components/loading/loading";
@@ -126,7 +127,7 @@ class App extends Component {
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
-              <a href="#test-link">Test Link</a>
+              <p>Last updated: {preval`module.exports = new Date().toLocaleString();`}.</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
