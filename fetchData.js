@@ -149,12 +149,6 @@ try {
         [dict.deaths]: 0,
       },
       {
-        [dict.CLIENT_GENDER]: "UNKNOWN",
-        [dict.resolved]: 0,
-        [dict.NotResolved]: 0,
-        [dict.deaths]: 0,
-      },
-      {
         [dict.CLIENT_GENDER]: "TRANSGENDER",
         [dict.resolved]: 0,
         [dict.NotResolved]: 0,
@@ -162,6 +156,12 @@ try {
       },
       {
         [dict.CLIENT_GENDER]: "OTHER",
+        [dict.resolved]: 0,
+        [dict.NotResolved]: 0,
+        [dict.deaths]: 0,
+      },
+      {
+        [dict.CLIENT_GENDER]: "UNKNOWN",
         [dict.resolved]: 0,
         [dict.NotResolved]: 0,
         [dict.deaths]: 0,
