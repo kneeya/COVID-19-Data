@@ -78,7 +78,6 @@ deploy:prod:
         refs:
         - branches
         - develop
-    when: manual
     environment:
         name: production
     variables:

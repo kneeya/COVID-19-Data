@@ -105,7 +105,10 @@ class Hospital extends Component {
         xaxis: {
           ...lineXaxis,
         },
-        responsive: responsiveFun(),
+        responsive: responsiveFun().map((item) => {
+          item.options.xaxis = { ...lineXaxis };
+          return item;
+        }),
         fill: {
           opacity: 1,
         },
