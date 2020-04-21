@@ -9,6 +9,7 @@ import {
   stroke,
   markers,
   lgXaxisLabels,
+  lineXaxis
 } from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
@@ -35,47 +36,22 @@ class Hospital extends Component {
       (item) => item[dict.patientHospitalizedCOVID19]
     );
 
-    var datez = datz.map((item) => {
-      var date = item[dict.reportedDate].slice(0, 10);
-      var monthStrings = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      var result =
-        monthStrings[parseInt(date.split("-")[1]) - 1] +
-        " " +
-        date.slice(8, 10);
-
-      return result;
-    });
-
     var notICU = datz.map((item) => {
-      return item[dict.patientHospitalizedCOVID19];
+      return [
+        item[dict.reportedDate],item[dict.patientHospitalizedCOVID19]];
     });
 
     var ICUwithv = datz.map((item) => {
-      return item[dict.patientsICUventilatorwCOVID19];
+      return [
+        item[dict.reportedDate],item[dict.patientsICUventilatorwCOVID19]];
     });
 
     var ICUwov = datz.map((item) => {
-      return item[dict.patientsICUwCOVID19];
+      return [
+        item[dict.reportedDate],item[dict.patientsICUwCOVID19]];
     });
 
     this.setState({
-      dates: datez,
-      notICU: notICU,
-      ICUwithv: ICUwithv,
-      ICUwov: ICUwov,
       series: [
         {
           name: trans.hospital.hospitalized[this.props.lang],
@@ -121,12 +97,7 @@ class Hospital extends Component {
             style: { ...labelStyle },
           },
         },
-        xaxis: {
-          categories: datez,
-          labels: {
-            ...lgXaxisLabels,
-          },
-        },
+        xaxis: {...lineXaxis },
         responsive: responsiveFun(),
         fill: {
           opacity: 1,

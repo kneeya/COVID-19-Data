@@ -1,10 +1,10 @@
 import React, { Component, useRef } from "react";
 import "./ds.scss";
 import "./App.css";
-import Loading from "./components/loading/loading.jsx";
+import Loading from "./components/loading/loading";
 import trans from "./translations.json";
-import Overview from "./components/overview.jsx";
-
+import Overview from "./components/overview";
+import GoogleTagManager from "./components/tagManager/tagManager"
 // charts & tables
 import CasesTotal from "./components/casesTotal.jsx";
 import CasesTotalTable from "./components/casesTotal-table.jsx";
@@ -122,6 +122,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
+        <GoogleTagManager gtmId={'GTM-5G4CS4L'} />
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
