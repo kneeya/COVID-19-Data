@@ -9,7 +9,7 @@ import {
   stroke,
   markers,
   lgXaxisLabels,
-  lineXaxis
+  lineXaxis,
 } from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
@@ -37,18 +37,18 @@ class Hospital extends Component {
     );
 
     var notICU = datz.map((item) => {
-      return [
-        item[dict.reportedDate],item[dict.patientHospitalizedCOVID19]];
+      return [item[dict.reportedDate], item[dict.patientHospitalizedCOVID19]];
     });
 
     var ICUwithv = datz.map((item) => {
       return [
-        item[dict.reportedDate],item[dict.patientsICUventilatorwCOVID19]];
+        item[dict.reportedDate],
+        item[dict.patientsICUventilatorwCOVID19],
+      ];
     });
 
     var ICUwov = datz.map((item) => {
-      return [
-        item[dict.reportedDate],item[dict.patientsICUwCOVID19]];
+      return [item[dict.reportedDate], item[dict.patientsICUwCOVID19]];
     });
 
     this.setState({
@@ -97,8 +97,11 @@ class Hospital extends Component {
             style: { ...labelStyle },
           },
         },
-        xaxis: {...lineXaxis },
-        responsive: responsiveFun(),
+        xaxis: { ...lineXaxis },
+        responsive: responsiveFun().map((item) => {
+          item.options.xaxis = { ...lineXaxis };
+          return item;
+        }),
         fill: {
           opacity: 1,
         },
