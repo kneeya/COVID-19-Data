@@ -28,7 +28,10 @@ class Overview extends Component {
     var yday = chartData[chartData.length - 2];
 
     const totaldelta = tday[dict.totaCases] - yday[dict.totaCases];
-    this.setState({ total: tday[dict.totaCases], totaldelta: totaldelta });
+    this.setState({
+      total: tday[dict.totaCases].toLocaleString(),
+      totaldelta: totaldelta.toLocaleString(),
+    });
 
     const activecalc =
       tday[dict.confirmedPositive] - yday[dict.confirmedPositive];
@@ -39,18 +42,21 @@ class Overview extends Component {
       activedelta = activecalc;
     }
     this.setState({
-      active: tday[dict.confirmedPositive],
-      activedelta: activedelta,
+      active: tday[dict.confirmedPositive].toLocaleString(),
+      activedelta: activedelta.toLocaleString(),
     });
 
     const resolveddelta = tday[dict.resolved] - yday[dict.resolved];
     this.setState({
-      resolved: tday[dict.resolved],
-      resolveddelta: resolveddelta,
+      resolved: tday[dict.resolved].toLocaleString(),
+      resolveddelta: resolveddelta.toLocaleString(),
     });
 
     const deathsdelta = tday[dict.deaths] - yday[dict.deaths];
-    this.setState({ deaths: tday[dict.deaths], deathsdelta: deathsdelta });
+    this.setState({
+      deaths: tday[dict.deaths].toLocaleString(),
+      deathsdelta: deathsdelta.toLocaleString(),
+    });
 
     const hospitalcalc =
       tday[dict.patientHospitalizedCOVID19] -
@@ -62,8 +68,8 @@ class Overview extends Component {
       hospitaldelta = hospitalcalc;
     }
     this.setState({
-      hospital: tday[dict.patientHospitalizedCOVID19],
-      hospitaldelta: hospitaldelta,
+      hospital: tday[dict.patientHospitalizedCOVID19].toLocaleString(),
+      hospitaldelta: hospitaldelta.toLocaleString(),
     });
 
     const icucalc =
@@ -74,7 +80,10 @@ class Overview extends Component {
     } else {
       icudelta = icucalc;
     }
-    this.setState({ icu: tday[dict.patientsICUwCOVID19], icudelta: icudelta });
+    this.setState({
+      icu: tday[dict.patientsICUwCOVID19].toLocaleString(),
+      icudelta: icudelta.toLocaleString(),
+    });
 
     this.setState({ ready: true });
   }
@@ -82,7 +91,7 @@ class Overview extends Component {
     return (
       <React.Fragment>
         {this.state.ready ? (
-          <div className="ontario-small-12 ontario-columns">
+          <div className="ontario-small-12">
             <ul className="ontario-no-bullet ontario-flex ontario-flex--justify-content ontario-covid-stats">
               <li>
                 <div className="ontario-infographic-text">
