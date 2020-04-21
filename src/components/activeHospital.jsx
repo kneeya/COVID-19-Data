@@ -7,7 +7,7 @@ import {
   legend,
   responsiveFun,
   stroke,
-  lgXaxisLabels,
+  lineXaxis,
   markers,
 } from "./options";
 import dict from "../dictionary";
@@ -35,43 +35,15 @@ class Hospital extends Component {
       (item) => item[dict.patientHospitalizedCOVID19]
     );
 
-    var datez = datz.map((item) => {
-      var date = item[dict.reportedDate].slice(0, 10);
-      var monthStrings = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      var result =
-        monthStrings[parseInt(date.split("-")[1]) - 1] +
-        " " +
-        date.slice(8, 10);
-
-      return result;
-    });
-
     var hospital = datz.map((item) => {
-      return item[dict.patientHospitalizedCOVID19];
+      return [item[dict.reportedDate], item[dict.patientHospitalizedCOVID19]];
     });
 
     var active = datz.map((item) => {
-      return item[dict.confirmedPositive];
+      return [item[dict.reportedDate], item[dict.confirmedPositive]];
     });
 
     this.setState({
-      dates: datez,
-      hospital: hospital,
-      active: active,
-
       series: [
         {
           name: trans.hospital.hospitalized[this.props.lang],
@@ -115,10 +87,7 @@ class Hospital extends Component {
         },
 
         xaxis: {
-          categories: datez,
-          labels: {
-            ...lgXaxisLabels,
-          },
+          ...lineXaxis,
         },
         responsive: responsiveFun(),
         fill: {

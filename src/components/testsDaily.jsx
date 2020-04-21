@@ -7,7 +7,7 @@ import {
   legend,
   responsiveFun,
   stroke,
-  lgXaxisLabels,
+  lineXaxis,
 } from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
@@ -31,51 +31,29 @@ class TestingYday extends Component {
 
   setData() {
     const datz = [...covidData.result.records].filter(
-      (item) => item[dict.totalTestsCompletedinthelastday]
+      (item) => item[dict.patientsApprovedTestingasofDate]
     );
 
-    var datez = datz.map((item) => {
-      var date = item[dict.reportedDate].slice(0, 10);
-      var monthStrings = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sept",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      var result =
-        monthStrings[parseInt(date.split("-")[1]) - 1] +
-        " " +
-        date.slice(8, 10);
-
-      return result;
-    });
-
-    var testsDoneYesterday = datz.map((item) => {
-      if (!item[dict.totalTestsCompletedinthelastday]) {
-        return 0;
-      }
-      return item[dict.totalTestsCompletedinthelastday];
-    });
+    var dailydata = datz
+      .map((item, z) => {
+        if (datz[z - 1]) {
+          return [
+            item[dict.reportedDate],
+            item[dict.patientsApprovedTestingasofDate] -
+              datz[z - 1][dict.patientsApprovedTestingasofDate],
+          ];
+        }
+      })
+      .filter((item) => item !== undefined);
 
     this.setState({
-      dates: datez,
-      testsDoneYesterday: testsDoneYesterday,
       series: [
         {
           name: trans.testing.testsDoneYesterday[this.props.lang],
-          data: testsDoneYesterday,
+          data: dailydata,
         },
       ],
       options: {
-        // title: { text: "Summary of Cases in Ontario" },
         colors: ["#00b2e3"],
         legend: legend,
         tooltip: tooltip,
@@ -86,11 +64,6 @@ class TestingYday extends Component {
             show: true,
           },
           zoom: { enabled: true },
-        },
-        plotOptions: {
-          //   bar: {
-          //     horizontal: false,
-          //   },
         },
         dataLabels: {
           enabled: false,
@@ -105,10 +78,7 @@ class TestingYday extends Component {
         },
         stroke: stroke,
         xaxis: {
-          categories: datez,
-          labels: {
-            ...lgXaxisLabels,
-          },
+          ...lineXaxis,
         },
         responsive: responsiveFun(),
         fill: {
