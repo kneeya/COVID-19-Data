@@ -10,6 +10,9 @@ export const dataLabelsSize = "15px";
 export const tooltip = {
   followCursor: true,
   style: { ...labelStyle },
+  x: {
+    format: "MMM dd",
+  },
 };
 
 export const stroke = {

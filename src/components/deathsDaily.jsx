@@ -61,7 +61,7 @@ class CasesDaily extends Component {
 
       series: [
         {
-          name: trans.casesTotal.total[this.props.lang],
+          name: "New deaths",
           data: dailydata,
         },
       ],

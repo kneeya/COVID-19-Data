@@ -56,7 +56,7 @@ class CasesDaily extends Component {
     this.setState({
       series: [
         {
-          name: trans.casesTotal.total[this.props.lang],
+          name: "New cases",
           data: dailydata,
         },
       ],
