@@ -127,7 +127,7 @@ class App extends Component {
         {this.state.loaded ? (
           <React.Fragment>
             <div className="ontario-row">
-              <p>Last updated: {preval`module.exports = new Date().toLocaleString();`}.</p>
+              <p>Last updated: {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString();`}.</p>
               <div id="overview" className="item item-2">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
