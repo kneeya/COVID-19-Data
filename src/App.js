@@ -194,7 +194,6 @@ class App extends Component {
                   </a>
                 </div>
               </div>
-              ​
               <hr class="hrule-a" />​
               <div className="ontario-row">
                 <div
@@ -212,7 +211,7 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
+
                 <div
                   id="CasesDaily"
                   className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
@@ -229,7 +228,6 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​
               <hr class="hrule" />​
               <div className="ontario-row">
                 <div
@@ -247,7 +245,7 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
+
                 <div
                   id="DeathsDaily"
                   className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
@@ -297,7 +295,6 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​
               <hr class="hrule" />​
               <div id="regbreak" className="item item-6">
                 {/* show only on phones */}
@@ -323,10 +320,8 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​ ​
               <hr class="hrule" />​
               <div className="ontario-row">
-                ​
                 <div
                   id="CasesByAge"
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
@@ -343,7 +338,6 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​ ​
                 <div
                   id="CasesBySex"
                   className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
@@ -359,7 +353,6 @@ class App extends Component {
                     )}
                   </ItemWrapper>
                 </div>
-                ​
               </div>
               <hr class="hrule" />
               <div className="ontario-row">
@@ -394,7 +387,6 @@ class App extends Component {
                   </ItemWrapper>
                 </div>
               </div>
-              ​
               <hr class="hrule" />
               <div id="future" className="item item-7">
                 <ItemWrapper title={trans.future.title[lang]}></ItemWrapper>
