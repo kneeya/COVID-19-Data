@@ -1,0 +1,89 @@
+@import "../variables/colours.variables.scss";
+@import "../variables/fonts.variables.scss";
+
+/* everything - including before and after - should inherit their box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+a {
+    color: $ontario-colour-link;
+    text-decoration: underline;
+
+    &:visited {
+        color: $ontario-colour-link--visited;
+    }
+
+    &:hover {
+        color: $ontario-colour-link--hover;
+    }
+
+    &:active {
+        color: $ontario-colour-link--active;
+    }
+
+    &:focus {
+        -moz-box-shadow: 0 0 0 4px $ontario-colour-focus;
+        -webkit-box-shadow: 0 0 0 4px $ontario-colour-focus;
+        box-shadow: 0 0 0 4px $ontario-colour-focus;
+        outline: 4px solid transparent;
+        transition: all 0.1s ease-in-out;
+    }
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: $ontario-colour-white;
+    color: $ontario-colour-black;
+    margin: 0;
+}
+
+
+/* -------------------------------
+        Forms
+--------------------------------- */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="date"],
+input[type="color"],
+input[type="search"],
+input[type="tel"],
+textarea {
+    background-origin: initial;
+    height: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="checkbox"]+label,
+input[type="radio"]+label {
+    font-family: $ontario-font-open-sans;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    page-break-inside: avoid;
+}
+
+legend,
+label {
+    display: block;
+    margin: 0;
+}
+
+select {
+    background-origin: initial;
+    height: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

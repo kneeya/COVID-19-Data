@@ -1,3 +1,15 @@
+html,
+body {
+  scroll-behavior: smooth;
+
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: underline !important;
+}
+
 .App {
   text-align: center;
 }
@@ -34,5 +46,197 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.apexcharts-svg {
+  overflow: initial !important;
+}
+
+.apexcharts-canvas {
+  margin-left: -5px;
+}
+
+/* use ds for grid */
+/* .chart {
+  padding-left: 90px;
+  padding-right: 90px;
+} */
+
+/* .container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+} */
+
+/* @media screen and (max-width: 40em) { */
+/* behaviour for charts mobile */
+/* .chart {
+  position: relative;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+} */
+/* } */
+
+/* from ontario covid website*/
+
+.ontario-infographic-number {
+  font-size: 1.85rem;
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ontario-infographic-text,
+.ontario-font-raleway {
+  font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 1.2rem;
+}
+
+.ontario-infographic-subtext {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ontario-font-raleway {
+  line-height: 1.5;
+}
+
+.ontario-no-bullet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.ontario-covid-stats {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: flex-start;
+}
+.ontario-covid-stats li {
+  margin-right: 2.5rem;
+  margin-bottom: 1.5rem;
+  /* flex-basis: 13%; */
+}
+
+.ontario-flex--justify-content {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.ontario-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 73em) {
+  .ontario-covid-stats li {
+    flex-basis: calc(33% - 2.5rem);
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .ontario-covid-stats li {
+    flex-basis: calc(47% - 2.5rem);
+    margin-bottom: 2rem;
+  }
+}
+
+/* end of from ontario covid website*/
+
+/* scroll bar for mobile charts */
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+a .link {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 1163px) {
+  .hrule {
+    margin-top: 45px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+.hrule-a {
+  margin-top: 45px;
+  border: 1px solid #d8d8d8;
+}
+
+@media only screen and (max-width: 640px) {
+  .hrule-b {
+    margin-top: 10px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1163px) {
+  .hrule {
+    margin-top: 40px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .hrule {
+    margin-top: 40px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1163px) {
+  .hrule {
+    margin-top: 40px;
+    border: 1px solid #d8d8d8;
+  }
+}
+
+.hrule-special {
+  margin-top: 10px;
+  border: 1px solid #d8d8d8;
+  width: 100%;
+}
+
+/* Tables */
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td,
+.ant-table tfoot > tr > th,
+.ant-table tfoot > tr > td {
+  padding: 4px 4px !important;
+}
+
+/* Visibility */
+
+@media screen and (max-width: 0em), screen and (min-width: 40em) {
+  .ontario-show-for-small-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .ontario-hide-for-small-only {
+    display: none !important;
   }
 }

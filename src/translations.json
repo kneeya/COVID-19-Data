@@ -1,0 +1,401 @@
+{
+  "hero": {
+    "title": {
+      "en": "Ontario COVID-19 data",
+      "fr": "Ontario COVID-19 data FR"
+    },
+    "lead": {
+      "en": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario.",
+      "fr": "Statistics on the latest cases provided by the 34 public health units (PHU) across Ontario. FR"
+    }
+  },
+  "understand": {
+    "title": {
+      "en": "Understand the numbers",
+      "fr": "Understand the numbers FR"
+    },
+    "where": {
+      "en": "Where the numbers come from",
+      "fr": "Where the numbers come from FR"
+    },
+    "wheredesc1": {
+      "en": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). With the exception of hospitalization numbers, the numbers in these graphs come from the iPHIS database.",
+      "fr": "Every day, all 34 of Ontario’s Public Health Units report the status and number of COVID-19 cases in their areas to Ontario’s integrated Public Health Information System (iPHIS). With the exception of hospitalization numbers, the numbers in these graphs come from the iPHIS database. FR"
+    },
+    "wheredesc2": {
+      "en": "If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date.",
+      "fr": "If there is a discrepancy between numbers reported here and those reported publicly by a Public Health Unit, it is because the Public Health Unit hasn’t yet updated the numbers in iPHIS. In that case, consider the number reported by the Public Health Unit to be the most up to date. FR"
+    },
+    "wheredesc3": {
+      "en": "Hospitals report their own numbers - learn more in the “Terms used in the graphs” section below.",
+      "fr": "Hospitals report their own numbers - learn more in the “Terms used in the graphs” section below. FR"
+    },
+    "wheredesc4": {
+      "en": "In ICU - ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds.",
+      "fr": "In ICU - ICU data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU beds. FR"
+    },
+    "wheredesc5": {
+      "en": "The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
+      "fr": "The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
+    },
+    "terms": {
+      "en": "Terms used in the graphs",
+      "fr": "Terms used in the graphs FR"
+    },
+    "inICU": {
+      "en": "In ICU (Intensive Care Unit) with ventilator",
+      "fr": "In ICU (Intensive Care Unit) with ventilator FR"
+    },
+    "ICUdesc": {
+      "en": "ICU (Intensive Care Unit) data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU (Intensive Care Unit) beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once.",
+      "fr": "ICU (Intensive Care Unit) data include patients in levels 2 and 3  flex, neonatal, pediatric, and adult ICU (Intensive Care Unit) beds. The reported numbers reflect the previous day’s values. As patients begin to be transferred between units (eg; from lower level of care to a higher level of care), it has become apparent that the previous methods of identifying patients based on a 24-hour time period would count patients transferred between different locations twice; once in each location they were at during the course of the day. In order to eliminate this issue, patients will no longer be counted over a 24 hour period, but will be counted at a single point in time (11:59 pm) to ensure that each person is only counted once. FR"
+    }
+  },
+  "overview": {
+    "title": {
+      "en": "Overview",
+      "fr": "Overview FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total cases FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "res": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "hos": {
+      "en": "Hospitalized",
+      "fr": "Hospitalized FR"
+    },
+    "icu": {
+      "en": "In ICU (Intensive Care Unit)",
+      "fr": "In ICU (Intensive Care Unit) FR"
+    },
+    "bottom": {
+      "en": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours",
+      "fr": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours FR"
+    }
+  },
+  "otp": {
+    "title": {
+      "en": "On this page",
+      "fr": "On this page FR"
+    }
+  },
+  "stacked": {
+    "title": {
+      "en": "Case status over time",
+      "fr": "Summary of cases in Ontario FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    }
+  },
+  "hospital": {
+    "title": {
+      "en": "Hospitalizations over time",
+      "fr": "Hospitalizations over time FR"
+    },
+    "hospitalized": {
+      "en": "Hospitalized",
+      "fr": "Hospitalized FR"
+    },
+    "icu": {
+      "en": "In <abbr title=\"Intensive Care Unit\">ICU</abbr>",
+      "fr": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> FR"
+    },
+    "icuv": {
+      "en": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> with ventilator",
+      "fr": "In <abbr title=\"Intensive Care Unit\">ICU</abbr> with ventilator FR"
+    }
+  },
+  "casesTotal": {
+    "title": {
+      "en": "Total cases",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "casesDaily": {
+    "title": {
+      "en": "Daily cases",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "deathsTotal": {
+    "title": {
+      "en": "Total Deaths",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "deathsDaily": {
+    "title": {
+      "en": "Daily Deaths",
+      "fr": "Total cases FR"
+    },
+    "total": {
+      "en": "Total cases",
+      "fr": "Total Cases FR"
+    },
+    "positive": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "yaxis": {
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
+    }
+  },
+  "newcases": {
+    "title": {
+      "en": "New cases over time",
+      "fr": "New cases over time FR"
+    },
+    "newcase": {
+      "en": "New cases",
+      "fr": "New cases FR"
+    }
+  },
+  "reg": {
+    "title": {
+      "en": "Case status by geography",
+      "fr": "Case status by geography FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "deaths": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "total": {
+      "en": "Total",
+      "fr": "Total FR"
+    },
+    "text": {
+      "en": "Find your local Public Health Unit",
+      "fr": "Find your local Public Health Unit FR"
+    }
+  },
+  "casesByAge": {
+    "title": {
+      "en": "Case status by age",
+      "fr": "Case status by age FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "fatal": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "under20": {
+      "en": "Under 20",
+      "fr": "Under 20 FR"
+    },
+    "noteA": {
+      "en": "There are ",
+      "fr": "There are FR"
+    },
+    "noteB": {
+      "en": " cases of unknown age.",
+      "fr": " cases of unknown age. FR"
+    },
+    "unk": {
+      "en": "Unknown",
+      "fr": "Unknown FR"
+    },
+    "group": {
+      "en": "Age Group",
+      "fr": "Age Group FR"
+    }
+  },
+  "casesBySex": {
+    "title": {
+      "en": "Case status by sex",
+      "fr": "Case status by sex FR"
+    },
+    "active": {
+      "en": "Active",
+      "fr": "Active FR"
+    },
+    "resolved": {
+      "en": "Resolved",
+      "fr": "Resolved FR"
+    },
+    "fatal": {
+      "en": "Deaths",
+      "fr": "Deaths FR"
+    },
+    "male": {
+      "en": "Male",
+      "fr": "Male FR"
+    },
+    "female": {
+      "en": "Female",
+      "fr": "Female FR"
+    },
+    "trans": {
+      "en": "Transgender",
+      "fr": "Transgender FR"
+    },
+    "noteUnk": {
+      "en": " total cases of unknown sex.",
+      "fr": " total cases of unknown sex. FR"
+    },
+    "noteTran": {
+      "en": " total transgender cases, ",
+      "fr": " total transgender cases, FR"
+    },
+    "noteOth": {
+      "en": " total cases of other sex, and ",
+      "fr": " total cases of other sex, and FR"
+    },
+    "sex": {
+      "en": "Sex",
+      "fr": "Sex FR"
+    }
+  },
+  "testing": {
+    "title": { "en": "Testing", "fr": "Testing FR" },
+    "totalTesting": {
+      "en": "Total tests completed",
+      "fr": "Total test completed FR"
+    },
+    "underInvestigation": {
+      "en": "Currently under investigation",
+      "fr": "Currently under investigation FR"
+    },
+    "testsDoneYesterday": {
+      "en": "Total tests completed in the previous day",
+      "fr": "Total tests completed in the previous day FR"
+    }
+  },
+  "accessible": {
+    "enable": {
+      "en": "Switch to table format.",
+      "fr": "Switch to table format. FR"
+    },
+    "disable": {
+      "en": "Switch to interactive chart.",
+      "fr": "Switch to interactive chart. FR"
+    },
+    "select": {
+      "en": "",
+      "fr": ""
+    }
+  },
+  "date": {
+    "en": "Date",
+    "fr": "Date FR"
+  },
+  "future": {
+    "title": {
+      "en": "Future projections",
+      "fr": "Future projections FR"
+    }
+  },
+  "hideshow": {
+    "en": "You can hide or show the cases by clicking the legend below.",
+    "fr": "You can hide or show the cases by clicking the legend below. FR"
+  },
+  "age": {
+    "en": "Age",
+    "fr": "Age FR"
+  }
+}

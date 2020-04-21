@@ -1,0 +1,17 @@
+.ontario-dropdown {
+  background-color: #FFFFFF;
+  background-image: url("../icons/ontario-material-dropdown-arrow-48px.svg");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  padding-right: calc(1rem*2.25);
+}
+
+/* These styles are to fix differences in default styling for dropdowns in IE */
+.ontario-dropdown::-ms-expand {
+  display: none;
+}
+
+.ontario-dropdown option {
+  font-weight: normal;
+}
