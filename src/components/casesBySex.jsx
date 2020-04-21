@@ -172,8 +172,8 @@ class SexBreak extends Component {
             trans.casesBySex.male[this.props.lang],
             trans.casesBySex.female[this.props.lang],
             trans.casesBySex.trans[this.props.lang],
-            trans.casesBySex.unknown[this.props.lang],
             trans.casesBySex.other[this.props.lang],
+            trans.casesBySex.unknown[this.props.lang],
           ],
           labels: {
             ...lgXaxisLabels,
