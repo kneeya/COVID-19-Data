@@ -122,7 +122,7 @@ a {
   /* flex-basis: 13%; */
 }
 
-.ontario-flex--justify-content {
+.ontario-data-viz-flex--justify-content {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -131,7 +131,7 @@ a {
   align-items: center;
 }
 
-.ontario-flex {
+.ontario-data-viz-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,4 +246,10 @@ a .link {
   .ontario-hide-for-small-only {
     display: none !important;
   }
+}
+
+/* Fix for legands with Drupal */
+.apexcharts-legend.position-top{
+  height: auto !important;
+  transform: initial !important;
 }
