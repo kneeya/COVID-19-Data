@@ -96,32 +96,32 @@ class StackedTable extends React.Component {
     var transG = 0;
     var other = 0;
     var data = cData
-      .filter((item) => {
-        if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-          unknown =
-            unknown +
-            item[dict.resolved] +
-            item[dict.NotResolved] +
-            item[dict.deaths];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-          transG =
-            transG +
-            item[dict.resolved] +
-            item[dict.NotResolved] +
-            item[dict.deaths];
-          return false;
-        } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-          other =
-            other +
-            item[dict.resolved] +
-            item[dict.NotResolved] +
-            item[dict.deaths];
-          return false;
-        } else {
-          return true;
-        }
-      })
+      // .filter((item) => {
+      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+      //     unknown =
+      //       unknown +
+      //       item[dict.resolved] +
+      //       item[dict.NotResolved] +
+      //       item[dict.deaths];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
+      //     transG =
+      //       transG +
+      //       item[dict.resolved] +
+      //       item[dict.NotResolved] +
+      //       item[dict.deaths];
+      //     return false;
+      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
+      //     other =
+      //       other +
+      //       item[dict.resolved] +
+      //       item[dict.NotResolved] +
+      //       item[dict.deaths];
+      //     return false;
+      //   } else {
+      //     return true;
+      //   }
+      // })
       .map((item, z) => {
         return {
           ...item,
@@ -175,12 +175,12 @@ class StackedTable extends React.Component {
     return (
       <React.Fragment>
         <Table columns={columns} dataSource={data} pagination={false} />
-        <p>
+        {/* <p>
           {trans.casesByAge.noteA[this.props.lang]} {transG}
           {trans.casesBySex.noteTran[this.props.lang]}
           {other} {trans.casesBySex.noteOth[this.props.lang]}
           {unknown} {trans.casesBySex.noteUnk[this.props.lang]}
-        </p>
+        </p> */}
       </React.Fragment>
     );
   }
