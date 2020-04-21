@@ -132,8 +132,8 @@ class App extends Component {
                   {trans.otp.title[lang]}
                 </h2>
               </div>
-              <div class="row">
-                <div class="column">
+              <div class="ontario-row">
+                <div class="ontario-columns ontario-small-12 ontario-medium-4">
                   <a style={{ textDecoration: "none" }} href="#CasesTotal">
                     {trans.casesTotal.title[lang]}
                   </a>
@@ -159,7 +159,7 @@ class App extends Component {
                   </a>
                   <br />​
                 </div>
-                <div class="column">
+                <div class="ontario-columns ontario-small-12 ontario-medium-4">
                   <a style={{ textDecoration: "none" }} href="#CasesByAge">
                     {trans.casesByAge.title[lang]}
                   </a>
@@ -168,6 +168,8 @@ class App extends Component {
                     {trans.casesBySex.title[lang]}
                   </a>
                   <br />
+                </div>
+                <div class="ontario-columns ontario-small-12 ontario-medium-4">
                   <a style={{ textDecoration: "none" }} href="#future">
                     {trans.future.title[lang]}
                   </a>
