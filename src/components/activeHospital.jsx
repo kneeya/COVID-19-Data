@@ -120,7 +120,6 @@ class Hospital extends Component {
   render() {
     return (
       <div id="stacked" className="chart">
-        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

@@ -191,7 +191,6 @@ class RegBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
-        <p>{trans.reg.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}
