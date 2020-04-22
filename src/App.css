@@ -5,10 +5,6 @@
   margin: auto;
 }
 
-#ontario-covid-viz a {
-  text-decoration: underline !important;
-}
-
 #ontario-covid-viz .apexcharts-svg {
   overflow: initial !important;
 }
