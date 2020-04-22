@@ -21,7 +21,7 @@ stages:
         - c19data
     script:
         ## Sync only the static build folder to the S3 bucket
-        - aws s3 sync ./build s3://${S3_DEPLOY_BUCKET}/${CI_PROJECT_NAME}/ --delete
+        - aws s3 sync ./build s3://${S3_DEPLOY_BUCKET}/${CI_PROJECT_NAME}/ 
 
 build:stage:
     <<: *app_job_definition
