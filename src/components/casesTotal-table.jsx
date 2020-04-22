@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { Table, Input, Button } from "antd";
+import 'antd/lib/table/style/index.css';
+import 'antd/lib/pagination/style/index.css';
+import 'antd/lib/select/style/index.css';
+import 'antd/lib/select/utils/iconUtil';
+
 import Highlighter from "react-highlight-words";
 import { ReactComponent as Search } from "../ds/icons/svg/ontario-icon-search.svg";
 import covidData from "../covidData.json";

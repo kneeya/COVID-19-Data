@@ -22,10 +22,10 @@
     "url-parse": "^1.4.7"
   },
   "scripts": {
-    "start": "node fetchData.js && react-app-rewired start",
-    "build": "node fetchData.js && react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "start": "node fetchData.js && react-scripts start",
+    "build": "node fetchData.js && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
