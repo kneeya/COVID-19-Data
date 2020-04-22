@@ -126,7 +126,6 @@ class App extends Component {
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
         {this.state.loaded ? (
           <React.Fragment>
-            <div className="ontario-row">
               <p>
                 Last updated:{" "}
                 {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString();`}
@@ -388,7 +387,6 @@ class App extends Component {
                 </div>
               </div>
               ​
-            </div>
           </React.Fragment>
         ) : (
           <React.Fragment>
