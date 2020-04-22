@@ -136,9 +136,7 @@ class App extends Component {
                 <Overview lang={this.state.lang} />
               </div>
               <div>
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  {trans.otp.title[lang]}
-                </h2>
+                <h2>{trans.otp.title[lang]}</h2>
               </div>
               <div class="arow">
                 <a class="acol" href="#casestatus">
