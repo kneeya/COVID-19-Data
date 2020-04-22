@@ -1,11 +1,9 @@
-
-#ontario-covid-viz{
+#ontario-covid-viz {
   max-width: 72rem;
   scroll-behavior: smooth;
   overflow-x: hidden;
   margin: auto;
 }
-
 
 #ontario-covid-viz a {
   text-decoration: underline !important;
@@ -148,7 +146,7 @@
 }
 
 #ontario-covid-viz .hrule-special {
-  margin-top: 10px;
+  margin-top: 40px;
   border: 1px solid #d8d8d8;
   width: 100%;
 }
@@ -181,12 +179,19 @@
   padding-left: 0;
 }
 
-/* .arow {
+.arow {
   display: flex;
   flex-wrap: wrap;
 }
 
-.acol {
+@media only screen and (max-width: 640px) {
+  .arow a {
+    padding: 0.5rem;
+    padding-left: 0;
+  }
+}
+
+/* .acol {
   flex: 1 0 18%;
   margin: 0.2rem;
   height: 50px;
@@ -196,7 +201,7 @@
   justify-content: left;
 } */
 
-.margins {
+*/ .margins {
   padding-top: 1.2rem;
 }
 

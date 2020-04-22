@@ -133,7 +133,6 @@ class App extends Component {
                 .
               </p>
               <div id="overview" className="item">
-                <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
               </div>
               <div>
@@ -167,13 +166,9 @@ class App extends Component {
                 </a>
               </div>
             </div>
-
             <hr class="hrule-a" />​
             <div className="ontario-row">
-              <h2
-                id="casestatus"
-                className="ontario-columns ontario-small-12"
-              >
+              <h2 id="casestatus" className="ontario-columns ontario-small-12">
                 {trans.otp.casestatus[lang]}
               </h2>
               <div
@@ -212,7 +207,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="DeathsTotal"
@@ -246,7 +240,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="InICU"
@@ -391,7 +384,7 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            ​
+            <hr class="hrule" />​ ​
           </React.Fragment>
         ) : (
           <React.Fragment>
