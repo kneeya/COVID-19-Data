@@ -126,13 +126,13 @@ class App extends Component {
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
         {this.state.loaded ? (
           <React.Fragment>
-            <div className="ontario-row">
+            <div>
               <p>
                 Last updated:{" "}
                 {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString();`}
                 .
               </p>
-              <div id="overview" className="item item-2">
+              <div id="overview" className="item">
                 <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
               </div>
@@ -172,13 +172,13 @@ class App extends Component {
             <div className="ontario-row">
               <h2
                 id="casestatus"
-                className="item item-2 ontario-columns ontario-small-12"
+                className="ontario-columns ontario-small-12"
               >
                 {trans.otp.casestatus[lang]}
               </h2>
               <div
                 id="CasesTotal"
-                className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <p>
                   {trans.learn.a[lang]}
@@ -199,7 +199,7 @@ class App extends Component {
 
               <div
                 id="CasesDaily"
-                className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.casesDaily.title[lang]}</h3>
                 <p>{trans.casesDaily.desc[lang]}</p>
@@ -216,7 +216,7 @@ class App extends Component {
             <div className="ontario-row">
               <div
                 id="DeathsTotal"
-                className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.deathsTotal.title[lang]}</h3>
                 <p>{trans.deathsTotal.desc[lang]}</p>
@@ -232,7 +232,7 @@ class App extends Component {
 
               <div
                 id="DeathsDaily"
-                className="item item-2 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.deathsDaily.title[lang]}</h3>
                 <p>{trans.deathsDaily.desc[lang]}</p>
@@ -250,7 +250,7 @@ class App extends Component {
             <div className="ontario-row">
               <div
                 id="InICU"
-                className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <ItemWrapper
                   title={trans.hospital.active[lang]}
@@ -265,7 +265,7 @@ class App extends Component {
               </div>
               <div
                 id="Hospital"
-                className="item item-6 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <ItemWrapper
                   title={trans.hospital.title[lang]}
@@ -280,7 +280,7 @@ class App extends Component {
               </div>
             </div>
             <hr class="hrule" />​
-            <div id="regbreak" className="ontario-row item item-6">
+            <div id="regbreak" className="ontario-row item">
               <h2
                 id="demo"
                 className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
@@ -318,7 +318,7 @@ class App extends Component {
             <div className="ontario-row">
               <div
                 id="CasesByAge"
-                className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
                 title={trans.casesByAge.title[lang]}
               >
                 <h3 className="margins">{trans.casesByAge.title[lang]}</h3>
@@ -333,7 +333,7 @@ class App extends Component {
               </div>
               <div
                 id="CasesBySex"
-                className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.casesBySex.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
@@ -358,7 +358,7 @@ class App extends Component {
             <div className="ontario-row">
               <div
                 id="TotalTests"
-                className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <p>
                   {trans.learn.a[lang]}
@@ -378,7 +378,7 @@ class App extends Component {
               </div>
               <div
                 id="TotalTestsDaily"
-                className="item item-7 ontario-columns ontario-small-12 ontario-medium-6"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.testing.titleB[lang]}</h3>
                 <p>{trans.testing.descB[lang]}</p>
