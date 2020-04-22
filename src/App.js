@@ -280,7 +280,7 @@ class App extends Component {
               </div>
             </div>
             <hr class="hrule" />​
-            <div id="regbreak" className="ontario-row item">
+            <div id="regbreak">
               <h2
                 id="demo"
                 className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
@@ -347,7 +347,7 @@ class App extends Component {
               </div>
             </div>
             <hr class="hrule" />
-            <div className="ontario-row">
+            <div>
               <h2
                 id="testing"
                 className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
