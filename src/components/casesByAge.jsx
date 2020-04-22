@@ -95,7 +95,15 @@ class AgeBreak extends Component {
       ],
       options: {
         legend: legend,
-        tooltip: tooltip,
+        tooltip: {
+          followCursor: true,
+          style: { ...labelStyle },
+          x: {
+            formatter: function (series) {
+              return "Age " + series;
+            },
+          },
+        },
         responsive: responsiveFun().map((item) => {
           item.options.chart.height = "350px";
           return item;
