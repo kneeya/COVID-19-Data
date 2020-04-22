@@ -99,8 +99,14 @@ class AgeBreak extends Component {
           followCursor: true,
           style: { ...labelStyle },
           x: {
-            formatter: function (series) {
-              return "Age " + series;
+            formatter: function (val, { series, seriesIndex, dataPointIndex }) {
+              if (dataPointIndex === 0) {
+                return "Age under 20";
+              }
+              if (dataPointIndex === 9) {
+                return "Age unknown";
+              }
+              return "Age " + val;
             },
           },
         },
