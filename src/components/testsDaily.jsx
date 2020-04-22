@@ -31,7 +31,7 @@ class TestingYday extends Component {
 
   setData() {
     const datz = [...covidData.result.records].filter(
-      (item) => item[dict.patientsApprovedTestingasofDate]
+      (item) => item[dict.totalTestsCompletedinthelastday]
     );
 
     var dailydata = datz

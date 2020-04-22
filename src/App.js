@@ -194,7 +194,6 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
               <div
                 id="CasesDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
@@ -227,7 +226,6 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
               <div
                 id="DeathsDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
@@ -376,7 +374,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            ​
           </React.Fragment>
         ) : (
           <React.Fragment>
