@@ -32,7 +32,7 @@ class Testing extends Component {
 
   setData() {
     const datz = [...covidData.result.records].filter(
-      (item) => item[dict.patientsApprovedTestingasofDate]
+      (item) => item[dict.totalTestsCompletedinthelastday]
     );
 
     var totalTested = datz.map((item) => {

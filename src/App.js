@@ -1,5 +1,6 @@
 import React, { Component, useRef } from "react";
 import preval from "preval.macro";
+import moment from "moment";
 import "./ds.scss";
 import "./App.css";
 import Loading from "./components/loading/loading";
@@ -107,9 +108,9 @@ class App extends Component {
       //console.log('props',executeScroll)
       return (
         <div ref={myRef}>
-          <h3 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+          {/* <h3 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
             {props.title}
-          </h3>
+          </h3> */}
           {props.accessToggle && <Accessible executeScroll={executeScroll} />}
           {props.children}
         </div>
@@ -118,9 +119,8 @@ class App extends Component {
 
     const lang = this.state.lang,
       accessible = this.state.accessible;
-
-    // console.log('accessible', accessible, this.testRef)
-
+    const buildTime = preval`process.env.TZ = 'America/Toronto'; module.exports = new Date();`;
+    console.log("buildTime", buildTime);
     return (
       <div id="ontario-covid-viz">
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
@@ -129,8 +129,8 @@ class App extends Component {
             <div>
               <p>
                 Last updated:{" "}
-                {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString();`}
-                .
+                {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at
+                10:30 a.m./p.m.
               </p>
               <div id="overview" className="item">
                 <Overview lang={this.state.lang} />
@@ -163,16 +163,18 @@ class App extends Component {
               <h2 id="casestatus" className="ontario-columns ontario-small-12">
                 {trans.otp.casestatus[lang]}
               </h2>
-              <div
-                id="CasesTotal"
-                className="ontario-columns ontario-small-12 ontario-medium-6"
-              >
+              <div className="ontario-columns ontario-small-12">
                 <p>
                   {trans.learn.a[lang]}
                   <a href="#">{trans.learn.b[lang]}</a>
                   {trans.learn.c[lang]}
                   <a href="#">{trans.learn.d[lang]}</a>
                 </p>
+              </div>
+              <div
+                id="CasesTotal"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
+              >
                 <h3 className="margins">{trans.casesTotal.title[lang]}</h3>
                 <p>{trans.casesTotal.desc[lang]}</p>
                 <ItemWrapper accessToggle={true}>
@@ -183,7 +185,6 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
               <div
                 id="CasesDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
@@ -215,7 +216,6 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
               <div
                 id="DeathsDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
@@ -237,10 +237,8 @@ class App extends Component {
                 id="InICU"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <ItemWrapper
-                  title={trans.hospital.active[lang]}
-                  accessToggle={true}
-                >
+                <h3 className="margins">{trans.hospital.active[lang]}</h3>
+                <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <ActiveHospitalTable lang={this.state.lang} />
                   ) : (
@@ -252,10 +250,8 @@ class App extends Component {
                 id="Hospital"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <ItemWrapper
-                  title={trans.hospital.title[lang]}
-                  accessToggle={true}
-                >
+                <h3 className="margins">{trans.hospital.title[lang]}</h3>
+                <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
@@ -266,19 +262,13 @@ class App extends Component {
             </div>
             <hr class="hrule" />​
             <div id="regbreak">
-              <h2
-                id="demo"
-                className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
-              >
-                {trans.otp.demo[lang]}
-              </h2>
+              <h2 id="demo">{trans.otp.demo[lang]}</h2>
               <p>
                 {trans.learn.a[lang]}
                 <a href="#">{trans.learn.b[lang]}</a>
                 {trans.learn.c[lang]}
                 <a href="#">{trans.learn.d[lang]}</a>
               </p>
-              {/* show only on phones */}
               <div className="ontario-show-for-small-only">
                 <h3 className="margins">{trans.reg.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
@@ -286,7 +276,6 @@ class App extends Component {
                   <RegBreakTable lang={this.state.lang} />
                 </ItemWrapper>
               </div>
-              ​{/* show only on all else */}
               <div className="ontario-hide-for-small-only">
                 <h3 className="margins">{trans.reg.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
@@ -332,25 +321,23 @@ class App extends Component {
               </div>
             </div>
             <hr class="hrule" />
-            <div>
-              <h2
-                id="testing"
-                className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
-              >
+            <div className="ontario-row">
+              <h2 id="testing" className="ontario-columns ontario-small-12">
                 {trans.otp.testing[lang]}
               </h2>
-            </div>
-            <div className="ontario-row">
-              <div
-                id="TotalTests"
-                className="ontario-columns ontario-small-12 ontario-medium-6"
-              >
+
+              <div className="ontario-columns ontario-small-12">
                 <p>
                   {trans.learn.a[lang]}
                   <a href="#">{trans.learn.b[lang]}</a>
                   {trans.learn.c[lang]}
                   <a href="#">{trans.learn.d[lang]}</a>
                 </p>
+              </div>
+              <div
+                id="TotalTests"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
+              >
                 <h3 className="margins">{trans.testing.titleA[lang]}</h3>
                 <p>{trans.testing.descA[lang]}</p>
                 <ItemWrapper accessToggle={true}>

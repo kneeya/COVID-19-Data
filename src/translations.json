@@ -135,8 +135,8 @@
       "fr": "Deaths FR"
     },
     "yaxis": {
-      "en": "Number of cases",
-      "fr": "Number of cases FR"
+      "en": "Number of tests",
+      "fr": "Number of tests FR"
     }
   },
   "casesDaily": {
