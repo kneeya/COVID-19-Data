@@ -88,7 +88,7 @@ try {
     })
     .catch(function (error) {
       // handle error
-      //console.log(error);
+      console.log(error);
       throw Error("FAILED TO FETCH DATA!!", error);
     });
 
@@ -181,8 +181,11 @@ try {
         index = 2;
       } else if (item[dict.CLIENT_GENDER] === "OTHER") {
         index = 3;
-      } else if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
+      } else if (item[dict.CLIENT_GENDER] === "UNKNOWN" || item[dict.CLIENT_GENDER] === "" || item[dict.CLIENT_GENDER] === "(blank)") {
         index = 4;
+      }else{
+        //testing
+        //console.log('item[dict.CLIENT_GENDER]', item[dict.CLIENT_GENDER])
       }
 
       if (outcome === dict.NotResolved) {
