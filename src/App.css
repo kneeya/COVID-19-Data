@@ -101,14 +101,13 @@ body {
 
 /* end of from ontario covid website*/
 
-
 #ontario-covid-viz a .link {
   text-decoration: none;
 }
 
 @media only screen and (min-width: 1163px) {
   #ontario-covid-viz .hrule {
-    margin-top: 45px;
+    margin-top: 2rem;
     border: 1px solid #d8d8d8;
   }
 }
@@ -175,8 +174,32 @@ body {
   }
 }
 
+.arow a {
+  padding: 1.5rem;
+  padding-left: 0;
+}
+
+/* .arow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.acol {
+  flex: 1 0 18%;
+  margin: 0.2rem;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+} */
+
+.margins {
+  padding-top: 1.2rem;
+}
+
 /* Fix for legands with Drupal */
-.apexcharts-legend.position-top{
+.apexcharts-legend.position-top {
   height: auto !important;
   transform: initial !important;
 }

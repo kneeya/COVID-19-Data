@@ -162,6 +162,11 @@ class Overview extends Component {
               </li>
             </ul>
             <p>{trans.overview.bottom[this.props.lang]}</p>
+            <a href="https://data.ontario.ca/dataset?keywords_en=COVID-19">
+              {trans.catalogue[this.props.lang]}
+            </a>
+            <br />
+            <a href="#">{trans.summaries[this.props.lang]}</a>
             <hr class="hrule-special"></hr>
           </div>
         ) : (

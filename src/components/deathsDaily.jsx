@@ -118,7 +118,6 @@ class CasesDaily extends Component {
   render() {
     return (
       <div id="casesTotal" className="chart">
-        <p>{trans.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

@@ -118,7 +118,7 @@ class StackedTable extends React.Component {
 
     const columns = [
       {
-        title: trans.reg.title[this.props.lang],
+        title: trans.reg.titletable[this.props.lang],
         dataIndex: dict.Reporting_PHU,
         key: dict.Reporting_PHU,
         width: "40%",
