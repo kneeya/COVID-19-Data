@@ -119,29 +119,6 @@ class App extends Component {
     const lang = this.state.lang,
       accessible = this.state.accessible;
 
-    // console.log('accessible', accessible, this.testRef)
-
-    function mddyyyy_to_mmmdyyyy() {
-      var d = new Date();
-      var month = new Array();
-      month[0] = "January";
-      month[1] = "February";
-      month[2] = "March";
-      month[3] = "April";
-      month[4] = "May";
-      month[5] = "June";
-      month[6] = "July";
-      month[7] = "August";
-      month[8] = "September";
-      month[9] = "October";
-      month[10] = "November";
-      month[11] = "December";
-      var n = month[d.getMonth()];
-      return n;
-    }
-
-    console.log('mddyyyy_to_mmmdyyyy', mddyyyy_to_mmmdyyyy())
-
     return (
       <div id="ontario-covid-viz">
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
