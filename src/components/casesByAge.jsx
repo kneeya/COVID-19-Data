@@ -186,7 +186,6 @@ class AgeBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
-        <p>{trans.reg.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <React.Fragment>
             <ReactApexChart
