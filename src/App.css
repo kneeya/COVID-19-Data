@@ -1,5 +1,4 @@
-
-#ontario-covid-viz{
+#ontario-covid-viz {
   max-width: 72rem;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -27,6 +26,7 @@
   font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .ontario-infographic-subtext {

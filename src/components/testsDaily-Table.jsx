@@ -94,7 +94,7 @@ class StackedTable extends React.Component {
 
   render() {
     let d = [...covidData.result.records].filter(
-      (item) => item[dict.patientsApprovedTestingasofDate]
+      (item) => item[dict.totalTestsCompletedinthelastday]
     );
     let tableData = d.map((item, z) => {
       //console.log('item', item, item[`${dict.patientHospitalizedCOVID19}`])
