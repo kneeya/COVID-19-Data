@@ -187,8 +187,16 @@
 
 @media only screen and (max-width: 640px) {
   .arow a {
-    padding: 0.5rem;
+    padding: 0.2rem;
     padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .arow {
+    display: flex;
+    flex-direction: column;
+    padding: 0.1rem;
   }
 }
 
