@@ -1,5 +1,6 @@
 import React, { Component, useRef } from "react";
 import preval from "preval.macro";
+import moment from "moment";
 import "./ds.scss";
 import "./App.css";
 import Loading from "./components/loading/loading";
@@ -118,7 +119,8 @@ class App extends Component {
 
     const lang = this.state.lang,
       accessible = this.state.accessible;
-
+      const buildTime = preval`process.env.TZ = 'America/Toronto'; module.exports = new Date();`;
+    console.log('buildTime', buildTime)
     return (
       <div id="ontario-covid-viz">
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
@@ -126,9 +128,7 @@ class App extends Component {
           <React.Fragment>
             <div>
               <p>
-                Last updated:{" "}
-                {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString("en-CA");`}
-                .
+                Last updated: {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at 10:30 a.m./p.m.
               </p>
               <div id="overview" className="item">
                 <h2>{trans.overview.title[lang]}</h2>
