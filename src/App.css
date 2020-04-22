@@ -1,9 +1,11 @@
-html,
-body {
+
+#ontario-covid-viz{
+  max-width: 72rem;
   scroll-behavior: smooth;
-  max-width: 100%;
   overflow-x: hidden;
+  margin: auto;
 }
+
 
 #ontario-covid-viz a {
   text-decoration: underline !important;
