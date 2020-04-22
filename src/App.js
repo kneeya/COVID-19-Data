@@ -107,9 +107,9 @@ class App extends Component {
       //console.log('props',executeScroll)
       return (
         <div ref={myRef}>
-          <h3 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+          {/* <h3 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
             {props.title}
-          </h3>
+          </h3> */}
           {props.accessToggle && <Accessible executeScroll={executeScroll} />}
           {props.children}
         </div>
@@ -250,10 +250,8 @@ class App extends Component {
                 id="InICU"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <ItemWrapper
-                  title={trans.hospital.active[lang]}
-                  accessToggle={true}
-                >
+                <h3 className="margins">{trans.hospital.active[lang]}</h3>
+                <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <ActiveHospitalTable lang={this.state.lang} />
                   ) : (
@@ -265,10 +263,8 @@ class App extends Component {
                 id="Hospital"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <ItemWrapper
-                  title={trans.hospital.title[lang]}
-                  accessToggle={true}
-                >
+                <h3 className="margins">{trans.hospital.title[lang]}</h3>
+                <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
