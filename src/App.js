@@ -288,7 +288,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="CasesByAge"
