@@ -385,6 +385,10 @@
       "en": "This data is not cumulative – each bar/number shows how many new tests were reported on a single day.",
       "fr": "This data is not cumulative – each bar/number shows how many new tests were reported on a single day. FR"
     },
+    "descC": {
+      "en": "These graphs/tables start at April 15, which is when we started reporting by number of tests, rather than number of people tested.",
+      "fr": "These graphs/tables start at April 15, which is when we started reporting by number of tests, rather than number of people tested. FR"
+    },
 
     "underInvestigation": {
       "en": "Currently under investigation",
@@ -423,8 +427,8 @@
       "fr": " and FR"
     },
     "d": {
-      "en": "what the terms in the data mean",
-      "fr": "what the terms in the data mean FR"
+      "en": "what the terms in the data mean.",
+      "fr": "what the terms in the data mean. FR"
     }
   },
   "date": {

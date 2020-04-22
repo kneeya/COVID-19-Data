@@ -130,7 +130,7 @@ class App extends Component {
               <p>
                 Last updated:{" "}
                 {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at
-                10:30 a.m./p.m.
+                10:30 a.m.
               </p>
               <div id="overview" className="item">
                 <Overview lang={this.state.lang} />
@@ -327,6 +327,7 @@ class App extends Component {
               </h2>
 
               <div className="ontario-columns ontario-small-12">
+                <p>{trans.testing.descC[lang]}</p>
                 <p>
                   {trans.learn.a[lang]}
                   <a href="#">{trans.learn.b[lang]}</a>
