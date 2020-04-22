@@ -107,9 +107,9 @@ class App extends Component {
       //console.log('props',executeScroll)
       return (
         <div ref={myRef}>
-          <h3 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
+          {/* <h3 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
             {props.title}
-          </h3>
+          </h3> */}
           {props.accessToggle && <Accessible executeScroll={executeScroll} />}
           {props.children}
         </div>
@@ -165,25 +165,23 @@ class App extends Component {
                 </a>
               </div>
             </div>
-
             <hr class="hrule-a" />​
             <div className="ontario-row">
-              <h2
-                id="casestatus"
-                className="ontario-columns ontario-small-12"
-              >
+              <h2 id="casestatus" className="ontario-columns ontario-small-12">
                 {trans.otp.casestatus[lang]}
               </h2>
-              <div
-                id="CasesTotal"
-                className="ontario-columns ontario-small-12 ontario-medium-6"
-              >
+              <div className="ontario-columns ontario-small-12">
                 <p>
                   {trans.learn.a[lang]}
                   <a href="#">{trans.learn.b[lang]}</a>
                   {trans.learn.c[lang]}
                   <a href="#">{trans.learn.d[lang]}</a>
                 </p>
+              </div>
+              <div
+                id="CasesTotal"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
+              >
                 <h3 className="margins">{trans.casesTotal.title[lang]}</h3>
                 <p>{trans.casesTotal.desc[lang]}</p>
                 <ItemWrapper accessToggle={true}>
@@ -194,7 +192,6 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
               <div
                 id="CasesDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
@@ -227,7 +224,6 @@ class App extends Component {
                   )}
                 </ItemWrapper>
               </div>
-
               <div
                 id="DeathsDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
@@ -250,10 +246,8 @@ class App extends Component {
                 id="InICU"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <ItemWrapper
-                  title={trans.hospital.active[lang]}
-                  accessToggle={true}
-                >
+                <h3 className="margins">{trans.hospital.active[lang]}</h3>
+                <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <ActiveHospitalTable lang={this.state.lang} />
                   ) : (
@@ -265,10 +259,8 @@ class App extends Component {
                 id="Hospital"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <ItemWrapper
-                  title={trans.hospital.title[lang]}
-                  accessToggle={true}
-                >
+                <h3 className="margins">{trans.hospital.title[lang]}</h3>
+                <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
                   ) : (
@@ -279,19 +271,13 @@ class App extends Component {
             </div>
             <hr class="hrule" />​
             <div id="regbreak">
-              <h2
-                id="demo"
-                className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
-              >
-                {trans.otp.demo[lang]}
-              </h2>
+              <h2 id="demo">{trans.otp.demo[lang]}</h2>
               <p>
                 {trans.learn.a[lang]}
                 <a href="#">{trans.learn.b[lang]}</a>
                 {trans.learn.c[lang]}
                 <a href="#">{trans.learn.d[lang]}</a>
               </p>
-              {/* show only on phones */}
               <div className="ontario-show-for-small-only">
                 <h3 className="margins">{trans.reg.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
@@ -299,7 +285,6 @@ class App extends Component {
                   <RegBreakTable lang={this.state.lang} />
                 </ItemWrapper>
               </div>
-              ​{/* show only on all else */}
               <div className="ontario-hide-for-small-only">
                 <h3 className="margins">{trans.reg.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
@@ -345,25 +330,23 @@ class App extends Component {
               </div>
             </div>
             <hr class="hrule" />
-            <div>
-              <h2
-                id="testing"
-                className="ontario-margin-bottom-32-! ontario-margin-top-32-!"
-              >
+            <div className="ontario-row">
+              <h2 id="testing" className="ontario-columns ontario-small-12">
                 {trans.otp.testing[lang]}
               </h2>
-            </div>
-            <div className="ontario-row">
-              <div
-                id="TotalTests"
-                className="ontario-columns ontario-small-12 ontario-medium-6"
-              >
+
+              <div className="ontario-columns ontario-small-12">
                 <p>
                   {trans.learn.a[lang]}
                   <a href="#">{trans.learn.b[lang]}</a>
                   {trans.learn.c[lang]}
                   <a href="#">{trans.learn.d[lang]}</a>
                 </p>
+              </div>
+              <div
+                id="TotalTests"
+                className="ontario-columns ontario-small-12 ontario-medium-6"
+              >
                 <h3 className="margins">{trans.testing.titleA[lang]}</h3>
                 <p>{trans.testing.descA[lang]}</p>
                 <ItemWrapper accessToggle={true}>
@@ -389,7 +372,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            ​
           </React.Fragment>
         ) : (
           <React.Fragment>
