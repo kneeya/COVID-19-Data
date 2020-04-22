@@ -119,8 +119,6 @@ class App extends Component {
     const lang = this.state.lang,
       accessible = this.state.accessible;
 
-    // console.log('accessible', accessible, this.testRef)
-
     return (
       <div id="ontario-covid-viz">
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
@@ -129,7 +127,7 @@ class App extends Component {
             <div>
               <p>
                 Last updated:{" "}
-                {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString();`}
+                {preval`process.env.TZ = 'America/Toronto'; module.exports = new Date().toLocaleString("en-CA");`}
                 .
               </p>
               <div id="overview" className="item">
