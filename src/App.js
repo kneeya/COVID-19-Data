@@ -142,25 +142,25 @@ class App extends Component {
               <div class="arow">
                 <a
                   class="acol"
-                  style={{ textDecoration: "none" }}
+                  
                   href="#casestatus"
                 >
                   {trans.otp.casestatus[lang]}{" "}
                 </a>
-                <a class="acol" style={{ textDecoration: "none" }} href="#demo">
+                <a class="acol"  href="#demo">
                   {trans.otp.demo[lang]}{" "}
                 </a>
                 <a
                   class="acol"
-                  style={{ textDecoration: "none" }}
+                  
                   href="#testing"
                 >
                   {trans.otp.testing[lang]}{" "}
                 </a>
-                <a class="acol" style={{ textDecoration: "none" }} href="#">
+                <a class="acol"  href="#">
                   {trans.otp.future[lang]}{" "}
                 </a>
-                <a class="acol" style={{ textDecoration: "none" }} href="#">
+                <a class="acol"  href="#">
                   {trans.otp.understand[lang]}{" "}
                 </a>
               </div>
