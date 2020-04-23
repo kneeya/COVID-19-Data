@@ -124,7 +124,7 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('address'),
       },
       {
-        title: trans.hospital.hospitalized[this.props.lang],
+        title: trans.hospital.hospitalicu[this.props.lang],
         dataIndex: "hospital",
         key: "hospital",
         //...this.getColumnSearchProps('address'),
