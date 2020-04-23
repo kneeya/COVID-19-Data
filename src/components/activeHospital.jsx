@@ -8,7 +8,6 @@ import {
   responsiveFun,
   stroke,
   lineXaxis,
-  markers,
 } from "./options";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
@@ -46,22 +45,22 @@ class Hospital extends Component {
     this.setState({
       series: [
         {
-          name: trans.hospital.hospitalized[this.props.lang],
-          data: hospital,
-        },
-        {
           name: trans.stacked.positive[this.props.lang],
           data: active,
+        },
+        {
+          name: trans.hospital.hospitalized[this.props.lang],
+          data: hospital,
         },
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#CCC", "#00B2E3"],
+        colors: ["#00B2E3", "#CCC"],
         legend: legend,
         stroke: stroke,
         markers: {
           size: 3,
-          colors: ["#4d4d4d", "#00b2e3"],
+          colors: ["#00b2e3", "#4d4d4d"],
           strokeColors: "#fff",
           strokeWidth: 1,
           hover: {
