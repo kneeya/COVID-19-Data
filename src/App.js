@@ -47,12 +47,11 @@ const currLang = () => {
   const url = Url(window.location.href, true);
   console.log("url", url);
   if (url.query.lang === "fr" || window.lang === "fr") {
-    return "fr"
+    return "fr";
   } else {
     return "en";
   }
 };
-
 
 class App extends Component {
   constructor(props) {
@@ -129,15 +128,15 @@ class App extends Component {
           <React.Fragment>
             <div>
               <p>
-                Last updated: {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at 10:30 a.m.
+                Last updated:{" "}
+                {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at
+                10:30 a.m.
               </p>
               <div id="overview" className="item">
                 <Overview lang={this.state.lang} />
               </div>
               <div>
-                <h2 className="ontario-margin-bottom-32-! ontario-margin-top-32-!">
-                  {trans.otp.title[lang]}
-                </h2>
+                <h2>{trans.otp.title[lang]}</h2>
               </div>
               <div class="arow">
                 <a class="acol" href="#casestatus">
@@ -157,7 +156,7 @@ class App extends Component {
                 </a>
               </div>
             </div>
-            <hr class="hrule-a" />​
+            <hr class="hrule" />
             <div className="ontario-row">
               <h2 id="casestatus" className="ontario-columns ontario-small-12">
                 {trans.otp.casestatus[lang]}
@@ -259,7 +258,7 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
+            <hr class="hrule" />
             <div id="regbreak">
               <h2 id="demo">{trans.otp.demo[lang]}</h2>
               <p>
@@ -362,7 +361,7 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​ ​
+            <hr class="hrule" />
           </React.Fragment>
         ) : (
           <React.Fragment>

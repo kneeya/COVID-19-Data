@@ -141,7 +141,7 @@ class SexBreak extends Component {
           },
         },
 
-        colors: ["#00B2E3", "#8dc63f", "#1a1a1a"],
+        colors: ["#00B2E3", "#8dc63f", "#4d4d4d"],
         plotOptions: {
           bar: {
             horizontal: true,
@@ -191,7 +191,6 @@ class SexBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
-        <p>{trans.reg.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <React.Fragment>
             <ReactApexChart

@@ -23,20 +23,24 @@
       "fr": "Active FR"
     },
     "res": {
-      "en": "Resolved",
-      "fr": "Resolved FR"
+      "en": "Total resolved",
+      "fr": "Total resolved FR"
     },
     "deaths": {
-      "en": "Deaths",
-      "fr": "Deaths FR"
+      "en": "Total deaths",
+      "fr": "Total deaths FR"
     },
     "hos": {
-      "en": "Hospitalized",
-      "fr": "Hospitalized FR"
+      "en": "Currently in hospital",
+      "fr": "Currently in hospital FR"
     },
     "icu": {
-      "en": "In ICU",
-      "fr": "In ICU FR"
+      "en": "Currently in ICU",
+      "fr": "Currently in ICU FR"
+    },
+    "icuv": {
+      "en": "Currently in ICU with ventilator",
+      "fr": "Currently in ICU with ventilator ventilator FR"
     },
     "bottom": {
       "en": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours",
