@@ -46,12 +46,13 @@ var Url = require("url-parse");
 const currLang = () => {
   const url = Url(window.location.href, true);
   console.log("url", url);
-  if (url.query.lang === "fr") {
-    return url.query.lang;
+  if (url.query.lang === "fr" || window.lang === "fr") {
+    return "fr"
   } else {
     return "en";
   }
 };
+
 
 class App extends Component {
   constructor(props) {
@@ -128,9 +129,7 @@ class App extends Component {
           <React.Fragment>
             <div>
               <p>
-                Last updated:{" "}
-                {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at
-                10:30 a.m.
+                Last updated: {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at 10:30 a.m.
               </p>
               <div id="overview" className="item">
                 <Overview lang={this.state.lang} />
@@ -286,7 +285,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="CasesByAge"

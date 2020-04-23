@@ -95,7 +95,21 @@ class AgeBreak extends Component {
       ],
       options: {
         legend: legend,
-        tooltip: tooltip,
+        tooltip: {
+          followCursor: true,
+          style: { ...labelStyle },
+          x: {
+            formatter: function (val, { series, seriesIndex, dataPointIndex }) {
+              if (dataPointIndex === 0) {
+                return "Age under 20";
+              }
+              if (dataPointIndex === 9) {
+                return "Age unknown";
+              }
+              return "Age " + val;
+            },
+          },
+        },
         responsive: responsiveFun().map((item) => {
           item.options.chart.height = "350px";
           return item;

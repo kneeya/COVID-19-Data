@@ -126,7 +126,7 @@ class SexBreak extends Component {
         dataLabels: {
           enabled: true,
           textAnchor: "start",
-          offsetX: 35,
+          offsetX: 10,
           style: { ...labelStyle },
           formatter: function (value, { seriesIndex, dataPointIndex, w }) {
             let indices = w.config.series.map((item, i) => i);
@@ -191,6 +191,7 @@ class SexBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
+        <p>{trans.reg.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <React.Fragment>
             <ReactApexChart
