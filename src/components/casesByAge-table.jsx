@@ -111,7 +111,7 @@ class StackedTable extends React.Component {
         //console.log('item', item)
         switch (item[dict.Age_Group]) {
           case "<20":
-            item[dict.Age_Group] = "Under 20";
+            item[dict.Age_Group] = trans.casesByAge.under20[this.props.lang];
             break;
           case "20s":
             item[dict.Age_Group] = "20-29";
@@ -136,6 +136,9 @@ class StackedTable extends React.Component {
             break;
           case "90s":
             item[dict.Age_Group] = "90-99";
+            break;
+          case "Unknown":
+            item[dict.Age_Group] = trans.casesByAge.unk[this.props.lang];
             break;
         }
         return {

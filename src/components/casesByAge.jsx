@@ -183,7 +183,7 @@ class AgeBreak extends Component {
             "70-79",
             "80-89",
             "90-99",
-            "Unknown",
+            trans.casesByAge.unk[this.props.lang],
           ],
           labels: {
             ...lgXaxisLabels,

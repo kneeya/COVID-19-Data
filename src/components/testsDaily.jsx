@@ -78,7 +78,7 @@ class TestingYday extends Component {
         },
         yaxis: {
           title: {
-            text: trans.casesTotal.yaxis[this.props.lang],
+            text: trans.testing.yaxis[this.props.lang],
           },
           labels: {
             style: { ...labelStyle },

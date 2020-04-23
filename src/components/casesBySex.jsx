@@ -40,61 +40,16 @@ class SexBreak extends Component {
     var b = 0;
     var c = 0;
 
-    const reso = cD
-      // .filter((item) => {
-      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-      //     a = a + item[dict.resolved];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-      //     b = b + item[dict.resolved];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-      //     c = c + item[dict.resolved];
-      //     return false;
-      //   } else {
-      //     return true;
-      //   }
-      // })
-      .map((item) => {
-        return item[dict.resolved];
-      });
+    const reso = cD.map((item) => {
+      return item[dict.resolved];
+    });
 
-    const active = cD
-      // .filter((item) => {
-      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-      //     a = a + item[dict.NotResolved];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-      //     b = b + item[dict.NotResolved];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-      //     c = c + item[dict.NotResolved];
-      //     return false;
-      //   } else {
-      //     return true;
-      //   }
-      // })
-      .map((item) => {
-        return item[dict.NotResolved];
-      });
-    const fatal = cD
-      // .filter((item) => {
-      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-      //     a = a + item[dict.deaths];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-      //     b = b + item[dict.deaths];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-      //     c = c + item[dict.deaths];
-      //     return false;
-      //   } else {
-      //     return true;
-      //   }
-      // })
-      .map((item) => {
-        return item[dict.deaths];
-      });
+    const active = cD.map((item) => {
+      return item[dict.NotResolved];
+    });
+    const fatal = cD.map((item) => {
+      return item[dict.deaths];
+    });
 
     this.setState({
       series: [
@@ -199,12 +154,6 @@ class SexBreak extends Component {
               type="bar"
               height="250"
             />
-            {/* <p>
-              {trans.casesByAge.noteA[this.props.lang]} {this.state.trank}
-              {trans.casesBySex.noteTran[this.props.lang]}
-              {this.state.other} {trans.casesBySex.noteOth[this.props.lang]}
-              {this.state.unk} {trans.casesBySex.noteUnk[this.props.lang]}
-            </p> */}
           </React.Fragment>
         ) : (
           ""

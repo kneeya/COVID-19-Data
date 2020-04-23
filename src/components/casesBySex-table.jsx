@@ -95,67 +95,39 @@ class StackedTable extends React.Component {
     var unknown = 0;
     var transG = 0;
     var other = 0;
-    var data = cData
-      // .filter((item) => {
-      //   if (item[dict.CLIENT_GENDER] === "UNKNOWN") {
-      //     unknown =
-      //       unknown +
-      //       item[dict.resolved] +
-      //       item[dict.NotResolved] +
-      //       item[dict.deaths];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "TRANSGENDER") {
-      //     transG =
-      //       transG +
-      //       item[dict.resolved] +
-      //       item[dict.NotResolved] +
-      //       item[dict.deaths];
-      //     return false;
-      //   } else if (item[dict.CLIENT_GENDER] === "OTHER") {
-      //     other =
-      //       other +
-      //       item[dict.resolved] +
-      //       item[dict.NotResolved] +
-      //       item[dict.deaths];
-      //     return false;
-      //   } else {
-      //     return true;
-      //   }
-      // })
-      .map((item, z) => {
-        switch (item[dict.CLIENT_GENDER]) {
-          case "MALE":
-            item[dict.CLIENT_GENDER] = "Male";
-            break;
-          case "FEMALE":
-            item[dict.CLIENT_GENDER] = "Female";
-            break;
-          case "TRANSGENDER":
-            item[dict.CLIENT_GENDER] = "Transgender";
-            break;
-          case "OTHER":
-            item[dict.CLIENT_GENDER] = "Other";
-            break;
-          case "UNKNOWN":
-            item[dict.CLIENT_GENDER] = "Unknown";
-            break;
-        }
-        return {
-          ...item,
-          index: z,
-          [dict.resolved]:
-            item[dict.resolved] && item[dict.resolved].toLocaleString(),
-          [dict.NotResolved]:
-            item[dict.NotResolved] && item[dict.NotResolved].toLocaleString(),
-          [dict.deaths]:
-            item[dict.deaths] && item[dict.deaths].toLocaleString(),
-          total: (
-            item[dict.resolved] +
-            item[dict.NotResolved] +
-            item[dict.deaths]
-          ).toLocaleString(),
-        };
-      });
+    var data = cData.map((item, z) => {
+      switch (item[dict.CLIENT_GENDER]) {
+        case "MALE":
+          item[dict.CLIENT_GENDER] = trans.casesBySex.male[this.props.lang];
+          break;
+        case "FEMALE":
+          item[dict.CLIENT_GENDER] = trans.casesBySex.female[this.props.lang];
+          break;
+        case "TRANSGENDER":
+          item[dict.CLIENT_GENDER] = trans.casesBySex.trans[this.props.lang];
+          break;
+        case "OTHER":
+          item[dict.CLIENT_GENDER] = trans.casesBySex.other[this.props.lang];
+          break;
+        case "UNKNOWN":
+          item[dict.CLIENT_GENDER] = trans.casesBySex.unknown[this.props.lang];
+          break;
+      }
+      return {
+        ...item,
+        index: z,
+        [dict.resolved]:
+          item[dict.resolved] && item[dict.resolved].toLocaleString(),
+        [dict.NotResolved]:
+          item[dict.NotResolved] && item[dict.NotResolved].toLocaleString(),
+        [dict.deaths]: item[dict.deaths] && item[dict.deaths].toLocaleString(),
+        total: (
+          item[dict.resolved] +
+          item[dict.NotResolved] +
+          item[dict.deaths]
+        ).toLocaleString(),
+      };
+    });
 
     const columns = [
       {
@@ -193,12 +165,6 @@ class StackedTable extends React.Component {
     return (
       <React.Fragment>
         <Table columns={columns} dataSource={data} pagination={false} />
-        {/* <p>
-          {trans.casesByAge.noteA[this.props.lang]} {transG}
-          {trans.casesBySex.noteTran[this.props.lang]}
-          {other} {trans.casesBySex.noteOth[this.props.lang]}
-          {unknown} {trans.casesBySex.noteUnk[this.props.lang]}
-        </p> */}
       </React.Fragment>
     );
   }
