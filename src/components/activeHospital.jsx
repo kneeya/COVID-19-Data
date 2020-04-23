@@ -50,7 +50,7 @@ class Hospital extends Component {
           type: "area",
         },
         {
-          name: trans.hospital.hospitalized[this.props.lang],
+          name: trans.hospital.hospitalicu[this.props.lang],
           data: hospital,
         },
       ],
