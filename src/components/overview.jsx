@@ -151,7 +151,7 @@ class Overview extends Component {
               </li>
               <li>
                 <div className="ontario-infographic-text">
-                  {trans.hospital.icuv[this.props.lang]}
+                  {trans.overview.icuv[this.props.lang]}
                 </div>
                 <div className="ontario-infographic-number">
                   {this.state.ICUwVent}
@@ -164,9 +164,8 @@ class Overview extends Component {
             <p>{trans.overview.bottom[this.props.lang]}</p>
             <a href="https://data.ontario.ca/dataset?keywords_en=COVID-19">
               {trans.catalogue[this.props.lang]}
-            </a>
-            <br />
-            <a href="#">{trans.summaries[this.props.lang]}</a>
+            </a>{" "}
+            | <a href="#">{trans.summaries[this.props.lang]}</a>
             <hr class="hrule-special"></hr>
           </div>
         ) : (
