@@ -120,7 +120,7 @@ class Hospital extends Component {
           return item;
         }),
         fill: {
-          opacity: [0.25, 1],
+          opacity: [0.2, 1],
         },
       },
       ready: true,
