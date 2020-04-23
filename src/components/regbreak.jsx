@@ -124,7 +124,7 @@ class RegBreak extends Component {
           enabled: true,
 
           textAnchor: "end",
-          offsetX: -30,
+          offsetX: -20,
           style: { ...labelStyle },
           formatter: function (value, { seriesIndex, dataPointIndex, w }) {
             let indices = w.config.series.map((item, i) => i);
@@ -175,6 +175,13 @@ class RegBreak extends Component {
             show: true,
             style: { ...labelStyle },
           },
+          max:
+            Math.ceil(
+              (cD[0][dict.NotResolved] +
+                cD[0][dict.resolved] +
+                cD[0][dict.deaths]) /
+                1000
+            ) * 1000,
         },
       },
       ready: true,
@@ -184,7 +191,6 @@ class RegBreak extends Component {
   render() {
     return (
       <div id="regional" className="chart">
-        <p>{trans.reg.hideshow[this.props.lang]}</p>
         {this.state.ready ? (
           <ReactApexChart
             options={this.state.options}

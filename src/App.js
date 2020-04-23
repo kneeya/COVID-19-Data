@@ -119,8 +119,8 @@ class App extends Component {
 
     const lang = this.state.lang,
       accessible = this.state.accessible;
-      const buildTime = preval`process.env.TZ = 'America/Toronto'; module.exports = new Date();`;
-    console.log('buildTime', buildTime)
+    const buildTime = preval`process.env.TZ = 'America/Toronto'; module.exports = new Date();`;
+    console.log("buildTime", buildTime);
     return (
       <div id="ontario-covid-viz">
         {/* <GoogleTagManager gtmId={'GTM-5G4CS4L'} /> */}
@@ -131,7 +131,6 @@ class App extends Component {
                 Last updated: {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at 10:30 a.m.
               </p>
               <div id="overview" className="item">
-                <h2>{trans.overview.title[lang]}</h2>
                 <Overview lang={this.state.lang} />
               </div>
               <div>
@@ -140,27 +139,19 @@ class App extends Component {
                 </h2>
               </div>
               <div class="arow">
-                <a
-                  class="acol"
-                  
-                  href="#casestatus"
-                >
+                <a class="acol" href="#casestatus">
                   {trans.otp.casestatus[lang]}{" "}
                 </a>
-                <a class="acol"  href="#demo">
+                <a class="acol" href="#demo">
                   {trans.otp.demo[lang]}{" "}
                 </a>
-                <a
-                  class="acol"
-                  
-                  href="#testing"
-                >
+                <a class="acol" href="#testing">
                   {trans.otp.testing[lang]}{" "}
                 </a>
-                <a class="acol"  href="#">
+                <a class="acol" href="#">
                   {trans.otp.future[lang]}{" "}
                 </a>
-                <a class="acol"  href="#">
+                <a class="acol" href="#">
                   {trans.otp.understand[lang]}{" "}
                 </a>
               </div>
@@ -207,7 +198,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="DeathsTotal"
@@ -240,7 +230,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="InICU"
@@ -297,7 +286,6 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
-            <hr class="hrule" />​
             <div className="ontario-row">
               <div
                 id="CasesByAge"
@@ -336,6 +324,7 @@ class App extends Component {
               </h2>
 
               <div className="ontario-columns ontario-small-12">
+                <p>{trans.testing.descC[lang]}</p>
                 <p>
                   {trans.learn.a[lang]}
                   <a href="#">{trans.learn.b[lang]}</a>
@@ -372,6 +361,7 @@ class App extends Component {
                 </ItemWrapper>
               </div>
             </div>
+            <hr class="hrule" />​ ​
           </React.Fragment>
         ) : (
           <React.Fragment>
