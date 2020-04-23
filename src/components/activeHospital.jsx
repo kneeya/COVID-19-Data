@@ -45,8 +45,9 @@ class Hospital extends Component {
     this.setState({
       series: [
         {
-          name: trans.stacked.positive[this.props.lang],
+          name: trans.hospital.positive[this.props.lang],
           data: active,
+          type: "area",
         },
         {
           name: trans.hospital.hospitalized[this.props.lang],
@@ -55,7 +56,7 @@ class Hospital extends Component {
       ],
       options: {
         // title: { text: "Summary of Cases in Ontario" },
-        colors: ["#00B2E3", "#CCC"],
+        colors: ["#00B2E3", "#4d4d4d"],
         legend: legend,
         stroke: stroke,
         markers: {
@@ -109,7 +110,7 @@ class Hospital extends Component {
           return item;
         }),
         fill: {
-          opacity: 1,
+          opacity: [0.5, 1],
         },
       },
       ready: true,

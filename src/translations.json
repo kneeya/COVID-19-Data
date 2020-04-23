@@ -100,6 +100,14 @@
       "en": "Hospitalized",
       "fr": "Hospitalized FR"
     },
+    "hospitalicu": {
+      "en": "Hospitalized (including in ICU)",
+      "fr": "Hospitalized (including in ICU) FR"
+    },
+    "positive": {
+      "en": "Active (including hospitalized)",
+      "fr": "Active (including hospitalized) FR"
+    },
     "icu": {
       "en": "In ICU",
       "fr": "In ICU FR"

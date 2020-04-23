@@ -152,8 +152,8 @@ class StackedTable extends React.Component {
     const columns = [
       {
         title: trans.casesByAge.group[this.props.lang],
-        dataIndex: "Age_Group",
-        key: "Age_Group",
+        dataIndex: dict.Age_Group,
+        key: dict.Age_Group,
         //...this.getColumnSearchProps('age'),
       },
       {
