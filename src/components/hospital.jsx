@@ -54,8 +54,9 @@ class Hospital extends Component {
     this.setState({
       series: [
         {
-          name: trans.hospital.hospitalized[this.props.lang],
+          name: trans.hospital.hospitalicu[this.props.lang],
           data: notICU,
+          type: "area",
         },
         {
           name: trans.hospital.icu[this.props.lang],
@@ -119,7 +120,7 @@ class Hospital extends Component {
           return item;
         }),
         fill: {
-          opacity: 1,
+          opacity: [0.5, 1],
         },
       },
       ready: true,
