@@ -46,12 +46,13 @@ var Url = require("url-parse");
 const currLang = () => {
   const url = Url(window.location.href, true);
   console.log("url", url);
-  if (url.query.lang === "fr") {
-    return url.query.lang;
+  if (url.query.lang === "fr" || window.lang === "fr") {
+    return "fr"
   } else {
     return "en";
   }
 };
+
 
 class App extends Component {
   constructor(props) {
