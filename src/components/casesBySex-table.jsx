@@ -123,6 +123,23 @@ class StackedTable extends React.Component {
       //   }
       // })
       .map((item, z) => {
+        switch (item[dict.CLIENT_GENDER]) {
+          case "MALE":
+            item[dict.CLIENT_GENDER] = "Male";
+            break;
+          case "FEMALE":
+            item[dict.CLIENT_GENDER] = "Female";
+            break;
+          case "TRANSGENDER":
+            item[dict.CLIENT_GENDER] = "Transgender";
+            break;
+          case "OTHER":
+            item[dict.CLIENT_GENDER] = "Other";
+            break;
+          case "UNKNOWN":
+            item[dict.CLIENT_GENDER] = "Unknown";
+            break;
+        }
         return {
           ...item,
           index: z,
