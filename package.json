@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "antd": "^4.1.2",
+    "antd": "^4.1.4",
     "apexcharts": "^3.17.1",
     "axios": "^0.19.2",
     "babel-plugin-import": "^1.13.0",
@@ -35,12 +35,14 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "last 2 ie version"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "last 2 ie version"
     ]
   },
   "devDependencies": {
