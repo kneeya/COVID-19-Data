@@ -210,13 +210,13 @@
   padding-top: 3rem;
 }
 
-@media only screen and (min-width: 1163px) {
+@media only screen and (max-width: 1163px) {
   #ontario-covid-viz .margins {
     padding-top: 2.5rem;
   }
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (max-width: 640px) {
   #ontario-covid-viz .margins {
     padding-top: 1.5rem;
   }
