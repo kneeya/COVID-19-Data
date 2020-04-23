@@ -45,6 +45,7 @@ class RegBreak extends Component {
     const active = cD.map((item) => {
       return item[dict.NotResolved];
     });
+
     const resolved = cD.map((item) => {
       return item[dict.resolved];
     });
@@ -52,6 +53,13 @@ class RegBreak extends Component {
     const fatal = cD.map((item) => {
       return item[dict.deaths];
     });
+
+    var highestnum =
+      cD[0][dict.NotResolved] + cD[0][dict.resolved] + cD[0][dict.deaths];
+    var max = Math.ceil(highestnum / 1000) * 1000;
+    if (max - highestnum < 151) {
+      max += 200;
+    }
 
     this.setState({
       region: region,
@@ -175,13 +183,7 @@ class RegBreak extends Component {
             show: true,
             style: { ...labelStyle },
           },
-          max:
-            Math.ceil(
-              (cD[0][dict.NotResolved] +
-                cD[0][dict.resolved] +
-                cD[0][dict.deaths]) /
-                1000
-            ) * 1000,
+          max: max,
         },
       },
       ready: true,
