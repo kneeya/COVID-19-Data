@@ -92,9 +92,7 @@ class StackedTable extends React.Component {
 
   render() {
     const cData = Object.values(ReducedData.reduceSex);
-    var unknown = 0;
-    var transG = 0;
-    var other = 0;
+
     var data = cData.map((item, z) => {
       switch (item[dict.CLIENT_GENDER]) {
         case "MALE":
