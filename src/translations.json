@@ -68,9 +68,13 @@
       "en": "Future projections",
       "fr": "Future projections FR"
     },
-    "understand": {
-      "en": "Understand the numbers",
-      "fr": "Understand the numbers FR"
+    "where": {
+      "en": "Where the numbers come from",
+      "fr": "Where the numbers come from FR"
+    },
+    "glossary": {
+      "en": "Glossary of graph terms",
+      "fr": "Glossary of graph terms FR"
     }
   },
   "stacked": {
@@ -119,6 +123,14 @@
     "active": {
       "en": "Comparing active and hospitalized cases",
       "fr": "Comparing active and hospitalized cases FR"
+    },
+    "descA": {
+      "en": "This data is not cumulative – each dot/number shows how many cases were active or hospitalized on a single day.",
+      "fr": "This data is not cumulative – each dot/number shows how many cases were active or hospitalized on a single day. FR"
+    },
+    "descB": {
+      "en": "This data is not cumulative – each dot/number shows how many cases were hospitalized or in the ICU on a single day.",
+      "fr": "This data is not cumulative – each dot/number shows how many cases were hospitalized or in the ICU on a single day. FR"
     }
   },
   "casesTotal": {

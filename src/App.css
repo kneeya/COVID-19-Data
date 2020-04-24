@@ -196,15 +196,15 @@
   }
 }
 
-@media only screen and (min-width: 1163px) {
-  #ontario-covid-viz .margins {
-    padding-top: 2.5rem;
+@media only screen and (max-width: 640px) {
+  #ontario-covid-viz .margins-special {
+    padding-top: 0rem;
   }
 }
 
 @media only screen and (max-width: 640px) {
   #ontario-covid-viz .margins {
-    padding-top: 1.5rem;
+    padding-top: 2.5rem;
   }
 }
 
