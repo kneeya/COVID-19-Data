@@ -3,7 +3,6 @@ import ReactApexChart from "react-apexcharts";
 import colours from "../ds/styles/sass/variables/colours.variables.scss";
 import dict from "../dictionary";
 import covidData from "../covidData.json";
-
 import {
   labelStyle,
   tooltip,
@@ -56,7 +55,7 @@ class CasesDaily extends Component {
     this.setState({
       series: [
         {
-          name: "New cases",
+          name: trans.casesDaily.newcase[this.props.lang],
           data: dailydata,
         },
       ],

@@ -114,7 +114,7 @@ class StackedTable extends React.Component {
       },
 
       {
-        title: "Total deaths",
+        title: trans.deathsTotal.deaths[this.props.lang],
         dataIndex: "deaths",
         key: "deaths",
         //...this.getColumnSearchProps('address'),

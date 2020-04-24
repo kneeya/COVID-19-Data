@@ -45,6 +45,14 @@
     "bottom": {
       "en": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours",
       "fr": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours FR"
+    },
+    "lastupdate": {
+      "en": "Last updated:",
+      "fr": "Last updated: FR"
+    },
+    "at1030": {
+      "en": "at 10:30 a.m.",
+      "fr": "at 10:20 AM FR"
     }
   },
   "otp": {
@@ -159,8 +167,8 @@
       "fr": "Deaths FR"
     },
     "yaxis": {
-      "en": "Number of tests",
-      "fr": "Number of tests FR"
+      "en": "Number of cases",
+      "fr": "Number of cases FR"
     }
   },
   "casesDaily": {
@@ -176,7 +184,10 @@
       "en": "This data is not cumulative – each bar/number shows how many new cases were reported on a single day.",
       "fr": "This data is not cumulative – each bar/number shows how many new cases were reported on a single day. FR"
     },
-
+    "newcase": {
+      "en": "New cases",
+      "fr": "New cases FR"
+    },
     "positive": {
       "en": "Active",
       "fr": "Active FR"
@@ -216,12 +227,12 @@
       "fr": "Resolved FR"
     },
     "deaths": {
-      "en": "Deaths",
-      "fr": "Deaths FR"
+      "en": "Total deaths",
+      "fr": "Total deaths FR"
     },
     "yaxis": {
-      "en": "Number of cases",
-      "fr": "Number of cases FR"
+      "en": "Number of deaths",
+      "fr": "Number of deaths FR"
     }
   },
   "deathsDaily": {
@@ -237,21 +248,13 @@
       "en": "This data is not cumulative – each bar/number shows how many new deaths were reported on a single day.",
       "fr": "This data is not cumulative – each bar/number shows how many new deaths were reported on a single day. FR"
     },
-    "positive": {
-      "en": "Active",
-      "fr": "Active FR"
-    },
-    "resolved": {
-      "en": "Resolved",
-      "fr": "Resolved FR"
-    },
     "deaths": {
-      "en": "Deaths",
-      "fr": "Deaths FR"
+      "en": "New deaths",
+      "fr": "New deaths FR"
     },
     "yaxis": {
-      "en": "Number of cases",
-      "fr": "Number of cases FR"
+      "en": "Number of deaths",
+      "fr": "Number of deaths FR"
     }
   },
   "newcases": {
@@ -322,6 +325,10 @@
     "under20": {
       "en": "Under 20",
       "fr": "Under 20 FR"
+    },
+    "age": {
+      "en": "Age",
+      "fr": "Age FR"
     },
     "noteA": {
       "en": "There are ",
@@ -413,6 +420,8 @@
       "en": "These graphs/tables start at April 15, which is when we started reporting by number of tests, rather than number of people tested.",
       "fr": "These graphs/tables start at April 15, which is when we started reporting by number of tests, rather than number of people tested. FR"
     },
+
+    "yaxis": { "en": "Number of tests", "fr": "Number of test FR" },
 
     "underInvestigation": {
       "en": "Currently under investigation",

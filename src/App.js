@@ -128,9 +128,9 @@ class App extends Component {
           <React.Fragment>
             <div>
               <p>
-                Last updated:{" "}
-                {moment(buildTime).zone("-05:00").format("MMM D, YYYY")} at
-                10:30 a.m.
+                {trans.overview.lastupdate[this.state.lang]}{" "}
+                {moment(buildTime).zone("-05:00").format("MMM D, YYYY")}{" "}
+                {trans.overview.at1030[this.state.lang]}
               </p>
               <div id="overview" className="item">
                 <Overview lang={this.state.lang} />

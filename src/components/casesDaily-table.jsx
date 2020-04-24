@@ -116,7 +116,7 @@ class StackedTable extends React.Component {
         //...this.getColumnSearchProps('name'),
       },
       {
-        title: trans.newcases.newcase[this.props.lang],
+        title: trans.casesDaily.newcase[this.props.lang],
         dataIndex: "new",
         key: "new",
         width: "50%",

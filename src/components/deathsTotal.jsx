@@ -49,7 +49,7 @@ class TotalTest extends Component {
     this.setState({
       series: [
         {
-          name: trans.casesTotal.deaths[this.props.lang],
+          name: trans.deathsTotal.deaths[this.props.lang],
           data: chartData,
         },
       ],
@@ -79,7 +79,7 @@ class TotalTest extends Component {
         },
         yaxis: {
           title: {
-            text: trans.casesTotal.yaxis[this.props.lang],
+            text: trans.deathsTotal.yaxis[this.props.lang],
           },
           labels: {
             style: { ...labelStyle },

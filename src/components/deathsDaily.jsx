@@ -61,7 +61,7 @@ class CasesDaily extends Component {
 
       series: [
         {
-          name: "New deaths",
+          name: trans.deathsDaily.deaths[this.props.lang],
           data: dailydata,
         },
       ],
@@ -101,7 +101,7 @@ class CasesDaily extends Component {
         },
         yaxis: {
           title: {
-            text: trans.casesTotal.yaxis[this.props.lang],
+            text: trans.deathsDaily.yaxis[this.props.lang],
           },
           labels: {
             style: { ...labelStyle },
