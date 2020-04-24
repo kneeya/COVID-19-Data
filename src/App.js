@@ -200,7 +200,9 @@ class App extends Component {
                 id="DeathsTotal"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <h3 className="margins">{trans.deathsTotal.title[lang]}</h3>
+                <h3 className="margins margins-desktop">
+                  {trans.deathsTotal.title[lang]}
+                </h3>
                 <p>{trans.deathsTotal.desc[lang]}</p>
 
                 <ItemWrapper accessToggle={true}>
@@ -215,7 +217,9 @@ class App extends Component {
                 id="DeathsDaily"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <h3 className="margins">{trans.deathsDaily.title[lang]}</h3>
+                <h3 className="margins margins-desktop">
+                  {trans.deathsDaily.title[lang]}
+                </h3>
                 <p>{trans.deathsDaily.desc[lang]}</p>
 
                 <ItemWrapper accessToggle={true}>
@@ -232,7 +236,9 @@ class App extends Component {
                 id="InICU"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <h3 className="margins">{trans.hospital.active[lang]}</h3>
+                <h3 className="margins margins-desktop">
+                  {trans.hospital.active[lang]}
+                </h3>
                 <p>{trans.hospital.descA[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (
@@ -246,7 +252,9 @@ class App extends Component {
                 id="Hospital"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <h3 className="margins">{trans.hospital.title[lang]}</h3>
+                <h3 className="margins margins-desktop">
+                  {trans.hospital.title[lang]}
+                </h3>
                 <p>{trans.hospital.descB[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (

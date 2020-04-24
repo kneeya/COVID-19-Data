@@ -208,6 +208,12 @@
   }
 }
 
+@media only screen and (min-width: 1163px) {
+  #ontario-covid-viz .margins-desktop {
+    padding-top: 1.5rem;
+  }
+}
+
 /* Fix for legands with Drupal */
 .apexcharts-legend.position-top {
   height: auto !important;
