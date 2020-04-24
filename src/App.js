@@ -148,11 +148,14 @@ class App extends Component {
                 <a class="acol" href="#testing">
                   {trans.otp.testing[lang]}{" "}
                 </a>
-                <a class="acol" href="#">
+                <a class="acol" href="#future">
                   {trans.otp.future[lang]}{" "}
                 </a>
-                <a class="acol" href="#">
-                  {trans.otp.understand[lang]}{" "}
+                <a class="acol" href="#where_numbers">
+                  {trans.otp.where[lang]}{" "}
+                </a>
+                <a class="acol" href="#glossary">
+                  {trans.otp.glossary[lang]}{" "}
                 </a>
               </div>
             </div>
@@ -161,19 +164,13 @@ class App extends Component {
               <h2 id="casestatus" className="ontario-columns ontario-small-12">
                 {trans.otp.casestatus[lang]}
               </h2>
-              <div className="ontario-columns ontario-small-12">
-                <p>
-                  {trans.learn.a[lang]}
-                  <a href="#">{trans.learn.b[lang]}</a>
-                  {trans.learn.c[lang]}
-                  <a href="#">{trans.learn.d[lang]}</a>
-                </p>
-              </div>
               <div
                 id="CasesTotal"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <h3 className="margins">{trans.casesTotal.title[lang]}</h3>
+                <h3 className="margins-special">
+                  {trans.casesTotal.title[lang]}
+                </h3>
                 <p>{trans.casesTotal.desc[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (
@@ -236,6 +233,7 @@ class App extends Component {
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.hospital.active[lang]}</h3>
+                <p>{trans.hospital.descA[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <ActiveHospitalTable lang={this.state.lang} />
@@ -249,6 +247,7 @@ class App extends Component {
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
                 <h3 className="margins">{trans.hospital.title[lang]}</h3>
+                <p>{trans.hospital.descB[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (
                     <HospitalTable lang={this.state.lang} />
@@ -261,21 +260,15 @@ class App extends Component {
             <hr class="hrule" />
             <div id="regbreak">
               <h2 id="demo">{trans.otp.demo[lang]}</h2>
-              <p>
-                {trans.learn.a[lang]}
-                <a href="#">{trans.learn.b[lang]}</a>
-                {trans.learn.c[lang]}
-                <a href="#">{trans.learn.d[lang]}</a>
-              </p>
               <div className="ontario-show-for-small-only">
-                <h3 className="margins">{trans.reg.title[lang]}</h3>
+                <h3 className="margins-special">{trans.reg.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
                 <ItemWrapper accessToggle={false}>
                   <RegBreakTable lang={this.state.lang} />
                 </ItemWrapper>
               </div>
               <div className="ontario-hide-for-small-only">
-                <h3 className="margins">{trans.reg.title[lang]}</h3>
+                <h3 className="margins-special">{trans.reg.title[lang]}</h3>
                 <p>{trans.reg.desc[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (
@@ -323,20 +316,13 @@ class App extends Component {
                 {trans.otp.testing[lang]}
               </h2>
 
-              <div className="ontario-columns ontario-small-12">
-                <p>{trans.testing.descC[lang]}</p>
-                <p>
-                  {trans.learn.a[lang]}
-                  <a href="#">{trans.learn.b[lang]}</a>
-                  {trans.learn.c[lang]}
-                  <a href="#">{trans.learn.d[lang]}</a>
-                </p>
-              </div>
               <div
                 id="TotalTests"
                 className="ontario-columns ontario-small-12 ontario-medium-6"
               >
-                <h3 className="margins">{trans.testing.titleA[lang]}</h3>
+                <h3 className="margins-special">
+                  {trans.testing.titleA[lang]}
+                </h3>
                 <p>{trans.testing.descA[lang]}</p>
                 <ItemWrapper accessToggle={true}>
                   {accessible ? (
