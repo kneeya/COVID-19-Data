@@ -45,6 +45,14 @@
     "bottom": {
       "en": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours",
       "fr": "Numbers with “+” or “-“ indicate the change in cases in the last 24 hours FR"
+    },
+    "lastupdate": {
+      "en": "Last updated:",
+      "fr": "Last updated: FR"
+    },
+    "at1030": {
+      "en": "at 10:30 a.m.",
+      "fr": "at 10:20 AM FR"
     }
   },
   "otp": {
