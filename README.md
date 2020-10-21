@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View site at https://covid-19.ontario.ca/data 
 
 ## Available Scripts
 
